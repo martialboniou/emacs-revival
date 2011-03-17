@@ -39,6 +39,7 @@ Those packages aren't available here:
 * `mu-cite-8.1`
 * `newsticker-1.99`
 * `nxhtml-2.08-100425`
+* `undo-tree` *git version*
 * `yasnippet` *SVN version*
 
 
