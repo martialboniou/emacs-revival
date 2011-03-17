@@ -6,9 +6,9 @@
 ;; Maintainer: 
 ;; Created: Wed Oct 27 08:14:43 2010 (-0500)
 ;; Version: 0.1
-;; Last-Updated: Sat Mar  5 13:08:31 2011 (+0100)
+;; Last-Updated: Wed Mar 16 18:15:11 2011 (+0100)
 ;;           By: Martial Boniou
-;;     Update #: 112
+;;     Update #: 115
 ;; URL: http://www.emacswiki.org/emacs/download/yas-jit.el
 ;; Keywords: Yasnippet fast loading. 
 ;; Compatibility: Emacs 23.2 with Yasnippet on svn trunk as of release date.

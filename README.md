@@ -25,10 +25,12 @@ Those packages aren't available here:
 * `circe`
 * `bookmark-plus`
 * `color-theme-6.6.0`
-* `cedet` **IMPORTANT** CVS version, touch `.cedet` in the root  
+* `cedet` **IMPORTANT** CVS version, touch `.cedet` in the root
+* `darcsum` (`darcs get --lazy -t http://joyful.com/repos/darcsum -t .`)
 * `ecb` **IMPORTANT** touch `.noauto` in the root
-* `emacs-w3m` 
-* `emms` 
+* `emacs-w3m`
+* `emms`
+* `haskellmode-emacs` (`darcs get http://code.haskell.org/haskellmode-emacs`)
 * `howm-1.3.8`
 * `magit-0.8.2`
 * `mailcrypt-3.5.9`
@@ -37,7 +39,9 @@ Those packages aren't available here:
 * `mu-cite-8.1`
 * `newsticker-1.99`
 * `nxhtml-2.08-100425`
-* `yasnippet` SVN version
+* `yasnippet` *SVN version*
+
+
 
 Add:
 1. `.cedet` in the directory where the files and those ones in its subdirectories need a `cedet-autoload` (including `defclass`) instead of the standard *autoload* (normally, `cedet` and `ecb` directories should have one);

@@ -7838,6 +7838,31 @@ the strings that cause them to be invoked.
 
 ;;;***
 
+;;;### (autoloads (hideshowvis-enable hideshowvis-minor-mode hideshowvis-click-fringe)
+;;;;;;  "hideshowvis" "hideshowvis.el" (19836 51591))
+;;; Generated autoloads from hideshowvis.el
+
+(autoload 'hideshowvis-click-fringe "hideshowvis" "\
+Not documented
+
+\(fn EVENT)" t nil)
+
+(autoload 'hideshowvis-minor-mode "hideshowvis" "\
+Toggle Hideshowvis minor mode on or off.
+Interactively, with no prefix argument, toggle the mode.
+With universal prefix ARG turn mode on.
+With zero or negative ARG turn mode off.
+\\{hideshowvis-mode-map}
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'hideshowvis-enable "hideshowvis" "\
+Will enable hideshowvis minor mode
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads (highlight-parentheses-mode) "highlight-parentheses"
 ;;;;;;  "highlight-parentheses.el" (19815 53070))
 ;;; Generated autoloads from highlight-parentheses.el
@@ -8298,6 +8323,17 @@ Works on grep, compile, or other type mode.
 Enable IRC color interpretation for Lui.
 
 \(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (magit-status) "magit" "magit-0.8.2/magit.el" (19512
+;;;;;;  22705))
+;;; Generated autoloads from magit-0.8.2/magit.el
+
+(autoload 'magit-status "magit" "\
+Not documented
+
+\(fn DIR)" t nil)
 
 ;;;***
 
@@ -15677,8 +15713,9 @@ If called with 'prefix argument', display all directorys and files.
 
 ;;;***
 
-;;;### (autoloads (w3m-fb-mode) "w3m-fb" "w3m-fb.el" (19833 6366))
-;;; Generated autoloads from w3m-fb.el
+;;;### (autoloads (w3m-fb-mode) "w3m-fb" "emacs-w3m/w3m-fb.el" (17681
+;;;;;;  2386))
+;;; Generated autoloads from emacs-w3m/w3m-fb.el
 
 (defvar w3m-fb-mode nil "\
 Non-nil if W3m-Fb mode is enabled.
@@ -16595,13 +16632,13 @@ Key bindings:
 ;;;;;;  "emacs-w3m/shimbun/sb-yomiuri.el" "emacs-w3m/shimbun/sb-zdnet-jp.el"
 ;;;;;;  "emacs-w3m/shimbun/sb-zeit-de.el" "emacs-w3m/shimbun/shimbun.el"
 ;;;;;;  "emacs-w3m/w3m-bug.el" "emacs-w3m/w3m-ccl.el" "emacs-w3m/w3m-ems.el"
-;;;;;;  "emacs-w3m/w3m-favicon.el" "emacs-w3m/w3m-fb.el" "emacs-w3m/w3m-hist.el"
-;;;;;;  "emacs-w3m/w3m-image.el" "emacs-w3m/w3m-load.el" "emacs-w3m/w3m-mail.el"
-;;;;;;  "emacs-w3m/w3m-proc.el" "emacs-w3m/w3m-rss.el" "emacs-w3m/w3m-tabmenu.el"
-;;;;;;  "emacs-w3m/w3m-ucs.el" "emacs-w3m/w3m-util.el" "emacs-w3m/w3m-xmas.el"
-;;;;;;  "emacs-w3m/w3mhack.el" "emms/lisp/emms-auto.el" "emms/lisp/emms-bookmarks.el"
-;;;;;;  "emms/lisp/emms-browser.el" "emms/lisp/emms-compat.el" "emms/lisp/emms-cue.el"
-;;;;;;  "emms/lisp/emms-history.el" "emms/lisp/emms-i18n.el" "emms/lisp/emms-info-libtag.el"
+;;;;;;  "emacs-w3m/w3m-favicon.el" "emacs-w3m/w3m-hist.el" "emacs-w3m/w3m-image.el"
+;;;;;;  "emacs-w3m/w3m-load.el" "emacs-w3m/w3m-mail.el" "emacs-w3m/w3m-proc.el"
+;;;;;;  "emacs-w3m/w3m-rss.el" "emacs-w3m/w3m-tabmenu.el" "emacs-w3m/w3m-ucs.el"
+;;;;;;  "emacs-w3m/w3m-util.el" "emacs-w3m/w3m-xmas.el" "emacs-w3m/w3mhack.el"
+;;;;;;  "emms/lisp/emms-auto.el" "emms/lisp/emms-bookmarks.el" "emms/lisp/emms-browser.el"
+;;;;;;  "emms/lisp/emms-compat.el" "emms/lisp/emms-cue.el" "emms/lisp/emms-history.el"
+;;;;;;  "emms/lisp/emms-i18n.el" "emms/lisp/emms-info-libtag.el"
 ;;;;;;  "emms/lisp/emms-info-metaflac.el" "emms/lisp/emms-info-mp3info.el"
 ;;;;;;  "emms/lisp/emms-info-ogginfo.el" "emms/lisp/emms-info.el"
 ;;;;;;  "emms/lisp/emms-last-played.el" "emms/lisp/emms-lastfm-client.el"
@@ -16616,26 +16653,26 @@ Key bindings:
 ;;;;;;  "filladapt.el" "fuzzy.el" "gst-mode.el" "hexview-mode.el"
 ;;;;;;  "highrise.el" "html-php.el" "html-script.el" "ion3.el" "jira.el"
 ;;;;;;  "joseph-autopair.el" "json.el" "lazycat-toolkit.el" "lookout.el"
-;;;;;;  "mailcrypt-3.5.9/mc-remail2.el" "markdown-mode/markdown-mode.el"
-;;;;;;  "maxframe.el" "mhc/emacs/mhc-bm.el" "mhc/emacs/mhc-calendar.el"
-;;;;;;  "mhc/emacs/mhc-compat.el" "mhc/emacs/mhc-cvs.el" "mhc/emacs/mhc-date.el"
-;;;;;;  "mhc/emacs/mhc-day.el" "mhc/emacs/mhc-db.el" "mhc/emacs/mhc-draft.el"
-;;;;;;  "mhc/emacs/mhc-e21.el" "mhc/emacs/mhc-face.el" "mhc/emacs/mhc-file.el"
-;;;;;;  "mhc/emacs/mhc-guess.el" "mhc/emacs/mhc-header.el" "mhc/emacs/mhc-logic.el"
-;;;;;;  "mhc/emacs/mhc-mime.el" "mhc/emacs/mhc-minibuf.el" "mhc/emacs/mhc-misc.el"
-;;;;;;  "mhc/emacs/mhc-parse.el" "mhc/emacs/mhc-record.el" "mhc/emacs/mhc-schedule.el"
-;;;;;;  "mhc/emacs/mhc-slot.el" "mhc/emacs/mhc-summary.el" "mhc/emacs/mhc-sync.el"
-;;;;;;  "mhc/emacs/mhc-vars.el" "mhc/emacs/mhc-xmas.el" "mhc/emacs/mhc.el"
-;;;;;;  "mhc/emacs/nnmhc.el" "mouse-embrace.el" "mpg123.el" "newsticker-1.99/newsticker-testsuite.el"
-;;;;;;  "newsticker-1.99/newsticker.el" "newsticker-extension.el"
-;;;;;;  "newsticker-notify.el" "oz/mozart.el" "oz/oz-extra.el" "oz/oz-server.el"
-;;;;;;  "oz/oz.el" "pabbrev.el" "pager.el" "pair-mode.el" "paredit-extension.el"
-;;;;;;  "paredit-viper-compat.el" "parenface.el" "popup.el" "pos-tip.el"
-;;;;;;  "predictive/auto-overlay-common.el" "predictive/auto-overlay-flat.el"
-;;;;;;  "predictive/auto-overlay-line.el" "predictive/auto-overlay-nested.el"
-;;;;;;  "predictive/auto-overlay-self.el" "predictive/auto-overlay-word.el"
-;;;;;;  "predictive/auto-overlays-compat.el" "predictive/auto-overlays.el"
-;;;;;;  "predictive/avl-tree.el" "predictive/completion-ui-dynamic.el"
+;;;;;;  "magit-0.8.2/50magit.el" "magit-0.8.2/magit-pkg.el" "mailcrypt-3.5.9/mc-remail2.el"
+;;;;;;  "markdown-mode/markdown-mode.el" "maxframe.el" "mhc/emacs/mhc-bm.el"
+;;;;;;  "mhc/emacs/mhc-calendar.el" "mhc/emacs/mhc-compat.el" "mhc/emacs/mhc-cvs.el"
+;;;;;;  "mhc/emacs/mhc-date.el" "mhc/emacs/mhc-day.el" "mhc/emacs/mhc-db.el"
+;;;;;;  "mhc/emacs/mhc-draft.el" "mhc/emacs/mhc-e21.el" "mhc/emacs/mhc-face.el"
+;;;;;;  "mhc/emacs/mhc-file.el" "mhc/emacs/mhc-guess.el" "mhc/emacs/mhc-header.el"
+;;;;;;  "mhc/emacs/mhc-logic.el" "mhc/emacs/mhc-mime.el" "mhc/emacs/mhc-minibuf.el"
+;;;;;;  "mhc/emacs/mhc-misc.el" "mhc/emacs/mhc-parse.el" "mhc/emacs/mhc-record.el"
+;;;;;;  "mhc/emacs/mhc-schedule.el" "mhc/emacs/mhc-slot.el" "mhc/emacs/mhc-summary.el"
+;;;;;;  "mhc/emacs/mhc-sync.el" "mhc/emacs/mhc-vars.el" "mhc/emacs/mhc-xmas.el"
+;;;;;;  "mhc/emacs/mhc.el" "mhc/emacs/nnmhc.el" "mouse-embrace.el"
+;;;;;;  "mpg123.el" "newsticker-1.99/newsticker-testsuite.el" "newsticker-1.99/newsticker.el"
+;;;;;;  "newsticker-extension.el" "newsticker-notify.el" "oz/mozart.el"
+;;;;;;  "oz/oz-extra.el" "oz/oz-server.el" "oz/oz.el" "pabbrev.el"
+;;;;;;  "pager.el" "pair-mode.el" "paredit-extension.el" "paredit-viper-compat.el"
+;;;;;;  "parenface.el" "popup.el" "pos-tip.el" "predictive/auto-overlay-common.el"
+;;;;;;  "predictive/auto-overlay-flat.el" "predictive/auto-overlay-line.el"
+;;;;;;  "predictive/auto-overlay-nested.el" "predictive/auto-overlay-self.el"
+;;;;;;  "predictive/auto-overlay-word.el" "predictive/auto-overlays-compat.el"
+;;;;;;  "predictive/auto-overlays.el" "predictive/avl-tree.el" "predictive/completion-ui-dynamic.el"
 ;;;;;;  "predictive/completion-ui-echo.el" "predictive/completion-ui-hotkeys.el"
 ;;;;;;  "predictive/completion-ui-menu.el" "predictive/completion-ui-popup-frame.el"
 ;;;;;;  "predictive/completion-ui-sources.el" "predictive/completion-ui-tooltip.el"
@@ -16661,11 +16698,11 @@ Key bindings:
 ;;;;;;  "vimpulse/vimpulse-test.el" "vimpulse/vimpulse-text-object-system.el"
 ;;;;;;  "vimpulse/vimpulse-utils.el" "vimpulse/vimpulse-viper-function-redefinitions.el"
 ;;;;;;  "vimpulse/vimpulse-visual-mode.el" "vimpulse/vimpulse.el"
-;;;;;;  "viper-in-more-modes.el" "w3m-lnum.el" "wdired-extension.el"
-;;;;;;  "weblogger.el" "widen-window.el" "window-number.el" "wl-highlight-ad.el"
+;;;;;;  "viper-in-more-modes.el" "wdired-extension.el" "weblogger.el"
+;;;;;;  "widen-window.el" "window-number.el" "wl-highlight-ad.el"
 ;;;;;;  "woof.el" "x-dict.el" "xml-rpc.el" "xte.el" "xwindow-ring.el"
 ;;;;;;  "yaml-mode.el" "yas-jit.el" "yasnippet/dropdown-list.el"
-;;;;;;  "yasnippet/yasnippet-debug.el") (19833 13262 265048))
+;;;;;;  "yasnippet/yasnippet-debug.el") (19836 63895 85817))
 
 ;;;***
 
