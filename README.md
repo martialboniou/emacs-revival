@@ -41,7 +41,7 @@ Those packages aren't available here:
 * `nxhtml-2.08-100425`
 * `undo-tree` *git version*
 * `yasnippet` *SVN version*
-
+* `yaml-mode` *git version* on yoshiki@gitub
 
 
 Add:

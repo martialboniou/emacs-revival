@@ -5364,6 +5364,35 @@ considered by cycle-buffer when cycle-buffer-interesting is t.
 
 ;;;***
 
+;;;### (autoloads (darcsum-view darcsum-whatsnew darcsum-changes)
+;;;;;;  "darcsum" "darcsum/darcsum.el" (19841 2056))
+;;; Generated autoloads from darcsum/darcsum.el
+
+(autoload 'darcsum-changes "darcsum" "\
+Show the changes in another buffer.  Optional argument HOW-MANY limits
+the number of changes shown, counting from the most recent changes.
+
+\(fn &optional HOW-MANY)" t nil)
+
+(autoload 'darcsum-whatsnew "darcsum" "\
+Run `darcs whatsnew' in DIRECTORY, displaying the output in `darcsum-mode'.
+
+When invoked interactively, prompt for the directory to display changes for.
+
+\(fn DIRECTORY &optional LOOK-FOR-ADDS NO-DISPLAY SHOW-CONTEXT)" t nil)
+
+(autoload 'darcsum-view "darcsum" "\
+View the contents of the current buffer as a darcs changeset for DIRECTORY.
+More precisely, searches forward from point for the next changeset-like region,
+and attempts to parse that as a darcs patch.
+
+When invoked interactively, prompts for a directory; by default, the current
+working directory is assumed.
+
+\(fn DIRECTORY)" t nil)
+
+;;;***
+
 ;;;### (autoloads (data-debug-eval-expression data-debug-edebug-expr
 ;;;;;;  data-debug-show-stuff data-debug-new-buffer data-debug-mode
 ;;;;;;  data-debug-insert-thing data-debug-insert-stuff-vector data-debug-insert-stuff-list
@@ -8166,6 +8195,27 @@ Optional argument METHOD-COMMAND overrides the function used to
 find the current method which defaults to `which-function'.
 
 \(fn NAME SPECS ROOT &optional DOC MAKE METHOD-COMMAND)" nil nil)
+
+;;;***
+
+;;;### (autoloads (keats-mode) "keats" "keats/keats.el" (19838 22211))
+;;; Generated autoloads from keats/keats.el
+
+(autoload 'keats-mode "keats" "\
+Simple interface to Emacs keybinding cheats.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (keats-interactive-mode) "keats-interactive" "keats/keats-interactive.el"
+;;;;;;  (19838 22211))
+;;; Generated autoloads from keats/keats-interactive.el
+
+(autoload 'keats-interactive-mode "keats-interactive" "\
+Major mode to interactively manage Keats.
+
+\(fn TITLE)" nil nil)
 
 ;;;***
 
@@ -15191,6 +15241,17 @@ header line is restored, hiding the tab bar.
 
 ;;;***
 
+;;;### (autoloads (textile-mode) "textile-mode" "textile-mode.el"
+;;;;;;  (19844 52123))
+;;; Generated autoloads from textile-mode.el
+
+(autoload 'textile-mode "textile-mode" "\
+A major mode for editing textile files.
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads (find-fn-or-var-nearest-point near-point-y-distance
 ;;;;;;  near-point-x-distance) "thingatpt+" "thingatpt+.el" (19826
 ;;;;;;  14807))
@@ -16562,83 +16623,83 @@ Key bindings:
 ;;;;;;  "color-moccur.el" "color-theme-6.6.0/color-theme-autoloads.el"
 ;;;;;;  "color-theme-6.6.0/themes/color-theme-example.el" "color-theme-6.6.0/themes/color-theme-library.el"
 ;;;;;;  "command-frequency.el" "compile-utils.el" "csv.el" "dar.el"
-;;;;;;  "dired-details.el" "dired-extension.el" "django-mode.el"
-;;;;;;  "electric-dot-and-dash.el" "elscreen-color-theme.el" "elscreen-dired.el"
-;;;;;;  "elscreen-howm.el" "elscreen-server.el" "elscreen-speedbar.el"
-;;;;;;  "elscreen-w3m.el" "elscreen-wl.el" "elscreen.el" "emacs-w3m/mew-w3m.el"
-;;;;;;  "emacs-w3m/shimbun/sb-2ch.el" "emacs-w3m/shimbun/sb-airs.el"
-;;;;;;  "emacs-w3m/shimbun/sb-aljazeera.el" "emacs-w3m/shimbun/sb-arch-bluegate.el"
-;;;;;;  "emacs-w3m/shimbun/sb-asahi-html.el" "emacs-w3m/shimbun/sb-asahi-mytown.el"
-;;;;;;  "emacs-w3m/shimbun/sb-asahi.el" "emacs-w3m/shimbun/sb-atmarkit.el"
-;;;;;;  "emacs-w3m/shimbun/sb-atom-hash.el" "emacs-w3m/shimbun/sb-atom.el"
-;;;;;;  "emacs-w3m/shimbun/sb-bbc.el" "emacs-w3m/shimbun/sb-bbdb-ml.el"
-;;;;;;  "emacs-w3m/shimbun/sb-cgi-board.el" "emacs-w3m/shimbun/sb-cnet-jp.el"
-;;;;;;  "emacs-w3m/shimbun/sb-cnet.el" "emacs-w3m/shimbun/sb-cnn-jp.el"
-;;;;;;  "emacs-w3m/shimbun/sb-coldsync.el" "emacs-w3m/shimbun/sb-debian-jp.el"
-;;;;;;  "emacs-w3m/shimbun/sb-debian.el" "emacs-w3m/shimbun/sb-debugmagazin-de.el"
-;;;;;;  "emacs-w3m/shimbun/sb-dennou.el" "emacs-w3m/shimbun/sb-digiko.el"
-;;;;;;  "emacs-w3m/shimbun/sb-elips.el" "emacs-w3m/shimbun/sb-emacs-w3m.el"
-;;;;;;  "emacs-w3m/shimbun/sb-emacswiki.el" "emacs-w3m/shimbun/sb-engadget-ja.el"
-;;;;;;  "emacs-w3m/shimbun/sb-excite.el" "emacs-w3m/shimbun/sb-exconn.el"
-;;;;;;  "emacs-w3m/shimbun/sb-f1fan.el" "emacs-w3m/shimbun/sb-fau.el"
-;;;;;;  "emacs-w3m/shimbun/sb-ffii.el" "emacs-w3m/shimbun/sb-fml.el"
-;;;;;;  "emacs-w3m/shimbun/sb-gendai-net.el" "emacs-w3m/shimbun/sb-geocrawler.el"
-;;;;;;  "emacs-w3m/shimbun/sb-glimpse.el" "emacs-w3m/shimbun/sb-gnome.el"
-;;;;;;  "emacs-w3m/shimbun/sb-haiku-os.el" "emacs-w3m/shimbun/sb-hash.el"
-;;;;;;  "emacs-w3m/shimbun/sb-heise.el" "emacs-w3m/shimbun/sb-hns.el"
-;;;;;;  "emacs-w3m/shimbun/sb-ibm-dev.el" "emacs-w3m/shimbun/sb-impress.el"
-;;;;;;  "emacs-w3m/shimbun/sb-infoshop.el" "emacs-w3m/shimbun/sb-itmedia.el"
-;;;;;;  "emacs-w3m/shimbun/sb-japantimes.el" "emacs-w3m/shimbun/sb-javaconf.el"
-;;;;;;  "emacs-w3m/shimbun/sb-jpilot.el" "emacs-w3m/shimbun/sb-jpo.el"
-;;;;;;  "emacs-w3m/shimbun/sb-kantei.el" "emacs-w3m/shimbun/sb-kde.el"
-;;;;;;  "emacs-w3m/shimbun/sb-laut-de.el" "emacs-w3m/shimbun/sb-linuxce-jp.el"
-;;;;;;  "emacs-w3m/shimbun/sb-lotusex.el" "emacs-w3m/shimbun/sb-lump.el"
-;;;;;;  "emacs-w3m/shimbun/sb-m17n.el" "emacs-w3m/shimbun/sb-macosx-jp.el"
-;;;;;;  "emacs-w3m/shimbun/sb-mailarc.el" "emacs-w3m/shimbun/sb-mailman.el"
-;;;;;;  "emacs-w3m/shimbun/sb-mainichi.el" "emacs-w3m/shimbun/sb-makanai.el"
-;;;;;;  "emacs-w3m/shimbun/sb-marc-aims.el" "emacs-w3m/shimbun/sb-meadow.el"
-;;;;;;  "emacs-w3m/shimbun/sb-mew.el" "emacs-w3m/shimbun/sb-mhonarc.el"
-;;;;;;  "emacs-w3m/shimbun/sb-mozilla-jp.el" "emacs-w3m/shimbun/sb-msdn.el"
-;;;;;;  "emacs-w3m/shimbun/sb-msports-nifty.el" "emacs-w3m/shimbun/sb-multi.el"
-;;;;;;  "emacs-w3m/shimbun/sb-n24-de.el" "emacs-w3m/shimbun/sb-namazu.el"
-;;;;;;  "emacs-w3m/shimbun/sb-netbsd.el" "emacs-w3m/shimbun/sb-nikkansports.el"
-;;;;;;  "emacs-w3m/shimbun/sb-nikkei.el" "emacs-w3m/shimbun/sb-nytimes.el"
-;;;;;;  "emacs-w3m/shimbun/sb-opentechpress-jp.el" "emacs-w3m/shimbun/sb-orca.el"
-;;;;;;  "emacs-w3m/shimbun/sb-palmfan.el" "emacs-w3m/shimbun/sb-pcweb-column.el"
-;;;;;;  "emacs-w3m/shimbun/sb-perlentaucher-de.el" "emacs-w3m/shimbun/sb-pilot-link.el"
-;;;;;;  "emacs-w3m/shimbun/sb-pilot-mailsync.el" "emacs-w3m/shimbun/sb-plucker.el"
-;;;;;;  "emacs-w3m/shimbun/sb-pocketgames.el" "emacs-w3m/shimbun/sb-rakuten.el"
-;;;;;;  "emacs-w3m/shimbun/sb-redhat.el" "emacs-w3m/shimbun/sb-rediff.el"
-;;;;;;  "emacs-w3m/shimbun/sb-rss-blogs.el" "emacs-w3m/shimbun/sb-rss-hash.el"
-;;;;;;  "emacs-w3m/shimbun/sb-rss.el" "emacs-w3m/shimbun/sb-ruby.el"
-;;;;;;  "emacs-w3m/shimbun/sb-sankei.el" "emacs-w3m/shimbun/sb-savannah.el"
-;;;;;;  "emacs-w3m/shimbun/sb-scipy.el" "emacs-w3m/shimbun/sb-security-memo.el"
-;;;;;;  "emacs-w3m/shimbun/sb-slashdot-jp.el" "emacs-w3m/shimbun/sb-slashdot.el"
-;;;;;;  "emacs-w3m/shimbun/sb-sml.el" "emacs-w3m/shimbun/sb-sourceforge-jp.el"
-;;;;;;  "emacs-w3m/shimbun/sb-spiegel.el" "emacs-w3m/shimbun/sb-sponichi.el"
-;;;;;;  "emacs-w3m/shimbun/sb-squeak-dev.el" "emacs-w3m/shimbun/sb-squeak-ja.el"
-;;;;;;  "emacs-w3m/shimbun/sb-sueddeutsche-de.el" "emacs-w3m/shimbun/sb-tcup.el"
-;;;;;;  "emacs-w3m/shimbun/sb-tdiary-ml.el" "emacs-w3m/shimbun/sb-tdiary.el"
-;;;;;;  "emacs-w3m/shimbun/sb-tech-on.el" "emacs-w3m/shimbun/sb-texfaq.el"
-;;;;;;  "emacs-w3m/shimbun/sb-text.el" "emacs-w3m/shimbun/sb-the-onion.el"
-;;;;;;  "emacs-w3m/shimbun/sb-the-register.el" "emacs-w3m/shimbun/sb-tigris.el"
-;;;;;;  "emacs-w3m/shimbun/sb-toshiba.el" "emacs-w3m/shimbun/sb-vinelinux.el"
-;;;;;;  "emacs-w3m/shimbun/sb-w3m-dev.el" "emacs-w3m/shimbun/sb-welt-de.el"
-;;;;;;  "emacs-w3m/shimbun/sb-wiki.el" "emacs-w3m/shimbun/sb-wikimedia.el"
-;;;;;;  "emacs-w3m/shimbun/sb-wincefan.el" "emacs-w3m/shimbun/sb-wired-jp.el"
-;;;;;;  "emacs-w3m/shimbun/sb-x51.el" "emacs-w3m/shimbun/sb-xemacs.el"
-;;;;;;  "emacs-w3m/shimbun/sb-yahoo-auctions.el" "emacs-w3m/shimbun/sb-yahoo-sports.el"
-;;;;;;  "emacs-w3m/shimbun/sb-yahoo.el" "emacs-w3m/shimbun/sb-yomiuri-html.el"
-;;;;;;  "emacs-w3m/shimbun/sb-yomiuri.el" "emacs-w3m/shimbun/sb-zdnet-jp.el"
-;;;;;;  "emacs-w3m/shimbun/sb-zeit-de.el" "emacs-w3m/shimbun/shimbun.el"
-;;;;;;  "emacs-w3m/w3m-bug.el" "emacs-w3m/w3m-ccl.el" "emacs-w3m/w3m-ems.el"
-;;;;;;  "emacs-w3m/w3m-favicon.el" "emacs-w3m/w3m-hist.el" "emacs-w3m/w3m-image.el"
-;;;;;;  "emacs-w3m/w3m-load.el" "emacs-w3m/w3m-mail.el" "emacs-w3m/w3m-proc.el"
-;;;;;;  "emacs-w3m/w3m-rss.el" "emacs-w3m/w3m-tabmenu.el" "emacs-w3m/w3m-ucs.el"
-;;;;;;  "emacs-w3m/w3m-util.el" "emacs-w3m/w3m-xmas.el" "emacs-w3m/w3mhack.el"
-;;;;;;  "emms/lisp/emms-auto.el" "emms/lisp/emms-bookmarks.el" "emms/lisp/emms-browser.el"
-;;;;;;  "emms/lisp/emms-compat.el" "emms/lisp/emms-cue.el" "emms/lisp/emms-history.el"
-;;;;;;  "emms/lisp/emms-i18n.el" "emms/lisp/emms-info-libtag.el"
+;;;;;;  "darcsum/50darcsum.el" "dired-details.el" "dired-extension.el"
+;;;;;;  "django-mode.el" "electric-dot-and-dash.el" "elscreen-color-theme.el"
+;;;;;;  "elscreen-dired.el" "elscreen-howm.el" "elscreen-server.el"
+;;;;;;  "elscreen-speedbar.el" "elscreen-w3m.el" "elscreen-wl.el"
+;;;;;;  "elscreen.el" "emacs-w3m/mew-w3m.el" "emacs-w3m/shimbun/sb-2ch.el"
+;;;;;;  "emacs-w3m/shimbun/sb-airs.el" "emacs-w3m/shimbun/sb-aljazeera.el"
+;;;;;;  "emacs-w3m/shimbun/sb-arch-bluegate.el" "emacs-w3m/shimbun/sb-asahi-html.el"
+;;;;;;  "emacs-w3m/shimbun/sb-asahi-mytown.el" "emacs-w3m/shimbun/sb-asahi.el"
+;;;;;;  "emacs-w3m/shimbun/sb-atmarkit.el" "emacs-w3m/shimbun/sb-atom-hash.el"
+;;;;;;  "emacs-w3m/shimbun/sb-atom.el" "emacs-w3m/shimbun/sb-bbc.el"
+;;;;;;  "emacs-w3m/shimbun/sb-bbdb-ml.el" "emacs-w3m/shimbun/sb-cgi-board.el"
+;;;;;;  "emacs-w3m/shimbun/sb-cnet-jp.el" "emacs-w3m/shimbun/sb-cnet.el"
+;;;;;;  "emacs-w3m/shimbun/sb-cnn-jp.el" "emacs-w3m/shimbun/sb-coldsync.el"
+;;;;;;  "emacs-w3m/shimbun/sb-debian-jp.el" "emacs-w3m/shimbun/sb-debian.el"
+;;;;;;  "emacs-w3m/shimbun/sb-debugmagazin-de.el" "emacs-w3m/shimbun/sb-dennou.el"
+;;;;;;  "emacs-w3m/shimbun/sb-digiko.el" "emacs-w3m/shimbun/sb-elips.el"
+;;;;;;  "emacs-w3m/shimbun/sb-emacs-w3m.el" "emacs-w3m/shimbun/sb-emacswiki.el"
+;;;;;;  "emacs-w3m/shimbun/sb-engadget-ja.el" "emacs-w3m/shimbun/sb-excite.el"
+;;;;;;  "emacs-w3m/shimbun/sb-exconn.el" "emacs-w3m/shimbun/sb-f1fan.el"
+;;;;;;  "emacs-w3m/shimbun/sb-fau.el" "emacs-w3m/shimbun/sb-ffii.el"
+;;;;;;  "emacs-w3m/shimbun/sb-fml.el" "emacs-w3m/shimbun/sb-gendai-net.el"
+;;;;;;  "emacs-w3m/shimbun/sb-geocrawler.el" "emacs-w3m/shimbun/sb-glimpse.el"
+;;;;;;  "emacs-w3m/shimbun/sb-gnome.el" "emacs-w3m/shimbun/sb-haiku-os.el"
+;;;;;;  "emacs-w3m/shimbun/sb-hash.el" "emacs-w3m/shimbun/sb-heise.el"
+;;;;;;  "emacs-w3m/shimbun/sb-hns.el" "emacs-w3m/shimbun/sb-ibm-dev.el"
+;;;;;;  "emacs-w3m/shimbun/sb-impress.el" "emacs-w3m/shimbun/sb-infoshop.el"
+;;;;;;  "emacs-w3m/shimbun/sb-itmedia.el" "emacs-w3m/shimbun/sb-japantimes.el"
+;;;;;;  "emacs-w3m/shimbun/sb-javaconf.el" "emacs-w3m/shimbun/sb-jpilot.el"
+;;;;;;  "emacs-w3m/shimbun/sb-jpo.el" "emacs-w3m/shimbun/sb-kantei.el"
+;;;;;;  "emacs-w3m/shimbun/sb-kde.el" "emacs-w3m/shimbun/sb-laut-de.el"
+;;;;;;  "emacs-w3m/shimbun/sb-linuxce-jp.el" "emacs-w3m/shimbun/sb-lotusex.el"
+;;;;;;  "emacs-w3m/shimbun/sb-lump.el" "emacs-w3m/shimbun/sb-m17n.el"
+;;;;;;  "emacs-w3m/shimbun/sb-macosx-jp.el" "emacs-w3m/shimbun/sb-mailarc.el"
+;;;;;;  "emacs-w3m/shimbun/sb-mailman.el" "emacs-w3m/shimbun/sb-mainichi.el"
+;;;;;;  "emacs-w3m/shimbun/sb-makanai.el" "emacs-w3m/shimbun/sb-marc-aims.el"
+;;;;;;  "emacs-w3m/shimbun/sb-meadow.el" "emacs-w3m/shimbun/sb-mew.el"
+;;;;;;  "emacs-w3m/shimbun/sb-mhonarc.el" "emacs-w3m/shimbun/sb-mozilla-jp.el"
+;;;;;;  "emacs-w3m/shimbun/sb-msdn.el" "emacs-w3m/shimbun/sb-msports-nifty.el"
+;;;;;;  "emacs-w3m/shimbun/sb-multi.el" "emacs-w3m/shimbun/sb-n24-de.el"
+;;;;;;  "emacs-w3m/shimbun/sb-namazu.el" "emacs-w3m/shimbun/sb-netbsd.el"
+;;;;;;  "emacs-w3m/shimbun/sb-nikkansports.el" "emacs-w3m/shimbun/sb-nikkei.el"
+;;;;;;  "emacs-w3m/shimbun/sb-nytimes.el" "emacs-w3m/shimbun/sb-opentechpress-jp.el"
+;;;;;;  "emacs-w3m/shimbun/sb-orca.el" "emacs-w3m/shimbun/sb-palmfan.el"
+;;;;;;  "emacs-w3m/shimbun/sb-pcweb-column.el" "emacs-w3m/shimbun/sb-perlentaucher-de.el"
+;;;;;;  "emacs-w3m/shimbun/sb-pilot-link.el" "emacs-w3m/shimbun/sb-pilot-mailsync.el"
+;;;;;;  "emacs-w3m/shimbun/sb-plucker.el" "emacs-w3m/shimbun/sb-pocketgames.el"
+;;;;;;  "emacs-w3m/shimbun/sb-rakuten.el" "emacs-w3m/shimbun/sb-redhat.el"
+;;;;;;  "emacs-w3m/shimbun/sb-rediff.el" "emacs-w3m/shimbun/sb-rss-blogs.el"
+;;;;;;  "emacs-w3m/shimbun/sb-rss-hash.el" "emacs-w3m/shimbun/sb-rss.el"
+;;;;;;  "emacs-w3m/shimbun/sb-ruby.el" "emacs-w3m/shimbun/sb-sankei.el"
+;;;;;;  "emacs-w3m/shimbun/sb-savannah.el" "emacs-w3m/shimbun/sb-scipy.el"
+;;;;;;  "emacs-w3m/shimbun/sb-security-memo.el" "emacs-w3m/shimbun/sb-slashdot-jp.el"
+;;;;;;  "emacs-w3m/shimbun/sb-slashdot.el" "emacs-w3m/shimbun/sb-sml.el"
+;;;;;;  "emacs-w3m/shimbun/sb-sourceforge-jp.el" "emacs-w3m/shimbun/sb-spiegel.el"
+;;;;;;  "emacs-w3m/shimbun/sb-sponichi.el" "emacs-w3m/shimbun/sb-squeak-dev.el"
+;;;;;;  "emacs-w3m/shimbun/sb-squeak-ja.el" "emacs-w3m/shimbun/sb-sueddeutsche-de.el"
+;;;;;;  "emacs-w3m/shimbun/sb-tcup.el" "emacs-w3m/shimbun/sb-tdiary-ml.el"
+;;;;;;  "emacs-w3m/shimbun/sb-tdiary.el" "emacs-w3m/shimbun/sb-tech-on.el"
+;;;;;;  "emacs-w3m/shimbun/sb-texfaq.el" "emacs-w3m/shimbun/sb-text.el"
+;;;;;;  "emacs-w3m/shimbun/sb-the-onion.el" "emacs-w3m/shimbun/sb-the-register.el"
+;;;;;;  "emacs-w3m/shimbun/sb-tigris.el" "emacs-w3m/shimbun/sb-toshiba.el"
+;;;;;;  "emacs-w3m/shimbun/sb-vinelinux.el" "emacs-w3m/shimbun/sb-w3m-dev.el"
+;;;;;;  "emacs-w3m/shimbun/sb-welt-de.el" "emacs-w3m/shimbun/sb-wiki.el"
+;;;;;;  "emacs-w3m/shimbun/sb-wikimedia.el" "emacs-w3m/shimbun/sb-wincefan.el"
+;;;;;;  "emacs-w3m/shimbun/sb-wired-jp.el" "emacs-w3m/shimbun/sb-x51.el"
+;;;;;;  "emacs-w3m/shimbun/sb-xemacs.el" "emacs-w3m/shimbun/sb-yahoo-auctions.el"
+;;;;;;  "emacs-w3m/shimbun/sb-yahoo-sports.el" "emacs-w3m/shimbun/sb-yahoo.el"
+;;;;;;  "emacs-w3m/shimbun/sb-yomiuri-html.el" "emacs-w3m/shimbun/sb-yomiuri.el"
+;;;;;;  "emacs-w3m/shimbun/sb-zdnet-jp.el" "emacs-w3m/shimbun/sb-zeit-de.el"
+;;;;;;  "emacs-w3m/shimbun/shimbun.el" "emacs-w3m/w3m-bug.el" "emacs-w3m/w3m-ccl.el"
+;;;;;;  "emacs-w3m/w3m-ems.el" "emacs-w3m/w3m-favicon.el" "emacs-w3m/w3m-hist.el"
+;;;;;;  "emacs-w3m/w3m-image.el" "emacs-w3m/w3m-load.el" "emacs-w3m/w3m-mail.el"
+;;;;;;  "emacs-w3m/w3m-proc.el" "emacs-w3m/w3m-rss.el" "emacs-w3m/w3m-tabmenu.el"
+;;;;;;  "emacs-w3m/w3m-ucs.el" "emacs-w3m/w3m-util.el" "emacs-w3m/w3m-xmas.el"
+;;;;;;  "emacs-w3m/w3mhack.el" "emms/lisp/emms-auto.el" "emms/lisp/emms-bookmarks.el"
+;;;;;;  "emms/lisp/emms-browser.el" "emms/lisp/emms-compat.el" "emms/lisp/emms-cue.el"
+;;;;;;  "emms/lisp/emms-history.el" "emms/lisp/emms-i18n.el" "emms/lisp/emms-info-libtag.el"
 ;;;;;;  "emms/lisp/emms-info-metaflac.el" "emms/lisp/emms-info-mp3info.el"
 ;;;;;;  "emms/lisp/emms-info-ogginfo.el" "emms/lisp/emms-info.el"
 ;;;;;;  "emms/lisp/emms-last-played.el" "emms/lisp/emms-lastfm-client.el"
@@ -16689,20 +16750,20 @@ Key bindings:
 ;;;;;;  "remember/scripts/remember-build.el" "rest-api.el" "revive+.el"
 ;;;;;;  "rinari/util/jump/findr.el" "rinari/util/ruby-compilation-rspec.el"
 ;;;;;;  "shell-command-extension.el" "simple-call-tree.el" "smalltalk-mode-init.el"
-;;;;;;  "smalltalk-mode.el" "subdirs.el" "sunrise-commander.el" "textmate-mode.el"
-;;;;;;  "textmate.el" "tiling.el" "typing-speed.el" "unbound.el"
-;;;;;;  "vimpulse/test-framework.el" "vimpulse/vimpulse-compatibility.el"
-;;;;;;  "vimpulse/vimpulse-dependencies.el" "vimpulse/vimpulse-ex.el"
-;;;;;;  "vimpulse/vimpulse-misc-keybindings.el" "vimpulse/vimpulse-modal.el"
-;;;;;;  "vimpulse/vimpulse-operator.el" "vimpulse/vimpulse-paren-matching.el"
-;;;;;;  "vimpulse/vimpulse-test.el" "vimpulse/vimpulse-text-object-system.el"
-;;;;;;  "vimpulse/vimpulse-utils.el" "vimpulse/vimpulse-viper-function-redefinitions.el"
-;;;;;;  "vimpulse/vimpulse-visual-mode.el" "vimpulse/vimpulse.el"
-;;;;;;  "viper-in-more-modes.el" "wdired-extension.el" "weblogger.el"
-;;;;;;  "widen-window.el" "window-number.el" "wl-highlight-ad.el"
+;;;;;;  "smalltalk-mode.el" "snipplr.el" "subdirs.el" "sunrise-commander.el"
+;;;;;;  "textmate-mode.el" "textmate.el" "tiling.el" "typing-speed.el"
+;;;;;;  "unbound.el" "undo-tree/undo-tree.el" "vimpulse/test-framework.el"
+;;;;;;  "vimpulse/vimpulse-compatibility.el" "vimpulse/vimpulse-dependencies.el"
+;;;;;;  "vimpulse/vimpulse-ex.el" "vimpulse/vimpulse-misc-keybindings.el"
+;;;;;;  "vimpulse/vimpulse-modal.el" "vimpulse/vimpulse-operator.el"
+;;;;;;  "vimpulse/vimpulse-paren-matching.el" "vimpulse/vimpulse-test.el"
+;;;;;;  "vimpulse/vimpulse-text-object-system.el" "vimpulse/vimpulse-utils.el"
+;;;;;;  "vimpulse/vimpulse-viper-function-redefinitions.el" "vimpulse/vimpulse-visual-mode.el"
+;;;;;;  "vimpulse/vimpulse.el" "viper-in-more-modes.el" "wdired-extension.el"
+;;;;;;  "weblogger.el" "widen-window.el" "window-number.el" "wl-highlight-ad.el"
 ;;;;;;  "woof.el" "x-dict.el" "xml-rpc.el" "xte.el" "xwindow-ring.el"
-;;;;;;  "yaml-mode.el" "yas-jit.el" "yasnippet/dropdown-list.el"
-;;;;;;  "yasnippet/yasnippet-debug.el") (19836 63895 85817))
+;;;;;;  "yaml-mode.el" "yaml-mode/yaml-mode.el" "yas-jit.el" "yasnippet/dropdown-list.el"
+;;;;;;  "yasnippet/yasnippet-debug.el") (19844 52302 663381))
 
 ;;;***
 
