@@ -17,11 +17,11 @@ all fields are numbers, works; the format used by the Unix `date'
 command works too.
 
 Relative times may be specified as a series of numbers followed by units:
-  1 min         	denotes one minute from now.
-  min			does too.
-  1 min 5 sec		denotes 65 seconds from now.
+  1 min             denotes one minute from now.
+  min           does too.
+  1 min 5 sec       denotes 65 seconds from now.
   1 min 2 sec 3 hour 4 day 5 week 6 fortnight 7 month 8 year
-			denotes the sum of all the given durations from now.
+            denotes the sum of all the given durations from now.
 
 \(fn TIME REPEAT FUNCTION &rest ARGS)" t nil)
 
@@ -184,8 +184,8 @@ Resizes frame to fit sole window if `autofit-frames-flag'
 ;;;***
 
 ;;;### (autoloads (bbdb-insinuate-message bbdb-initialize bbdb-multiple-buffers
-;;;;;;  bbdb-submit-bug-report) "bbdb" "bbdb/lisp/bbdb.el" (19383
-;;;;;;  20742))
+;;;;;;  bbdb-submit-bug-report) "bbdb" "bbdb/lisp/bbdb.el" (18397
+;;;;;;  42911))
 ;;; Generated autoloads from bbdb/lisp/bbdb.el
 
 (autoload 'bbdb-submit-bug-report "bbdb" "\
@@ -273,7 +273,7 @@ Not documented
 ;;;;;;  bbdb-append-records-p bbdb-apply-next-command-to-all-records
 ;;;;;;  bbdb-create bbdb-redisplay-records bbdb-changed bbdb-notes
 ;;;;;;  bbdb-net bbdb-company bbdb-name bbdb bbdb-search-invert-set)
-;;;;;;  "bbdb-com" "bbdb/lisp/bbdb-com.el" (19383 20957))
+;;;;;;  "bbdb-com" "bbdb/lisp/bbdb-com.el" (18397 42930))
 ;;; Generated autoloads from bbdb/lisp/bbdb-com.el
 
 (autoload 'bbdb-search-invert-set "bbdb-com" "\
@@ -774,7 +774,7 @@ inserts the new record in the db, sorted alphabetically.
 ;;;;;;  bbdb/gnus-score bbdb/gnus-snarf-signature bbdb/gnus-show-all-recipients
 ;;;;;;  bbdb/gnus-show-records bbdb/gnus-annotate-sender bbdb/gnus-update-records
 ;;;;;;  bbdb/gnus-update-record) "bbdb-gnus" "bbdb/lisp/bbdb-gnus.el"
-;;;;;;  (19383 21482))
+;;;;;;  (18389 44231))
 ;;; Generated autoloads from bbdb/lisp/bbdb-gnus.el
 
 (autoload 'bbdb/gnus-update-record "bbdb-gnus" "\
@@ -845,7 +845,7 @@ Call this function to hook BBDB into Gnus.
 ;;;***
 
 ;;;### (autoloads (bbdb-menu bbdb-fontify-buffer) "bbdb-gui" "bbdb/lisp/bbdb-gui.el"
-;;;;;;  (19383 21413))
+;;;;;;  (17961 17312))
 ;;; Generated autoloads from bbdb/lisp/bbdb-gui.el
 
 (autoload 'bbdb-fontify-buffer "bbdb-gui" "\
@@ -864,7 +864,7 @@ Not documented
 ;;;;;;  bbdb-auto-notes-hook bbdb-ignore-some-messages-hook bbdb-ignore-selected-messages-hook
 ;;;;;;  bbdb-ignore-most-messages-hook bbdb-extract-field-value bbdb-header-start
 ;;;;;;  bbdb-creation-date-hook bbdb-timestamp-hook) "bbdb-hooks"
-;;;;;;  "bbdb/lisp/bbdb-hooks.el" (19383 20853))
+;;;;;;  "bbdb/lisp/bbdb-hooks.el" (18011 20885))
 ;;; Generated autoloads from bbdb/lisp/bbdb-hooks.el
 
 (autoload 'bbdb-timestamp-hook "bbdb-hooks" "\
@@ -945,7 +945,7 @@ get records added for those people you reply to.
 ;;;***
 
 ;;;### (autoloads (bbdb-merge-file bbdb-merge-record) "bbdb-merge"
-;;;;;;  "bbdb/lisp/bbdb-merge.el" (19383 21243))
+;;;;;;  "bbdb/lisp/bbdb-merge.el" (17865 1144))
 ;;; Generated autoloads from bbdb/lisp/bbdb-merge.el
 
 (autoload 'bbdb-merge-record "bbdb-merge" "\
@@ -1069,7 +1069,7 @@ in the matching record.  The field is set in `bbdb-obsolete-net-field'.
 ;;;***
 
 ;;;### (autoloads (bbdb-print) "bbdb-print" "bbdb/lisp/bbdb-print.el"
-;;;;;;  (19383 21601))
+;;;;;;  (17884 52100))
 ;;; Generated autoloads from bbdb/lisp/bbdb-print.el
 
 (autoload 'bbdb-print "bbdb-print" "\
@@ -1170,7 +1170,7 @@ Grab the current URL and store it in the record correspondig to the sender.
 
 \(fn)" t nil)
 
-(defvar bbdb-snarf-format '(("default" (name 1 "^.*$") (phones 3 "^\\(\\w+:\\)?\\s *[+()0-9][0-9() 	/-]+[0-9]+$") (nets 3 "[^ 	\n<]+@[^ 	\n>]+") (www 1 "\\(http://\\|www.\\)[^ 	\n]+") (street 1 "^\\w+.*[0-9/-]+\\w*.*") (zip 1 "\\([A-Z]-\\)?[0-9][0-9][0-9][0-9]+") (city 1 "\\w+[^ ,\n]*") (state 1 "\\w+") (country 1 "\\w+"))) "\
+(defvar bbdb-snarf-format '(("default" (name 1 "^.*$") (phones 3 "^\\(\\w+:\\)?\\s *[+()0-9][0-9()  /-]+[0-9]+$") (nets 3 "[^   \n<]+@[^    \n>]+") (www 1 "\\(http://\\|www.\\)[^  \n]+") (street 1 "^\\w+.*[0-9/-]+\\w*.*") (zip 1 "\\([A-Z]-\\)?[0-9][0-9][0-9][0-9]+") (city 1 "\\w+[^ ,\n]*") (state 1 "\\w+") (country 1 "\\w+"))) "\
 *An alist of snarfing strategies for `bbdb-snarf-region-better'.
 
 The keys of the alist are the strategy names.
@@ -1373,6 +1373,27 @@ Not documented
 
 ;;;***
 
+;;;### (autoloads (bbdb-test/run-one-test bbdb-test/run-tests bbdb-test/run-all-tests)
+;;;;;;  "bbdb-test" "bbdb/testing/bbdb-test.el" (16175 39563))
+;;; Generated autoloads from bbdb/testing/bbdb-test.el
+
+(autoload 'bbdb-test/run-all-tests "bbdb-test" "\
+Run all BBDB tests.
+
+\(fn &optional BATCH)" t nil)
+
+(autoload 'bbdb-test/run-tests "bbdb-test" "\
+Run BBDB tests.
+
+\(fn)" t nil)
+
+(autoload 'bbdb-test/run-one-test "bbdb-test" "\
+Not documented
+
+\(fn TEST-VAR)" t nil)
+
+;;;***
+
 ;;;### (autoloads (bbdb-insinuate-vm bbdb/vm-set-auto-folder-alist
 ;;;;;;  bbdb/vm-set-auto-folder-alist-headers bbdb/vm-set-auto-folder-alist-field
 ;;;;;;  bbdb/vm-show-sender bbdb/vm-show-all-recipients bbdb/vm-show-records
@@ -1487,7 +1508,7 @@ Call this function to hook BBDB into W3.
 ;;;***
 
 ;;;### (autoloads (bbdb-whois) "bbdb-whois" "bbdb/lisp/bbdb-whois.el"
-;;;;;;  (19383 21198))
+;;;;;;  (18011 20885))
 ;;; Generated autoloads from bbdb/lisp/bbdb-whois.el
 
 (autoload 'bbdb-whois "bbdb-whois" "\
@@ -1546,7 +1567,7 @@ Deletes all actions, replacing them with small comments.
 ;;;***
 
 ;;;### (autoloads (bmkp-version) "bookmark+" "bookmark-plus/bookmark+.el"
-;;;;;;  (19804 63180))
+;;;;;;  (19849 8156))
 ;;; Generated autoloads from bookmark-plus/bookmark+.el
 
 (defconst bmkp-version-number "3.2.0")
@@ -1614,7 +1635,7 @@ Show version number of library `bookmark+.el'.
 ;;;;;;  bmkp-this-buffer-cycle-sort-comparer bmkp-desktop-no-save-vars
 ;;;;;;  bmkp-default-handler-associations bmkp-default-bookmark-name
 ;;;;;;  bmkp-crosshairs-flag bmkp-autoname-format bmkp-autoname-bookmark-function)
-;;;;;;  "bookmark+-1" "bookmark-plus/bookmark+-1.el" (19806 50605))
+;;;;;;  "bookmark+-1" "bookmark-plus/bookmark+-1.el" (19849 8232))
 ;;; Generated autoloads from bookmark-plus/bookmark+-1.el
 
 (defvar bmkp-autoname-bookmark-function 'bmkp-autoname-bookmark "\
@@ -1654,7 +1675,7 @@ of the following, if available:
 (custom-autoload 'bmkp-default-bookmark-name "bookmark+-1" t)
 
 (defvar bmkp-default-handler-associations (and (require 'dired-x) (let ((assns nil)) (dolist (shell-assn dired-guess-shell-alist-user) (push (cons (car shell-assn) `(lambda (bmk) (dired-run-shell-command (dired-shell-stuff-it ,(cadr shell-assn) (list (bookmark-get-filename bmk)) nil nil)))) assns)) assns)) "\
-File associations for bookmark handlers used for indirect bookmarks.
+*File associations for bookmark handlers used for indirect bookmarks.
 Each element of the alist is (REGEXP . COMMAND).
 REGEXP matches a file name.
 COMMAND is a sexp that evaluates to either a shell command (a string)
@@ -1679,7 +1700,7 @@ in mailcap entries (Emacs 23+), in that order.")
 (custom-autoload 'bmkp-default-handler-associations "bookmark+-1" t)
 
 (defvar bmkp-desktop-no-save-vars '(search-ring regexp-search-ring kill-ring) "\
-List of variables not to save when creating a desktop bookmark.
+*List of variables not to save when creating a desktop bookmark.
 They are removed from `desktop-globals-to-save' for the duration of
 the save (only).")
 
@@ -2989,11 +3010,11 @@ Optional arg ALIST is the alist of bookmarks.  It defaults to
 ;;;;;;  bookmark-bmenu-1-window bookmark-bmenu-list bookmark-bmenu-delete
 ;;;;;;  bookmark-bmenu-unmark bookmark-bmenu-mark bmkp-bmenu-state-file
 ;;;;;;  bmkp-bmenu-commands-file bmkp-bmenu-omitted-list) "bookmark+-bmu"
-;;;;;;  "bookmark-plus/bookmark+-bmu.el" (19804 63219))
+;;;;;;  "bookmark-plus/bookmark+-bmu.el" (19849 8212))
 ;;; Generated autoloads from bookmark-plus/bookmark+-bmu.el
 
 (defvar bmkp-bmenu-omitted-list nil "\
-List of names of omitted bookmarks.
+*List of names of omitted bookmarks.
 They are generally not available for display in the bookmark list.
 You can, however, use \\<bookmark-bmenu-mode-map>`\\[bmkp-bmenu-show-only-omitted]' to see them.
 You can then mark some of them and use `\\[bmkp-bmenu-omit/unomit-marked]'
@@ -3771,7 +3792,7 @@ Pop-up menu on `mouse-3' for a bookmark listed in `*Bookmark List*'.
 ;;;;;;  bmkp-light-threshold bmkp-light-style-non-autonamed bmkp-light-style-autonamed
 ;;;;;;  bmkp-light-priorities bmkp-auto-light-when-set bmkp-auto-light-when-jump
 ;;;;;;  bmkp-auto-light-relocate-when-jump-flag) "bookmark+-lit"
-;;;;;;  "bookmark-plus/bookmark+-lit.el" (19804 63274))
+;;;;;;  "bookmark-plus/bookmark+-lit.el" (19849 8250))
 ;;; Generated autoloads from bookmark-plus/bookmark+-lit.el
 
 (defvar bmkp-auto-light-relocate-when-jump-flag t "\
@@ -4091,7 +4112,7 @@ See `bmkp-next-lighted-this-buffer-repeat'.
 ;;;### (autoloads (bmkp-menu-bar-make-toggle bmkp-define-file-sort-predicate
 ;;;;;;  bmkp-define-sort-command bmkp-define-next+prev-cycle-commands
 ;;;;;;  bmkp-define-cycle-command) "bookmark+-mac" "bookmark-plus/bookmark+-mac.el"
-;;;;;;  (19804 63202))
+;;;;;;  (19849 8173))
 ;;; Generated autoloads from bookmark-plus/bookmark+-mac.el
 
 (autoload 'bmkp-define-cycle-command "bookmark+-mac" "\
@@ -4533,48 +4554,6 @@ as a string instead.
 
 ;;;***
 
-;;;### (autoloads (circe) "circe" "circe/circe.el" (18727 63829))
-;;; Generated autoloads from circe/circe.el
-
-(autoload 'circe "circe" "\
-Connect to the IRC server HOST at SERVICE.
-NETWORK is the shorthand used for indicating where we're connected
-to. (defaults to HOST)
-PASS is the password.
-NICK is the nick name to use (defaults to `circe-default-nick')
-USER is the user name to use (defaults to `circe-default-user')
-REALNAME is the real name to use (defaults to `circe-default-realname')
-
-\(fn HOST SERVICE &optional NETWORK PASS NICK USER REALNAME)" t nil)
-
-;;;***
-
-;;;### (autoloads (enable-circe-highlight-all-nicks) "circe-highlight-all-nicks"
-;;;;;;  "circe/circe-highlight-all-nicks.el" (17197 53002))
-;;; Generated autoloads from circe/circe-highlight-all-nicks.el
-
-(autoload 'enable-circe-highlight-all-nicks "circe-highlight-all-nicks" "\
-Enable the Highlight Nicks module for Circe.
-This module highlights all occurances of nicks in the current
-channel in messages of other people.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (enable-circe-log) "circe-log" "circe/circe-log.el"
-;;;;;;  (18080 62587))
-;;; Generated autoloads from circe/circe-log.el
-
-(autoload 'enable-circe-log "circe-log" "\
-Enables automatic logging for all buffers matching
-`circe-log-buffer-regexp' and not matching
-`circe-log-exlude-buffer-regexp'.
-
-\(fn)" t nil)
-
-;;;***
-
 ;;;### (autoloads (turn-on-cldoc-mode cldoc-mode cldoc-minor-mode-string
 ;;;;;;  cldoc-mode) "cldoc" "cldoc.el" (18227 38128))
 ;;; Generated autoloads from cldoc.el
@@ -4932,7 +4911,7 @@ With a prefix argument, highlight for that many seconds.
 ;;;;;;  color-theme-compare color-theme-make-snapshot color-theme-analyze-defun
 ;;;;;;  color-theme-print color-theme-install-at-point-for-current-frame
 ;;;;;;  color-theme-install-at-mouse color-theme-describe color-theme-select)
-;;;;;;  "color-theme" "color-theme-6.6.0/color-theme.el" (17528 52192))
+;;;;;;  "color-theme" "color-theme-6.6.0/color-theme.el" (17529 41105))
 ;;; Generated autoloads from color-theme-6.6.0/color-theme.el
 
 (autoload 'color-theme-select "color-theme" "\
@@ -4981,8 +4960,8 @@ Example:
       (interactive)
       (color-theme-install
        '(...
-	 ...
-	 ...)))
+     ...
+     ...)))
     (my-color-theme)
 
 If you want to use a specific color theme function, you can call the
@@ -5308,7 +5287,7 @@ Return non-nil if new types are found.
 
 ;;;### (autoloads (cucumber-compilation-run cucumber-compilation-this-scenario
 ;;;;;;  cucumber-compilation-this-buffer) "cucumber-mode-compilation"
-;;;;;;  "rinari/util/cucumber-mode-compilation.el" (19809 16085))
+;;;;;;  "rinari/util/cucumber-mode-compilation.el" (19848 53016))
 ;;; Generated autoloads from rinari/util/cucumber-mode-compilation.el
 
 (autoload 'cucumber-compilation-this-buffer "cucumber-mode-compilation" "\
@@ -5365,12 +5344,13 @@ considered by cycle-buffer when cycle-buffer-interesting is t.
 ;;;***
 
 ;;;### (autoloads (darcsum-view darcsum-whatsnew darcsum-changes)
-;;;;;;  "darcsum" "darcsum/darcsum.el" (19841 2056))
+;;;;;;  "darcsum" "darcsum/darcsum.el" (19848 53010))
 ;;; Generated autoloads from darcsum/darcsum.el
 
 (autoload 'darcsum-changes "darcsum" "\
-Show the changes in another buffer.  Optional argument HOW-MANY limits
-the number of changes shown, counting from the most recent changes.
+Show the changes in another buffer.
+Optional argument HOW-MANY limits the number of changes shown,
+counting from the most recent changes.
 
 \(fn &optional HOW-MANY)" t nil)
 
@@ -5378,15 +5358,18 @@ the number of changes shown, counting from the most recent changes.
 Run `darcs whatsnew' in DIRECTORY, displaying the output in `darcsum-mode'.
 
 When invoked interactively, prompt for the directory to display changes for.
+With prefix arg LOOK-FOR-ADDS, run darcs with argument `--look-for-adds'.
+Display the buffer unless NO-DISPLAY is non-nil.
+Show context around changes if SHOW-CONTEXT is non-nil.
 
 \(fn DIRECTORY &optional LOOK-FOR-ADDS NO-DISPLAY SHOW-CONTEXT)" t nil)
 
 (autoload 'darcsum-view "darcsum" "\
 View the contents of the current buffer as a darcs changeset for DIRECTORY.
-More precisely, searches forward from point for the next changeset-like region,
-and attempts to parse that as a darcs patch.
+More precisely, search forward from point for the next changeset-like region,
+and attempt to parse that as a darcs patch.
 
-When invoked interactively, prompts for a directory; by default, the current
+When invoked interactively, prompt for a directory; by default, the current
 working directory is assumed.
 
 \(fn DIRECTORY)" t nil)
@@ -6847,7 +6830,7 @@ this object.
 ;;;***
 
 ;;;### (autoloads (emms-cache-toggle emms-cache-disable emms-cache-enable)
-;;;;;;  "emms-cache" "emms/lisp/emms-cache.el" (19793 16447))
+;;;;;;  "emms-cache" "emms/lisp/emms-cache.el" (19848 52901))
 ;;; Generated autoloads from emms/lisp/emms-cache.el
 
 (autoload 'emms-cache-enable "emms-cache" "\
@@ -6868,7 +6851,7 @@ Toggle caching of Emms track data.
 ;;;***
 
 ;;;### (autoloads (emms-lyrics-toggle emms-lyrics-disable emms-lyrics-enable)
-;;;;;;  "emms-lyrics" "emms/lisp/emms-lyrics.el" (19793 16447))
+;;;;;;  "emms-lyrics" "emms/lisp/emms-lyrics.el" (19848 52901))
 ;;; Generated autoloads from emms/lisp/emms-lyrics.el
 
 (autoload 'emms-lyrics-enable "emms-lyrics" "\
@@ -6889,7 +6872,7 @@ Toggle displaying emms lyrics.
 ;;;***
 
 ;;;### (autoloads (emms-mode-line-toggle emms-mode-line-disable emms-mode-line-enable)
-;;;;;;  "emms-mode-line" "emms/lisp/emms-mode-line.el" (19793 16447))
+;;;;;;  "emms-mode-line" "emms/lisp/emms-mode-line.el" (19848 52901))
 ;;; Generated autoloads from emms/lisp/emms-mode-line.el
 
 (autoload 'emms-mode-line-enable "emms-mode-line" "\
@@ -6910,7 +6893,7 @@ Toggle `emms-mode-line'.
 ;;;***
 
 ;;;### (autoloads (emms-player-mpd-show emms-player-mpd-connect emms-player-mpd-clear)
-;;;;;;  "emms-player-mpd" "emms/lisp/emms-player-mpd.el" (19793 16447))
+;;;;;;  "emms-player-mpd" "emms/lisp/emms-player-mpd.el" (19848 52901))
 ;;; Generated autoloads from emms/lisp/emms-player-mpd.el
 
 (autoload 'emms-player-mpd-clear "emms-player-mpd" "\
@@ -6949,8 +6932,8 @@ rather than EMMS.
 ;;;***
 
 ;;;### (autoloads (emms-playing-time-disable-display emms-playing-time-enable-display)
-;;;;;;  "emms-playing-time" "emms/lisp/emms-playing-time.el" (19793
-;;;;;;  16447))
+;;;;;;  "emms-playing-time" "emms/lisp/emms-playing-time.el" (19848
+;;;;;;  52901))
 ;;; Generated autoloads from emms/lisp/emms-playing-time.el
 
 (autoload 'emms-playing-time-enable-display "emms-playing-time" "\
@@ -6967,7 +6950,7 @@ Remove playing time from mode line.
 
 ;;;### (autoloads (emms-playlist-limit-toggle emms-playlist-limit-disable
 ;;;;;;  emms-playlist-limit-enable) "emms-playlist-limit" "emms/lisp/emms-playlist-limit.el"
-;;;;;;  (19793 16447))
+;;;;;;  (19848 52901))
 ;;; Generated autoloads from emms/lisp/emms-playlist-limit.el
 
 (autoload 'emms-playlist-limit-enable "emms-playlist-limit" "\
@@ -6988,7 +6971,7 @@ Toggle emms playlist limit.
 ;;;***
 
 ;;;### (autoloads (emms-playlist-mode) "emms-playlist-mode" "emms/lisp/emms-playlist-mode.el"
-;;;;;;  (19793 16447))
+;;;;;;  (19848 52901))
 ;;; Generated autoloads from emms/lisp/emms-playlist-mode.el
 
 (autoload 'emms-playlist-mode "emms-playlist-mode" "\
@@ -7000,7 +6983,7 @@ A major mode for Emms playlists.
 ;;;***
 
 ;;;### (autoloads (emms-score-toggle emms-score-disable emms-score-enable)
-;;;;;;  "emms-score" "emms/lisp/emms-score.el" (19793 16447))
+;;;;;;  "emms-score" "emms/lisp/emms-score.el" (19848 52901))
 ;;; Generated autoloads from emms/lisp/emms-score.el
 
 (autoload 'emms-score-enable "emms-score" "\
@@ -7022,7 +7005,7 @@ Toggle emms-score.
 
 ;;;### (autoloads (emms-default-players emms-devel emms-all emms-standard
 ;;;;;;  emms-minimalistic) "emms-setup" "emms/lisp/emms-setup.el"
-;;;;;;  (19793 16447))
+;;;;;;  (19848 52901))
 ;;; Generated autoloads from emms/lisp/emms-setup.el
 
 (autoload 'emms-minimalistic "emms-setup" "\
@@ -7063,8 +7046,8 @@ Set `emms-player-list' to `emms-setup-default-player-list'.
 ;;;***
 
 ;;;### (autoloads (emms-locate emms-source-file-regex emms-source-file-directory-tree)
-;;;;;;  "emms-source-file" "emms/lisp/emms-source-file.el" (19793
-;;;;;;  16447))
+;;;;;;  "emms-source-file" "emms/lisp/emms-source-file.el" (19848
+;;;;;;  52901))
 ;;; Generated autoloads from emms/lisp/emms-source-file.el
  (autoload 'emms-play-file "emms-source-file" nil t)
  (autoload 'emms-add-file "emms-source-file" nil t)
@@ -7103,7 +7086,7 @@ Search for REGEXP and display the results in a locate buffer
 ;;;***
 
 ;;;### (autoloads nil "emms-source-playlist" "emms/lisp/emms-source-playlist.el"
-;;;;;;  (19793 16447))
+;;;;;;  (19848 52901))
 ;;; Generated autoloads from emms/lisp/emms-source-playlist.el
  (autoload 'emms-play-playlist "emms-source-playlist" nil t)
  (autoload 'emms-add-playlist "emms-source-playlist" nil t)
@@ -7127,7 +7110,7 @@ Search for REGEXP and display the results in a locate buffer
 ;;;***
 
 ;;;### (autoloads (emms-streams) "emms-streams" "emms/lisp/emms-streams.el"
-;;;;;;  (19793 16447))
+;;;;;;  (19848 52901))
 ;;; Generated autoloads from emms/lisp/emms-streams.el
 
 (autoload 'emms-streams "emms-streams" "\
@@ -7139,7 +7122,7 @@ Opens the EMMS Streams interface.
 
 ;;;### (autoloads (emms-volume-mode-minus emms-volume-mode-plus emms-volume-lower
 ;;;;;;  emms-volume-raise) "emms-volume" "emms/lisp/emms-volume.el"
-;;;;;;  (19793 16447))
+;;;;;;  (19848 52901))
 ;;; Generated autoloads from emms/lisp/emms-volume.el
 
 (autoload 'emms-volume-raise "emms-volume" "\
@@ -7165,7 +7148,7 @@ Lower volume and enable or extend the `emms-volume-minor-mode' timeout.
 ;;;***
 
 ;;;### (autoloads (emms-volume-amixer-change) "emms-volume-amixer"
-;;;;;;  "emms/lisp/emms-volume-amixer.el" (19793 16447))
+;;;;;;  "emms/lisp/emms-volume-amixer.el" (19848 52901))
 ;;; Generated autoloads from emms/lisp/emms-volume-amixer.el
 
 (autoload 'emms-volume-amixer-change "emms-volume-amixer" "\
@@ -7824,6 +7807,221 @@ Major mode for editing Haml files.
 
 ;;;***
 
+;;;### (autoloads (haskell-c-mode) "haskell-c" "haskellmode-emacs/haskell-c.el"
+;;;;;;  (19848 52923))
+;;; Generated autoloads from haskellmode-emacs/haskell-c.el
+
+(add-to-list 'auto-mode-alist '("\\.hsc\\'" . haskell-c-mode))
+
+(autoload 'haskell-c-mode "haskell-c" "\
+Major mode for Haskell FFI files.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (haskell-cabal-mode) "haskell-cabal" "haskellmode-emacs/haskell-cabal.el"
+;;;;;;  (19848 52923))
+;;; Generated autoloads from haskellmode-emacs/haskell-cabal.el
+
+(add-to-list 'auto-mode-alist '("\\.cabal\\'" . haskell-cabal-mode))
+
+(autoload 'haskell-cabal-mode "haskell-cabal" "\
+Major mode for Cabal package description files.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (haskell-decl-scan-mode) "haskell-decl-scan" "haskellmode-emacs/haskell-decl-scan.el"
+;;;;;;  (19848 52923))
+;;; Generated autoloads from haskellmode-emacs/haskell-decl-scan.el
+
+(autoload 'haskell-decl-scan-mode "haskell-decl-scan" "\
+Minor mode for declaration scanning for Haskell mode.
+Top-level declarations are scanned and listed in the menu item \"Declarations\".
+Selecting an item from this menu will take point to the start of the
+declaration.
+
+\\[haskell-ds-forward-decl] and \\[haskell-ds-backward-decl] move forward and backward to the start of a declaration.
+
+Under XEmacs, the following keys are also defined:
+
+\\[fume-list-functions] lists the declarations of the current buffer,
+\\[fume-prompt-function-goto] prompts for a declaration to move to, and
+\\[fume-mouse-function-goto] moves to the declaration whose name is at point.
+
+This may link with `haskell-doc' (only for Emacs currently).
+
+For non-literate and LaTeX-style literate scripts, we assume the
+common convention that top-level declarations start at the first
+column.  For Bird-style literate scripts, we assume the common
+convention that top-level declarations start at the third column,
+ie. after \"> \".
+
+Anything in `font-lock-comment-face' is not considered for a
+declaration.  Therefore, using Haskell font locking with comments
+coloured in `font-lock-comment-face' improves declaration scanning.
+
+To turn on declaration scanning for all Haskell buffers, add this to
+.emacs:
+
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-decl-scan)
+
+To turn declaration scanning on for the current buffer, call
+`turn-on-haskell-decl-scan'.
+
+Literate Haskell scripts are supported: If the value of
+`haskell-literate' (automatically set by the Haskell mode of
+Moss&Thorn) is `bird', a Bird-style literate script is assumed.  If it
+is nil or `tex', a non-literate or LaTeX-style literate script is
+assumed, respectively.
+
+Invokes `haskell-decl-scan-mode-hook'.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (haskell-doc-show-type haskell-doc-mode) "haskell-doc"
+;;;;;;  "haskellmode-emacs/haskell-doc.el" (19848 52923))
+;;; Generated autoloads from haskellmode-emacs/haskell-doc.el
+
+(autoload 'haskell-doc-mode "haskell-doc" "\
+Enter `haskell-doc-mode' for showing fct types in the echo area.
+See variable docstring.
+
+\(fn &optional ARG)" t nil)
+
+(defalias 'turn-on-haskell-doc-mode 'haskell-doc-mode)
+
+(autoload 'haskell-doc-show-type "haskell-doc" "\
+Show the type of the function near point.
+For the function under point, show the type in the echo area.
+This information is extracted from the `haskell-doc-prelude-types' alist
+of prelude functions and their types, or from the local functions in the
+current buffer.
+
+\(fn &optional SYM)" t nil)
+
+;;;***
+
+;;;### (autoloads (haskell-indent-mode) "haskell-indent" "haskellmode-emacs/haskell-indent.el"
+;;;;;;  (19848 52923))
+;;; Generated autoloads from haskellmode-emacs/haskell-indent.el
+
+(autoload 'haskell-indent-mode "haskell-indent" "\
+``Intelligent'' Haskell indentation mode.
+This deals with the layout rule of Haskell.
+\\[haskell-indent-cycle] starts the cycle which proposes new
+possibilities as long as the TAB key is pressed.  Any other key
+or mouse click terminates the cycle and is interpreted except for
+RET which merely exits the cycle.
+Other special keys are:
+    \\[haskell-indent-insert-equal]
+      inserts an =
+    \\[haskell-indent-insert-guard]
+      inserts an |
+    \\[haskell-indent-insert-otherwise]
+      inserts an | otherwise =
+these functions also align the guards and rhs of the current definition
+    \\[haskell-indent-insert-where]
+      inserts a where keyword
+    \\[haskell-indent-align-guards-and-rhs]
+      aligns the guards and rhs of the region
+    \\[haskell-indent-put-region-in-literate]
+      makes the region a piece of literate code in a literate script
+
+Invokes `haskell-indent-hook' if not nil.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (haskell-indentation-mode) "haskell-indentation"
+;;;;;;  "haskellmode-emacs/haskell-indentation.el" (19848 52923))
+;;; Generated autoloads from haskellmode-emacs/haskell-indentation.el
+
+(autoload 'haskell-indentation-mode "haskell-indentation" "\
+Haskell indentation mode that deals with the layout rule.
+It rebinds RET, DEL and BACKSPACE, so that indentations can be
+set and deleted as if they were real tabs.  It supports
+autofill-mode.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (haskell-hayoo haskell-hoogle literate-haskell-mode
+;;;;;;  haskell-mode) "haskell-mode" "haskellmode-emacs/haskell-mode.el"
+;;;;;;  (19848 52923))
+;;; Generated autoloads from haskellmode-emacs/haskell-mode.el
+
+(add-to-list 'load-path (or (file-name-directory load-file-name) (car load-path)))
+
+(autoload 'haskell-mode "haskell-mode" "\
+Major mode for editing Haskell programs.
+Blank lines separate paragraphs, comments start with `-- '.
+\\<haskell-mode-map>
+Literate scripts are supported via `literate-haskell-mode'.
+The variable `haskell-literate' indicates the style of the script in the
+current buffer.  See the documentation on this variable for more details.
+
+Modules can hook in via `haskell-mode-hook'.  The following modules
+are supported with an `autoload' command:
+
+   `haskell-decl-scan', Graeme E Moss
+     Scans top-level declarations, and places them in a menu.
+
+   `haskell-doc', Hans-Wolfgang Loidl
+     Echoes types of functions or syntax of keywords when the cursor is idle.
+
+   `haskell-indentation', Kristof Bastiaensen
+     Intelligent semi-automatic indentation Mk2
+
+   `haskell-indent', Guy Lapalme
+     Intelligent semi-automatic indentation.
+
+   `haskell-simple-indent', Graeme E Moss and Heribert Schuetz
+     Simple indentation.
+
+Module X is activated using the command `turn-on-X'.  For example,
+`haskell-indent' is activated using `turn-on-haskell-indent'.
+For more information on a module, see the help for its `X-mode'
+function.  Some modules can be deactivated using `turn-off-X'.  (Note
+that `haskell-doc' is irregular in using `turn-(on/off)-haskell-doc-mode'.)
+
+Use `haskell-version' to find out what version this is.
+
+Invokes `haskell-mode-hook'.
+
+\(fn)" t nil)
+
+(autoload 'literate-haskell-mode "haskell-mode" "\
+As `haskell-mode' but for literate scripts.
+
+\(fn)" t nil)
+(add-to-list 'auto-mode-alist        '("\\.\\(?:[gh]s\\|hi\\)\\'" . haskell-mode))
+(add-to-list 'auto-mode-alist        '("\\.l[gh]s\\'" . literate-haskell-mode))
+(add-to-list 'interpreter-mode-alist '("runghc" . haskell-mode))
+(add-to-list 'interpreter-mode-alist '("runhaskell" . haskell-mode))
+
+(autoload 'haskell-hoogle "haskell-mode" "\
+Do a Hoogle search for QUERY.
+
+\(fn QUERY)" t nil)
+
+(defalias 'hoogle 'haskell-hoogle)
+
+(autoload 'haskell-hayoo "haskell-mode" "\
+Do a Hayoo search for QUERY.
+
+\(fn QUERY)" t nil)
+
+(defalias 'hayoo 'haskell-hayoo)
+
+;;;***
+
 ;;;### (autoloads (update-file-header make-box-comment make-divider
 ;;;;;;  make-revision make-header) "header2" "header2.el" (19807
 ;;;;;;  38146))
@@ -7967,8 +8165,64 @@ Toggle inline image minor mode.
 
 ;;;***
 
+;;;### (autoloads (inferior-haskell-find-haddock inferior-haskell-find-definition
+;;;;;;  inferior-haskell-info inferior-haskell-type inferior-haskell-load-file
+;;;;;;  switch-to-haskell) "inf-haskell" "haskellmode-emacs/inf-haskell.el"
+;;;;;;  (19848 52923))
+;;; Generated autoloads from haskellmode-emacs/inf-haskell.el
+
+(defalias 'run-haskell 'switch-to-haskell)
+
+(autoload 'switch-to-haskell "inf-haskell" "\
+Show the inferior-haskell buffer.  Start the process if needed.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'inferior-haskell-load-file "inf-haskell" "\
+Pass the current buffer's file to the inferior haskell process.
+If prefix arg \\[universal-argument] is given, just reload the previous file.
+
+\(fn &optional RELOAD)" t nil)
+
+(autoload 'inferior-haskell-type "inf-haskell" "\
+Query the haskell process for the type of the given expression.
+If optional argument `insert-value' is non-nil, insert the type above point
+in the buffer.  This can be done interactively with the \\[universal-argument] prefix.
+The returned info is cached for reuse by `haskell-doc-mode'.
+
+\(fn EXPR &optional INSERT-VALUE)" t nil)
+
+(autoload 'inferior-haskell-info "inf-haskell" "\
+Query the haskell process for the info of the given expression.
+
+\(fn SYM)" t nil)
+
+(autoload 'inferior-haskell-find-definition "inf-haskell" "\
+Attempt to locate and jump to the definition of the given expression.
+
+\(fn SYM)" t nil)
+
+(autoload 'inferior-haskell-find-haddock "inf-haskell" "\
+Find and open the Haddock documentation of SYM.
+Make sure to load the file into GHCi or Hugs first by using C-c C-l.
+Only works for functions in a package installed with ghc-pkg, or
+whatever the value of `haskell-package-manager-name' is.
+
+This function needs to find which package a given module belongs
+to.  In order to do this, it computes a module-to-package lookup
+alist, which is expensive to compute (it takes upwards of five
+seconds with more than about thirty installed packages).  As a
+result, we cache it across sessions using the cache file
+referenced by `inferior-haskell-module-alist-file'. We test to
+see if this is newer than `haskell-package-conf-file' every time
+we load it.
+
+\(fn SYM)" t nil)
+
+;;;***
+
 ;;;### (autoloads (run-ruby inf-ruby inf-ruby-keys) "inf-ruby" "rinari/util/inf-ruby.el"
-;;;;;;  (19809 16085))
+;;;;;;  (19848 53016))
 ;;; Generated autoloads from rinari/util/inf-ruby.el
 
 (autoload 'inf-ruby-keys "inf-ruby" "\
@@ -8000,7 +8254,7 @@ of `ruby-program-name').  Runs the hooks `inferior-ruby-mode-hook'
 ;;;***
 
 ;;;### (autoloads (pluralize-string singularize-string) "inflections"
-;;;;;;  "rinari/util/jump/inflections.el" (19809 16109))
+;;;;;;  "rinari/util/jump/inflections.el" (19848 53018))
 ;;; Generated autoloads from rinari/util/jump/inflections.el
 
 (autoload 'singularize-string "inflections" "\
@@ -8163,8 +8417,8 @@ Major mode for editing JavaScript code.
 
 ;;;***
 
-;;;### (autoloads (defjump) "jump" "rinari/util/jump/jump.el" (19809
-;;;;;;  16109))
+;;;### (autoloads (defjump) "jump" "rinari/util/jump/jump.el" (19848
+;;;;;;  53018))
 ;;; Generated autoloads from rinari/util/jump/jump.el
 
 (autoload 'defjump "jump" "\
@@ -8198,7 +8452,7 @@ find the current method which defaults to `which-function'.
 
 ;;;***
 
-;;;### (autoloads (keats-mode) "keats" "keats/keats.el" (19838 22211))
+;;;### (autoloads (keats-mode) "keats" "keats/keats.el" (19848 52912))
 ;;; Generated autoloads from keats/keats.el
 
 (autoload 'keats-mode "keats" "\
@@ -8209,7 +8463,7 @@ Simple interface to Emacs keybinding cheats.
 ;;;***
 
 ;;;### (autoloads (keats-interactive-mode) "keats-interactive" "keats/keats-interactive.el"
-;;;;;;  (19838 22211))
+;;;;;;  (19848 52912))
 ;;; Generated autoloads from keats/keats-interactive.el
 
 (autoload 'keats-interactive-mode "keats-interactive" "\
@@ -8220,9 +8474,9 @@ Major mode to interactively manage Keats.
 ;;;***
 
 ;;;### (autoloads (latex-math-decode-buffer latex-math-decode-region)
-;;;;;;  "latex-math-symbol" "mu-cite-8.1/latex-math-symbol.el" (14226
-;;;;;;  42008))
-;;; Generated autoloads from mu-cite-8.1/latex-math-symbol.el
+;;;;;;  "latex-math-symbol" "mu-cite-201006212322/latex-math-symbol.el"
+;;;;;;  (17099 15709))
+;;; Generated autoloads from mu-cite-201006212322/latex-math-symbol.el
 
 (autoload 'latex-math-decode-region "latex-math-symbol" "\
 Not documented
@@ -8365,20 +8619,9 @@ Works on grep, compile, or other type mode.
 
 ;;;***
 
-;;;### (autoloads (enable-lui-irc-colors) "lui-irc-colors" "circe/lui-irc-colors.el"
-;;;;;;  (18087 33243))
-;;; Generated autoloads from circe/lui-irc-colors.el
-
-(autoload 'enable-lui-irc-colors "lui-irc-colors" "\
-Enable IRC color interpretation for Lui.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (magit-status) "magit" "magit-0.8.2/magit.el" (19512
-;;;;;;  22705))
-;;; Generated autoloads from magit-0.8.2/magit.el
+;;;### (autoloads (magit-status) "magit" "magit/magit.el" (19848
+;;;;;;  52928))
+;;; Generated autoloads from magit/magit.el
 
 (autoload 'magit-status "magit" "\
 Not documented
@@ -8396,11 +8639,11 @@ Not documented
 
 Minor mode for interfacing with cryptographic functions.
 \\<mc-read-mode-map>
-\\[mc-decrypt]		Decrypt an encrypted message
-\\[mc-verify]		Verify signature on a clearsigned message
-\\[mc-snarf]		Add public key(s) to keyring
-\\[mc-fetch-key]		Fetch a PGP key via finger or HTTP
-\\[mc-deactivate-passwd]		Forget passphrase(s)
+\\[mc-decrypt]      Decrypt an encrypted message
+\\[mc-verify]       Verify signature on a clearsigned message
+\\[mc-snarf]        Add public key(s) to keyring
+\\[mc-fetch-key]        Fetch a PGP key via finger or HTTP
+\\[mc-deactivate-passwd]        Forget passphrase(s)
 
 \(fn &optional ARG)" t nil)
 
@@ -8418,6 +8661,17 @@ Not documented
 *Deactivate the passphrase cache.
 
 \(fn &optional INHIBIT-MESSAGE)" t nil)
+
+;;;***
+
+;;;### (autoloads (markdown-mode) "markdown-mode" "markdown-mode/markdown-mode.el"
+;;;;;;  (19848 52932))
+;;; Generated autoloads from markdown-mode/markdown-mode.el
+
+(autoload 'markdown-mode "markdown-mode" "\
+Major mode for editing Markdown files.
+
+\(fn)" t nil)
 
 ;;;***
 
@@ -8857,60 +9111,8 @@ Not documented
 
 ;;;***
 
-;;;### (autoloads (mew-shimbun-expire mew-shimbun-expire-all mew-shimbun-re-retrieve-all
-;;;;;;  mew-shimbun-re-retrieve mew-shimbun-retrieve-all mew-shimbun-retrieve
-;;;;;;  mew-shimbun-goto-folder mew-shimbun-goto-unseen-folder) "mew-shimbun"
-;;;;;;  "emacs-w3m/shimbun/mew-shimbun.el" (18197 61166))
-;;; Generated autoloads from emacs-w3m/shimbun/mew-shimbun.el
-
-(autoload 'mew-shimbun-goto-unseen-folder "mew-shimbun" "\
-Goto folder for SHIMBUN to have a few new messages.
-
-\(fn)" t nil)
-
-(autoload 'mew-shimbun-goto-folder "mew-shimbun" "\
-Goto folder for SHIMBUN.
-If called with '\\[universal-argument]', goto folder to have a few new messages.
-
-\(fn &optional ARGS)" t nil)
-
-(autoload 'mew-shimbun-retrieve "mew-shimbun" "\
-Retrieve articles via SHIMBUN on this folder.
-
-\(fn &optional NEWFLD)" t nil)
-
-(autoload 'mew-shimbun-retrieve-all "mew-shimbun" "\
-Retrieve all articles via SHIMBUN.
-
-\(fn)" t nil)
-
-(autoload 'mew-shimbun-re-retrieve "mew-shimbun" "\
-Re-retrieve this message.
-If called with '\\[universal-argument]', re-retrieve messages marked with
-'mew-shimbun-mark-re-retrieve'.
-
-\(fn &optional ARGS)" t nil)
-
-(autoload 'mew-shimbun-re-retrieve-all "mew-shimbun" "\
-Re-retrieve all messages in this folder.
-If called with '\\[universal-argument]', re-retrieve messages in the region.
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'mew-shimbun-expire-all "mew-shimbun" "\
-Expire all shimbun folder.
-
-\(fn)" t nil)
-
-(autoload 'mew-shimbun-expire "mew-shimbun" "\
-Expire this shimbun folder.
-
-\(fn)" t nil)
-
-;;;***
-
 ;;;### (autoloads (mhc-cmail-setup) "mhc-cmail" "mhc/emacs/mhc-cmail.el"
-;;;;;;  (18364 61487))
+;;;;;;  (19848 52955))
 ;;; Generated autoloads from mhc/emacs/mhc-cmail.el
 
 (autoload 'mhc-cmail-setup "mhc-cmail" "\
@@ -8921,7 +9123,7 @@ Not documented
 ;;;***
 
 ;;;### (autoloads (mhc-gnus-setup) "mhc-gnus" "mhc/emacs/mhc-gnus.el"
-;;;;;;  (18364 61487))
+;;;;;;  (19848 52955))
 ;;; Generated autoloads from mhc/emacs/mhc-gnus.el
 
 (autoload 'mhc-gnus-setup "mhc-gnus" "\
@@ -8932,7 +9134,7 @@ Not documented
 ;;;***
 
 ;;;### (autoloads (mhc-mew-setup) "mhc-mew" "mhc/emacs/mhc-mew.el"
-;;;;;;  (18914 38510))
+;;;;;;  (19848 52955))
 ;;; Generated autoloads from mhc/emacs/mhc-mew.el
 
 (autoload 'mhc-mew-setup "mhc-mew" "\
@@ -8943,8 +9145,8 @@ Not documented
 ;;;***
 
 ;;;### (autoloads (mhc-ps-insert-buffer mhc-ps-save mhc-ps-print
-;;;;;;  mhc-ps-preview mhc-ps) "mhc-ps" "mhc/emacs/mhc-ps.el" (16538
-;;;;;;  26944))
+;;;;;;  mhc-ps-preview mhc-ps) "mhc-ps" "mhc/emacs/mhc-ps.el" (19848
+;;;;;;  52955))
 ;;; Generated autoloads from mhc/emacs/mhc-ps.el
 
 (autoload 'mhc-ps "mhc-ps" "\
@@ -8974,8 +9176,8 @@ Not documented
 
 ;;;***
 
-;;;### (autoloads (mhc-wl-setup) "mhc-wl" "mhc/emacs/mhc-wl.el" (18364
-;;;;;;  61487))
+;;;### (autoloads (mhc-wl-setup) "mhc-wl" "mhc/emacs/mhc-wl.el" (19848
+;;;;;;  52955))
 ;;; Generated autoloads from mhc/emacs/mhc-wl.el
 
 (autoload 'mhc-wl-setup "mhc-wl" "\
@@ -9064,17 +9266,6 @@ Act like `backward-sexp' but also match quoted parens.
 See `paren-match-quoted-paren'.
 
 \(fn &optional ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads (mime-w3m-preview-text/html) "mime-w3m" "emacs-w3m/mime-w3m.el"
-;;;;;;  (18964 36505))
-;;; Generated autoloads from emacs-w3m/mime-w3m.el
-
-(autoload 'mime-w3m-preview-text/html "mime-w3m" "\
-Not documented
-
-\(fn ENTITY SITUATION)" nil nil)
 
 ;;;***
 
@@ -9425,9 +9616,9 @@ Major mode for interacting with Firefox via MozRepl.
 ;;;***
 
 ;;;### (autoloads (mu-bbdb-get-prefix-register-verbose-method mu-bbdb-get-prefix-register-method
-;;;;;;  mu-bbdb-get-prefix-method) "mu-bbdb" "mu-cite-8.1/mu-bbdb.el"
-;;;;;;  (14246 32523))
-;;; Generated autoloads from mu-cite-8.1/mu-bbdb.el
+;;;;;;  mu-bbdb-get-prefix-method) "mu-bbdb" "mu-cite-201006212322/mu-bbdb.el"
+;;;;;;  (17099 15709))
+;;; Generated autoloads from mu-cite-201006212322/mu-bbdb.el
 
 (autoload 'mu-bbdb-get-prefix-method "mu-bbdb" "\
 A mu-cite method to return a prefix from BBDB or \">\".
@@ -9466,8 +9657,8 @@ instead of call the function directly.
 ;;;***
 
 ;;;### (autoloads (compress-cited-prefix fill-cited-region mu-cite-original)
-;;;;;;  "mu-cite" "mu-cite-8.1/mu-cite.el" (19408 6164))
-;;; Generated autoloads from mu-cite-8.1/mu-cite.el
+;;;;;;  "mu-cite" "mu-cite-201006212322/mu-cite.el" (18139 35063))
+;;; Generated autoloads from mu-cite-201006212322/mu-cite.el
 
 (autoload 'mu-cite-original "mu-cite" "\
 Citing filter function.
@@ -9489,9 +9680,9 @@ Compress nested cited prefixes.
 ;;;***
 
 ;;;### (autoloads (mu-cite-get-prefix-register-verbose-method mu-cite-get-prefix-register-method
-;;;;;;  mu-cite-get-prefix-method) "mu-register" "mu-cite-8.1/mu-register.el"
-;;;;;;  (14424 29165))
-;;; Generated autoloads from mu-cite-8.1/mu-register.el
+;;;;;;  mu-cite-get-prefix-method) "mu-register" "mu-cite-201006212322/mu-register.el"
+;;;;;;  (17099 15709))
+;;; Generated autoloads from mu-cite-201006212322/mu-register.el
 
 (autoload 'mu-cite-get-prefix-method "mu-register" "\
 Not documented
@@ -9613,65 +9804,6 @@ running already.
 Start newsticker treeview.
 
 \(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (gnus-group-make-shimbun-groups gnus-group-make-shimbun-group
-;;;;;;  gnus-summary-refer-shimbun-article) "nnshimbun" "emacs-w3m/shimbun/nnshimbun.el"
-;;;;;;  (19101 52639))
-;;; Generated autoloads from emacs-w3m/shimbun/nnshimbun.el
-
-(autoload 'gnus-summary-refer-shimbun-article "nnshimbun" "\
-Show a shimbun article pointed to by the given URL.
-
-\(fn URL)" t nil)
-
-(autoload 'gnus-group-make-shimbun-group "nnshimbun" "\
-Create a new nnshimbun group.
-The user will be prompted for a SERVER name and a GROUP name.  When
-this command is called with a prefix argument, it makes an ephemeral
-shimbun group.
-
-\(fn SERVER GROUP &optional EPHEMERAL)" t nil)
-
-(autoload 'gnus-group-make-shimbun-groups "nnshimbun" "\
-Create all nnshimbun groups prepared for SERVER.
-
-\(fn SERVER)" t nil)
-
-;;;***
-
-;;;### (autoloads (octet-mime-setup mime-view-octet mime-preview-octet
-;;;;;;  octet-find-file octet-buffer) "octet" "emacs-w3m/octet.el"
-;;;;;;  (17133 57129))
-;;; Generated autoloads from emacs-w3m/octet.el
-
-(autoload 'octet-buffer "octet" "\
-View octet-stream content according to `octet-type-filter-alist'.
-Optional NAME is the filename.
-If optional CONTENT-TYPE is specified, it is used for type guess.
-
-\(fn &optional NAME CONTENT-TYPE)" t nil)
-
-(autoload 'octet-find-file "octet" "\
-Find FILE with octet-stream decoding.
-
-\(fn FILE)" t nil)
-
-(autoload 'mime-preview-octet "octet" "\
-A method for mime-view to preview octet message.
-
-\(fn ENTITY SITUATION)" nil nil)
-
-(autoload 'mime-view-octet "octet" "\
-A method for mime-view to display octet message.
-
-\(fn ENTITY SITUATION)" nil nil)
-
-(autoload 'octet-mime-setup "octet" "\
-Octet setting for MIME module.
-
-\(fn)" nil nil)
 
 ;;;***
 
@@ -9949,11 +10081,11 @@ COMMANDS
 \\{py-mode-map}
 VARIABLES
 
-py-indent-offset		indentation increment
-py-block-comment-prefix		comment string used by `comment-region'
-py-python-command		shell command to invoke Python interpreter
-py-temp-directory		directory used for temp files (if needed)
-py-beep-if-tab-change		ring the bell if `tab-width' is changed
+py-indent-offset        indentation increment
+py-block-comment-prefix     comment string used by `comment-region'
+py-python-command       shell command to invoke Python interpreter
+py-temp-directory       directory used for temp files (if needed)
+py-beep-if-tab-change       ring the bell if `tab-width' is changed
 
 \(fn)" t nil)
 
@@ -10151,7 +10283,7 @@ This must be bound to a button-down mouse event.
 
 ;;;### (autoloads (remember-diary-extract-entries remember-clipboard
 ;;;;;;  remember-other-frame remember) "remember" "remember/remember.el"
-;;;;;;  (19785 38401))
+;;;;;;  (19848 53012))
 ;;; Generated autoloads from remember/remember.el
 
 (autoload 'remember "remember" "\
@@ -10183,7 +10315,7 @@ Extract diary entries from the region.
 ;;;***
 
 ;;;### (autoloads (remember-bbdb-store-in-mailbox) "remember-bbdb"
-;;;;;;  "remember/remember-bbdb.el" (19785 38401))
+;;;;;;  "remember/remember-bbdb.el" (19848 53012))
 ;;; Generated autoloads from remember/remember-bbdb.el
 
 (autoload 'remember-bbdb-store-in-mailbox "remember-bbdb" "\
@@ -10197,7 +10329,7 @@ field, for the purpose of appropriate splitting.
 ;;;***
 
 ;;;### (autoloads (remember-location remember-url) "remember-bibl"
-;;;;;;  "remember/remember-bibl.el" (19785 38401))
+;;;;;;  "remember/remember-bibl.el" (19848 53012))
 ;;; Generated autoloads from remember/remember-bibl.el
 
 (autoload 'remember-url "remember-bibl" "\
@@ -10213,7 +10345,7 @@ Remember a bookmark location in `bibl-mode'.
 ;;;***
 
 ;;;### (autoloads (remember-blosxom) "remember-blosxom" "remember/remember-blosxom.el"
-;;;;;;  (19785 38401))
+;;;;;;  (19848 53012))
 ;;; Generated autoloads from remember/remember-blosxom.el
 
 (autoload 'remember-blosxom "remember-blosxom" "\
@@ -10226,7 +10358,7 @@ This function can be added to `remember-handler-functions'.
 
 ;;;### (autoloads (remember-emacs-wiki-journal-add-entry-maybe remember-emacs-wiki-journal-add-entry-auto
 ;;;;;;  remember-emacs-wiki-journal-add-entry) "remember-emacs-wiki-journal"
-;;;;;;  "remember/remember-emacs-wiki-journal.el" (19785 38401))
+;;;;;;  "remember/remember-emacs-wiki-journal.el" (19848 53012))
 ;;; Generated autoloads from remember/remember-emacs-wiki-journal.el
 
 (autoload 'remember-emacs-wiki-journal-add-entry "remember-emacs-wiki-journal" "\
@@ -10249,7 +10381,7 @@ entry if the first line matches `emacs-wiki-journal-category-regexp'.
 ;;;***
 
 ;;;### (autoloads (remember-planner-append) "remember-planner" "remember/remember-planner.el"
-;;;;;;  (19785 38401))
+;;;;;;  (19848 53012))
 ;;; Generated autoloads from remember/remember-planner.el
 
 (autoload 'remember-planner-append "remember-planner" "\
@@ -10307,7 +10439,7 @@ Configuration should be saved by save-current-configuration.
 ;;;***
 
 ;;;### (autoloads (rinari-minor-mode rinari-launch) "rinari" "rinari/rinari.el"
-;;;;;;  (19809 16085))
+;;;;;;  (19848 53016))
 ;;; Generated autoloads from rinari/rinari.el
 
 (autoload 'rinari-launch "rinari" "\
@@ -10330,7 +10462,7 @@ with the Ruby on Rails framework.
 ;;;***
 
 ;;;### (autoloads (rinari-merb-minor-mode) "rinari-merb" "rinari/rinari-merb.el"
-;;;;;;  (19809 16085))
+;;;;;;  (19848 53016))
 ;;; Generated autoloads from rinari/rinari-merb.el
 
 (autoload 'rinari-merb-minor-mode "rinari-merb" "\
@@ -10354,7 +10486,7 @@ Red Hat Package Management in Emacs.
 ;;;### (autoloads (ruby-compilation-this-buffer ruby-compilation-cap
 ;;;;;;  ruby-compilation-rake ruby-compilation-run pcomplete/cap
 ;;;;;;  pcomplete/rake) "ruby-compilation" "rinari/util/ruby-compilation.el"
-;;;;;;  (19809 16085))
+;;;;;;  (19848 53016))
 ;;; Generated autoloads from rinari/util/ruby-compilation.el
 
 (autoload 'pcomplete/rake "ruby-compilation" "\
@@ -10390,7 +10522,7 @@ Run the current buffer through Ruby compilation.
 ;;;***
 
 ;;;### (autoloads (ruby-mode) "ruby-mode" "rinari/util/ruby-mode.el"
-;;;;;;  (19809 16085))
+;;;;;;  (19848 53016))
 ;;; Generated autoloads from rinari/util/ruby-mode.el
 
 (autoload 'ruby-mode "ruby-mode" "\
@@ -15281,52 +15413,7 @@ prompt for the function or variable to find, instead.
 
 ;;;***
 
-;;;### (autoloads (tf-run-with-idle-timer tf-time-difference) "timerfunctions"
-;;;;;;  "predictive/timerfunctions.el" (19433 45500))
-;;; Generated autoloads from predictive/timerfunctions.el
-
-(autoload 'tf-time-difference "timerfunctions" "\
-Gives the time in seconds elaspsed from TIMESUB to TIMEPLUS.
-Almost like (- TIMEPLUS TIMESUB ).
-
-\(fn TIMEPLUS TIMESUB)" nil nil)
-
-(autoload 'tf-run-with-idle-timer "timerfunctions" "\
-Args are SECS, REPEAT, REDOSECS, REDOREPEAT, INCLUDERUNTIME,
-FUNCTION and &rest ARGS.
-Similar to run-with-idle-timer, except that provides more options.
-Suppose you want emacs to run an action every REDOSECS for as long as
-emacs remains idle.  Think you can do it with the emacs' 
-run-with-idle-timer? Think again.. :)   That function will perform the
-action exactly once every time emacs goes idle.  This funciton, 
-tf-run-with-idle-timer *will* allow you to keep performing an action
-as long as emacs remains idle.
-
-SECS is the number of seconds to wait once emacs has first gone
-idle. It can really be any expression whose at runtime yields a
-number..  Note that the way run-with-idle-timer is defined, SECS will
-unfortunately be evalled immediately after you call this function, but
-redosecs will be *every* time emacs *remains* idle..yay..
-
-
-If REDOREPEAT is non-nil, the action is repeated as long emacs remains
-idle.  REDOSECS is the number of additional seconds (after the action
-has been done) to wait if emacs remains idle before performing the
-action again.  Again, redosecs does not have to be a number, it can be
-any expression whose eval yields to a number...
-
-If INCLUDERUNTIME is non-nil, REDOSECS is the number of
-additional seconds to wait after the action has been invoked (not
-finished).
-
-If REPEAT is nonnil, the entire cycle is repeated every time emacs
-next goes idle.. (as in the default run-with-idle-timer.
-
-\(fn SECS REPEAT REDOSECS REDOREPEAT INCLUDERUNTIME FUNCTION &rest ARGS)" nil nil)
-
-;;;***
-
-;;;### (autoloads (tq-create) "tq" "emms/lisp/tq.el" (19793 16447))
+;;;### (autoloads (tq-create) "tq" "emms/lisp/tq.el" (19848 52901))
 ;;; Generated autoloads from emms/lisp/tq.el
 
 (autoload 'tq-create "tq" "\
@@ -15512,314 +15599,9 @@ Tweak your sound card volume.
 
 ;;;***
 
-;;;### (autoloads (w3m-buffer w3m-region w3m-find-file w3m-browse-url
-;;;;;;  w3m w3m-gohome w3m-goto-url-new-session w3m-goto-url w3m-download
-;;;;;;  w3m-retrieve) "w3m" "emacs-w3m/w3m.el" (19100 32629))
-;;; Generated autoloads from emacs-w3m/w3m.el
-
-(autoload 'w3m-retrieve "w3m" "\
-Retrieve web contents pointed to by URL.
-It will put the retrieved contents into the current buffer.
-
-If HANDLER is nil, this function will retrieve web contents, return
-the content type of the retrieved data, and then come to an end.  This
-behavior is what is called a synchronous operation.  You have to
-specify HANDLER in order to make this function show its real ability,
-which is called an asynchronous operation.
-
-If HANDLER is a function, this function will come to an end in no time.
-In this case, contents will be retrieved by the asynchronous process
-after a while.  And after finishing retrieving contents successfully,
-HANDLER will be called on the buffer where this function starts.  The
-content type of the retrieved data will be passed to HANDLER as a
-string argument.
-
-NO-UNCOMPRESS specifies whether this function should not uncompress contents.
-NO-CACHE specifies whether this function should not use cached contents.
-POST-DATA and REFERER will be sent to the web server with a request.
-
-\(fn URL &optional NO-UNCOMPRESS NO-CACHE POST-DATA REFERER HANDLER)" nil nil)
-
-(autoload 'w3m-download "w3m" "\
-Download contents of URL to a file named FILENAME.
-NO-CHACHE (which the prefix argument gives when called interactively)
-specifies not using the cached data.
-
-\(fn URL &optional FILENAME NO-CACHE HANDLER POST-DATA)" t nil)
-
-(autoload 'w3m-goto-url "w3m" "\
-Visit World Wide Web pages.  This is the primitive function of `w3m'.
-If the second argument RELOAD is non-nil, reload a content of URL.
-Except that if it is 'redisplay, re-display the page without reloading.
-The third argument CHARSET specifies a charset to be used for decoding
-a content.
-The fourth argument POST-DATA should be a string or a cons cell.  If
-it is a string, it makes this function request a body as if the
-content-type is \"x-www-form-urlencoded\".  If it is a cons cell, the
-car of a cell is used as the content-type and the cdr of a cell is
-used as the body.
-If the fifth argument REFERER is specified, it is used for a Referer:
-field for this request.
-The remaining HANDLER, ELEMENT[1], and NO-POPUP are for the
-internal operations of emacs-w3m.
-You can also use \"quicksearch\" url schemes such as \"gg:emacs\" which
-would search for the term \"emacs\" with the Google search engine.  See
-the `w3m-search' function and the variable `w3m-uri-replace-alist'.
-
-\[1] A note for the developers: ELEMENT is a history element which has
-already been registered in the `w3m-history-flat' variable.  It is
-corresponding to URL to be retrieved at this time, not for the url of
-the current page.
-
-\(fn URL &optional RELOAD CHARSET POST-DATA REFERER HANDLER ELEMENT NO-POPUP)" t nil)
-
-(autoload 'w3m-goto-url-new-session "w3m" "\
-Visit World Wide Web pages in a new session.
-If you invoke this command in the emacs-w3m buffer, the new session
-will be created by copying the current session.  Otherwise, the new
-session will start afresh.
-
-\(fn URL &optional RELOAD CHARSET POST-DATA REFERER)" t nil)
-
-(autoload 'w3m-gohome "w3m" "\
-Go to the Home page.
-
-\(fn)" t nil)
-
-(autoload 'w3m "w3m" "\
-Visit World Wide Web pages using the external w3m command.
-
-When you invoke this command interactively for the first time, it will
-visit a page which is pointed to by a string like url around the
-cursor position or the home page specified by the `w3m-home-page'
-variable, but you will be prompted for a URL if `w3m-quick-start' is
-nil (default t) or `w3m-home-page' is nil.
-
-The variables `w3m-pop-up-windows' and `w3m-pop-up-frames' control
-whether this command should pop to a window or a frame up for the
-session.
-
-When emacs-w3m sessions have already been opened, this command will
-pop to the existing window or frame up, but if `w3m-quick-start' is
-nil, (default t), you will be prompted for a URL (which defaults to
-`popup' meaning to pop to an existing emacs-w3m buffer up).
-
-In addition, if the prefix argument is given or you enter the empty
-string for the prompt, it will visit the home page specified by the
-`w3m-home-page' variable or the \"about:\" page.
-
-You can also run this command in the batch mode as follows:
-
-  emacs -f w3m http://emacs-w3m.namazu.org/ &
-
-In that case, or if this command is called non-interactively, the
-variables `w3m-pop-up-windows' and `w3m-pop-up-frames' will be ignored
-\(treated as nil) and it will run emacs-w3m at the current (or the
-initial) window.
-
-If the optional NEW-SESSION is non-nil, this function makes a new
-emacs-w3m buffer.  Besides that, it also makes a new emacs-w3m buffer
-if `w3m-make-new-session' is non-nil and a user specifies a url string.
-
-The optional INTERACTIVE-P is for the internal use; it is mainly used
-to check whether Emacs 22 or later calls this function as an
-interactive command in the batch mode.
-
-\(fn &optional URL NEW-SESSION INTERACTIVE-P)" t nil)
-
-(autoload 'w3m-browse-url "w3m" "\
-Ask emacs-w3m to browse URL.
-NEW-SESSION specifies whether to create a new emacs-w3m session.  URL
-defaults to the string looking like a url around the cursor position.
-Pop to a window or a frame up according to `w3m-pop-up-windows' and
-`w3m-pop-up-frames'.
-
-\(fn URL &optional NEW-SESSION)" t nil)
-
-(autoload 'w3m-find-file "w3m" "\
-Function used to open FILE whose name is expressed in ordinary format.
-The file name will be converted into the file: scheme.
-
-\(fn FILE)" t nil)
-
-(autoload 'w3m-region "w3m" "\
-Render the region of the current buffer between START and END.
-URL specifies the address where the contents come from.  It can be
-omitted or nil when the address is not identified.  CHARSET is used
-for decoding the contents.  If it is nil, this function attempts to
-parse the meta tag to extract the charset.
-
-\(fn START END &optional URL CHARSET)" t nil)
-
-(autoload 'w3m-buffer "w3m" "\
-Render the current buffer.
-See `w3m-region' for the optional arguments.
-
-\(fn &optional URL CHARSET)" t nil)
-
-;;;***
-
-;;;### (autoloads (w3m-antenna w3m-about-antenna) "w3m-antenna" "emacs-w3m/w3m-antenna.el"
-;;;;;;  (18712 53399))
-;;; Generated autoloads from emacs-w3m/w3m-antenna.el
-
-(autoload 'w3m-about-antenna "w3m-antenna" "\
-Not documented
-
-\(fn URL &optional NO-DECODE NO-CACHE POST-DATA REFERER HANDLER)" nil nil)
-
-(autoload 'w3m-antenna "w3m-antenna" "\
-Report changes of WEB sites, which is specified in `w3m-antenna-sites'.
-
-\(fn &optional NO-CACHE)" t nil)
-
-;;;***
-
-;;;### (autoloads (w3m-setup-bookmark-menu w3m-about-bookmark w3m-bookmark-view-new-session
-;;;;;;  w3m-bookmark-view w3m-bookmark-add-current-url-group w3m-bookmark-add-all-urls
-;;;;;;  w3m-bookmark-add-current-url w3m-bookmark-add-this-url) "w3m-bookmark"
-;;;;;;  "emacs-w3m/w3m-bookmark.el" (18964 36505))
-;;; Generated autoloads from emacs-w3m/w3m-bookmark.el
-
-(autoload 'w3m-bookmark-add-this-url "w3m-bookmark" "\
-Add link under cursor to bookmark.
-
-\(fn)" t nil)
-
-(autoload 'w3m-bookmark-add-current-url "w3m-bookmark" "\
-Add a url of the current page to the bookmark.
-With prefix, ask for a new url instead of the present one.
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'w3m-bookmark-add-all-urls "w3m-bookmark" "\
-Add urls of all pages being visited to the bookmark.
-
-\(fn)" t nil)
-
-(autoload 'w3m-bookmark-add-current-url-group "w3m-bookmark" "\
-Add link of the group of current urls to the bookmark.
-
-\(fn)" t nil)
-
-(autoload 'w3m-bookmark-view "w3m-bookmark" "\
-Display the bookmark.
-
-\(fn &optional RELOAD)" t nil)
-
-(autoload 'w3m-bookmark-view-new-session "w3m-bookmark" "\
-Display the bookmark on a new session.
-
-\(fn &optional RELOAD)" t nil)
-
-(autoload 'w3m-about-bookmark "w3m-bookmark" "\
-Not documented
-
-\(fn &rest ARGS)" nil nil)
-
-(autoload 'w3m-setup-bookmark-menu "w3m-bookmark" "\
-Setup w3m bookmark items in menubar.
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (w3m-about-cookie w3m-cookie w3m-cookie-get w3m-cookie-set
-;;;;;;  w3m-cookie-shutdown) "w3m-cookie" "emacs-w3m/w3m-cookie.el"
-;;;;;;  (18964 36505))
-;;; Generated autoloads from emacs-w3m/w3m-cookie.el
-
-(autoload 'w3m-cookie-shutdown "w3m-cookie" "\
-Save cookies, and reset cookies' data.
-
-\(fn)" t nil)
-
-(autoload 'w3m-cookie-set "w3m-cookie" "\
-Register cookies which correspond to URL.
-BEG and END should be an HTTP response header region on current buffer.
-
-\(fn URL BEG END)" nil nil)
-
-(autoload 'w3m-cookie-get "w3m-cookie" "\
-Get a cookie field string which corresponds to the URL.
-
-\(fn URL)" nil nil)
-
-(autoload 'w3m-cookie "w3m-cookie" "\
-Display cookies and enable you to manage them.
-
-\(fn &optional NO-CACHE)" t nil)
-
-(autoload 'w3m-about-cookie "w3m-cookie" "\
-Make the html contents to display and to enable you to manage cookies.
-
-\(fn URL &optional NO-DECODE NO-CACHE POST-DATA &rest ARGS)" nil nil)
-
-;;;***
-
-;;;### (autoloads (w3m-dtree w3m-about-dtree) "w3m-dtree" "emacs-w3m/w3m-dtree.el"
-;;;;;;  (18964 36505))
-;;; Generated autoloads from emacs-w3m/w3m-dtree.el
-
-(autoload 'w3m-about-dtree "w3m-dtree" "\
-Not documented
-
-\(fn URL &optional NODECODE ALLFILES &rest ARGS)" nil nil)
-
-(autoload 'w3m-dtree "w3m-dtree" "\
-Display directory tree on local file system.
-If called with 'prefix argument', display all directorys and files.
-
-\(fn ALLFILES PATH)" t nil)
-
-;;;***
-
-;;;### (autoloads (w3m-fb-mode) "w3m-fb" "emacs-w3m/w3m-fb.el" (17681
-;;;;;;  2386))
-;;; Generated autoloads from emacs-w3m/w3m-fb.el
-
-(defvar w3m-fb-mode nil "\
-Non-nil if W3m-Fb mode is enabled.
-See the command `w3m-fb-mode' for a description of this minor mode.
-Setting this variable directly does not take effect;
-either customize it (see the info node `Easy Customization')
-or call the function `w3m-fb-mode'.")
-
-(custom-autoload 'w3m-fb-mode "w3m-fb" nil)
-
-(autoload 'w3m-fb-mode "w3m-fb" "\
-Toggle W3M Frame Buffer mode.
-This allows frame-local lists of buffers (tabs).
-
-\(fn &optional ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads (w3m-filter) "w3m-filter" "emacs-w3m/w3m-filter.el"
-;;;;;;  (18560 15090))
-;;; Generated autoloads from emacs-w3m/w3m-filter.el
-
-(autoload 'w3m-filter "w3m-filter" "\
-Apply filtering rule of URL against a content in this buffer.
-
-\(fn URL)" nil nil)
-
-;;;***
-
-;;;### (autoloads (w3m-fontify-forms) "w3m-form" "emacs-w3m/w3m-form.el"
-;;;;;;  (18964 36505))
-;;; Generated autoloads from emacs-w3m/w3m-form.el
-
-(autoload 'w3m-fontify-forms "w3m-form" "\
-Process half-dumped data and fontify forms in this buffer.
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (w3m-link-numbering-mode) "w3m-lnum" "emacs-w3m/w3m-lnum.el"
-;;;;;;  (18851 39583))
-;;; Generated autoloads from emacs-w3m/w3m-lnum.el
+;;;### (autoloads (w3m-link-numbering-mode) "w3m-lnum" "w3m-lnum.el"
+;;;;;;  (18762 14689))
+;;; Generated autoloads from w3m-lnum.el
 
 (autoload 'w3m-link-numbering-mode "w3m-lnum" "\
 Minor mode to enable operations using link numbers.
@@ -15828,126 +15610,8 @@ Minor mode to enable operations using link numbers.
 
 ;;;***
 
-;;;### (autoloads (w3m-namazu w3m-about-namazu) "w3m-namazu" "emacs-w3m/w3m-namazu.el"
-;;;;;;  (18964 36505))
-;;; Generated autoloads from emacs-w3m/w3m-namazu.el
-
-(autoload 'w3m-about-namazu "w3m-namazu" "\
-Not documented
-
-\(fn URL &optional NO-DECODE NO-CACHE &rest ARGS)" nil nil)
-
-(autoload 'w3m-namazu "w3m-namazu" "\
-Search indexed files with Namazu.
-
-\(fn INDEX QUERY &optional RELOAD)" t nil)
-
-;;;***
-
-;;;### (autoloads (w3m-perldoc w3m-about-perldoc) "w3m-perldoc" "emacs-w3m/w3m-perldoc.el"
-;;;;;;  (18197 61165))
-;;; Generated autoloads from emacs-w3m/w3m-perldoc.el
-
-(autoload 'w3m-about-perldoc "w3m-perldoc" "\
-Not documented
-
-\(fn URL &optional NO-DECODE NO-CACHE &rest ARGS)" nil nil)
-
-(autoload 'w3m-perldoc "w3m-perldoc" "\
-View Perl documents.
-
-\(fn DOCNAME)" t nil)
-
-;;;***
-
-;;;### (autoloads (w3m-search-uri-replace w3m-search-new-session
-;;;;;;  w3m-search) "w3m-search" "emacs-w3m/w3m-search.el" (19101
-;;;;;;  52640))
-;;; Generated autoloads from emacs-w3m/w3m-search.el
-
-(autoload 'w3m-search "w3m-search" "\
-Search QUERY using SEARCH-ENGINE.
-When called interactively with a prefix argument, you can choose one of
-the search engines defined in `w3m-search-engine-alist'.  Otherwise use
-`w3m-search-default-engine'.
-If Transient Mark mode, use the region as an initial string of query
-and deactivate the mark.
-
-\(fn SEARCH-ENGINE QUERY)" t nil)
-
-(autoload 'w3m-search-new-session "w3m-search" "\
-Like `w3m-search', but do the search in a new session.
-
-\(fn SEARCH-ENGINE QUERY)" t nil)
-
-(autoload 'w3m-search-uri-replace "w3m-search" "\
-Generate query string for ENGINE from URI matched by last search.
-
-\(fn URI ENGINE)" nil nil)
-
-;;;***
-
-;;;### (autoloads (w3m-session-last-crashed-session w3m-session-last-autosave-session
-;;;;;;  w3m-setup-session-menu w3m-session-select w3m-session-save)
-;;;;;;  "w3m-session" "emacs-w3m/w3m-session.el" (18964 36505))
-;;; Generated autoloads from emacs-w3m/w3m-session.el
-
-(autoload 'w3m-session-save "w3m-session" "\
-Save list of displayed session.
-
-\(fn)" t nil)
-
-(autoload 'w3m-session-select "w3m-session" "\
-Select session from session list.
-
-\(fn)" t nil)
-
-(autoload 'w3m-setup-session-menu "w3m-session" "\
-Setup w3m session items in menubar.
-
-\(fn)" nil nil)
-
-(autoload 'w3m-session-last-autosave-session "w3m-session" "\
-Not documented
-
-\(fn)" nil nil)
-
-(autoload 'w3m-session-last-crashed-session "w3m-session" "\
-Not documented
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (w3m-replace-symbol) "w3m-symbol" "emacs-w3m/w3m-symbol.el"
-;;;;;;  (18791 2971))
-;;; Generated autoloads from emacs-w3m/w3m-symbol.el
-
-(autoload 'w3m-replace-symbol "w3m-symbol" "\
-Not documented
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (w3m-about-weather w3m-weather) "w3m-weather" "emacs-w3m/w3m-weather.el"
-;;;;;;  (18197 61165))
-;;; Generated autoloads from emacs-w3m/w3m-weather.el
-
-(autoload 'w3m-weather "w3m-weather" "\
-Display weather report.
-
-\(fn AREA)" t nil)
-
-(autoload 'w3m-about-weather "w3m-weather" "\
-Not documented
-
-\(fn URL NO-DECODE NO-CACHE POST-DATA REFERER HANDLER)" nil nil)
-
-;;;***
-
 ;;;### (autoloads (which-function-mode) "which-func" "rinari/util/jump/which-func.el"
-;;;;;;  (19809 16109))
+;;;;;;  (19848 53018))
 ;;; Generated autoloads from rinari/util/jump/which-func.el
  (put 'which-func-format 'risky-local-variable t)
  (put 'which-func-current 'risky-local-variable t)
@@ -16514,7 +16178,7 @@ controlled by the `ws-trim-global-modes' variable.
 ;;;***
 
 ;;;### (autoloads (yas/minor-mode yas/snippet-dirs) "yasnippet" "yasnippet/yasnippet.el"
-;;;;;;  (19824 54050))
+;;;;;;  (19848 52943))
 ;;; Generated autoloads from yasnippet/yasnippet.el
 
 (defvar yas/snippet-dirs nil "\
@@ -16558,11 +16222,11 @@ Key bindings:
 ;;;;;;  "bbdb/bits/bbdb-ldif.el" "bbdb/bits/bbdb-mail-folders.el"
 ;;;;;;  "bbdb/bits/bbdb-signature.el" "bbdb/bits/bbdb-sort-mailrc.el"
 ;;;;;;  "bbdb/bits/bbdb-to-outlook.el" "bbdb/lisp/bbdb-autoloads.el"
-;;;;;;  "bbdb/loadpath.el" "bbdb/misc/bbdb-unmigrate-stuff.el" "bigclock.el"
-;;;;;;  "bitlbee.el" "bookmark-plus/bookmark+-chg.el" "bookmark-plus/bookmark+-doc.el"
-;;;;;;  "bubble-buffer.el" "buffer-move.el" "byte-code-cache.el"
-;;;;;;  "bzr.el" "c-sig.el" "calendar-howm.el" "cedet/cedet-build.el"
-;;;;;;  "cedet/cedet-ediff.el" "cedet/cedet-update-changelog.el"
+;;;;;;  "bbdb/loadpath.el" "bbdb/misc/bbdb-unmigrate-stuff.el" "bbdb/testing/run-tests.el"
+;;;;;;  "bigclock.el" "bitlbee.el" "bookmark-plus/bookmark+-chg.el"
+;;;;;;  "bookmark-plus/bookmark+-doc.el" "bubble-buffer.el" "buffer-move.el"
+;;;;;;  "byte-code-cache.el" "bzr.el" "c-sig.el" "calendar-howm.el"
+;;;;;;  "cedet/cedet-build.el" "cedet/cedet-ediff.el" "cedet/cedet-update-changelog.el"
 ;;;;;;  "cedet/cedet-update-version.el" "cedet/cogre/cogre-load.el"
 ;;;;;;  "cedet/cogre/cogre-loaddefs.el" "cedet/cogre/wisent-dot-wy.el"
 ;;;;;;  "cedet/common/cedet-load.el" "cedet/common/cedet-loaddefs.el"
@@ -16616,88 +16280,14 @@ Key bindings:
 ;;;;;;  "cedet/tests/cit-externaldb.el" "cedet/tests/cit-gnustep.el"
 ;;;;;;  "cedet/tests/cit-load.el" "cedet/tests/cit-srec.el" "cedet/tests/cit-symref.el"
 ;;;;;;  "cedet/tests/cit-texi.el" "cedet/tests/cit-uml.el" "ch6-bbdb-import-csv-buffer.el"
-;;;;;;  "chop.el" "circe/circe-auto.el" "circe/circe-chanop.el" "circe/circe-e21.el"
-;;;;;;  "circe/circe-xemacs.el" "circe/incomplete.el" "circe/lcs.el"
-;;;;;;  "circe/lui-format.el" "circe/lui-logging.el" "circe/lui-xemacs.el"
-;;;;;;  "circe/lui.el" "circe/scripts/build-helper.el" "circe/tracking.el"
-;;;;;;  "color-moccur.el" "color-theme-6.6.0/color-theme-autoloads.el"
+;;;;;;  "chop.el" "color-moccur.el" "color-theme-6.6.0/color-theme-autoloads.el"
 ;;;;;;  "color-theme-6.6.0/themes/color-theme-example.el" "color-theme-6.6.0/themes/color-theme-library.el"
 ;;;;;;  "command-frequency.el" "compile-utils.el" "csv.el" "dar.el"
 ;;;;;;  "darcsum/50darcsum.el" "dired-details.el" "dired-extension.el"
 ;;;;;;  "django-mode.el" "electric-dot-and-dash.el" "elscreen-color-theme.el"
 ;;;;;;  "elscreen-dired.el" "elscreen-howm.el" "elscreen-server.el"
 ;;;;;;  "elscreen-speedbar.el" "elscreen-w3m.el" "elscreen-wl.el"
-;;;;;;  "elscreen.el" "emacs-w3m/mew-w3m.el" "emacs-w3m/shimbun/sb-2ch.el"
-;;;;;;  "emacs-w3m/shimbun/sb-airs.el" "emacs-w3m/shimbun/sb-aljazeera.el"
-;;;;;;  "emacs-w3m/shimbun/sb-arch-bluegate.el" "emacs-w3m/shimbun/sb-asahi-html.el"
-;;;;;;  "emacs-w3m/shimbun/sb-asahi-mytown.el" "emacs-w3m/shimbun/sb-asahi.el"
-;;;;;;  "emacs-w3m/shimbun/sb-atmarkit.el" "emacs-w3m/shimbun/sb-atom-hash.el"
-;;;;;;  "emacs-w3m/shimbun/sb-atom.el" "emacs-w3m/shimbun/sb-bbc.el"
-;;;;;;  "emacs-w3m/shimbun/sb-bbdb-ml.el" "emacs-w3m/shimbun/sb-cgi-board.el"
-;;;;;;  "emacs-w3m/shimbun/sb-cnet-jp.el" "emacs-w3m/shimbun/sb-cnet.el"
-;;;;;;  "emacs-w3m/shimbun/sb-cnn-jp.el" "emacs-w3m/shimbun/sb-coldsync.el"
-;;;;;;  "emacs-w3m/shimbun/sb-debian-jp.el" "emacs-w3m/shimbun/sb-debian.el"
-;;;;;;  "emacs-w3m/shimbun/sb-debugmagazin-de.el" "emacs-w3m/shimbun/sb-dennou.el"
-;;;;;;  "emacs-w3m/shimbun/sb-digiko.el" "emacs-w3m/shimbun/sb-elips.el"
-;;;;;;  "emacs-w3m/shimbun/sb-emacs-w3m.el" "emacs-w3m/shimbun/sb-emacswiki.el"
-;;;;;;  "emacs-w3m/shimbun/sb-engadget-ja.el" "emacs-w3m/shimbun/sb-excite.el"
-;;;;;;  "emacs-w3m/shimbun/sb-exconn.el" "emacs-w3m/shimbun/sb-f1fan.el"
-;;;;;;  "emacs-w3m/shimbun/sb-fau.el" "emacs-w3m/shimbun/sb-ffii.el"
-;;;;;;  "emacs-w3m/shimbun/sb-fml.el" "emacs-w3m/shimbun/sb-gendai-net.el"
-;;;;;;  "emacs-w3m/shimbun/sb-geocrawler.el" "emacs-w3m/shimbun/sb-glimpse.el"
-;;;;;;  "emacs-w3m/shimbun/sb-gnome.el" "emacs-w3m/shimbun/sb-haiku-os.el"
-;;;;;;  "emacs-w3m/shimbun/sb-hash.el" "emacs-w3m/shimbun/sb-heise.el"
-;;;;;;  "emacs-w3m/shimbun/sb-hns.el" "emacs-w3m/shimbun/sb-ibm-dev.el"
-;;;;;;  "emacs-w3m/shimbun/sb-impress.el" "emacs-w3m/shimbun/sb-infoshop.el"
-;;;;;;  "emacs-w3m/shimbun/sb-itmedia.el" "emacs-w3m/shimbun/sb-japantimes.el"
-;;;;;;  "emacs-w3m/shimbun/sb-javaconf.el" "emacs-w3m/shimbun/sb-jpilot.el"
-;;;;;;  "emacs-w3m/shimbun/sb-jpo.el" "emacs-w3m/shimbun/sb-kantei.el"
-;;;;;;  "emacs-w3m/shimbun/sb-kde.el" "emacs-w3m/shimbun/sb-laut-de.el"
-;;;;;;  "emacs-w3m/shimbun/sb-linuxce-jp.el" "emacs-w3m/shimbun/sb-lotusex.el"
-;;;;;;  "emacs-w3m/shimbun/sb-lump.el" "emacs-w3m/shimbun/sb-m17n.el"
-;;;;;;  "emacs-w3m/shimbun/sb-macosx-jp.el" "emacs-w3m/shimbun/sb-mailarc.el"
-;;;;;;  "emacs-w3m/shimbun/sb-mailman.el" "emacs-w3m/shimbun/sb-mainichi.el"
-;;;;;;  "emacs-w3m/shimbun/sb-makanai.el" "emacs-w3m/shimbun/sb-marc-aims.el"
-;;;;;;  "emacs-w3m/shimbun/sb-meadow.el" "emacs-w3m/shimbun/sb-mew.el"
-;;;;;;  "emacs-w3m/shimbun/sb-mhonarc.el" "emacs-w3m/shimbun/sb-mozilla-jp.el"
-;;;;;;  "emacs-w3m/shimbun/sb-msdn.el" "emacs-w3m/shimbun/sb-msports-nifty.el"
-;;;;;;  "emacs-w3m/shimbun/sb-multi.el" "emacs-w3m/shimbun/sb-n24-de.el"
-;;;;;;  "emacs-w3m/shimbun/sb-namazu.el" "emacs-w3m/shimbun/sb-netbsd.el"
-;;;;;;  "emacs-w3m/shimbun/sb-nikkansports.el" "emacs-w3m/shimbun/sb-nikkei.el"
-;;;;;;  "emacs-w3m/shimbun/sb-nytimes.el" "emacs-w3m/shimbun/sb-opentechpress-jp.el"
-;;;;;;  "emacs-w3m/shimbun/sb-orca.el" "emacs-w3m/shimbun/sb-palmfan.el"
-;;;;;;  "emacs-w3m/shimbun/sb-pcweb-column.el" "emacs-w3m/shimbun/sb-perlentaucher-de.el"
-;;;;;;  "emacs-w3m/shimbun/sb-pilot-link.el" "emacs-w3m/shimbun/sb-pilot-mailsync.el"
-;;;;;;  "emacs-w3m/shimbun/sb-plucker.el" "emacs-w3m/shimbun/sb-pocketgames.el"
-;;;;;;  "emacs-w3m/shimbun/sb-rakuten.el" "emacs-w3m/shimbun/sb-redhat.el"
-;;;;;;  "emacs-w3m/shimbun/sb-rediff.el" "emacs-w3m/shimbun/sb-rss-blogs.el"
-;;;;;;  "emacs-w3m/shimbun/sb-rss-hash.el" "emacs-w3m/shimbun/sb-rss.el"
-;;;;;;  "emacs-w3m/shimbun/sb-ruby.el" "emacs-w3m/shimbun/sb-sankei.el"
-;;;;;;  "emacs-w3m/shimbun/sb-savannah.el" "emacs-w3m/shimbun/sb-scipy.el"
-;;;;;;  "emacs-w3m/shimbun/sb-security-memo.el" "emacs-w3m/shimbun/sb-slashdot-jp.el"
-;;;;;;  "emacs-w3m/shimbun/sb-slashdot.el" "emacs-w3m/shimbun/sb-sml.el"
-;;;;;;  "emacs-w3m/shimbun/sb-sourceforge-jp.el" "emacs-w3m/shimbun/sb-spiegel.el"
-;;;;;;  "emacs-w3m/shimbun/sb-sponichi.el" "emacs-w3m/shimbun/sb-squeak-dev.el"
-;;;;;;  "emacs-w3m/shimbun/sb-squeak-ja.el" "emacs-w3m/shimbun/sb-sueddeutsche-de.el"
-;;;;;;  "emacs-w3m/shimbun/sb-tcup.el" "emacs-w3m/shimbun/sb-tdiary-ml.el"
-;;;;;;  "emacs-w3m/shimbun/sb-tdiary.el" "emacs-w3m/shimbun/sb-tech-on.el"
-;;;;;;  "emacs-w3m/shimbun/sb-texfaq.el" "emacs-w3m/shimbun/sb-text.el"
-;;;;;;  "emacs-w3m/shimbun/sb-the-onion.el" "emacs-w3m/shimbun/sb-the-register.el"
-;;;;;;  "emacs-w3m/shimbun/sb-tigris.el" "emacs-w3m/shimbun/sb-toshiba.el"
-;;;;;;  "emacs-w3m/shimbun/sb-vinelinux.el" "emacs-w3m/shimbun/sb-w3m-dev.el"
-;;;;;;  "emacs-w3m/shimbun/sb-welt-de.el" "emacs-w3m/shimbun/sb-wiki.el"
-;;;;;;  "emacs-w3m/shimbun/sb-wikimedia.el" "emacs-w3m/shimbun/sb-wincefan.el"
-;;;;;;  "emacs-w3m/shimbun/sb-wired-jp.el" "emacs-w3m/shimbun/sb-x51.el"
-;;;;;;  "emacs-w3m/shimbun/sb-xemacs.el" "emacs-w3m/shimbun/sb-yahoo-auctions.el"
-;;;;;;  "emacs-w3m/shimbun/sb-yahoo-sports.el" "emacs-w3m/shimbun/sb-yahoo.el"
-;;;;;;  "emacs-w3m/shimbun/sb-yomiuri-html.el" "emacs-w3m/shimbun/sb-yomiuri.el"
-;;;;;;  "emacs-w3m/shimbun/sb-zdnet-jp.el" "emacs-w3m/shimbun/sb-zeit-de.el"
-;;;;;;  "emacs-w3m/shimbun/shimbun.el" "emacs-w3m/w3m-bug.el" "emacs-w3m/w3m-ccl.el"
-;;;;;;  "emacs-w3m/w3m-ems.el" "emacs-w3m/w3m-favicon.el" "emacs-w3m/w3m-hist.el"
-;;;;;;  "emacs-w3m/w3m-image.el" "emacs-w3m/w3m-load.el" "emacs-w3m/w3m-mail.el"
-;;;;;;  "emacs-w3m/w3m-proc.el" "emacs-w3m/w3m-rss.el" "emacs-w3m/w3m-tabmenu.el"
-;;;;;;  "emacs-w3m/w3m-ucs.el" "emacs-w3m/w3m-util.el" "emacs-w3m/w3m-xmas.el"
-;;;;;;  "emacs-w3m/w3mhack.el" "emms/lisp/emms-auto.el" "emms/lisp/emms-bookmarks.el"
+;;;;;;  "elscreen.el" "emms/lisp/emms-auto.el" "emms/lisp/emms-bookmarks.el"
 ;;;;;;  "emms/lisp/emms-browser.el" "emms/lisp/emms-compat.el" "emms/lisp/emms-cue.el"
 ;;;;;;  "emms/lisp/emms-history.el" "emms/lisp/emms-i18n.el" "emms/lisp/emms-info-libtag.el"
 ;;;;;;  "emms/lisp/emms-info-metaflac.el" "emms/lisp/emms-info-mp3info.el"
@@ -16711,39 +16301,38 @@ Key bindings:
 ;;;;;;  "emms/lisp/emms-playlist-sort.el" "emms/lisp/emms-stream-info.el"
 ;;;;;;  "emms/lisp/emms-tag-editor.el" "emms/lisp/emms-url.el" "emms/lisp/emms.el"
 ;;;;;;  "emms/lisp/jack.el" "emms/lisp/later-do.el" "escreen.el"
-;;;;;;  "filladapt.el" "fuzzy.el" "gst-mode.el" "hexview-mode.el"
-;;;;;;  "highrise.el" "html-php.el" "html-script.el" "ion3.el" "jira.el"
-;;;;;;  "joseph-autopair.el" "json.el" "lazycat-toolkit.el" "lookout.el"
-;;;;;;  "magit-0.8.2/50magit.el" "magit-0.8.2/magit-pkg.el" "mailcrypt-3.5.9/mc-remail2.el"
-;;;;;;  "markdown-mode/markdown-mode.el" "maxframe.el" "mhc/emacs/mhc-bm.el"
-;;;;;;  "mhc/emacs/mhc-calendar.el" "mhc/emacs/mhc-compat.el" "mhc/emacs/mhc-cvs.el"
-;;;;;;  "mhc/emacs/mhc-date.el" "mhc/emacs/mhc-day.el" "mhc/emacs/mhc-db.el"
-;;;;;;  "mhc/emacs/mhc-draft.el" "mhc/emacs/mhc-e21.el" "mhc/emacs/mhc-face.el"
-;;;;;;  "mhc/emacs/mhc-file.el" "mhc/emacs/mhc-guess.el" "mhc/emacs/mhc-header.el"
-;;;;;;  "mhc/emacs/mhc-logic.el" "mhc/emacs/mhc-mime.el" "mhc/emacs/mhc-minibuf.el"
-;;;;;;  "mhc/emacs/mhc-misc.el" "mhc/emacs/mhc-parse.el" "mhc/emacs/mhc-record.el"
-;;;;;;  "mhc/emacs/mhc-schedule.el" "mhc/emacs/mhc-slot.el" "mhc/emacs/mhc-summary.el"
-;;;;;;  "mhc/emacs/mhc-sync.el" "mhc/emacs/mhc-vars.el" "mhc/emacs/mhc-xmas.el"
-;;;;;;  "mhc/emacs/mhc.el" "mhc/emacs/nnmhc.el" "mouse-embrace.el"
-;;;;;;  "mpg123.el" "newsticker-1.99/newsticker-testsuite.el" "newsticker-1.99/newsticker.el"
-;;;;;;  "newsticker-extension.el" "newsticker-notify.el" "oz/mozart.el"
-;;;;;;  "oz/oz-extra.el" "oz/oz-server.el" "oz/oz.el" "pabbrev.el"
-;;;;;;  "pager.el" "pair-mode.el" "paredit-extension.el" "paredit-viper-compat.el"
-;;;;;;  "parenface.el" "popup.el" "pos-tip.el" "predictive/auto-overlay-common.el"
-;;;;;;  "predictive/auto-overlay-flat.el" "predictive/auto-overlay-line.el"
-;;;;;;  "predictive/auto-overlay-nested.el" "predictive/auto-overlay-self.el"
-;;;;;;  "predictive/auto-overlay-word.el" "predictive/auto-overlays-compat.el"
-;;;;;;  "predictive/auto-overlays.el" "predictive/avl-tree.el" "predictive/completion-ui-dynamic.el"
-;;;;;;  "predictive/completion-ui-echo.el" "predictive/completion-ui-hotkeys.el"
-;;;;;;  "predictive/completion-ui-menu.el" "predictive/completion-ui-popup-frame.el"
-;;;;;;  "predictive/completion-ui-sources.el" "predictive/completion-ui-tooltip.el"
-;;;;;;  "predictive/completion-ui.el" "predictive/dict-english.el"
-;;;;;;  "predictive/dict-tree.el" "predictive/heap.el" "predictive/pos-tip.el"
-;;;;;;  "predictive/predictive-auto-overlay-auto-dict.el" "predictive/predictive-compat.el"
-;;;;;;  "predictive/predictive-convert-dump-format.el" "predictive/predictive-html.el"
-;;;;;;  "predictive/predictive-latex-graphicx.el" "predictive/predictive-latex.el"
-;;;;;;  "predictive/predictive-texinfo.el" "predictive/predictive.el"
-;;;;;;  "predictive/queue.el" "predictive/tNFA.el" "predictive/trie.el"
+;;;;;;  "filladapt.el" "fuzzy.el" "gst-mode.el" "haskellmode-emacs/haskell-font-lock.el"
+;;;;;;  "haskellmode-emacs/haskell-ghci.el" "haskellmode-emacs/haskell-hugs.el"
+;;;;;;  "haskellmode-emacs/haskell-simple-indent.el" "haskellmode-emacs/haskell-site-file.el"
+;;;;;;  "hexview-mode.el" "highrise.el" "howm-1.3.9.1/action-lock.el"
+;;;;;;  "howm-1.3.9.1/bcomp.el" "howm-1.3.9.1/cheat-font-lock.el"
+;;;;;;  "howm-1.3.9.1/gfunc.el" "howm-1.3.9.1/honest-report.el" "howm-1.3.9.1/howm-backend.el"
+;;;;;;  "howm-1.3.9.1/howm-cl.el" "howm-1.3.9.1/howm-common.el" "howm-1.3.9.1/howm-date.el"
+;;;;;;  "howm-1.3.9.1/howm-lang-en.el" "howm-1.3.9.1/howm-lang-ja.el"
+;;;;;;  "howm-1.3.9.1/howm-menu-en.el" "howm-1.3.9.1/howm-menu-ja.el"
+;;;;;;  "howm-1.3.9.1/howm-menu.el" "howm-1.3.9.1/howm-misc.el" "howm-1.3.9.1/howm-mkmenu.el"
+;;;;;;  "howm-1.3.9.1/howm-mode.el" "howm-1.3.9.1/howm-reminder.el"
+;;;;;;  "howm-1.3.9.1/howm-vars.el" "howm-1.3.9.1/howm-version.el"
+;;;;;;  "howm-1.3.9.1/howm-view.el" "howm-1.3.9.1/howm.el" "howm-1.3.9.1/illusion.el"
+;;;;;;  "howm-1.3.9.1/riffle.el" "html-php.el" "html-script.el" "ion3.el"
+;;;;;;  "jira.el" "joseph-autopair.el" "json.el" "lazycat-toolkit.el"
+;;;;;;  "lookout.el" "magit/50magit.el" "magit/magit-key-mode.el"
+;;;;;;  "magit/magit-pkg.el" "magit/magit-svn.el" "magit/magit-topgit.el"
+;;;;;;  "magit/rebase-mode.el" "mailcrypt-3.5.9/mc-remail2.el" "maxframe.el"
+;;;;;;  "mhc/emacs/mhc-bm.el" "mhc/emacs/mhc-calendar.el" "mhc/emacs/mhc-compat.el"
+;;;;;;  "mhc/emacs/mhc-cvs.el" "mhc/emacs/mhc-date.el" "mhc/emacs/mhc-day.el"
+;;;;;;  "mhc/emacs/mhc-db.el" "mhc/emacs/mhc-draft.el" "mhc/emacs/mhc-e21.el"
+;;;;;;  "mhc/emacs/mhc-face.el" "mhc/emacs/mhc-file.el" "mhc/emacs/mhc-guess.el"
+;;;;;;  "mhc/emacs/mhc-header.el" "mhc/emacs/mhc-logic.el" "mhc/emacs/mhc-mime.el"
+;;;;;;  "mhc/emacs/mhc-minibuf.el" "mhc/emacs/mhc-misc.el" "mhc/emacs/mhc-parse.el"
+;;;;;;  "mhc/emacs/mhc-record.el" "mhc/emacs/mhc-schedule.el" "mhc/emacs/mhc-slot.el"
+;;;;;;  "mhc/emacs/mhc-summary.el" "mhc/emacs/mhc-sync.el" "mhc/emacs/mhc-vars.el"
+;;;;;;  "mhc/emacs/mhc-xmas.el" "mhc/emacs/mhc.el" "mhc/emacs/nnmhc.el"
+;;;;;;  "mouse-embrace.el" "mozart.el" "mpg123.el" "newsticker-1.99/newsticker-testsuite.el"
+;;;;;;  "newsticker-1.99/newsticker.el" "newsticker-extension.el"
+;;;;;;  "newsticker-notify.el" "oz-extra.el" "oz-server.el" "oz.el"
+;;;;;;  "pabbrev.el" "pager.el" "pair-mode.el" "paredit-extension.el"
+;;;;;;  "paredit-viper-compat.el" "parenface.el" "popup.el" "pos-tip.el"
 ;;;;;;  "progr-align.el" "python-mode/pycomplete.el" "rect-extension.el"
 ;;;;;;  "redo+.el" "redo.el" "regex-tool.el" "remember/read-file-name.el"
 ;;;;;;  "remember/remember-autoloads.el" "remember/remember-experimental.el"
@@ -16763,7 +16352,7 @@ Key bindings:
 ;;;;;;  "weblogger.el" "widen-window.el" "window-number.el" "wl-highlight-ad.el"
 ;;;;;;  "woof.el" "x-dict.el" "xml-rpc.el" "xte.el" "xwindow-ring.el"
 ;;;;;;  "yaml-mode.el" "yaml-mode/yaml-mode.el" "yas-jit.el" "yasnippet/dropdown-list.el"
-;;;;;;  "yasnippet/yasnippet-debug.el") (19844 52302 663381))
+;;;;;;  "yasnippet/yasnippet-debug.el") (19849 9703 327814))
 
 ;;;***
 
