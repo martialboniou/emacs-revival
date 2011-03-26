@@ -16917,11 +16917,12 @@ Key bindings:
 ;;;;;;  "vimpulse/vimpulse-paren-matching.el" "vimpulse/vimpulse-test.el"
 ;;;;;;  "vimpulse/vimpulse-text-object-system.el" "vimpulse/vimpulse-utils.el"
 ;;;;;;  "vimpulse/vimpulse-viper-function-redefinitions.el" "vimpulse/vimpulse-visual-mode.el"
-;;;;;;  "vimpulse/vimpulse.el" "viper-in-more-modes.el" "wdired-extension.el"
-;;;;;;  "weblogger.el" "widen-window.el" "window-number.el" "wl-highlight-ad.el"
-;;;;;;  "woof.el" "x-dict.el" "xml-rpc.el" "xte.el" "xwindow-ring.el"
-;;;;;;  "yaml-mode.el" "yaml-mode/yaml-mode.el" "yas-jit.el" "yasnippet/dropdown-list.el"
-;;;;;;  "yasnippet/yasnippet-debug.el") (19852 48537 286169))
+;;;;;;  "vimpulse/vimpulse.el" "viper-in-more-modes.el" "w3m-lnum.el"
+;;;;;;  "wdired-extension.el" "weblogger.el" "widen-window.el" "window-number.el"
+;;;;;;  "wl-highlight-ad.el" "woof.el" "x-dict.el" "xml-rpc.el" "xte.el"
+;;;;;;  "xwindow-ring.el" "yaml-mode.el" "yaml-mode/yaml-mode.el"
+;;;;;;  "yas-jit.el" "yasnippet/dropdown-list.el" "yasnippet/yasnippet-debug.el")
+;;;;;;  (19854 20289 251291))
 
 ;;;***
 
