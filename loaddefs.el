@@ -17,11 +17,11 @@ all fields are numbers, works; the format used by the Unix `date'
 command works too.
 
 Relative times may be specified as a series of numbers followed by units:
-  1 min             denotes one minute from now.
-  min           does too.
-  1 min 5 sec       denotes 65 seconds from now.
+  1 min         	denotes one minute from now.
+  min			does too.
+  1 min 5 sec		denotes 65 seconds from now.
   1 min 2 sec 3 hour 4 day 5 week 6 fortnight 7 month 8 year
-            denotes the sum of all the given durations from now.
+			denotes the sum of all the given durations from now.
 
 \(fn TIME REPEAT FUNCTION &rest ARGS)" t nil)
 
@@ -1170,7 +1170,7 @@ Grab the current URL and store it in the record correspondig to the sender.
 
 \(fn)" t nil)
 
-(defvar bbdb-snarf-format '(("default" (name 1 "^.*$") (phones 3 "^\\(\\w+:\\)?\\s *[+()0-9][0-9()  /-]+[0-9]+$") (nets 3 "[^   \n<]+@[^    \n>]+") (www 1 "\\(http://\\|www.\\)[^  \n]+") (street 1 "^\\w+.*[0-9/-]+\\w*.*") (zip 1 "\\([A-Z]-\\)?[0-9][0-9][0-9][0-9]+") (city 1 "\\w+[^ ,\n]*") (state 1 "\\w+") (country 1 "\\w+"))) "\
+(defvar bbdb-snarf-format '(("default" (name 1 "^.*$") (phones 3 "^\\(\\w+:\\)?\\s *[+()0-9][0-9() 	/-]+[0-9]+$") (nets 3 "[^ 	\n<]+@[^ 	\n>]+") (www 1 "\\(http://\\|www.\\)[^ 	\n]+") (street 1 "^\\w+.*[0-9/-]+\\w*.*") (zip 1 "\\([A-Z]-\\)?[0-9][0-9][0-9][0-9]+") (city 1 "\\w+[^ ,\n]*") (state 1 "\\w+") (country 1 "\\w+"))) "\
 *An alist of snarfing strategies for `bbdb-snarf-region-better'.
 
 The keys of the alist are the strategy names.
@@ -1552,6 +1552,25 @@ They are stored in `sound-alist' as touchtone0 to touchtone11.
 
 ;;;***
 
+;;;### (autoloads (turn-on-bib-cite bib-cite-minor-mode) "bib-cite"
+;;;;;;  "auctex-11.86/bib-cite.el" (18341 54637))
+;;; Generated autoloads from auctex-11.86/bib-cite.el
+
+(autoload 'bib-cite-minor-mode "bib-cite" "\
+Toggle bib-cite mode.
+When bib-cite mode is enabled, citations, labels and refs are highlighted
+when the mouse is over them.  Clicking on these highlights with [mouse-2]
+runs bib-find, and [mouse-3] runs bib-display.
+
+\(fn ARG)" t nil)
+
+(autoload 'turn-on-bib-cite "bib-cite" "\
+Unconditionally turn on Bib Cite mode.
+
+\(fn)" nil nil)
+
+;;;***
+
 ;;;### (autoloads (bison->wisent) "bison-wisent" "cedet/semantic/wisent/bison-wisent.el"
 ;;;;;;  (17213 40596))
 ;;; Generated autoloads from cedet/semantic/wisent/bison-wisent.el
@@ -1567,7 +1586,7 @@ Deletes all actions, replacing them with small comments.
 ;;;***
 
 ;;;### (autoloads (bmkp-version) "bookmark+" "bookmark-plus/bookmark+.el"
-;;;;;;  (19849 8156))
+;;;;;;  (19859 8264))
 ;;; Generated autoloads from bookmark-plus/bookmark+.el
 
 (defconst bmkp-version-number "3.2.0")
@@ -1590,7 +1609,11 @@ Show version number of library `bookmark+.el'.
 ;;;;;;  bmkp-next-bookmark-repeat bmkp-previous-bookmark bmkp-next-bookmark
 ;;;;;;  bmkp-cycle-this-buffer-other-window bmkp-cycle-this-buffer
 ;;;;;;  bmkp-cycle-other-window bmkp-cycle bmkp-jump-in-navlist-other-window
-;;;;;;  bmkp-jump-in-navlist bmkp-some-tags-regexp-jump-other-window
+;;;;;;  bmkp-jump-in-navlist bmkp-file-some-tags-regexp-jump-other-window
+;;;;;;  bmkp-file-some-tags-regexp-jump bmkp-file-some-tags-jump-other-window
+;;;;;;  bmkp-file-some-tags-jump bmkp-file-all-tags-regexp-jump-other-window
+;;;;;;  bmkp-file-all-tags-regexp-jump bmkp-file-all-tags-jump-other-window
+;;;;;;  bmkp-file-all-tags-jump bmkp-some-tags-regexp-jump-other-window
 ;;;;;;  bmkp-some-tags-regexp-jump bmkp-some-tags-jump-other-window
 ;;;;;;  bmkp-some-tags-jump bmkp-all-tags-regexp-jump-other-window
 ;;;;;;  bmkp-all-tags-regexp-jump bmkp-all-tags-jump-other-window
@@ -1635,7 +1658,7 @@ Show version number of library `bookmark+.el'.
 ;;;;;;  bmkp-this-buffer-cycle-sort-comparer bmkp-desktop-no-save-vars
 ;;;;;;  bmkp-default-handler-associations bmkp-default-bookmark-name
 ;;;;;;  bmkp-crosshairs-flag bmkp-autoname-format bmkp-autoname-bookmark-function)
-;;;;;;  "bookmark+-1" "bookmark-plus/bookmark+-1.el" (19849 8232))
+;;;;;;  "bookmark+-1" "bookmark-plus/bookmark+-1.el" (19859 8264))
 ;;; Generated autoloads from bookmark-plus/bookmark+-1.el
 
 (defvar bmkp-autoname-bookmark-function 'bmkp-autoname-bookmark "\
@@ -2443,8 +2466,7 @@ particular, for info about using a prefix argument.
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-jump-to-type-other-window "bookmark+-1" "\
-Jump to a bookmark of a given type.  You are prompted for the type.
-See `bmkp-jump-to-type'.
+`bmkp-jump-to-type', but in another window.
 
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2455,8 +2477,7 @@ This is a specialization of `bookmark-jump'.
 \(fn BOOKMARK-NAME)" t nil)
 
 (autoload 'bmkp-autonamed-jump-other-window "bookmark+-1" "\
-Jump to a autonamed bookmark in another window.
-See `bmkp-autonamed-jump'.
+`bmkp-autonamed-jump', but in another window.
 
 \(fn BOOKMARK-NAME)" t nil)
 
@@ -2467,8 +2488,7 @@ This is a specialization of `bookmark-jump'.
 \(fn BOOKMARK-NAME)" t nil)
 
 (autoload 'bmkp-autonamed-this-buffer-jump-other-window "bookmark+-1" "\
-Jump to a autonamed bookmark in the current buffer, in another window.
-See `bmkp-autonamed-jump'.
+`bmkp-autonamed-this-buffer-jump', but in another window.
 
 \(fn BOOKMARK-NAME)" t nil)
 
@@ -2494,8 +2514,7 @@ for info about using a prefix argument.
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-dired-jump-other-window "bookmark+-1" "\
-Jump to a Dired bookmark in another window.
-See `bmkp-dired-jump'.
+`bmkp-dired-jump', but in another window.
 
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2507,8 +2526,7 @@ for info about using a prefix argument.
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-dired-jump-current-other-window "bookmark+-1" "\
-Jump to a Dired bookmark for the current directory in another window.
-See `bmkp-dired-jump-current'.
+`bmkp-dired-jump-current', but in another window.
 
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2520,8 +2538,7 @@ for info about using a prefix argument.
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-file-jump-other-window "bookmark+-1" "\
-Jump to a file or directory bookmark in another window.
-See `bmkp-file-jump'.
+`bmkp-file-jump', but in another window.
 
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2533,8 +2550,7 @@ for info about using a prefix argument.
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-gnus-jump-other-window "bookmark+-1" "\
-Jump to a Gnus bookmark in another window.
-See `bmkp-gnus-jump'.
+`bmkp-gnus-jump', but in another window.
 
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2546,8 +2562,7 @@ for info about using a prefix argument.
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-info-jump-other-window "bookmark+-1" "\
-Jump to an Info bookmark in another window.
-See `bmkp-info-jump'.
+`bmkp-info-jump', but in another window.
 
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2559,8 +2574,7 @@ for info about using a prefix argument.
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-local-file-jump-other-window "bookmark+-1" "\
-Jump to a local file or directory bookmark in another window.
-See `bmkp-local-file-jump'.
+`bmkp-local-file-jump', but in another window.
 
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2572,8 +2586,7 @@ for info about using a prefix argument.
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-man-jump-other-window "bookmark+-1" "\
-Jump to a `man'-page bookmark in another window.
-See `bmkp-man-jump'.
+`bmkp-man-jump', but in another window.
 
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2585,8 +2598,7 @@ for info about using a prefix argument.
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-non-file-jump-other-window "bookmark+-1" "\
-Jump to a non-file (buffer) bookmark in another window.
-See `bmkp-non-file-jump'.
+`bmkp-non-file-jump', but in another window.
 
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2597,8 +2609,7 @@ This is a specialization of `bookmark-jump', but without a prefix arg.
 \(fn BOOKMARK-NAME)" t nil)
 
 (autoload 'bmkp-region-jump-other-window "bookmark+-1" "\
-Jump to a region bookmark in another window.
-See `bmkp-region-jump'.
+`bmkp-region-jump', but in another window.
 
 \(fn BOOKMARK-NAME)" t nil)
 
@@ -2610,8 +2621,7 @@ for info about using a prefix argument.
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-remote-file-jump-other-window "bookmark+-1" "\
-Jump to a remote file or directory bookmark in another window.
-See `bmkp-remote-file-jump'.
+`bmkp-remote-file-jump', but in another window.
 
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2625,8 +2635,7 @@ for info about using a prefix argument.
 \(fn BUFFERS BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-specific-buffers-jump-other-window "bookmark+-1" "\
-Jump to a bookmark for a buffer in list BUFFERS in another window.
-See `bmkp-specific-buffers-jump'.
+`bmkp-specific-buffers-jump', but in another window.
 
 \(fn BUFFERS BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2640,8 +2649,7 @@ for info about using a prefix argument.
 \(fn FILES BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-specific-files-jump-other-window "bookmark+-1" "\
-Jump to a bookmark for a buffer in list BUFFERS in another window.
-See `bmkp-specific-buffers-jump'.
+`bmkp-specific-files-jump', but in another window.
 
 \(fn FILES BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2653,8 +2661,7 @@ for info about using a prefix argument.
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-this-buffer-jump-other-window "bookmark+-1" "\
-Jump to a bookmark for the current buffer in another window.
-See `bmkp-this-buffer-jump'.
+`bmkp-this-buffer-jump', but in another window.
 
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2672,8 +2679,7 @@ for info about using a prefix argument.
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-url-jump-other-window "bookmark+-1" "\
-Jump to an URL bookmark in another window.
-See `bmkp-url-jump'.
+`bmkp-url-jump', but in another window.
 
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2685,8 +2691,7 @@ for info about using a prefix argument.
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
 (autoload 'bmkp-w3m-jump-other-window "bookmark+-1" "\
-Jump to an W3M bookmark in another window.
-See `bmkp-w3m-jump'.
+`bmkp-w3m-jump', but in another window.
 
 \(fn BOOKMARK-NAME &optional USE-REGION-P)" t nil)
 
@@ -2700,11 +2705,7 @@ candidate.
 \(fn TAGS BOOKMARK)" t nil)
 
 (autoload 'bmkp-all-tags-jump-other-window "bookmark+-1" "\
-Jump to a BOOKMARK that has all of the TAGS, in another window.
-Hit `RET' to enter each tag, then hit `RET' again after the last tag.
-You can use completion to enter the bookmark name and each tag.
-If you specify no tags, then every bookmark that has some tags is a
-candidate.
+`bmkp-all-tags-jump', but in another window.
 
 \(fn TAGS BOOKMARK)" t nil)
 
@@ -2716,9 +2717,7 @@ Then you are prompted for the BOOKMARK (with completion).
 \(fn REGEXP BOOKMARK)" t nil)
 
 (autoload 'bmkp-all-tags-regexp-jump-other-window "bookmark+-1" "\
-Jump to a BOOKMARK that has each tag matching REGEXP, in another window.
-You are prompted for the REGEXP.
-Then you are prompted for the BOOKMARK (with completion).
+`bmkp-all-tags-regexp-jump', but in another window.
 
 \(fn REGEXP BOOKMARK)" t nil)
 
@@ -2730,9 +2729,7 @@ You can use completion to enter the bookmark name and each tag.
 \(fn TAGS BOOKMARK)" t nil)
 
 (autoload 'bmkp-some-tags-jump-other-window "bookmark+-1" "\
-Jump to a BOOKMARK that has at least one of the TAGS, in another window.
-Hit `RET' to enter each tag, then hit `RET' again after the last tag.
-You can use completion to enter the bookmark name and each tag.
+`bmkp-some-tags-jump', but in another window.
 
 \(fn TAGS BOOKMARK)" t nil)
 
@@ -2744,9 +2741,57 @@ Then you are prompted for the BOOKMARK (with completion).
 \(fn REGEXP BOOKMARK)" t nil)
 
 (autoload 'bmkp-some-tags-regexp-jump-other-window "bookmark+-1" "\
-Jump to a BOOKMARK that has a tag matching REGEXP, in another window.
+`bmkp-some-tags-regexp-jump', but in another window.
+
+\(fn REGEXP BOOKMARK)" t nil)
+
+(autoload 'bmkp-file-all-tags-jump "bookmark+-1" "\
+Jump to a file or directory BOOKMARK that has all of the TAGS.
+Hit `RET' to enter each tag, then hit `RET' again after the last tag.
+You can use completion to enter the bookmark name and each tag.
+If you specify no tags, then every bookmark that has some tags is a
+candidate.
+
+\(fn TAGS BOOKMARK)" t nil)
+
+(autoload 'bmkp-file-all-tags-jump-other-window "bookmark+-1" "\
+`bmkp-file-all-tags-jump', but in another window.
+
+\(fn TAGS BOOKMARK)" t nil)
+
+(autoload 'bmkp-file-all-tags-regexp-jump "bookmark+-1" "\
+Jump to a file or directory BOOKMARK that has each tag matching REGEXP.
 You are prompted for the REGEXP.
 Then you are prompted for the BOOKMARK (with completion).
+
+\(fn REGEXP BOOKMARK)" t nil)
+
+(autoload 'bmkp-file-all-tags-regexp-jump-other-window "bookmark+-1" "\
+`bmkp-file-all-tags-regexp-jump', but in another window.
+
+\(fn REGEXP BOOKMARK)" t nil)
+
+(autoload 'bmkp-file-some-tags-jump "bookmark+-1" "\
+Jump to a file or directory BOOKMARK that has at least one of the TAGS.
+Hit `RET' to enter each tag, then hit `RET' again after the last tag.
+You can use completion to enter the bookmark name and each tag.
+
+\(fn TAGS BOOKMARK)" t nil)
+
+(autoload 'bmkp-file-some-tags-jump-other-window "bookmark+-1" "\
+`bmkp-file-some-tags-jump', but in another window.
+
+\(fn TAGS BOOKMARK)" t nil)
+
+(autoload 'bmkp-file-some-tags-regexp-jump "bookmark+-1" "\
+Jump to a file or directory BOOKMARK that has a tag matching REGEXP.
+You are prompted for the REGEXP.
+Then you are prompted for the BOOKMARK (with completion).
+
+\(fn REGEXP BOOKMARK)" t nil)
+
+(autoload 'bmkp-file-some-tags-regexp-jump-other-window "bookmark+-1" "\
+`bmkp-file-some-tags-regexp-jump', but in another window.
 
 \(fn REGEXP BOOKMARK)" t nil)
 
@@ -3010,7 +3055,7 @@ Optional arg ALIST is the alist of bookmarks.  It defaults to
 ;;;;;;  bookmark-bmenu-1-window bookmark-bmenu-list bookmark-bmenu-delete
 ;;;;;;  bookmark-bmenu-unmark bookmark-bmenu-mark bmkp-bmenu-state-file
 ;;;;;;  bmkp-bmenu-commands-file bmkp-bmenu-omitted-list) "bookmark+-bmu"
-;;;;;;  "bookmark-plus/bookmark+-bmu.el" (19849 8212))
+;;;;;;  "bookmark-plus/bookmark+-bmu.el" (19859 8264))
 ;;; Generated autoloads from bookmark-plus/bookmark+-bmu.el
 
 (defvar bmkp-bmenu-omitted-list nil "\
@@ -3792,7 +3837,7 @@ Pop-up menu on `mouse-3' for a bookmark listed in `*Bookmark List*'.
 ;;;;;;  bmkp-light-threshold bmkp-light-style-non-autonamed bmkp-light-style-autonamed
 ;;;;;;  bmkp-light-priorities bmkp-auto-light-when-set bmkp-auto-light-when-jump
 ;;;;;;  bmkp-auto-light-relocate-when-jump-flag) "bookmark+-lit"
-;;;;;;  "bookmark-plus/bookmark+-lit.el" (19849 8250))
+;;;;;;  "bookmark-plus/bookmark+-lit.el" (19859 8264))
 ;;; Generated autoloads from bookmark-plus/bookmark+-lit.el
 
 (defvar bmkp-auto-light-relocate-when-jump-flag t "\
@@ -4112,7 +4157,7 @@ See `bmkp-next-lighted-this-buffer-repeat'.
 ;;;### (autoloads (bmkp-menu-bar-make-toggle bmkp-define-file-sort-predicate
 ;;;;;;  bmkp-define-sort-command bmkp-define-next+prev-cycle-commands
 ;;;;;;  bmkp-define-cycle-command) "bookmark+-mac" "bookmark-plus/bookmark+-mac.el"
-;;;;;;  (19849 8173))
+;;;;;;  (19859 8264))
 ;;; Generated autoloads from bookmark-plus/bookmark+-mac.el
 
 (autoload 'bmkp-define-cycle-command "bookmark+-mac" "\
@@ -4971,8 +5016,8 @@ Example:
       (interactive)
       (color-theme-install
        '(...
-     ...
-     ...)))
+	 ...
+	 ...)))
     (my-color-theme)
 
 If you want to use a specific color theme function, you can call the
@@ -5077,6 +5122,62 @@ will notice any `compilation-finish-functions' and use that.
 \(fn)" nil nil)
 
 (custom-add-option 'compilation-mode-hook 'compilation-recenter-end-enable)
+
+;;;***
+
+;;;### (autoloads (context-mode) "context" "auctex-11.86/context.el"
+;;;;;;  (19318 46167))
+;;; Generated autoloads from auctex-11.86/context.el
+
+(defalias 'ConTeXt-mode 'context-mode)
+
+(autoload 'context-mode "context" "\
+Major mode in AUCTeX for editing ConTeXt files.
+
+Special commands:
+\\{ConTeXt-mode-map}
+
+Entering `context-mode' calls the value of `text-mode-hook',
+then the value of `TeX-mode-hook', and then the value
+of context-mode-hook.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (context-en-mode) "context-en" "auctex-11.86/context-en.el"
+;;;;;;  (18541 18440))
+;;; Generated autoloads from auctex-11.86/context-en.el
+
+(autoload 'context-en-mode "context-en" "\
+Major mode for editing files for ConTeXt using its english interface.
+
+Special commands:
+\\{ConTeXt-mode-map}
+
+Entering `context-mode' calls the value of `text-mode-hook',
+then the value of TeX-mode-hook, and then the value
+of context-mode-hook.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (context-nl-mode) "context-nl" "auctex-11.86/context-nl.el"
+;;;;;;  (18489 3127))
+;;; Generated autoloads from auctex-11.86/context-nl.el
+
+(autoload 'context-nl-mode "context-nl" "\
+Major mode for editing files for ConTeXt using its dutch interface.
+
+Special commands:
+\\{ConTeXt-mode-map}
+
+Entering `context-mode' calls the value of `text-mode-hook',
+then the value of TeX-mode-hook, and then the value
+of context-mode-hook.
+
+\(fn)" t nil)
 
 ;;;***
 
@@ -7402,6 +7503,17 @@ If only window in frame, `fit-frame'; else `mouse-drag-vertical-line'.
 
 ;;;***
 
+;;;### (autoloads (font-latex-setup) "font-latex" "auctex-11.86/font-latex.el"
+;;;;;;  (19254 11585))
+;;; Generated autoloads from auctex-11.86/font-latex.el
+
+(autoload 'font-latex-setup "font-latex" "\
+Setup this buffer for LaTeX font-lock.  Usually called from a hook.
+
+\(fn)" nil nil)
+
+;;;***
+
 ;;;### (autoloads (other-window-or-frame tell-customize-var-has-changed
 ;;;;;;  set-all-frame-alist-parameters-from-frame set-frame-alist-parameter-from-frame
 ;;;;;;  enlarge-font move-frame-left move-frame-right move-frame-up
@@ -8484,6 +8596,44 @@ Major mode to interactively manage Keats.
 
 ;;;***
 
+;;;### (autoloads (docTeX-mode TeX-latex-mode BibTeX-auto-store)
+;;;;;;  "latex" "auctex-11.86/latex.el" (19180 28128))
+;;; Generated autoloads from auctex-11.86/latex.el
+
+(autoload 'BibTeX-auto-store "latex" "\
+This function should be called from `bibtex-mode-hook'.
+It will setup BibTeX to store keys in an auto file.
+
+\(fn)" nil nil)
+
+(add-to-list 'auto-mode-alist '("\\.drv\\'" . latex-mode))
+
+(autoload 'TeX-latex-mode "latex" "\
+Major mode in AUCTeX for editing LaTeX files.
+See info under AUCTeX for full documentation.
+
+Special commands:
+\\{LaTeX-mode-map}
+
+Entering LaTeX mode calls the value of `text-mode-hook',
+then the value of `TeX-mode-hook', and then the value
+of `LaTeX-mode-hook'.
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.dtx\\'" . doctex-mode))
+
+(autoload 'docTeX-mode "latex" "\
+Major mode in AUCTeX for editing .dtx files derived from `LaTeX-mode'.
+Runs `LaTeX-mode', sets a few variables and
+runs the hooks in `docTeX-mode-hook'.
+
+\(fn)" t nil)
+
+(defalias 'TeX-doctex-mode 'docTeX-mode)
+
+;;;***
+
 ;;;### (autoloads (latex-math-decode-buffer latex-math-decode-region)
 ;;;;;;  "latex-math-symbol" "mu-cite-201006212322/latex-math-symbol.el"
 ;;;;;;  (17099 15709))
@@ -8650,11 +8800,11 @@ Not documented
 
 Minor mode for interfacing with cryptographic functions.
 \\<mc-read-mode-map>
-\\[mc-decrypt]      Decrypt an encrypted message
-\\[mc-verify]       Verify signature on a clearsigned message
-\\[mc-snarf]        Add public key(s) to keyring
-\\[mc-fetch-key]        Fetch a PGP key via finger or HTTP
-\\[mc-deactivate-passwd]        Forget passphrase(s)
+\\[mc-decrypt]		Decrypt an encrypted message
+\\[mc-verify]		Verify signature on a clearsigned message
+\\[mc-snarf]		Add public key(s) to keyring
+\\[mc-fetch-key]		Fetch a PGP key via finger or HTTP
+\\[mc-deactivate-passwd]		Forget passphrase(s)
 
 \(fn &optional ARG)" t nil)
 
@@ -9723,6 +9873,36 @@ Not documented
 
 ;;;***
 
+;;;### (autoloads (multi-prompt-key-value multi-prompt) "multi-prompt"
+;;;;;;  "auctex-11.86/multi-prompt.el" (18915 28236))
+;;; Generated autoloads from auctex-11.86/multi-prompt.el
+
+(autoload 'multi-prompt "multi-prompt" "\
+Completing prompt for a list of strings.  
+The first argument SEPARATOR should be the string (of length 1) to
+separate the elements in the list.  The second argument UNIQUE should
+be non-nil, if each element must be unique.  The remaining elements
+are the arguments to `completing-read'.  See that.
+
+\(fn SEPARATOR UNIQUE PROMPT TABLE &optional MP-PREDICATE REQUIRE-MATCH INITIAL HISTORY)" nil nil)
+
+(autoload 'multi-prompt-key-value "multi-prompt" "\
+Read multiple strings, with completion and key=value support.
+PROMPT is a string to prompt with, usually ending with a colon
+and a space.  TABLE is an alist.  The car of each element should
+be a string representing a key and the optional cdr should be a
+list with strings to be used as values for the key.
+
+See the documentation for `completing-read' for details on the
+other arguments: PREDICATE, REQUIRE-MATCH, INITIAL-INPUT, HIST,
+DEF, and INHERIT-INPUT-METHOD.
+
+The return value is the string as entered in the minibuffer.
+
+\(fn PROMPT TABLE &optional PREDICATE REQUIRE-MATCH INITIAL-INPUT HIST DEF INHERIT-INPUT-METHOD)" nil nil)
+
+;;;***
+
 ;;;### (autoloads (multi-term) "multi-term" "multi-term.el" (19801
 ;;;;;;  36994))
 ;;; Generated autoloads from multi-term.el
@@ -10137,11 +10317,11 @@ COMMANDS
 \\{py-mode-map}
 VARIABLES
 
-py-indent-offset        indentation increment
-py-block-comment-prefix     comment string used by `comment-region'
-py-python-command       shell command to invoke Python interpreter
-py-temp-directory       directory used for temp files (if needed)
-py-beep-if-tab-change       ring the bell if `tab-width' is changed
+py-indent-offset		indentation increment
+py-block-comment-prefix		comment string used by `comment-region'
+py-python-command		shell command to invoke Python interpreter
+py-temp-directory		directory used for temp files (if needed)
+py-beep-if-tab-change		ring the bell if `tab-width' is changed
 
 \(fn)" t nil)
 
@@ -15429,6 +15609,169 @@ header line is restored, hiding the tab bar.
 
 ;;;***
 
+;;;### (autoloads (TeX-submit-bug-report ams-tex-mode TeX-auto-generate-global
+;;;;;;  TeX-auto-generate TeX-plain-tex-mode TeX-tex-mode) "tex"
+;;;;;;  "auctex-11.86/tex.el" (19327 63823))
+;;; Generated autoloads from auctex-11.86/tex.el
+
+(autoload 'TeX-tex-mode "tex" "\
+Major mode in AUCTeX for editing TeX or LaTeX files.
+Tries to guess whether this file is for plain TeX or LaTeX.
+
+The algorithm is as follows:
+
+   1) if the file is empty or `TeX-force-default-mode' is not set to nil,
+      `TeX-default-mode' is chosen
+   2) If \\documentstyle or \\begin{, \\section{, \\part{ or \\chapter{ is
+      found, `latex-mode' is selected.
+   3) Otherwise, use `plain-tex-mode'
+
+\(fn)" t nil)
+
+(autoload 'TeX-plain-tex-mode "tex" "\
+Major mode in AUCTeX for editing plain TeX files.
+See info under AUCTeX for documentation.
+
+Special commands:
+\\{plain-TeX-mode-map}
+
+Entering `plain-tex-mode' calls the value of `text-mode-hook',
+then the value of `TeX-mode-hook', and then the value
+of plain-TeX-mode-hook.
+
+\(fn)" t nil)
+
+(autoload 'TeX-auto-generate "tex" "\
+Generate style file for TEX and store it in AUTO.
+If TEX is a directory, generate style files for all files in the directory.
+
+\(fn TEX AUTO)" t nil)
+
+(autoload 'TeX-auto-generate-global "tex" "\
+Create global auto directory for global TeX macro definitions.
+
+\(fn)" t nil)
+
+(autoload 'ams-tex-mode "tex" "\
+Major mode in AUCTeX for editing AmS-TeX files.
+See info under AUCTeX for documentation.
+
+Special commands:
+\\{AmSTeX-mode-map}
+
+Entering AmS-tex-mode calls the value of `text-mode-hook',
+then the value of `TeX-mode-hook', and then the value
+of `AmS-TeX-mode-hook'.
+
+\(fn)" t nil)
+
+(autoload 'TeX-submit-bug-report "tex" "\
+Submit a bug report on AUCTeX via mail.
+
+Don't hesitate to report any problems or inaccurate documentation.
+
+If you don't have setup sending mail from (X)Emacs, please copy the
+output buffer into your mail program, as it gives us important
+information about your AUCTeX version and AUCTeX configuration.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (LaTeX-install-toolbar TeX-install-toolbar) "tex-bar"
+;;;;;;  "auctex-11.86/tex-bar.el" (18580 49499))
+;;; Generated autoloads from auctex-11.86/tex-bar.el
+
+(autoload 'TeX-install-toolbar "tex-bar" "\
+Install toolbar buttons for TeX mode.
+
+\(fn)" t nil)
+
+(autoload 'LaTeX-install-toolbar "tex-bar" "\
+Install toolbar buttons for LaTeX mode.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "tex-fold" "auctex-11.86/tex-fold.el" (19227
+;;;;;;  40177))
+;;; Generated autoloads from auctex-11.86/tex-fold.el
+ (autoload 'TeX-fold-mode "tex-fold" "Minor mode for hiding and revealing macros and environments." t)
+
+(defalias 'tex-fold-mode 'TeX-fold-mode)
+
+;;;***
+
+;;;### (autoloads (tex-font-setup) "tex-font" "auctex-11.86/tex-font.el"
+;;;;;;  (18341 54636))
+;;; Generated autoloads from auctex-11.86/tex-font.el
+
+(autoload 'tex-font-setup "tex-font" "\
+Setup font lock support for TeX.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (TeX-texinfo-mode) "tex-info" "auctex-11.86/tex-info.el"
+;;;;;;  (18903 48810))
+;;; Generated autoloads from auctex-11.86/tex-info.el
+
+(defalias 'Texinfo-mode 'texinfo-mode)
+
+(autoload 'TeX-texinfo-mode "tex-info" "\
+Major mode in AUCTeX for editing Texinfo files.
+
+Special commands:
+\\{Texinfo-mode-map}
+
+Entering Texinfo mode calls the value of `text-mode-hook'  and then the
+value of `Texinfo-mode-hook'.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (japanese-latex-mode japanese-plain-tex-mode) "tex-jp"
+;;;;;;  "auctex-11.86/tex-jp.el" (18768 5174))
+;;; Generated autoloads from auctex-11.86/tex-jp.el
+
+(autoload 'japanese-plain-tex-mode "tex-jp" "\
+Major mode in AUCTeX for editing Japanese plain TeX files.
+Set `japanese-TeX-mode' to t, and enter `TeX-plain-tex-mode'.
+
+\(fn)" t nil)
+
+(autoload 'japanese-latex-mode "tex-jp" "\
+Major mode in AUCTeX for editing Japanese LaTeX files.
+Set `japanese-TeX-mode' to t, and enter `TeX-latex-mode'.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (texmathp-match-switch texmathp) "texmathp" "auctex-11.86/texmathp.el"
+;;;;;;  (18489 3128))
+;;; Generated autoloads from auctex-11.86/texmathp.el
+
+(autoload 'texmathp "texmathp" "\
+Determine if point is inside (La)TeX math mode.
+Returns t or nil.  Additional info is placed into `texmathp-why'.
+The functions assumes that you have (almost) syntactically correct (La)TeX in
+the buffer.
+See the variable `texmathp-tex-commands' about which commands are checked.
+
+\(fn)" t nil)
+
+(autoload 'texmathp-match-switch "texmathp" "\
+Search backward for any of the math switches.
+Limit searched to BOUND.
+
+\(fn BOUND)" nil nil)
+
+;;;***
+
 ;;;### (autoloads (textile-mode) "textile-mode" "textile-mode.el"
 ;;;;;;  (19844 52123))
 ;;; Generated autoloads from textile-mode.el
@@ -15466,6 +15809,13 @@ With a prefix arg, or if no function or variable is near the cursor,
 prompt for the function or variable to find, instead.
 
 \(fn &optional CONFIRMP)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "toolbar-x" "auctex-11.86/toolbar-x.el" (18580
+;;;;;;  49487))
+;;; Generated autoloads from auctex-11.86/toolbar-x.el
+ (autoload 'toolbarx-install-toolbar "toolbar-x")
 
 ;;;***
 
@@ -16776,17 +17126,20 @@ Key bindings:
 ;;;***
 
 ;;;### (autoloads nil nil ("Pymacs/pymacs.el" "anything-extension.el"
-;;;;;;  "anything-match-plugin.el" "auto-async-byte-compile.el" "auto-capitalize.el"
-;;;;;;  "auto-complete-config.el" "auto-complete-extension.el" "auto-complete.el"
-;;;;;;  "autopair.el" "backpack.el" "basic-edit-toolkit.el" "bbdb-vcard-import.el"
-;;;;;;  "bbdb/bits/bbdb-filters/bbdb-ccmail.el" "bbdb/bits/bbdb-filters/bbdb-eudora.el"
-;;;;;;  "bbdb/bits/bbdb-filters/bbdb-export.el" "bbdb/bits/bbdb-filters/bbdb-hp200lx.el"
-;;;;;;  "bbdb/bits/bbdb-filters/bbdb-passwd.el" "bbdb/bits/bbdb-filters/bbdb-ph.el"
-;;;;;;  "bbdb/bits/bbdb-ldif.el" "bbdb/bits/bbdb-mail-folders.el"
-;;;;;;  "bbdb/bits/bbdb-signature.el" "bbdb/bits/bbdb-sort-mailrc.el"
-;;;;;;  "bbdb/bits/bbdb-to-outlook.el" "bbdb/lisp/bbdb-autoloads.el"
-;;;;;;  "bbdb/loadpath.el" "bbdb/misc/bbdb-unmigrate-stuff.el" "bbdb/testing/run-tests.el"
-;;;;;;  "bigclock.el" "bitlbee.el" "bookmark-plus/bookmark+-chg.el"
+;;;;;;  "anything-match-plugin.el" "auctex-11.86/auctex.el" "auctex-11.86/auto-loads.el"
+;;;;;;  "auctex-11.86/lpath.el" "auctex-11.86/tex-buf.el" "auctex-11.86/tex-fptex.el"
+;;;;;;  "auctex-11.86/tex-mik.el" "auctex-11.86/tex-site.el" "auctex-11.86/tex-style.el"
+;;;;;;  "auctex-11.86/tex-wizard.el" "auto-async-byte-compile.el"
+;;;;;;  "auto-capitalize.el" "auto-complete-config.el" "auto-complete-extension.el"
+;;;;;;  "auto-complete.el" "autopair.el" "backpack.el" "basic-edit-toolkit.el"
+;;;;;;  "bbdb-vcard-import.el" "bbdb/bits/bbdb-filters/bbdb-ccmail.el"
+;;;;;;  "bbdb/bits/bbdb-filters/bbdb-eudora.el" "bbdb/bits/bbdb-filters/bbdb-export.el"
+;;;;;;  "bbdb/bits/bbdb-filters/bbdb-hp200lx.el" "bbdb/bits/bbdb-filters/bbdb-passwd.el"
+;;;;;;  "bbdb/bits/bbdb-filters/bbdb-ph.el" "bbdb/bits/bbdb-ldif.el"
+;;;;;;  "bbdb/bits/bbdb-mail-folders.el" "bbdb/bits/bbdb-signature.el"
+;;;;;;  "bbdb/bits/bbdb-sort-mailrc.el" "bbdb/bits/bbdb-to-outlook.el"
+;;;;;;  "bbdb/lisp/bbdb-autoloads.el" "bbdb/loadpath.el" "bbdb/misc/bbdb-unmigrate-stuff.el"
+;;;;;;  "bbdb/testing/run-tests.el" "bigclock.el" "bitlbee.el" "bookmark-plus/bookmark+-chg.el"
 ;;;;;;  "bookmark-plus/bookmark+-doc.el" "bubble-buffer.el" "buffer-move.el"
 ;;;;;;  "byte-code-cache.el" "bzr.el" "c-sig.el" "calendar-howm.el"
 ;;;;;;  "cedet/cedet-build.el" "cedet/cedet-ediff.el" "cedet/cedet-update-changelog.el"
@@ -16917,12 +17270,11 @@ Key bindings:
 ;;;;;;  "vimpulse/vimpulse-paren-matching.el" "vimpulse/vimpulse-test.el"
 ;;;;;;  "vimpulse/vimpulse-text-object-system.el" "vimpulse/vimpulse-utils.el"
 ;;;;;;  "vimpulse/vimpulse-viper-function-redefinitions.el" "vimpulse/vimpulse-visual-mode.el"
-;;;;;;  "vimpulse/vimpulse.el" "viper-in-more-modes.el" "w3m-lnum.el"
-;;;;;;  "wdired-extension.el" "weblogger.el" "widen-window.el" "window-number.el"
-;;;;;;  "wl-highlight-ad.el" "woof.el" "x-dict.el" "xml-rpc.el" "xte.el"
-;;;;;;  "xwindow-ring.el" "yaml-mode.el" "yaml-mode/yaml-mode.el"
-;;;;;;  "yas-jit.el" "yasnippet/dropdown-list.el" "yasnippet/yasnippet-debug.el")
-;;;;;;  (19854 20289 251291))
+;;;;;;  "vimpulse/vimpulse.el" "viper-in-more-modes.el" "wdired-extension.el"
+;;;;;;  "weblogger.el" "widen-window.el" "window-number.el" "wl-highlight-ad.el"
+;;;;;;  "woof.el" "x-dict.el" "xml-rpc.el" "xte.el" "xwindow-ring.el"
+;;;;;;  "yaml-mode.el" "yaml-mode/yaml-mode.el" "yas-jit.el" "yasnippet/dropdown-list.el"
+;;;;;;  "yasnippet/yasnippet-debug.el") (19876 43422 354547))
 
 ;;;***
 
