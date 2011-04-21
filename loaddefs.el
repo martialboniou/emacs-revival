@@ -14674,6 +14674,16 @@ found, nil otherwise.
 
 ;;;***
 
+;;;### (autoloads (smex-initialize) "smex" "smex.el" (19887 60757))
+;;; Generated autoloads from smex.el
+
+(autoload 'smex-initialize "smex" "\
+Not documented
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads (speedbar-get-focus speedbar-frame-mode) "speedbar"
 ;;;;;;  "cedet/speedbar/speedbar.el" (18881 38525))
 ;;; Generated autoloads from cedet/speedbar/speedbar.el
@@ -17274,7 +17284,7 @@ Key bindings:
 ;;;;;;  "weblogger.el" "widen-window.el" "window-number.el" "wl-highlight-ad.el"
 ;;;;;;  "woof.el" "x-dict.el" "xml-rpc.el" "xte.el" "xwindow-ring.el"
 ;;;;;;  "yaml-mode.el" "yaml-mode/yaml-mode.el" "yas-jit.el" "yasnippet/dropdown-list.el"
-;;;;;;  "yasnippet/yasnippet-debug.el") (19876 43422 354547))
+;;;;;;  "yasnippet/yasnippet-debug.el") (19887 63752 411446))
 
 ;;;***
 
