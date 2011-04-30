@@ -7285,6 +7285,65 @@ Key bindings:
 
 ;;;***
 
+;;;### (autoloads (add-hooks-after-load find-loadfile-by-symbol find-loadfile-by-hook
+;;;;;;  find-loadfile-by-map find-loadfile-by-mode eval-after-load-by-symbol
+;;;;;;  eval-after-load-by-symbols eval-after-load-by-hooks eval-after-load-by-maps
+;;;;;;  eval-after-load-by-modes) "eval-after-load" "eval-after-load.el"
+;;;;;;  (19893 35457))
+;;; Generated autoloads from eval-after-load.el
+
+(autoload 'eval-after-load-by-modes "eval-after-load" "\
+Run `eval-after-load' on function FUN by MODES.
+
+\(fn MODES FUN)" nil nil)
+
+(autoload 'eval-after-load-by-maps "eval-after-load" "\
+Run `eval-after-load' on function FUN by MAPS.
+
+\(fn MAPS FUN)" nil nil)
+
+(autoload 'eval-after-load-by-hooks "eval-after-load" "\
+Run `eval-after-load' on function FUN by HOOKS.
+
+\(fn HOOKS FUN)" nil nil)
+
+(autoload 'eval-after-load-by-symbols "eval-after-load" "\
+Run `eval-after-load' on function FUN by SYMBOLS.
+
+\(fn SYMBOLS POS FUN)" nil nil)
+
+(autoload 'eval-after-load-by-symbol "eval-after-load" "\
+Run `eval-after-load' on function FUN by SYMBOL.
+
+\(fn SYMBOL POS FUN)" nil nil)
+
+(autoload 'find-loadfile-by-mode "eval-after-load" "\
+Find load file by mode MODE.
+
+\(fn MODE)" nil nil)
+
+(autoload 'find-loadfile-by-map "eval-after-load" "\
+Find load file by map MAP.
+
+\(fn MAP)" nil nil)
+
+(autoload 'find-loadfile-by-hook "eval-after-load" "\
+Find load file by hook HOOK.
+
+\(fn HOOK)" nil nil)
+
+(autoload 'find-loadfile-by-symbol "eval-after-load" "\
+Find load file by symbol SYMBOL, its position is POS.
+
+\(fn SYMBOL POS)" nil nil)
+
+(autoload 'add-hooks-after-load "eval-after-load" "\
+Add FUN to HOOKS by `eval-after-load-by-hooks'.
+
+\(fn HOOKS FUN)" nil nil)
+
+;;;***
+
 ;;;### (autoloads (with-expect) "expect" "mailcrypt-3.5.9/expect.el"
 ;;;;;;  (19352 62013))
 ;;; Generated autoloads from mailcrypt-3.5.9/expect.el
@@ -8744,27 +8803,89 @@ Bind the viss bookmark functions to F2 related keys.
 
 ;;;***
 
-;;;### (autoloads (linum-version linum linum-format) "linum" "linum.el"
-;;;;;;  (18308 112))
+;;;### (autoloads (global-linum-mode linum-mode linum-format) "linum"
+;;;;;;  "linum.el" (19893 36209))
 ;;; Generated autoloads from linum.el
 
-(defvar linum-format "%6d  " "\
-Format used to display line numbers. Either a format string like \"%6d  \", 
-or the symbol 'dynamic to adapt the width as needed. 'dynamic or 
-a format string that does not expand to a multiple of 8 can make 
-indentations look different if you indent using tab characters.")
+(defvar linum-format 'dynamic "\
+Format used to display line numbers. Either a format string
+like \"%7d\", 'dynamic to adapt the width as needed, or a
+function that is called with a line number as its argument and
+should evaluate to a string to be shown on that line. See also
+`linum-before-numbering-hook'.")
 
 (custom-autoload 'linum-format "linum" t)
 
-(autoload 'linum "linum" "\
-Toggle display of line numbers.
+(autoload 'linum-mode "linum" "\
+Toggle display of line numbers in the left marginal area.
 
-\(fn)" t nil)
+\(fn &optional ARG)" t nil)
 
-(autoload 'linum-version "linum" "\
-Display version of linum.
+(defvar global-linum-mode nil "\
+Non-nil if Global-Linum mode is enabled.
+See the command `global-linum-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `global-linum-mode'.")
 
-\(fn)" t nil)
+(custom-autoload 'global-linum-mode "linum" nil)
+
+(autoload 'global-linum-mode "linum" "\
+Toggle Linum mode in every possible buffer.
+With prefix ARG, turn Global-Linum mode on if and only if
+ARG is positive.
+Linum mode is enabled in all buffers where
+`linum-on' would do it.
+See `linum-mode' for more information on Linum mode.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (linum-update-window linum+-generate-linum-format
+;;;;;;  linum+-smart-format linum+-dynamic-format linum-format) "linum+"
+;;;;;;  "linum+.el" (19893 32815))
+;;; Generated autoloads from linum+.el
+
+(defvar linum-format 'smart "\
+Format used to display line numbers.
+
++ Either a format string like \"%7d\",
++ or `smart' to smart adapt the width by current max line
+  number can be viewd,
++ or `dynamic' to adapt the width as needed,
++ or a vector with one string element which uesed to generate
+  line number format by `format' with argument max line number can be viewd
+  in current buffer, see example `linum+-smart-format'
++ or a list with one string element which uesed to generate
+  line number format by `format' with argument max line number of current buffer,
+  see example `linum+-dynamic-format'
++ or a function that is called with a line number as its
+  argument and should evaluate to a string to be shown on that line.
+
+See also `linum-before-numbering-hook'.")
+
+(custom-autoload 'linum-format "linum+" t)
+
+(defvar linum+-dynamic-format "%%%dd|" "\
+Format used to generate line number format when `linum-format' is `dynamic'.")
+
+(custom-autoload 'linum+-dynamic-format "linum+" t)
+
+(defvar linum+-smart-format "%%%dd|" "\
+Format used to generate line number format when `linum-format' is `smart'.")
+
+(custom-autoload 'linum+-smart-format "linum+" t)
+
+(autoload 'linum+-generate-linum-format "linum+" "\
+Generate line number format by FORMAT-TYPE, LIMIT is `window-end' of win.
+
+\(fn FORMAT-TYPE LIMIT)" nil nil)
+
+(autoload 'linum-update-window "linum+" "\
+Update line numbers for the portion visible in window WIN.
+
+\(fn WIN)" nil nil)
 
 ;;;***
 
@@ -17248,7 +17369,7 @@ Key bindings:
 ;;;;;;  "howm-1.3.9.1/howm-view.el" "howm-1.3.9.1/howm.el" "howm-1.3.9.1/illusion.el"
 ;;;;;;  "howm-1.3.9.1/riffle.el" "html-php.el" "html-script.el" "ion3.el"
 ;;;;;;  "jira.el" "joseph-autopair.el" "json.el" "lazycat-toolkit.el"
-;;;;;;  "lookout.el" "magit/50magit.el" "magit/magit-key-mode.el"
+;;;;;;  "linum-settings.el" "lookout.el" "magit/50magit.el" "magit/magit-key-mode.el"
 ;;;;;;  "magit/magit-pkg.el" "magit/magit-svn.el" "magit/magit-topgit.el"
 ;;;;;;  "magit/rebase-mode.el" "mailcrypt-3.5.9/mc-remail2.el" "maxframe.el"
 ;;;;;;  "mhc/emacs/mhc-bm.el" "mhc/emacs/mhc-calendar.el" "mhc/emacs/mhc-compat.el"
@@ -17280,11 +17401,12 @@ Key bindings:
 ;;;;;;  "vimpulse/vimpulse-paren-matching.el" "vimpulse/vimpulse-test.el"
 ;;;;;;  "vimpulse/vimpulse-text-object-system.el" "vimpulse/vimpulse-utils.el"
 ;;;;;;  "vimpulse/vimpulse-viper-function-redefinitions.el" "vimpulse/vimpulse-visual-mode.el"
-;;;;;;  "vimpulse/vimpulse.el" "viper-in-more-modes.el" "wdired-extension.el"
-;;;;;;  "weblogger.el" "widen-window.el" "window-number.el" "wl-highlight-ad.el"
-;;;;;;  "woof.el" "x-dict.el" "xml-rpc.el" "xte.el" "xwindow-ring.el"
-;;;;;;  "yaml-mode.el" "yaml-mode/yaml-mode.el" "yas-jit.el" "yasnippet/dropdown-list.el"
-;;;;;;  "yasnippet/yasnippet-debug.el") (19887 63752 411446))
+;;;;;;  "vimpulse/vimpulse.el" "viper-in-more-modes.el" "w3m-lnum.el"
+;;;;;;  "wdired-extension.el" "weblogger.el" "widen-window.el" "window-number.el"
+;;;;;;  "wl-highlight-ad.el" "woof.el" "x-dict.el" "xml-rpc.el" "xte.el"
+;;;;;;  "xwindow-ring.el" "yaml-mode.el" "yaml-mode/yaml-mode.el"
+;;;;;;  "yas-jit.el" "yasnippet/dropdown-list.el" "yasnippet/yasnippet-debug.el")
+;;;;;;  (19894 45244 153853))
 
 ;;;***
 

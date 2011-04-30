@@ -1,92 +1,204 @@
-;;; linum.el --- Display line numbers to the left of buffers 
-;; Copyright (C) 2007  Markus Triska 
-;; Author: Markus Triska <markus.tri...@gmx.at> 
-;; Keywords: convenience 
-;; This file is free software; you can redistribute it and/or modify 
-;; it under the terms of the GNU General Public License as published by 
-;; the Free Software Foundation; either version 2, or (at your option) 
-;; any later version. 
-;; This file is distributed in the hope that it will be useful, 
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of 
-;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
-;; GNU General Public License for more details. 
-;; You should have received a copy of the GNU General Public License 
-;; along with GNU Emacs; see the file COPYING.  If not, write to 
-;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
-;; Boston, MA 02110-1301, USA. 
-;;; Commentary: 
-;; Display line numbers for the current buffer. Copy linum.el to your 
-;; load-path and add to your .emacs: 
-;;    (require 'linum) 
-;; Then toggle display of line numbers with M-x linum. 
-;;; Code: 
-(defconst linum-version "0.8f-emacs22") 
-(defvar linum-overlays nil) 
-(defvar linum-active nil) 
-(defgroup linum nil 
-  "Show line numbers to the left of buffers" 
-  :group 'convenience) 
-;;;###autoload 
-(defcustom linum-format "%6d  " 
-  "Format used to display line numbers. Either a format string like \"%6d  \", 
-or the symbol 'dynamic to adapt the width as needed. 'dynamic or 
-a format string that does not expand to a multiple of 8 can make 
-indentations look different if you indent using tab characters." 
-  :group 'linum 
-  :type 'sexp) 
-(mapc #'make-variable-buffer-local '(linum-overlays linum-active)) 
-;;;###autoload 
-(defun linum () 
-  "Toggle display of line numbers." 
-  (interactive) 
-  (setq linum-active (not linum-active)) 
-  (if linum-active 
-      (progn 
-        (add-hook 'post-command-hook 'linum-update nil t) 
-        (message "Linum enabled")) 
-    (remove-hook 'post-command-hook 'linum-update t) 
-    (mapc #'delete-overlay linum-overlays) 
-    (setq linum-overlays nil) 
-    (message "Linum disabled"))) 
-(defun linum-dynamic-format () 
-  "Compute a format string based on the number of lines in the 
-current buffer." 
-  (let ((lines (count-lines (point-min) (point-max))) 
-        (width 0)) 
-    (while (> lines 0) 
-      (setq lines (/ lines 10)) 
-      (setq width (1+ width))) 
-    (format "%%%dd  " width))) 
-(defun linum-update () 
-  "Update displayed line numbers for the current buffer." 
-  (save-excursion 
-    (goto-char (window-start)) 
-    (let ((line (line-number-at-pos)) 
-          (limit (1+ (window-end nil t))) 
-          (fmt (if (stringp linum-format) linum-format (linum-dynamic-format))) 
-          ov 
-          free) 
-      (dolist (ov (overlays-in (point) limit)) 
-        (when (overlay-get ov 'linum) 
-          (push ov free))) 
-      ;; Create an overlay (or reuse an existing one) for each visible 
-      ;; line in this window. 
-      (while (and (not (eobp)) (< (point) limit)) 
-        (if (null free) 
-            (progn 
-              (setq ov (make-overlay (point) (point))) 
-              (overlay-put ov 'linum t) 
-              (push ov linum-overlays)) 
-          (setq ov (pop free)) 
-          (move-overlay ov (point) (point))) 
-        (overlay-put ov 'before-string (format fmt line)) 
-        (forward-line) 
-        (setq line (1+ line))) 
-      (mapc #'delete-overlay free)))) 
-;;;###autoload 
-(defun linum-version () 
-  "Display version of linum." 
-  (interactive) 
-  (message "Using linum version %s" linum-version)) 
-(provide 'linum) 
-;;; linum.el ends here 
+;;; linum.el --- Display line numbers to the left of buffers
+
+;; Copyright (C) 2007, 2008  Markus Triska
+
+;; Author: Markus Triska <markus.triska@gmx.at>
+;; Keywords: convenience
+
+;; This file is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation; either version 3, or (at your option)
+;; any later version.
+
+;; This file is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to
+;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
+
+;;; Commentary:
+
+;; Display line numbers for the current buffer. Copy linum.el to your
+;; load-path and add to your .emacs:
+
+;;    (require 'linum)
+
+;; Then toggle display of line numbers with M-x linum-mode. To enable
+;; line numbering in all buffers, use M-x global-linum-mode.
+
+;;; Code:
+
+(defconst linum-version "0.9wza")
+
+(defvar linum-overlays nil "Overlays used in this buffer.")
+(defvar linum-available nil "Overlays available for reuse.")
+(defvar linum-before-numbering-hook nil
+  "Functions run in each buffer before line numbering starts.")
+
+(mapc #'make-variable-buffer-local '(linum-overlays linum-available))
+
+(defgroup linum nil
+  "Show line numbers to the left of buffers"
+  :group 'convenience)
+
+;;;###autoload
+(defcustom linum-format 'dynamic
+  "Format used to display line numbers. Either a format string
+like \"%7d\", 'dynamic to adapt the width as needed, or a
+function that is called with a line number as its argument and
+should evaluate to a string to be shown on that line. See also
+`linum-before-numbering-hook'."
+  :group 'linum
+  :type 'sexp)
+
+(defface linum
+  '((t :inherit (shadow default)))
+  "Face for displaying line numbers in the display margin."
+  :group 'linum)
+
+(defcustom linum-eager t
+  "Whether line numbers should be updated after each command.
+The conservative setting `nil' might miss some buffer changes,
+and you have to scroll or press C-l to update the numbers."
+  :group 'linum
+  :type 'boolean)
+
+(defcustom linum-delay nil
+  "Delay updates to give Emacs a chance for other changes."
+  :group 'linum
+  :type 'boolean)
+
+;;;###autoload
+(define-minor-mode linum-mode
+  "Toggle display of line numbers in the left marginal area."
+  :lighter ""                           ; for desktop.el
+  (if linum-mode
+      (progn
+        (if linum-eager
+            (add-hook 'post-command-hook (if linum-delay
+                                             'linum-schedule
+                                           'linum-update-current) nil t)
+          (add-hook 'after-change-functions 'linum-after-change nil t))
+        (add-hook 'window-scroll-functions 'linum-after-scroll nil t)
+        ;; mistake in Emacs: window-size-change-functions cannot be local
+        (add-hook 'window-size-change-functions 'linum-after-size)
+        (add-hook 'change-major-mode-hook 'linum-delete-overlays nil t)
+        (add-hook 'window-configuration-change-hook
+                  'linum-after-config nil t)
+        (linum-update-current))
+    (remove-hook 'post-command-hook 'linum-update-current t)
+    (remove-hook 'post-command-hook 'linum-schedule t)
+    (remove-hook 'window-size-change-functions 'linum-after-size)
+    (remove-hook 'window-scroll-functions 'linum-after-scroll t)
+    (remove-hook 'after-change-functions 'linum-after-change t)
+    (remove-hook 'window-configuration-change-hook 'linum-after-config t)
+    (remove-hook 'change-major-mode-hook 'linum-delete-overlays t)
+    (linum-delete-overlays)))
+
+;;;###autoload
+(define-globalized-minor-mode global-linum-mode linum-mode linum-on)
+
+(defun linum-on ()
+  (unless (minibufferp)
+    (linum-mode 1)))
+
+(defun linum-delete-overlays ()
+  "Delete all overlays displaying line numbers for this buffer."
+  (mapc #'delete-overlay linum-overlays)
+  (setq linum-overlays nil)
+  (dolist (w (get-buffer-window-list (current-buffer) nil t))
+    (set-window-margins w 0)))
+
+(defun linum-update-current ()
+  "Update line numbers for the current buffer."
+  (linum-update (current-buffer)))
+
+(defun linum-update (buffer)
+  "Update line numbers for all windows displaying BUFFER."
+  (with-current-buffer buffer
+    (when linum-mode
+      (setq linum-available linum-overlays)
+      (setq linum-overlays nil)
+      (save-excursion
+        (mapc #'linum-update-window
+              (get-buffer-window-list buffer nil 'visible)))
+      (mapc #'delete-overlay linum-available)
+      (setq linum-available nil))))
+
+(defun linum-update-window (win)
+  "Update line numbers for the portion visible in window WIN."
+  (goto-char (window-start win))
+  (let* ((line (line-number-at-pos))
+         (limit (window-end win t))
+         ;; set empty-line-at-eob flag
+         (empty-line-at-eob (or (equal ?\n (char-before (point-max)))
+                                (equal (point-min) (point-max))))
+         ;; we will automatically number the line at eob if it's not empty
+         ;; (so we'll say it's already done)
+         (numbered-line-at-eob (not empty-line-at-eob))
+         (fmt (cond ((stringp linum-format) linum-format)
+                    ((eq linum-format 'dynamic)
+                     (let* ((c (count-lines (point-min) (point-max)))
+                            (w (length (number-to-string
+                                        (+ c (if empty-line-at-eob 1 0))))))
+                       (concat "%" (number-to-string w) "d")))))
+         (width 0))
+    (run-hooks 'linum-before-numbering-hook)
+    ;; Create an overlay (or reuse an existing one) for each
+    ;; line visible in this window, if necessary.
+    ;; stop if point>limit, or if eobp and numbered-line-at-eob
+    (while (and (not (and (eobp) numbered-line-at-eob)) (<= (point) limit))
+      (let* ((str (if fmt
+                      (propertize (format fmt line) 'face 'linum)
+                    (funcall linum-format line)))
+             (visited (catch 'visited
+                        (dolist (o (overlays-in (point) (point)))
+                          (when (string= (overlay-get o 'linum-str) str)
+                            (unless (memq o linum-overlays)
+                              (push o linum-overlays))
+                            (setq linum-available (delete o linum-available))
+                            (throw 'visited t))))))
+        (setq width (max width (length str)))
+        (unless visited
+          (let ((ov (if (null linum-available)
+                        (make-overlay (point) (point))
+                      (move-overlay (pop linum-available) (point) (point)))))
+            (push ov linum-overlays)
+            (overlay-put ov 'before-string
+                         (propertize " " 'display `((margin left-margin) ,str)))
+            (overlay-put ov 'linum-str str))))
+      ;; before moving forward, if we're already at eob
+      (if (eobp)
+          ;; then we've numbered the empty line
+          (setq numbered-line-at-eob t))
+      (forward-line)
+      (setq line (1+ line)))
+    (set-window-margins win width)))
+
+(defun linum-after-change (beg end len)
+  ;; update overlays on deletions, and after newlines are inserted
+  (when (or (= beg end)
+            (= end (point-max))
+            ;; TODO: use string-match-p with CVS or new release
+            (string-match "\n" (buffer-substring-no-properties beg end)))
+    (linum-update-current)))
+
+(defun linum-after-scroll (win start)
+  (linum-update (window-buffer win)))
+
+(defun linum-after-size (frame)
+  (linum-after-config))
+
+(defun linum-schedule ()
+  ;; schedule an update; the delay gives Emacs a chance for display changes
+  (run-with-idle-timer 0 nil #'linum-update-current))
+
+(defun linum-after-config ()
+  (walk-windows (lambda (w) (linum-update (window-buffer w))) nil 'visible))
+
+(provide 'linum)
+;;; linum.el ends here
