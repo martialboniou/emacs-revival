@@ -1,4 +1,6 @@
-;;
+;;
+;;; loaddefs.el --- Auto-generated CEDET autoloads
+
 ;;;### (autoloads (run-at-time) "FSF-timer" "mailcrypt-3.5.9/FSF-timer.el"
 ;;;;;;  (19352 62013))
 ;;; Generated autoloads from mailcrypt-3.5.9/FSF-timer.el
@@ -26,10 +28,9 @@ Relative times may be specified as a series of numbers followed by units:
 \(fn TIME REPEAT FUNCTION &rest ARGS)" t nil)
 
 ;;;***
-;;; loaddefs.el --- Auto-generated CEDET autoloads
 
 ;;;### (autoloads (anything-other-buffer anything-at-point anything)
-;;;;;;  "anything" "anything.el" (19814 14041))
+;;;;;;  "anything" "anything.el" (20112 24690))
 ;;; Generated autoloads from anything.el
 
 (autoload 'anything "anything" "\
@@ -106,7 +107,7 @@ Simplified interface of `anything' with other `anything-buffer'
 ;;;***
 
 ;;;### (autoloads (ascii-off ascii-on ascii-display ascii-customize)
-;;;;;;  "ascii" "ascii.el" (19828 49560))
+;;;;;;  "ascii" "ascii.el" (20112 24690))
 ;;; Generated autoloads from ascii.el
 
 (autoload 'ascii-customize "ascii" "\
@@ -136,20 +137,8 @@ Turn off ASCII code display.
 
 ;;;***
 
-;;;### (autoloads (autoconf-parameters-for-macro) "autoconf-edit"
-;;;;;;  "cedet/ede/autoconf-edit.el" (19530 61660))
-;;; Generated autoloads from cedet/ede/autoconf-edit.el
-
-(autoload 'autoconf-parameters-for-macro "autoconf-edit" "\
-Retrieve the parameters to MACRO.
-Returns a list of the arguments passed into MACRO as strings.
-
-\(fn MACRO &optional IGNORE-BOL IGNORE-CASE)" nil nil)
-
-;;;***
-
 ;;;### (autoloads (switch-to-buffer autofit-frames-flag) "autofit-frame"
-;;;;;;  "autofit-frame.el" (19826 9540))
+;;;;;;  "autofit-frame.el" (20112 24690))
 ;;; Generated autoloads from autofit-frame.el
 
 (defvar autofit-frames-flag t "\
@@ -183,926 +172,12 @@ Resizes frame to fit sole window if `autofit-frames-flag'
 
 ;;;***
 
-;;;### (autoloads (bbdb-insinuate-message bbdb-initialize bbdb-multiple-buffers
-;;;;;;  bbdb-submit-bug-report) "bbdb" "bbdb/lisp/bbdb.el" (18397
-;;;;;;  42911))
-;;; Generated autoloads from bbdb/lisp/bbdb.el
-
-(autoload 'bbdb-submit-bug-report "bbdb" "\
-Submit a bug report, with pertinent information to the BBDB info list.
-
-\(fn)" t nil)
-
-(defvar bbdb-multiple-buffers nil "\
-When non-nil we create a new buffer of every buffer causing pop-ups.
-You can also set this to a function returning a buffer name.")
-
-(custom-autoload 'bbdb-multiple-buffers "bbdb" t)
-
-(autoload 'bbdb-initialize "bbdb" "\
-*Initialize the BBDB.  One or more of the following symbols can be
-passed as arguments to initiate the appropriate insinuations.
-
- Initialization of mail/news readers:
-
-   gnus       Initialize BBDB support for the gnus mail/news reader
-              version 3.15 or newer.  If you pass the `gnus' symbol,
-              you should probably also pass the `message' symbol.
-   mh-e       Initialize BBDB support for the MH-E mail reader.
-   rmail      Initialize BBDB support for the RMAIL mail reader.
-   sendmail   Initialize BBDB support for sendmail (M-x mail).
-   vm         Initialize BBDB support for the VM mail reader.
-              NOTE: For the VM insinuation to work properly, you must
-              either call `bbdb-initialize' with the `vm' symbol from
-              within your VM initialization file (\"~/.vm\") or you
-              must call `bbdb-insinuate-vm' manually from within your
-              VM initialization file.
-
- Initialization of miscellaneous package:
-
-   message    Initialize BBDB support for Message mode.
-   reportmail Initialize BBDB support for the Reportmail mail
-              notification package.
-   sc or      Initialize BBDB support for the Supercite message
-   supercite  citation package.
-   w3         Initialize BBDB support for Web browsers.
-
-\(fn &rest TO-INSINUATE)" nil nil)
-
-(autoload 'bbdb-insinuate-message "bbdb" "\
-Call this function to hook BBDB into `message-mode'.
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-include-anniversaries bbdb-anniversaries
-;;;;;;  bbdb-utilities-anniversaries) "bbdb-anniv" "bbdb/bits/bbdb-anniv.el"
-;;;;;;  (15006 27895))
-;;; Generated autoloads from bbdb/bits/bbdb-anniv.el
-
-(let ((loads (get 'bbdb-utilities-anniversaries 'custom-loads))) (if (member '"bbdb-anniv" loads) nil (put 'bbdb-utilities-anniversaries 'custom-loads (cons '"bbdb-anniv" loads))))
-
-(defvar bbdb-anniversaries nil "\
-Should BBDB anniversaries be included when the diary is displayed (fancy)?
-You must modify via \\[customize] for this variable to have an effect.")
-
-(custom-autoload 'bbdb-anniversaries "bbdb-anniv" nil)
-
-(autoload 'bbdb-include-anniversaries "bbdb-anniv" "\
-Not documented
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-get-only-first-address-p bbdb-get-addresses-headers
-;;;;;;  bbdb-update-records bbdb-update-records-mode bbdb-help bbdb-info
-;;;;;;  bbdb-creation-no-change bbdb-creation-newer bbdb-creation-older
-;;;;;;  bbdb-timestamp-newer bbdb-timestamp-older bbdb-finger bbdb-dial
-;;;;;;  bbdb-add-or-remove-mail-alias bbdb-define-all-aliases bbdb-yank
-;;;;;;  bbdb-complete-name bbdb-read-addresses-with-completion bbdb-completion-predicate
-;;;;;;  bbdb-completion-check-record bbdb-show-all-recipients bbdb-send-mail
-;;;;;;  bbdb-dwim-net-address bbdb-sort-addresses bbdb-sort-phones
-;;;;;;  bbdb-sort-notes bbdb-refile-record bbdb-omit-record bbdb-display-record-with-layout
-;;;;;;  bbdb-display-record-completely bbdb-display-all-records-completely
-;;;;;;  bbdb-toggle-records-display-layout bbdb-toggle-all-records-display-layout
-;;;;;;  bbdb-delete-current-record bbdb-delete-current-field-or-record
-;;;;;;  bbdb-transpose-fields bbdb-record-edit-property bbdb-record-edit-notes
-;;;;;;  bbdb-edit-current-field bbdb-insert-new-field bbdb-append-records
-;;;;;;  bbdb-append-records-p bbdb-apply-next-command-to-all-records
-;;;;;;  bbdb-create bbdb-redisplay-records bbdb-changed bbdb-notes
-;;;;;;  bbdb-net bbdb-company bbdb-name bbdb bbdb-search-invert-set)
-;;;;;;  "bbdb-com" "bbdb/lisp/bbdb-com.el" (18397 42930))
-;;; Generated autoloads from bbdb/lisp/bbdb-com.el
-
-(autoload 'bbdb-search-invert-set "bbdb-com" "\
-Typing \\<bbdb-mode-map>\\[bbdb-search-invert-set] inverts the meaning of the next search command.
-Sets `bbdb-search-invert' to t.
-You will have to call this function again, if you want to
-do repeated inverted searches.
-
-\(fn)" t nil)
-
-(autoload 'bbdb "bbdb-com" "\
-Display all entries in the BBDB matching the regexp STRING
-in either the name(s), company, network address, or notes.
-
-\(fn STRING ELIDEP)" t nil)
-
-(autoload 'bbdb-name "bbdb-com" "\
-Display all entries in the BBDB matching the regexp STRING in the name
-\(or ``alternate'' names).
-
-\(fn STRING ELIDEP)" t nil)
-
-(autoload 'bbdb-company "bbdb-com" "\
-Display all entries in BBDB matching STRING in the company field.
-
-\(fn STRING ELIDEP)" t nil)
-
-(autoload 'bbdb-net "bbdb-com" "\
-Display all entries in BBDB matching regexp STRING in the network address.
-
-\(fn STRING ELIDEP)" t nil)
-
-(autoload 'bbdb-notes "bbdb-com" "\
-Display all entries in BBDB matching STRING in the named notes field.
-
-\(fn WHICH STRING ELIDEP)" t nil)
-
-(autoload 'bbdb-changed "bbdb-com" "\
-Display all entries in the bbdb database which have been changed since
-the database was last saved.
-
-\(fn ELIDEP)" t nil)
-
-(autoload 'bbdb-redisplay-records "bbdb-com" "\
-Regrinds the contents of the *BBDB* buffer, without scrolling.
-If possible, you should call `bbdb-redisplay-one-record' instead.
-
-\(fn)" nil nil)
-
-(autoload 'bbdb-create "bbdb-com" "\
-Add a new entry to the bbdb database ; prompts for all relevant info
-using the echo area, inserts the new record in the db, sorted alphabetically,
-and offers to save the db file.  DO NOT call this from a program.  Call
-bbdb-create-internal instead.
-
-\(fn RECORD)" t nil)
-
-(autoload 'bbdb-apply-next-command-to-all-records "bbdb-com" "\
-Typing \\<bbdb-mode-map>\\[bbdb-apply-next-command-to-all-records] in the *BBDB* buffer makes the next command operate on all
-of the records currently displayed.  (Note that this only works for
-certain commands.)
-
-\(fn)" t nil)
-
-(autoload 'bbdb-append-records-p "bbdb-com" "\
-Not documented
-
-\(fn)" nil nil)
-
-(autoload 'bbdb-append-records "bbdb-com" "\
-Typing \\<bbdb-mode-map>\\[bbdb-append-records] in the *BBDB* buffer makes the next search/display command to append
-new records to those in the *BBDB* buffer.
-
-With an prefix arg (C-u) toggle between always append and no append.
-With an prefix arg that is a positive number append will be enabled for that
-many times.
-With any other argument append will be enabled once.
-
-\(fn ARG)" t nil)
-
-(autoload 'bbdb-insert-new-field "bbdb-com" "\
-Add a new field to the current record; the field type and contents
-are prompted for if not supplied.
-
-If you are inserting a new phone-number field, you can control whether
-it is a north american or european phone number by providing a prefix
-argument.  A prefix arg of ^U means it's to be a euronumber, and any
-other prefix arg means it's to be a a structured north american number.
-Otherwise, which style is used is controlled by the variable
-`bbdb-north-american-phone-numbers-p'.
-
-If you are inserting a new net address, you can have BBDB append a
-default domain to any net address that does not contain one.  Set
-`bbdb-default-domain' to a string such as \"mycompany.com\" (or,
-depending on your environment, (getenv \"DOMAINNAME\")), and
-\"@mycompany.com\" will be appended to an address that is entered as
-just a username.  A prefix arg of ^U (or a `bbdb-default-domain'
-value of \"\", the default) means do not alter the address.
-
-\(fn RECORD NAME CONTENTS)" t nil)
-
-(autoload 'bbdb-edit-current-field "bbdb-com" "\
-Edit the contents of the Insidious Big Brother Database field displayed on
-the current line (this is only meaningful in the \"*BBDB*\" buffer.)   If the
-cursor is in the middle of a multi-line field, such as an address or comments
-section, then the entire field is edited, not just the current line.
-
-\(fn)" t nil)
-
-(autoload 'bbdb-record-edit-notes "bbdb-com" "\
-Not documented
-
-\(fn BBDB-RECORD &optional REGRIND)" t nil)
-
-(autoload 'bbdb-record-edit-property "bbdb-com" "\
-Not documented
-
-\(fn BBDB-RECORD &optional PROP REGRIND)" t nil)
-
-(autoload 'bbdb-transpose-fields "bbdb-com" "\
-This is like the `transpose-lines' command, but it is for BBDB fields.
-If the cursor is on a field of a BBDB record, that field and the previous
-field will be transposed.
-
-With argument ARG, takes previous line and moves it past ARG fields.
-With argument 0, interchanges field point is in with field mark is in.
-
-Both fields must be in the same record, and must be of the same basic type
-\(that is, you can use this command to change the order in which phone-number
-fields are listed, but you can't use it to make an address appear before a
-phone number; the order of field types is fixed.)
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'bbdb-delete-current-field-or-record "bbdb-com" "\
-Delete the line which the cursor is on; actually, delete the field which
-that line represents from the database.  If the cursor is on the first line
-of a database entry (the name/company line) then the entire entry will be
-deleted.
-
-\(fn &optional RECORDS NOPROMPT)" t nil)
-
-(autoload 'bbdb-delete-current-record "bbdb-com" "\
-Delete the entire bbdb database entry which the cursor is within.
-Pressing \\<bbdb-mode-map>\\[bbdb-apply-next-command-to-all-records] will
-delete all records listed in the BBDB buffer.
-
-\(fn RECS &optional NOPROMPT)" t nil)
-
-(autoload 'bbdb-toggle-all-records-display-layout "bbdb-com" "\
-Show all the fields of all visible records.
-Like `bbdb-toggle-records-display-layout' but for all visible records.
-
-\(fn ARG &optional RECORDS)" t nil)
-
-(autoload 'bbdb-toggle-records-display-layout "bbdb-com" "\
-Toggle whether the current record is displayed expanded or elided
-\(multi-line or one-line display.)  With a numeric argument of 0, the
-current record will unconditionally be made elided; with any other argument,
-the current record will unconditionally be shown expanded.
-\\<bbdb-mode-map>
-If \"\\[bbdb-apply-next-command-to-all-records]\\[bbdb-toggle-records-display-layout]\" is used instead of simply \"\\[bbdb-toggle-records-display-layout]\", then the state of all records will
-be changed instead of just the one at point.  In this case, an argument
-of 0 means that all records will unconditionally be made elided; any other
-numeric argument means that all of the records will unconditionally be shown
-expanded; and no numeric argument means that the records are made to be in
-the opposite state of the record under point.
-
-\(fn ARG)" t nil)
-
-(autoload 'bbdb-display-all-records-completely "bbdb-com" "\
-Show all the fields of all currently displayed records.
-The display layout `full-multi-line' is used for this.
-
-\(fn ARG &optional RECORDS)" t nil)
-
-(autoload 'bbdb-display-record-completely "bbdb-com" "\
-Show all the fields of the current record.
-The display layout `full-multi-line' is used for this.
-
-\(fn ARG)" t nil)
-
-(autoload 'bbdb-display-record-with-layout "bbdb-com" "\
-Show all the fields of the current record using LAYOUT.
-
-\(fn LAYOUT &optional RECORDS)" t nil)
-
-(autoload 'bbdb-omit-record "bbdb-com" "\
-Remove the current record from the display without deleting it from the
-database.  With a prefix argument, omit the next N records.  If negative,
-omit backwards.
-
-\(fn N)" t nil)
-
-(autoload 'bbdb-refile-record "bbdb-com" "\
-Merge the current record into some other record; that is, delete the
-record under point after copying all of the data within it into some other
-record.  this is useful if you realize that somehow a redundant record has
-gotten into the database, and you want to merge it with another.
-
-If both records have names and/or companies, you are asked which to use.
-Phone numbers, addresses, and network addresses are simply concatenated.
-The first record is the record under the point; the second is prompted for.
-Completion behaviour is as dictated by the variable `bbdb-completion-type'.
-
-\(fn OLD-RECORD NEW-RECORD)" t nil)
-
-(autoload 'bbdb-sort-notes "bbdb-com" "\
-Sort the notes in the record according to `bbdb-notes-sort-order'.
-Can be used in `bbdb-change-hook'.
-
-\(fn REC)" nil nil)
-
-(autoload 'bbdb-sort-phones "bbdb-com" "\
-Sort the phones in the record according to the location.
-Can be used in `bbdb-change-hook'.
-
-\(fn REC)" nil nil)
-
-(autoload 'bbdb-sort-addresses "bbdb-com" "\
-Sort the addresses in the record according to the location.
-Can be used in `bbdb-change-hook'.
-
-\(fn REC)" nil nil)
-
-(autoload 'bbdb-dwim-net-address "bbdb-com" "\
-Return a string to use as the email address of the given record.
-It is formatted like \"Firstname Lastname <addr>\" unless both the first name
-and last name are constituents of the address, as in John.Doe@SomeHost, or the
-address is already in the form \"Name <foo>\" or \"foo (Name)\", in which case
-the address is used as-is.
-
-If the record has the field 'mail-name it is used instead of the record's name.
-
-If `bbdb-dwim-net-address-allow-redundancy' is non-nil, the name is always
-included.  If `bbdb-dwim-net-address-allow-redundancy' is 'netonly the name is
-never included!
-
-A title is prepended from the field `bbdb-dwim-net-address-title-field' if it
-exists.
-
-\(fn RECORD &optional NET)" nil nil)
-
-(autoload 'bbdb-send-mail "bbdb-com" "\
-Compose a mail message to the person indicated by the current bbdb record.
-The first (most-recently-added) address is used if there are more than one.
-\\<bbdb-mode-map>
-If \"\\[bbdb-apply-next-command-to-all-records]\\[bbdb-send-mail]\" is used instead of simply \"\\[bbdb-send-mail]\", then mail will be sent to all of the
-folks listed in the *BBDB* buffer instead of just the person at point.
-
-\(fn BBDB-RECORD &optional SUBJECT)" t nil)
-
-(autoload 'bbdb-show-all-recipients "bbdb-com" "\
-*Display BBDB records for all recipients of the message in this buffer.
-
-\(fn)" t nil)
-
-(autoload 'bbdb-completion-check-record "bbdb-com" "\
-Not documented
-
-\(fn SYM REC)" nil nil)
-
-(autoload 'bbdb-completion-predicate "bbdb-com" "\
-For use as the third argument to `completing-read'.
-Obey the semantics of `bbdb-completion-type'.
-
-\(fn SYMBOL)" nil nil)
-
-(autoload 'bbdb-read-addresses-with-completion "bbdb-com" "\
-Like `read-string', but allows `bbdb-complete-name' style completion.
-
-\(fn PROMPT &optional DEFAULT)" nil nil)
-
-(autoload 'bbdb-complete-name "bbdb-com" "\
-Complete the user full-name or net-address before point (up to the
-preceeding newline, colon, or comma, or the value of START-POS).  If
-what has been typed is unique, insert an entry of the form \"User Name
-<net-addr>\" (although see documentation for
-bbdb-dwim-net-address-allow-redundancy).  If it is a valid completion
-but not unique, a list of completions is displayed.
-
-If the completion is done and `bbdb-complete-name-allow-cycling' is
-true then cycle through the nets for the matching record.
-
-When called with a prefix arg then display a list of all nets.
-
-Completion behaviour can be controlled with `bbdb-completion-type'.
-
-\(fn &optional START-POS)" t nil)
-
-(autoload 'bbdb-yank "bbdb-com" "\
-Insert the current contents of the *BBDB* buffer at point.
-
-\(fn)" t nil)
-
-(autoload 'bbdb-define-all-aliases "bbdb-com" "\
-Define mail aliases for some of the records in the database.
-Every record which has a `mail-alias' field (but see
-`bbdb-define-all-aliases-field') will have a mail alias defined for it
-which is the contents of that field.  If there are multiple
-comma-separated words in this field, then all of those words will be
-defined as aliases for that record.
-
-If multiple entries in the database have the same mail alias, then
-that alias expands to a comma-separated list of the primary network
-addresses of all of those people.
-
-An alias ending in \"*\" will expand to all the nets of the record.
-An alias ending in \"[NTH]\" will expand the the NTH net of the
-record.
-
-Special nets exist and expand to other nets using one of
-`bbdb-magic-net-*', `bbdb-magic-net-1' or `bbdb-magic-net-SOMETHING'.
-Magic nets may not contain any comma character. If you need one, please
-put it into a custom magic net function or use the octal escape
-sequence \"\\054\".
-
-Nets matching \"FUNCTION/ARG\" (i.e. containing at least one \"/\")
-will be passed to the function `bbdb-magic-net-FUNCTION' with the
-string argument ARG.
-
-Nets starting with a \"(\" will be considered as a lisp list where the
-first element is prefixed by `bbdb-magic-net-' and then called as a
-function with the rest of the list as arguments.
-
-Nets which do not contain an \"@\" character and also exist as aliases
-are expanded recursively.  This can be used to define hierarchical
-aliases.
-
-Other nets are formatted by `bbdb-dwim-net-address'.
-
-\(fn)" t nil)
-
-(autoload 'bbdb-add-or-remove-mail-alias "bbdb-com" "\
-Add NEWALIAS in all RECORDS or remove it if DELETE it t.
-When called with prefix argument it will remove the alias.
-We honor `bbdb-apply-next-command-to-all-records'!
-The new alias will only be added if it isn't there yet.
-
-\(fn &optional RECORDS NEWALIAS DELETE)" t nil)
-
-(autoload 'bbdb-dial "bbdb-com" "\
-Dial the number at point.
-If the point is at the beginning of a record, dial the first
-phone number.  Does not dial the extension.  Does not apply the
-transformations from bbdb-dial-local-prefix-alist if a prefix arg
-is given.
-
-\(fn PHONE FORCE-AREA-CODE)" t nil)
-
-(autoload 'bbdb-finger "bbdb-com" "\
-Finger the network address of a BBDB record.
-If this command is executed from the *BBDB* buffer, finger the network
-address of the record at point; otherwise, it prompts for a user.
-With a numeric prefix argument, finger the Nth network address of the
-current record; with a prefix argument of ^U, finger all of them.
-The *finger* buffer is filled asynchronously, meaning that you don't
-have to wait around for it to finish; but fingering another user before
-the first finger has finished could have unpredictable results.
-\\<bbdb-mode-map>
-If this command is executed from the *BBDB* buffer, it may be prefixed
-with \"\\[bbdb-apply-next-command-to-all-records]\" (as in \"\\[bbdb-apply-next-command-to-all-records]\\[bbdb-finger]\" instead of simply \"\\[bbdb-finger]\"), meaning to finger all of
-the users currently listed in the *BBDB* buffer instead of just the one
-at point.  The numeric prefix argument has the same interpretation.
-
-You can define a special network address to \"finger\" by defining a
-field `finger-host' (default value of `bbdb-finger-host-field').
-
-\(fn RECORD &optional WHICH-ADDRESS)" t nil)
-
-(autoload 'bbdb-timestamp-older "bbdb-com" "\
-*Display records with timestamp older than DATE.
-DATE must be in yyyy-mm-dd format.
-
-\(fn DATE)" t nil)
-
-(autoload 'bbdb-timestamp-newer "bbdb-com" "\
-*Display records with timestamp newer than DATE.
-DATE must be in yyyy-mm-dd format.
-
-\(fn DATE)" t nil)
-
-(autoload 'bbdb-creation-older "bbdb-com" "\
-*Display records with creation-date older than DATE.
-DATE must be in yyyy-mm-dd format.
-
-\(fn DATE)" t nil)
-
-(autoload 'bbdb-creation-newer "bbdb-com" "\
-*Display records with creation-date newer than DATE.
-DATE must be in yyyy-mm-dd format.
-
-\(fn DATE)" t nil)
-
-(autoload 'bbdb-creation-no-change "bbdb-com" "\
-*Display records that have the same timestamp and creation-date.
-
-\(fn)" t nil)
-
-(autoload 'bbdb-info "bbdb-com" "\
-Not documented
-
-\(fn)" t nil)
-
-(autoload 'bbdb-help "bbdb-com" "\
-Not documented
-
-\(fn)" t nil)
-
-(defvar bbdb-update-records-mode 'annotating "\
-Controls how `bbdb-update-records' processes email addresses.
-Set this to an expression which evaluates either to 'searching or
-'annotating.  When set to 'annotating email addresses will be fed to
-`bbdb-annotate-message-sender' in order to update existing records or create
-new ones.  A value of 'searching will search just for existing records having
-the right net.
-
-There is a version of this variable for each MUA, which overrides this variable
-when set!
-
-This variable is also used for inter-function communication between the
-functions `bbdb-update-records' and `bbdb-prompt-for-create'.")
-
-(custom-autoload 'bbdb-update-records-mode "bbdb-com" t)
-
-(autoload 'bbdb-update-records "bbdb-com" "\
-Returns the records corresponding to the list of addresses ADDRS,
-creating or modifying them as necessary.  A record will be created if
-AUTO-CREATE-P is non-nil or if OFFER-TO-CREATE is true and the user
-confirms the creation.
-
-`bbdb-update-records-mode' controls if records are updated or not.
-A MUA specific variable, e.g. `bbdb/vm-update-records-mode', can
-overwrite this.
-
-See also `bbdb-get-only-first-address-p' to limit the update to the
-sender of the message.
-
-When hitting C-g once you will not be asked any more for new people listed
-in this message, but it will search only for existing records.  When hitting
-C-g again it will stop scanning.
-
-\(fn ADDRS AUTO-CREATE-P OFFER-TO-CREATE)" nil nil)
-
-(defvar bbdb-get-addresses-headers '((authors "From" "Resent-From" "Reply-To") (recipients "Resent-To" "Resent-CC" "To" "CC" "BCC")) "\
-*List of headers to search for senders and recipients email addresses.
-The headers are grouped into two classes, the authors and the senders headers.")
-
-(custom-autoload 'bbdb-get-addresses-headers "bbdb-com" t)
-
-(defvar bbdb-get-only-first-address-p nil "\
-*If t `bbdb-update-records' will return only the first one.
-Changing this variable will show its effect only after clearing the
-`bbdb-message-cache' of a folder or closing and visiting it again.")
-
-(custom-autoload 'bbdb-get-only-first-address-p "bbdb-com" t)
-
-;;;***
-
-;;;### (autoloads (bbdb-field-edit-del bbdb-field-edit-add) "bbdb-edit"
-;;;;;;  "bbdb/bits/bbdb-edit.el" (14977 21490))
-;;; Generated autoloads from bbdb/bits/bbdb-edit.el
-
-(autoload 'bbdb-field-edit-add "bbdb-edit" "\
-Add VALUE to FIELD of bbdb-record(s).
-
-\(fn BBDB-RECORD FIELD VALUE)" t nil)
-
-(autoload 'bbdb-field-edit-del "bbdb-edit" "\
-Delete VALUE to FIELD of bbdb-record(s).
-If prefix arg exists, delete all existing field values matching VALUE(regexp).
-
-\(fn BBDB-RECORD FIELD VALUE)" t nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-create-ftp-site bbdb-ftp) "bbdb-ftp" "bbdb/lisp/bbdb-ftp.el"
-;;;;;;  (18011 20884))
-;;; Generated autoloads from bbdb/lisp/bbdb-ftp.el
-
-(autoload 'bbdb-ftp "bbdb-ftp" "\
-Use ange-ftp to open an ftp-connection to a BBDB record's name.
-If this command is executed from the *BBDB* buffer, ftp the site of
-the record at point; otherwise, it prompts for an ftp-site.
-
-\(fn BBDB-RECORD &optional WHICH)" t nil)
-
-(autoload 'bbdb-create-ftp-site "bbdb-ftp" "\
-Add a new ftp-site entry to the bbdb database.
-Prompts for all relevant info using the echo area,
-inserts the new record in the db, sorted alphabetically.
-
-\(fn RECORD)" t nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-insinuate-gnus bbdb/gnus-summary-show-all-recipients
-;;;;;;  bbdb/gnus-score bbdb/gnus-snarf-signature bbdb/gnus-show-all-recipients
-;;;;;;  bbdb/gnus-show-records bbdb/gnus-annotate-sender bbdb/gnus-update-records
-;;;;;;  bbdb/gnus-update-record) "bbdb-gnus" "bbdb/lisp/bbdb-gnus.el"
-;;;;;;  (18389 44231))
-;;; Generated autoloads from bbdb/lisp/bbdb-gnus.el
-
-(autoload 'bbdb/gnus-update-record "bbdb-gnus" "\
-Return the record corresponding to the current Gnus message, creating
-or modifying it as necessary.  A record will be created if
-bbdb/news-auto-create-p is non-nil, or if OFFER-TO-CREATE is true and
-the user confirms the creation.
-
-\(fn &optional OFFER-TO-CREATE)" nil nil)
-
-(autoload 'bbdb/gnus-update-records "bbdb-gnus" "\
-Return the records corresponding to the current Gnus message, creating
-or modifying it as necessary.  A record will be created if
-`bbdb/news-auto-create-p' is non-nil or if OFFER-TO-CREATE is true
-and the user confirms the creation.
-
-The variable `bbdb/gnus-update-records-mode' controls what actions
-are performed and it might override `bbdb-update-records-mode'.
-
-When hitting C-g once you will not be asked anymore for new people listed
-in this message, but it will search only for existing records.  When hitting
-C-g again it will stop scanning.
-
-\(fn &optional OFFER-TO-CREATE)" nil nil)
-
-(autoload 'bbdb/gnus-annotate-sender "bbdb-gnus" "\
-Add a line to the end of the Notes field of the BBDB record
-corresponding to the sender of this message.  If REPLACE is non-nil,
-replace the existing notes entry (if any).
-
-\(fn STRING &optional REPLACE)" t nil)
-
-(autoload 'bbdb/gnus-show-records "bbdb-gnus" "\
-Display the contents of the BBDB for all addresses of this message.
-This buffer will be in `bbdb-mode', with associated keybindings.
-
-\(fn &optional ADDRESS-CLASS)" t nil)
-
-(autoload 'bbdb/gnus-show-all-recipients "bbdb-gnus" "\
-Show all recipients of this message. Counterpart to `bbdb/vm-show-sender'.
-
-\(fn)" t nil)
-
-(autoload 'bbdb/gnus-snarf-signature "bbdb-gnus" "\
-Snarf signature from the corresponding *Article* buffer.
-
-\(fn)" t nil)
-
-(autoload 'bbdb/gnus-score "bbdb-gnus" "\
-This returns a score alist for Gnus.  A score pair will be made for
-every member of the net field in records which also have a gnus-score
-field.  This allows the BBDB to serve as a supplemental global score
-file, with the advantage that it can keep up with multiple and changing
-addresses better than the traditionally static global scorefile.
-
-\(fn GROUP)" nil nil)
-
-(autoload 'bbdb/gnus-summary-show-all-recipients "bbdb-gnus" "\
-Display BBDB records for all recipients of the message.
-
-\(fn NOT-ELIDED)" t nil)
-
-(autoload 'bbdb-insinuate-gnus "bbdb-gnus" "\
-Call this function to hook BBDB into Gnus.
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-menu bbdb-fontify-buffer) "bbdb-gui" "bbdb/lisp/bbdb-gui.el"
-;;;;;;  (17961 17312))
-;;; Generated autoloads from bbdb/lisp/bbdb-gui.el
-
-(autoload 'bbdb-fontify-buffer "bbdb-gui" "\
-Not documented
-
-\(fn &optional RECORDS)" t nil)
-
-(autoload 'bbdb-menu "bbdb-gui" "\
-Not documented
-
-\(fn EVENT)" t nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-force-record-create sample-bbdb-canonicalize-net-hook
-;;;;;;  bbdb-auto-notes-hook bbdb-ignore-some-messages-hook bbdb-ignore-selected-messages-hook
-;;;;;;  bbdb-ignore-most-messages-hook bbdb-extract-field-value bbdb-header-start
-;;;;;;  bbdb-creation-date-hook bbdb-timestamp-hook) "bbdb-hooks"
-;;;;;;  "bbdb/lisp/bbdb-hooks.el" (18011 20885))
-;;; Generated autoloads from bbdb/lisp/bbdb-hooks.el
-
-(autoload 'bbdb-timestamp-hook "bbdb-hooks" "\
-For use as a `bbdb-change-hook'; maintains a notes-field called `timestamp'
-for the given record which contains the time when it was last modified.  If
-there is such a field there already, it is changed, otherwise it is added.
-
-\(fn RECORD)" nil nil)
-
-(autoload 'bbdb-creation-date-hook "bbdb-hooks" "\
-For use as a `bbdb-create-hook'; adds a notes-field called `creation-date'
-which is the current time string.
-
-\(fn RECORD)" nil nil)
-
-(autoload 'bbdb-header-start "bbdb-hooks" "\
-Returns a marker at the beginning of the header block of the current
-message.  This will not necessarily be in the current buffer.
-
-\(fn)" nil nil)
-
-(autoload 'bbdb-extract-field-value "bbdb-hooks" "\
-Given the name of a field (like \"Subject\") this returns the value of
-that field in the current message, or nil.  This works whether you're in
-Gnus, Rmail, or VM.  This works on multi-line fields, but if more than
-one field of the same name is present, only the last is returned.  It is
-expected that the current buffer has a message in it, and (point) is at the
-beginning of the message headers.
-
-\(fn FIELD-NAME)" nil nil)
-
-(autoload 'bbdb-ignore-most-messages-hook "bbdb-hooks" "\
-For use as the value of bbdb/news-auto-create-p or bbdb/mail-auto-create-p.
-This will automatically create BBDB entries for messages which match
-the bbdb-ignore-most-messages-alist (which see) and *no* others.
-
-\(fn &optional INVERT-SENSE)" nil nil)
-
-(autoload 'bbdb-ignore-selected-messages-hook "bbdb-hooks" "\
-For use as a bbdb/news-auto-create-hook or bbdb/mail-auto-create-hook.
-This will automatically create BBDB entries for messages based on a
-combination of bbdb-ignore-some-messages-alist and
-bbdb-ignore-most-messages-alist.  It first looks at the SOME list.  If
-that doesn't disqualify a message, then it looks at the MOST list.  If
-that qualifies the message, the record is auto-created, but a
-confirmation is conditionally sought, based on the value of
-`bbdb-ignore-selected-messages-confirmation'.
-
-\(fn)" nil nil)
-
-(autoload 'bbdb-ignore-some-messages-hook "bbdb-hooks" "\
-For use as a `bbdb/news-auto-create-hook' or `bbdb/mail-auto-create-hook'.
-This will automatically create BBDB entries for messages which do *not*
-match the `bbdb-ignore-some-messages-alist' (which see).
-
-\(fn)" nil nil)
-
-(autoload 'bbdb-auto-notes-hook "bbdb-hooks" "\
-For use as a `bbdb-notice-hook'.  This might automatically add some text
-to the notes field of the BBDB record corresponding to the current record
-based on the header of the current message.  See the documentation for
-the variables `bbdb-auto-notes-alist' and `bbdb-auto-notes-ignore'.
-
-\(fn RECORD)" nil nil)
-
-(autoload 'sample-bbdb-canonicalize-net-hook "bbdb-hooks" "\
-Not documented
-
-\(fn ADDR)" nil nil)
-
-(autoload 'bbdb-force-record-create "bbdb-hooks" "\
-Force automatic creation of a BBDB records for the current message.
-You might add this to the reply hook of your MUA in order to automatically
-get records added for those people you reply to.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-merge-file bbdb-merge-record) "bbdb-merge"
-;;;;;;  "bbdb/lisp/bbdb-merge.el" (17865 1144))
-;;; Generated autoloads from bbdb/lisp/bbdb-merge.el
-
-(autoload 'bbdb-merge-record "bbdb-merge" "\
-Generic merge function.
-
-Merges new-record into your bbdb, using DATE to check who's more
-up-to-date and OVERRIDE to decide who gets precedence if two dates
-match. DATE can be extracted from a notes if it's an alist with an
-element marked timestamp. Set OVERRIDE to 'new to allow the new record
-to stomp on existing data, 'old to preserve existing data or nil to
-merge both together. If it can't find a record to merge with, it will
-create a new record. If MERGE-RECORD is set, it's a record discovered
-by other means that should be merged with.
-
-Returns the Grand Unified Record.
-
-\(fn NEW-RECORD &optional MERGE-RECORD OVERRIDE)" nil nil)
-
-(autoload 'bbdb-merge-file "bbdb-merge" "\
-Merge a bbdb file into the in-core bbdb.
-
-\(fn &optional BBDB-NEW OVERRIDE MATCH-FUN)" t nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-insinuate-mh bbdb/mh-show-sender bbdb/mh-annotate-sender
-;;;;;;  bbdb/mh-update-record) "bbdb-mhe" "bbdb/lisp/bbdb-mhe.el"
-;;;;;;  (17967 44425))
-;;; Generated autoloads from bbdb/lisp/bbdb-mhe.el
-
-(autoload 'bbdb/mh-update-record "bbdb-mhe" "\
-Returns the record corresponding to the current MH message, creating or
-modifying it as necessary.  A record will be created if
-bbdb/mail-auto-create-p is non-nil, or if OFFER-TO-CREATE is true and
-the user confirms the creation.
-
-\(fn &optional OFFER-TO-CREATE)" nil nil)
-
-(autoload 'bbdb/mh-annotate-sender "bbdb-mhe" "\
-Add a line to the end of the Notes field of the BBDB record
-corresponding to the sender of this message.  If REPLACE is non-nil,
-replace the existing notes entry (if any).
-
-\(fn STRING &optional REPLACE)" t nil)
-
-(autoload 'bbdb/mh-show-sender "bbdb-mhe" "\
-Display the contents of the BBDB for the sender of this message.
-This buffer will be in bbdb-mode, with associated keybindings.
-
-\(fn)" t nil)
-
-(autoload 'bbdb-insinuate-mh "bbdb-mhe" "\
-Call this function to hook BBDB into MH-E.
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-migrate-update-file-version bbdb-migrate-rewrite-all
-;;;;;;  bbdb-unmigrate-record bbdb-migrate bbdb-migration-query)
-;;;;;;  "bbdb-migrate" "bbdb/lisp/bbdb-migrate.el" (18011 20885))
-;;; Generated autoloads from bbdb/lisp/bbdb-migrate.el
-
-(autoload 'bbdb-migration-query "bbdb-migrate" "\
-Ask if the database is to be migrated.
-ONDISK is the version number of the database as currently stored on
-disk.  Returns the version for the saved database.
-
-\(fn ONDISK)" nil nil)
-
-(autoload 'bbdb-migrate "bbdb-migrate" "\
-Migrate the BBDB from the version on disk (the car of
-`bbdb-file-format-migration') to the current version (in
-`bbdb-file-format').
-
-\(fn RECORDS)" nil nil)
-
-(autoload 'bbdb-unmigrate-record "bbdb-migrate" "\
-Reverse-migrate a single record from the current version (in
-`bbdb-file-format') to the version to be saved (the cdr of
-`bbdb-file-format-migration').
-
-\(fn RECORD)" nil nil)
-
-(autoload 'bbdb-migrate-rewrite-all "bbdb-migrate" "\
-Rewrite each and every record in the bbdb file; this is necessary if we
-are updating an old file format.  MESSAGE-P says whether to sound off
-for each record converted.  If RECORDS is non-nil, its value will be
-used as the list of records to update.
-
-\(fn MESSAGE-P &optional RECORDS)" nil nil)
-
-(autoload 'bbdb-migrate-update-file-version "bbdb-migrate" "\
-Change the `file-version' string from the OLD version to the NEW
-version.
-
-\(fn OLD NEW)" nil nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-obsolete-net-canonicalize-net-hook) "bbdb-obsolete"
-;;;;;;  "bbdb/bits/bbdb-obsolete.el" (15646 18903))
-;;; Generated autoloads from bbdb/bits/bbdb-obsolete.el
-
-(autoload 'bbdb-obsolete-net-canonicalize-net-hook "bbdb-obsolete" "\
-Return user's current net address given obsolete ADDR.
-
-Return ADDR if it is not obsolete anywhere, or there is no net address
-in the matching record.  The field is set in `bbdb-obsolete-net-field'.
-
-\(fn ADDR)" nil nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-utilities-pgp) "bbdb-pgp" "bbdb/bits/bbdb-pgp.el"
-;;;;;;  (16183 22987))
-;;; Generated autoloads from bbdb/bits/bbdb-pgp.el
-
-(let ((loads (get 'bbdb-utilities-pgp 'custom-loads))) (if (member '"bbdb-pgp" loads) nil (put 'bbdb-utilities-pgp 'custom-loads (cons '"bbdb-pgp" loads))))
-
-;;;***
-
-;;;### (autoloads (bbdb-print) "bbdb-print" "bbdb/lisp/bbdb-print.el"
-;;;;;;  (17884 52100))
-;;; Generated autoloads from bbdb/lisp/bbdb-print.el
-
-(autoload 'bbdb-print "bbdb-print" "\
-Make a TeX file for printing out the bbdb database.\\<bbdb-mode-map>
-If \"\\[bbdb-apply-next-command-to-all-records]\\[bbdb-print]\" is used instead of simply \"\\[bbdb-print]\", then includes only the
-people currently in the *BBDB* buffer.  With a prefix argument, makes
-a brief (one-line-per-entry) printout.
-
-There are various variables for customizing the content & format of
-the printout, notably the variables `bbdb-print-alist' and
-`bbdb-print-require'.  See the file bbdb-print.el for more information.
-
-\(fn VISIBLE-RECORDS TO-FILE BRIEF)" t nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-insinuate-reportmail) "bbdb-reportmail" "bbdb/lisp/bbdb-reportmail.el"
-;;;;;;  (17884 52100))
-;;; Generated autoloads from bbdb/lisp/bbdb-reportmail.el
-
-(autoload 'bbdb-insinuate-reportmail "bbdb-reportmail" "\
-Call this function to hook BBDB into reportmail.
-
-\(fn)" nil nil)
-
-;;;***
-
 ;;;### (autoloads (bbdb-snarf-region-better bbdb-print-latex bbdb-print-latex-list
 ;;;;;;  bbdb-csv-export bbdb-snarf-format bbdb/vm-grab-homepage bbdb-clean-nets
 ;;;;;;  rf-bbdb/vm-ignore-old-addresses rf-bbdb/vm-ignore-old-folders
 ;;;;;;  rf-bbdb/vm-primary-inbox-regexp bbdb-sms-yank-mobiles bbdb-send-sms
 ;;;;;;  bbdb/sms-max-chars bbdb/sms-mobile-field bbdb/sms-headers
-;;;;;;  bbdb/sms-gateway) "bbdb-rf" "bbdb-rf.el" (19406 52035))
+;;;;;;  bbdb/sms-gateway) "bbdb-rf" "bbdb-rf.el" (20112 24690))
 ;;; Generated autoloads from bbdb-rf.el
 
 (defvar bbdb/sms-gateway "sms.web.de" "\
@@ -1229,329 +304,6 @@ When called with a prefix arg, prompt for a strategy.
 
 ;;;***
 
-;;;### (autoloads (bbdb-insinuate-rmail bbdb/rmail-show-sender bbdb/rmail-annotate-sender
-;;;;;;  bbdb/rmail-update-records bbdb/rmail-update-record) "bbdb-rmail"
-;;;;;;  "bbdb/lisp/bbdb-rmail.el" (17961 17377))
-;;; Generated autoloads from bbdb/lisp/bbdb-rmail.el
-
-(autoload 'bbdb/rmail-update-record "bbdb-rmail" "\
-Not documented
-
-\(fn &optional OFFER-TO-CREATE)" nil nil)
-
-(autoload 'bbdb/rmail-update-records "bbdb-rmail" "\
-Returns the records corresponding to the current RMAIL emssage,
-creating or modifying them as necessary.  A record will be created if
-bbdb/mail-auto-create-p is non-nil or if OFFER-TO-CREATE is true, and
-the user confirms the creation.
-
-The variable `bbdb/rmail-update-records-mode' controls what actions
-are performed and it might override `bbdb-update-records-mode'.
-
-When hitting C-g once you will not be asked anymore for new people
-listed n this message, but it will search only for existing records.
-When hitting C-g again it will stop scanning.
-
-\(fn &optional OFFER-TO-CREATE)" nil nil)
-
-(autoload 'bbdb/rmail-annotate-sender "bbdb-rmail" "\
-Add a line to the end of the Notes field of the BBDB record
-corresponding to the sender of this message.  If REPLACE is non-nil,
-replace the existing notes entry (if any).
-
-\(fn STRING &optional REPLACE)" t nil)
-
-(autoload 'bbdb/rmail-show-sender "bbdb-rmail" "\
-Display the contents of the BBDB for the sender of this message.
-This buffer will be in bbdb-mode, with associated keybindings.
-
-\(fn)" t nil)
-
-(autoload 'bbdb-insinuate-rmail "bbdb-rmail" "\
-Call this function to hook BBDB into RMAIL.
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-insinuate-sc bbdb/sc-default) "bbdb-sc" "bbdb/lisp/bbdb-sc.el"
-;;;;;;  (17884 52100))
-;;; Generated autoloads from bbdb/lisp/bbdb-sc.el
-
-(autoload 'bbdb/sc-default "bbdb-sc" "\
-If the current \"from\" field in `sc-mail-info' alist
-contains only an e-mail address, lookup e-mail address in
-BBDB, and prepend a new \"from\" field to `sc-mail-info'.
-
-\(fn)" nil nil)
-
-(autoload 'bbdb-insinuate-sc "bbdb-sc" "\
-Call this function to hook BBDB into Supercite.
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-rfc822-addresses bbdb-extract-address-components
-;;;;;;  bbdb-snarf-region bbdb-snarf) "bbdb-snarf" "bbdb/lisp/bbdb-snarf.el"
-;;;;;;  (17961 17312))
-;;; Generated autoloads from bbdb/lisp/bbdb-snarf.el
-
-(autoload 'bbdb-snarf "bbdb-snarf" "\
-snarf up a bbdb record WHERE the point is.
-We assume things are line-broken and paragraph-bounded.
-The name comes first and other fields (address,
-phone, email, web pages) are recognized by context.
-
-Required context:
-    addresses end with \"City, State ZIP\" or \"City, State\"
-    phones match bbdb-snarf-phone-regexp
-        (currently US-style phones)
-    e-mail addresses have @'s in them
-    web sites are recognized by http:// or www.
-
-Address and phone context are currently US-specific;
-patches to internationalize these assumptions are welcome.
-
-\\[bbdb-snarf] is similar to \\[bbdb-whois-sentinel], but less specialized.
-
-\(fn WHERE)" t nil)
-
-(autoload 'bbdb-snarf-region "bbdb-snarf" "\
-snarf up a bbdb record in the current region.  See `bbdb-snarf' for
-more details.
-
-\(fn BEGIN END)" t nil)
-
-(autoload 'bbdb-extract-address-components "bbdb-snarf" "\
-Return a list of address components found in ADSTRING.
-If extracting fails one probably has to adjust the variable
-`bbdb-extract-address-component-regexps'.
-
-\(fn ADSTRING &optional IGNORE-ERRORS)" nil nil)
-
-(autoload 'bbdb-rfc822-addresses "bbdb-snarf" "\
-Split ADDRLINE into a list of parsed addresses.
-
-You can't do this with rfc822.el in any sort of useful way because it discards
-the comments. You can't do this with mail-extr.el because the multiple address
-parsing in GNU Emacs appears to be broken beyond belief, and the XEmacs
-version doesn't support multiple addresses.
-
-\(fn ADDRLINE &optional IGNORE-ERRORS)" nil nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-srv-add-phone bbdb/srv-auto-create-mail-news-dispatcher
-;;;;;;  bbdb/srv-handle-headers-with-delay) "bbdb-srv" "bbdb/lisp/bbdb-srv.el"
-;;;;;;  (17884 52100))
-;;; Generated autoloads from bbdb/lisp/bbdb-srv.el
-
-(autoload 'bbdb/srv-handle-headers-with-delay "bbdb-srv" "\
-Just like bbdb/srv-handle-headers, but only updates every few seconds.
-This is so that trying to display many records in succession won't queue them
-up, but will end up only displaying a record when no displays have been
-requested for a couple of seconds.
-
-\(fn HEADERS)" nil nil)
-
-(defalias 'bbdb-srv 'bbdb/srv-handle-headers-with-delay)
-
-(autoload 'bbdb/srv-auto-create-mail-news-dispatcher "bbdb-srv" "\
-For use as the value of bbdb/srv-auto-create-p.
-This will try to decide if this is a mail message or a news message, and then
-run either bbdb/news-auto-create-p or bbdb/mail-auto-create-p as appropriate.
-\(The heuristic is that news messages never have a Status or X-Mozilla-Status
-header; and that mail messages never have Path headers.)
-
-\(fn)" nil nil)
-
-(autoload 'bbdb-srv-add-phone "bbdb-srv" "\
-Not documented
-
-\(fn PHONE-STRING &optional DESCRIPTION RECORD)" nil nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-test/run-one-test bbdb-test/run-tests bbdb-test/run-all-tests)
-;;;;;;  "bbdb-test" "bbdb/testing/bbdb-test.el" (16175 39563))
-;;; Generated autoloads from bbdb/testing/bbdb-test.el
-
-(autoload 'bbdb-test/run-all-tests "bbdb-test" "\
-Run all BBDB tests.
-
-\(fn &optional BATCH)" t nil)
-
-(autoload 'bbdb-test/run-tests "bbdb-test" "\
-Run BBDB tests.
-
-\(fn)" t nil)
-
-(autoload 'bbdb-test/run-one-test "bbdb-test" "\
-Not documented
-
-\(fn TEST-VAR)" t nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-insinuate-vm bbdb/vm-set-auto-folder-alist
-;;;;;;  bbdb/vm-set-auto-folder-alist-headers bbdb/vm-set-auto-folder-alist-field
-;;;;;;  bbdb/vm-show-sender bbdb/vm-show-all-recipients bbdb/vm-show-records
-;;;;;;  bbdb/vm-annotate-sender bbdb/vm-update-records bbdb/vm-update-record)
-;;;;;;  "bbdb-vm" "bbdb/lisp/bbdb-vm.el" (18389 44231))
-;;; Generated autoloads from bbdb/lisp/bbdb-vm.el
-
-(autoload 'bbdb/vm-update-record "bbdb-vm" "\
-Not documented
-
-\(fn &optional OFFER-TO-CREATE)" nil nil)
-
-(autoload 'bbdb/vm-update-records "bbdb-vm" "\
-Returns the records corresponding to the current VM message,
-creating or modifying them as necessary.  A record will be created if
-`bbdb/mail-auto-create-p' is non-nil or if OFFER-TO-CREATE is true, and
-the user confirms the creation.
-
-The variable `bbdb/vm-update-records-mode' controls what actions
-are performed and it might override `bbdb-update-records-mode'.
-
-When hitting C-g once you will not be asked anymore for new people listed
-in this message, but it will search only for existing records.  When hitting
-C-g again it will stop scanning.
-
-\(fn &optional OFFER-TO-CREATE)" nil nil)
-
-(autoload 'bbdb/vm-annotate-sender "bbdb-vm" "\
-Add a line to the end of the Notes field of the BBDB record
-corresponding to the sender of this message.  If REPLACE is non-nil,
-replace the existing notes entry (if any).
-
-\(fn STRING &optional REPLACE)" t nil)
-
-(autoload 'bbdb/vm-show-records "bbdb-vm" "\
-Display the contents of the BBDB for the sender of this message.
-This buffer will be in bbdb-mode, with associated keybindings.
-
-\(fn &optional ADDRESS-CLASS)" t nil)
-
-(autoload 'bbdb/vm-show-all-recipients "bbdb-vm" "\
-Show all recipients of this message. Counterpart to `bbdb/vm-show-sender'.
-
-\(fn)" t nil)
-
-(autoload 'bbdb/vm-show-sender "bbdb-vm" "\
-Display the contents of the BBDB for the senders of this message.
-With a prefix argument show the recipients instead,
-with two prefix arguments show all records.
-This buffer will be in `bbdb-mode', with associated keybindings.
-
-\(fn &optional SHOW-RECIPIENTS)" t nil)
-
-(defvar bbdb/vm-set-auto-folder-alist-field 'vm-folder "\
-*The field which `bbdb/vm-set-auto-folder-alist' searches for.")
-
-(custom-autoload 'bbdb/vm-set-auto-folder-alist-field "bbdb-vm" t)
-
-(defvar bbdb/vm-set-auto-folder-alist-headers '("From:" "To:" "CC:") "\
-*The headers used by `bbdb/vm-set-auto-folder-alist'.
-The order in this list is the order how matching will be performed!")
-
-(custom-autoload 'bbdb/vm-set-auto-folder-alist-headers "bbdb-vm" t)
-
-(autoload 'bbdb/vm-set-auto-folder-alist "bbdb-vm" "\
-Create a `vm-auto-folder-alist' according to the records in the bbdb.
-For each record that has a 'vm-folder' attribute, add an
-element (email-regexp . folder) to the `vm-auto-folder-alist'.
-
-The element gets added to the 'element-name' sublist of the
-`vm-auto-folder-alist'.
-
-The car of the element consists of all the email addresses for the
-bbdb record concatenated with OR; the cdr is the value of the
-vm-folder attribute.
-
-If the first character of vm-folders value is a quote ' it will be
-parsed as lisp expression and is evaluated to return a folder name,
-e.g. define you own function `my-folder-name' and set it to
-        '(my-folder-name)
-
-\(fn)" t nil)
-
-(autoload 'bbdb-insinuate-vm "bbdb-vm" "\
-Call this function to hook BBDB into VM.
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-insinuate-w3 bbdb-www-grab-homepage bbdb-www)
-;;;;;;  "bbdb-w3" "bbdb/lisp/bbdb-w3.el" (17884 52100))
-;;; Generated autoloads from bbdb/lisp/bbdb-w3.el
-
-(autoload 'bbdb-www "bbdb-w3" "\
-Visit URLs stored in the `www' field of the current record.
-\\[bbdb-apply-next-command-to-all-records]\\[bbdb-www] means to try all records currently visible.
-Non-interactively, do all records if arg is nonnil.
-
-\(fn REC &optional WHICH)" t nil)
-
-(autoload 'bbdb-www-grab-homepage "bbdb-w3" "\
-Grab the current URL and store it in the bbdb database
-
-\(fn RECORD)" t nil)
-
-(autoload 'bbdb-insinuate-w3 "bbdb-w3" "\
-Call this function to hook BBDB into W3.
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-whois) "bbdb-whois" "bbdb/lisp/bbdb-whois.el"
-;;;;;;  (18011 20885))
-;;; Generated autoloads from bbdb/lisp/bbdb-whois.el
-
-(autoload 'bbdb-whois "bbdb-whois" "\
-Not documented
-
-\(fn THE-RECORD &optional SERVER)" t nil)
-
-;;;***
-
-;;;### (autoloads (bbdb-load-touchtones bbdb-sound-volume bbdb-sounds-directory
-;;;;;;  bbdb-xemacs-display-completion-list) "bbdb-xemacs" "bbdb/lisp/bbdb-xemacs.el"
-;;;;;;  (18011 20885))
-;;; Generated autoloads from bbdb/lisp/bbdb-xemacs.el
-
-(autoload 'bbdb-xemacs-display-completion-list "bbdb-xemacs" "\
-Wrapper for `display-completion-list'.
-Allows callbacks on XEmacs `display-completion-list' is called with
-`:activate-callback CALLBACK' if CALLBACK is non-nil.
-`:user-data DATA' is also used if DATA is non-nil.
-Neither are used if CALLBACK is nil.
-
-\(fn LIST &optional CALLBACK DATA)" nil nil)
-
-(defvar bbdb-sounds-directory (expand-file-name "~/.xemacs/etc/sounds") "\
-The directory to load the touchtone sound files from, or nil if none.")
-
-(custom-autoload 'bbdb-sounds-directory "bbdb-xemacs" t)
-
-(defvar bbdb-sound-volume 50 "\
-Volume for playing sounds.")
-
-(custom-autoload 'bbdb-sound-volume "bbdb-xemacs" t)
-
-(autoload 'bbdb-load-touchtones "bbdb-xemacs" "\
-Load the touchtone sounds into `sound-alist'.
-The directory specified in `bbdb-sounds-directory' is searched for the files
-touchtone.*\\.\\(wav\\|au\\) as named in `bbdb-sound-files'.
-They are stored in `sound-alist' as touchtone0 to touchtone11.
-
-\(fn)" t nil)
-
-;;;***
-
 ;;;### (autoloads (turn-on-bib-cite bib-cite-minor-mode) "bib-cite"
 ;;;;;;  "auctex-11.86/bib-cite.el" (18341 54637))
 ;;; Generated autoloads from auctex-11.86/bib-cite.el
@@ -1571,22 +323,67 @@ Unconditionally turn on Bib Cite mode.
 
 ;;;***
 
-;;;### (autoloads (bison->wisent) "bison-wisent" "cedet/semantic/wisent/bison-wisent.el"
-;;;;;;  (17213 40596))
-;;; Generated autoloads from cedet/semantic/wisent/bison-wisent.el
+;;;### (autoloads (bbdb-include-anniversaries bbdb-anniversaries
+;;;;;;  bbdb-utilities-anniversaries) "bits/bbdb-anniv" "bbdb/bits/bbdb-anniv.el"
+;;;;;;  (15006 27895))
+;;; Generated autoloads from bbdb/bits/bbdb-anniv.el
 
-(autoload 'bison->wisent "bison-wisent" "\
-Treat the current buffer as a YACC or BISON file, and translate to wisent.
-Replaces all comments with wisent compatible comments.
-Finds % commands that wisent cannot handle, and comments them out.
-Deletes all actions, replacing them with small comments.
+(let ((loads (get 'bbdb-utilities-anniversaries 'custom-loads))) (if (member '"bits/bbdb-anniv" loads) nil (put 'bbdb-utilities-anniversaries 'custom-loads (cons '"bits/bbdb-anniv" loads))))
 
-\(fn)" t nil)
+(defvar bbdb-anniversaries nil "\
+Should BBDB anniversaries be included when the diary is displayed (fancy)?
+You must modify via \\[customize] for this variable to have an effect.")
+
+(custom-autoload 'bbdb-anniversaries "bits/bbdb-anniv" nil)
+
+(autoload 'bbdb-include-anniversaries "bits/bbdb-anniv" "\
+
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-field-edit-del bbdb-field-edit-add) "bits/bbdb-edit"
+;;;;;;  "bbdb/bits/bbdb-edit.el" (14977 21490))
+;;; Generated autoloads from bbdb/bits/bbdb-edit.el
+
+(autoload 'bbdb-field-edit-add "bits/bbdb-edit" "\
+Add VALUE to FIELD of bbdb-record(s).
+
+\(fn BBDB-RECORD FIELD VALUE)" t nil)
+
+(autoload 'bbdb-field-edit-del "bits/bbdb-edit" "\
+Delete VALUE to FIELD of bbdb-record(s).
+If prefix arg exists, delete all existing field values matching VALUE(regexp).
+
+\(fn BBDB-RECORD FIELD VALUE)" t nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-obsolete-net-canonicalize-net-hook) "bits/bbdb-obsolete"
+;;;;;;  "bbdb/bits/bbdb-obsolete.el" (15646 18903))
+;;; Generated autoloads from bbdb/bits/bbdb-obsolete.el
+
+(autoload 'bbdb-obsolete-net-canonicalize-net-hook "bits/bbdb-obsolete" "\
+Return user's current net address given obsolete ADDR.
+
+Return ADDR if it is not obsolete anywhere, or there is no net address
+in the matching record.  The field is set in `bbdb-obsolete-net-field'.
+
+\(fn ADDR)" nil nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-utilities-pgp) "bits/bbdb-pgp" "bbdb/bits/bbdb-pgp.el"
+;;;;;;  (16183 22987))
+;;; Generated autoloads from bbdb/bits/bbdb-pgp.el
+
+(let ((loads (get 'bbdb-utilities-pgp 'custom-loads))) (if (member '"bits/bbdb-pgp" loads) nil (put 'bbdb-utilities-pgp 'custom-loads (cons '"bits/bbdb-pgp" loads))))
 
 ;;;***
 
 ;;;### (autoloads (bmkp-version) "bookmark+" "bookmark-plus/bookmark+.el"
-;;;;;;  (19859 8264))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from bookmark-plus/bookmark+.el
 
 (defconst bmkp-version-number "3.2.0")
@@ -1658,7 +455,7 @@ Show version number of library `bookmark+.el'.
 ;;;;;;  bmkp-this-buffer-cycle-sort-comparer bmkp-desktop-no-save-vars
 ;;;;;;  bmkp-default-handler-associations bmkp-default-bookmark-name
 ;;;;;;  bmkp-crosshairs-flag bmkp-autoname-format bmkp-autoname-bookmark-function)
-;;;;;;  "bookmark+-1" "bookmark-plus/bookmark+-1.el" (19859 8264))
+;;;;;;  "bookmark+-1" "bookmark-plus/bookmark+-1.el" (20112 24690))
 ;;; Generated autoloads from bookmark-plus/bookmark+-1.el
 
 (defvar bmkp-autoname-bookmark-function 'bmkp-autoname-bookmark "\
@@ -3055,7 +1852,7 @@ Optional arg ALIST is the alist of bookmarks.  It defaults to
 ;;;;;;  bookmark-bmenu-1-window bookmark-bmenu-list bookmark-bmenu-delete
 ;;;;;;  bookmark-bmenu-unmark bookmark-bmenu-mark bmkp-bmenu-state-file
 ;;;;;;  bmkp-bmenu-commands-file bmkp-bmenu-omitted-list) "bookmark+-bmu"
-;;;;;;  "bookmark-plus/bookmark+-bmu.el" (19859 8264))
+;;;;;;  "bookmark-plus/bookmark+-bmu.el" (20112 24690))
 ;;; Generated autoloads from bookmark-plus/bookmark+-bmu.el
 
 (defvar bmkp-bmenu-omitted-list nil "\
@@ -3837,7 +2634,7 @@ Pop-up menu on `mouse-3' for a bookmark listed in `*Bookmark List*'.
 ;;;;;;  bmkp-light-threshold bmkp-light-style-non-autonamed bmkp-light-style-autonamed
 ;;;;;;  bmkp-light-priorities bmkp-auto-light-when-set bmkp-auto-light-when-jump
 ;;;;;;  bmkp-auto-light-relocate-when-jump-flag) "bookmark+-lit"
-;;;;;;  "bookmark-plus/bookmark+-lit.el" (19859 8264))
+;;;;;;  "bookmark-plus/bookmark+-lit.el" (20112 24690))
 ;;; Generated autoloads from bookmark-plus/bookmark+-lit.el
 
 (defvar bmkp-auto-light-relocate-when-jump-flag t "\
@@ -4157,7 +2954,7 @@ See `bmkp-next-lighted-this-buffer-repeat'.
 ;;;### (autoloads (bmkp-menu-bar-make-toggle bmkp-define-file-sort-predicate
 ;;;;;;  bmkp-define-sort-command bmkp-define-next+prev-cycle-commands
 ;;;;;;  bmkp-define-cycle-command) "bookmark+-mac" "bookmark-plus/bookmark+-mac.el"
-;;;;;;  (19859 8264))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from bookmark-plus/bookmark+-mac.el
 
 (autoload 'bmkp-define-cycle-command "bookmark+-mac" "\
@@ -4236,50 +3033,9 @@ Default bookmark handler for w3m buffers.
 
 ;;;***
 
-;;;### (autoloads (semantic-bovine-debug-create-frame) "bovine-debug"
-;;;;;;  "cedet/semantic/bovine/bovine-debug.el" (19114 40244))
-;;; Generated autoloads from cedet/semantic/bovine/bovine-debug.el
-
-(autoload 'semantic-bovine-debug-create-frame "bovine-debug" "\
-Create one bovine frame.
-NONTERM is the name of a rule we are currently parsing.
-RULE is the index into the list of rules in NONTERM.
-MATCH is the index into the list of matches in RULE.
-For example:
-  this: that
-      | other thing
-      | here
-      ;
-The NONTERM is THIS.
-The RULE is for \"thing\" is 1.
-The MATCH for \"thing\" is 1.
-COLLECTION is a list of `things' that have been matched so far.
-LEXTOKEN, is a token returned by the lexer which is being matched.
-
-\(fn NONTERM RULE MATCH COLLECTION LEXTOKEN)" nil nil)
-
-(eieio-defclass-autoload 'semantic-bovine-debug-parser '(semantic-debug-parser) "bovine-debug" "Represents a parser and its state.")
-
-;;;***
-
-;;;### (autoloads (bovine-grammar-mode) "bovine-grammar" "cedet/semantic/bovine/bovine-grammar.el"
-;;;;;;  (18791 59610))
-;;; Generated autoloads from cedet/semantic/bovine/bovine-grammar.el
-
-(autoload 'bovine-grammar-mode "bovine-grammar" "\
-Major mode for editing Bovine grammars.
-
-\(fn)" t nil)
-
-(add-to-list 'auto-mode-alist '("\\.by$" . bovine-grammar-mode))
-
-(eval-after-load "speedbar" '(speedbar-add-supported-extension ".by"))
-
-;;;***
-
 ;;;### (autoloads (bc-list bc-clear bc-goto-current bc-local-next
 ;;;;;;  bc-local-previous bc-next bc-previous bc-set) "breadcrumb"
-;;;;;;  "breadcrumb.el" (19830 6389))
+;;;;;;  "breadcrumb.el" (20112 24690))
 ;;; Generated autoloads from breadcrumb.el
 
 (autoload 'bc-set "breadcrumb" "\
@@ -4324,280 +3080,7 @@ Display the breadcrumb bookmarks in the buffer `*Breadcrumb Bookmarks*' to allow
 
 ;;;***
 
-;;;### (autoloads (call-tree) "call-tree" "cedet/eieio/call-tree.el"
-;;;;;;  (17213 40289))
-;;; Generated autoloads from cedet/eieio/call-tree.el
-
-(autoload 'call-tree "call-tree" "\
-Build a call tree to show all functions called by FUNC.
-
-\(fn FUNC)" t nil)
-
-;;;***
-
-;;;### (autoloads (cedet-update-autoloads) "cedet-autogen" "cedet/common/cedet-autogen.el"
-;;;;;;  (18540 13339))
-;;; Generated autoloads from cedet/common/cedet-autogen.el
-
-(autoload 'cedet-update-autoloads "cedet-autogen" "\
-Update autoloads in file LOADDEFS from sources.
-Optional argument DIRECTORY, specifies the directory to scan for
-autoloads.  It defaults to the current directory.
-DIRECTORIES is a list of extra directory to scan.  Those directory
-names are relative to DIRECTORY.  If DIRECTORIES is nil try to scan
-sub directories of DIRECTORY where a `cedet-autogen-tagfile' file
-exists.
-
-\(fn LOADDEFS &optional DIRECTORY &rest DIRECTORIES)" t nil)
-
-;;;***
-
-;;;### (autoloads (cedet-compat-utest) "cedet-compat" "cedet/common/cedet-compat.el"
-;;;;;;  (19390 32498))
-;;; Generated autoloads from cedet/common/cedet-compat.el
-
-(if (or (featurep 'xemacs) (inversion-test 'emacs "22.0")) (defalias 'cedet-split-string 'cedet-split-string-1) (defalias 'cedet-split-string 'split-string))
-
-(when (not (fboundp 'with-no-warnings)) (put 'with-no-warnings 'lisp-indent-function 0) (defun with-no-warnings (&rest body) "Copied from `with-no-warnings' in Emacs 23.\nLike `progn', but prevents compiler warnings in the body.\nNote: Doesn't work if this version is being loaded." (car (last body))))
-
-(autoload 'cedet-compat-utest "cedet-compat" "\
-Test compatability functions.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (cedet-cscope-version-check cedet-cscope-expand-filename
-;;;;;;  cedet-cscope-search cedet-cscope-command) "cedet-cscope"
-;;;;;;  "cedet/common/cedet-cscope.el" (19531 32302))
-;;; Generated autoloads from cedet/common/cedet-cscope.el
-
-(defvar cedet-cscope-command "cscope" "\
-Command name for the CScope executable.")
-
-(custom-autoload 'cedet-cscope-command "cedet-cscope" t)
-
-(autoload 'cedet-cscope-search "cedet-cscope" "\
-Perform a search with CScope, return the created buffer.
-SEARCHTEXT is text to find.
-TEXTTYPE is the type of text, such as 'regexp, 'string, 'tagname,
-'tagregexp, or 'tagcompletions.
-TYPE is the type of search, meaning that SEARCHTEXT is compared to
-filename, tagname (tags table), references (uses of a tag) , or
-symbol (uses of something not in the tag table.)
-SCOPE is the scope of the search, such as 'project or 'subdirs.
-
-\(fn SEARCHTEXT TEXTTYPE TYPE SCOPE)" nil nil)
-
-(autoload 'cedet-cscope-expand-filename "cedet-cscope" "\
-Expand the FILENAME with CScope.
-Return a fully qualified filename.
-
-\(fn FILENAME)" t nil)
-
-(autoload 'cedet-cscope-version-check "cedet-cscope" "\
-Check the version of the installed CScope command.
-If optional programatic argument NOERROR is non-nil, then
-instead of throwing an error if cscope isn't available, then
-return nil.
-
-\(fn &optional NOERROR)" t nil)
-
-;;;***
-
-;;;### (autoloads nil "cedet-edebug" "cedet/common/cedet-edebug.el"
-;;;;;;  (19115 1949))
-;;; Generated autoloads from cedet/common/cedet-edebug.el
-
-(add-hook 'edebug-setup-hook (lambda nil (require 'cedet-edebug) (defalias 'edebug-prin1-to-string 'cedet-edebug-prin1-to-string) (define-key edebug-mode-map "A" 'data-debug-edebug-expr)))
-
-(add-hook 'debugger-mode-hook (lambda nil (require 'cedet-edebug) (define-key debugger-mode-map "A" 'data-debug-edebug-expr)))
-
-;;;***
-
-;;;### (autoloads (cedet-files-utest) "cedet-files" "cedet/common/cedet-files.el"
-;;;;;;  (19373 12949))
-;;; Generated autoloads from cedet/common/cedet-files.el
-
-(autoload 'cedet-files-utest "cedet-files" "\
-Test out some file name conversions.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (cedet-gnu-global-version-check cedet-gnu-global-root
-;;;;;;  cedet-gnu-global-show-root cedet-gnu-global-expand-filename
-;;;;;;  cedet-gnu-global-search cedet-global-gtags-command cedet-global-command)
-;;;;;;  "cedet-global" "cedet/common/cedet-global.el" (19531 32317))
-;;; Generated autoloads from cedet/common/cedet-global.el
-
-(defvar cedet-global-command "global" "\
-Command name for the GNU Global executable.")
-
-(custom-autoload 'cedet-global-command "cedet-global" t)
-
-(defvar cedet-global-gtags-command "gtags" "\
-Command name for the GNU Global gtags executable.
-GTAGS is used to create the tags table queried by the 'global' command.")
-
-(custom-autoload 'cedet-global-gtags-command "cedet-global" t)
-
-(autoload 'cedet-gnu-global-search "cedet-global" "\
-Perform a search with GNU Global, return the created buffer.
-SEARCHTEXT is text to find.
-TEXTTYPE is the type of text, such as 'regexp, 'string, 'tagname,
-'tagregexp, or 'tagcompletions.
-TYPE is the type of search, meaning that SEARCHTEXT is compared to
-filename, tagname (tags table), references (uses of a tag) , or
-symbol (uses of something not in the tag table.)
-SCOPE is the scope of the search, such as 'project or 'subdirs.
-
-\(fn SEARCHTEXT TEXTTYPE TYPE SCOPE)" nil nil)
-
-(autoload 'cedet-gnu-global-expand-filename "cedet-global" "\
-Expand the FILENAME with GNU Global.
-Return a fully qualified filename.
-
-\(fn FILENAME)" t nil)
-
-(autoload 'cedet-gnu-global-show-root "cedet-global" "\
-Show the root of a GNU Global area under the current buffer.
-
-\(fn)" t nil)
-
-(autoload 'cedet-gnu-global-root "cedet-global" "\
-Return the root of any GNU Global scanned project.
-If a default starting DIR is not specified, the current buffer's
-`default-directory' is used.
-
-\(fn &optional DIR)" nil nil)
-
-(autoload 'cedet-gnu-global-version-check "cedet-global" "\
-Check the version of the installed GNU Global command.
-If optional programatic argument NOERROR is non-nil, then
-instead of throwing an error if Global isn't available, then
-return nil.
-
-\(fn &optional NOERROR)" t nil)
-
-;;;***
-
-;;;### (autoloads (cedet-graphviz-dot-version-check cedet-graphviz-neato-command
-;;;;;;  cedet-graphviz-dot-command) "cedet-graphviz" "cedet/common/cedet-graphviz.el"
-;;;;;;  (19390 36297))
-;;; Generated autoloads from cedet/common/cedet-graphviz.el
-
-(defvar cedet-graphviz-dot-command "dot" "\
-Command name for the Graphviz DOT executable.")
-
-(custom-autoload 'cedet-graphviz-dot-command "cedet-graphviz" t)
-
-(defvar cedet-graphviz-neato-command "neato" "\
-Command name for the Graphviz NEATO executable.")
-
-(custom-autoload 'cedet-graphviz-neato-command "cedet-graphviz" t)
-
-(autoload 'cedet-graphviz-dot-version-check "cedet-graphviz" "\
-Check the version of the installed Graphviz dot command.
-If optional programatic argument NOERROR is non-nil, then
-instead of throwing an error if Global isn't available, then
-return nil.
-
-\(fn &optional NOERROR)" t nil)
-
-;;;***
-
-;;;### (autoloads (cedet-idutils-version-check cedet-idutils-expand-filename
-;;;;;;  cedet-idutils-make-command cedet-idutils-token-command cedet-idutils-file-command)
-;;;;;;  "cedet-idutils" "cedet/common/cedet-idutils.el" (19531 32333))
-;;; Generated autoloads from cedet/common/cedet-idutils.el
-
-(defvar cedet-idutils-file-command "fnid" "\
-Command name for the ID Utils executable for searching file names.")
-
-(custom-autoload 'cedet-idutils-file-command "cedet-idutils" t)
-
-(defvar cedet-idutils-token-command "lid" "\
-Command name for the ID Utils executable for searching for tokens.")
-
-(custom-autoload 'cedet-idutils-token-command "cedet-idutils" t)
-
-(defvar cedet-idutils-make-command "mkid" "\
-Command name for the ID Utils executable for creating token databases.")
-
-(custom-autoload 'cedet-idutils-make-command "cedet-idutils" t)
-
-(autoload 'cedet-idutils-expand-filename "cedet-idutils" "\
-Expand the FILENAME with ID Utils.
-Return a filename relative to the default directory.
-
-\(fn FILENAME)" t nil)
-
-(autoload 'cedet-idutils-version-check "cedet-idutils" "\
-Check the version of the installed ID Utils command.
-If optional programatic argument NOERROR is non-nil, then
-instead of throwing an error if Global isn't available, then
-return nil.
-
-\(fn &optional NOERROR)" t nil)
-
-;;;***
-
-;;;### (autoloads (global-cedet-m3-minor-mode cedet-m3-minor-mode)
-;;;;;;  "cedet-m3" "cedet/common/cedet-m3.el" (19534 9680))
-;;; Generated autoloads from cedet/common/cedet-m3.el
-
-(autoload 'cedet-m3-minor-mode "cedet-m3" "\
-Toggle cedet-m3 minor mode, a mouse 3 context menu.
-With prefix argument ARG, turn on if positive, otherwise off.  The
-minor mode can be turned on only if semantic feature is available and
-the current buffer was set up for parsing.  Return non-nil if the
-minor mode is enabled.
-
-\\{cedet-m3-mode-map}
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'global-cedet-m3-minor-mode "cedet-m3" "\
-Toggle global use of cedet-m3 minor mode.
-If ARG is positive, enable, if it is negative, disable.
-If ARG is nil, then toggle.
-
-\(fn &optional ARG)" t nil)
-
-;;;***
-
-;;;### (autoloads (cedet-utest-batch cedet-utest) "cedet-utests"
-;;;;;;  "cedet/common/cedet-utests.el" (19408 58973))
-;;; Generated autoloads from cedet/common/cedet-utests.el
-
-(autoload 'cedet-utest "cedet-utests" "\
-Run the CEDET unittests.
-EXIT-ON-ERROR causes the test suite to exit on an error, instead
-of just logging the error.
-
-\(fn &optional EXIT-ON-ERROR)" t nil)
-
-(autoload 'cedet-utest-batch "cedet-utests" "\
-Run the CEDET unit test in BATCH mode.
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (chart-test-it-all) "chart" "cedet/eieio/chart.el"
-;;;;;;  (19336 38169))
-;;; Generated autoloads from cedet/eieio/chart.el
-
-(autoload 'chart-test-it-all "chart" "\
-Test out various charting features.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (cheat) "cheat" "cheat.el" (19821 116))
+;;;### (autoloads (cheat) "cheat" "cheat.el" (20112 24690))
 ;;; Generated autoloads from cheat.el
 
 (autoload 'cheat "cheat" "\
@@ -4611,7 +3094,7 @@ as a string instead.
 ;;;***
 
 ;;;### (autoloads (turn-on-cldoc-mode cldoc-mode cldoc-minor-mode-string
-;;;;;;  cldoc-mode) "cldoc" "cldoc.el" (18227 38128))
+;;;;;;  cldoc-mode) "cldoc" "cldoc.el" (20112 24690))
 ;;; Generated autoloads from cldoc.el
 
 (defvar cldoc-mode nil "\
@@ -4655,20 +3138,21 @@ Unequivocally turn on cldoc-mode (see variable documentation).
 
 ;;;***
 
-;;;### (autoloads (cogre) "cogre" "cedet/cogre/cogre.el" (19403 31744))
+;;;### (autoloads (cogre) "cogre/cogre" "cedet/cogre/cogre.el" (20113
+;;;;;;  48406))
 ;;; Generated autoloads from cedet/cogre/cogre.el
 
-(eieio-defclass-autoload 'cogre-base-graph '(eieio-persistent) "cogre" "A Connected Graph.\na connected graph contains a series of nodes and links which are\nrendered in a buffer, or serialized to disk.")
+(eieio-defclass-autoload 'cogre-base-graph '(eieio-persistent) "cogre/cogre" "A Connected Graph.\na connected graph contains a series of nodes and links which are\nrendered in a buffer, or serialized to disk.")
 
-(eieio-defclass-autoload 'cogre-graph-element '(eieio-named) "cogre" "A Graph Element.\nGraph elements are anything that is drawn into a `cogre-base-graph'.\nGraph elements have a method for marking themselves dirty.")
+(eieio-defclass-autoload 'cogre-graph-element '(eieio-named) "cogre/cogre" "A Graph Element.\nGraph elements are anything that is drawn into a `cogre-base-graph'.\nGraph elements have a method for marking themselves dirty.")
 
-(eieio-defclass-autoload 'cogre-node '(cogre-graph-element) "cogre" "Connected Graph node.\nNodes are regions with a fill color, and some amount of text representing\na status, or values.")
+(eieio-defclass-autoload 'cogre-node '(cogre-graph-element) "cogre/cogre" "Connected Graph node.\nNodes are regions with a fill color, and some amount of text representing\na status, or values.")
 
-(eieio-defclass-autoload 'cogre-link '(cogre-graph-element) "cogre" "Connected Graph link.\nLinks are lines drawn between two nodes, or possibly loose in space\nas an intermediate step.  Some links have text describing what they\ndo, and most links have special markers on one end or another, such as\narrows or circles.")
+(eieio-defclass-autoload 'cogre-link '(cogre-graph-element) "cogre/cogre" "Connected Graph link.\nLinks are lines drawn between two nodes, or possibly loose in space\nas an intermediate step.  Some links have text describing what they\ndo, and most links have special markers on one end or another, such as\narrows or circles.")
 
-(eieio-defclass-autoload 'cogre-arrow '(cogre-link) "cogre" "This type of link is a simple arrow.")
+(eieio-defclass-autoload 'cogre-arrow '(cogre-link) "cogre/cogre" "This type of link is a simple arrow.")
 
-(autoload 'cogre "cogre" "\
+(autoload 'cogre "cogre/cogre" "\
 Create a new graph not associated with a buffer.
 The new graph will be given NAME.  See `cogre-mode' for details.
 Optional argument GRAPH-CLASS indicates the type of graph to create.
@@ -4677,11 +3161,11 @@ Optional argument GRAPH-CLASS indicates the type of graph to create.
 
 ;;;***
 
-;;;### (autoloads (cogre-export-ascii) "cogre-ascii" "cedet/cogre/cogre-ascii.el"
-;;;;;;  (18912 13351))
+;;;### (autoloads (cogre-export-ascii) "cogre/cogre-ascii" "cedet/cogre/cogre-ascii.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/cogre/cogre-ascii.el
 
-(autoload 'cogre-export-ascii "cogre-ascii" "\
+(autoload 'cogre-export-ascii "cogre/cogre-ascii" "\
 Export the current diagram into an ASCII buffer.
 
 \(fn)" t nil)
@@ -4689,24 +3173,24 @@ Export the current diagram into an ASCII buffer.
 ;;;***
 
 ;;;### (autoloads (cogre-export-utest cogre-export-dot-method cogre-export-dot-postscript-print
-;;;;;;  cogre-export-dot-png cogre-export-dot) "cogre-convert" "cedet/cogre/cogre-convert.el"
-;;;;;;  (19407 15770))
+;;;;;;  cogre-export-dot-png cogre-export-dot) "cogre/cogre-convert"
+;;;;;;  "cedet/cogre/cogre-convert.el" (20113 48406))
 ;;; Generated autoloads from cedet/cogre/cogre-convert.el
 
-(autoload 'cogre-export-dot "cogre-convert" "\
+(autoload 'cogre-export-dot "cogre/cogre-convert" "\
 Export the current COGRE graph to DOT notation.
 DOT is a part of GraphViz.
 
 \(fn)" t nil)
 
-(autoload 'cogre-export-dot-png "cogre-convert" "\
+(autoload 'cogre-export-dot-png "cogre/cogre-convert" "\
 Export the current COGRE graph to DOT, then convert that to PNG.
 The png file is then displayed in an Emacs buffer.
 DOT is a part of GraphVis.
 
 \(fn)" t nil)
 
-(autoload 'cogre-export-dot-postscript-print "cogre-convert" "\
+(autoload 'cogre-export-dot-postscript-print "cogre/cogre-convert" "\
 Print the current graph.
 This is done by exporting the current COGRE graph to DOT, then
 convert that to Postscript before printing.
@@ -4714,23 +3198,23 @@ DOT is a part of GraphVis.
 
 \(fn)" t nil)
 
-(autoload 'cogre-export-dot-method "cogre-convert" "\
+(autoload 'cogre-export-dot-method "cogre/cogre-convert" "\
 Convert G into DOT syntax of semantic tags.
 
-\(fn (G cogre-base-graph))" nil nil)
+\(fn (g cogre-base-graph))" nil nil)
 
-(autoload 'cogre-export-utest "cogre-convert" "\
+(autoload 'cogre-export-utest "cogre/cogre-convert" "\
 Run all the COGRE structured export/convert test.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (cogre-dot-mode) "cogre-dot-mode" "cedet/cogre/cogre-dot-mode.el"
-;;;;;;  (18906 40825))
+;;;### (autoloads (cogre-dot-mode) "cogre/cogre-dot-mode" "cedet/cogre/cogre-dot-mode.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/cogre/cogre-dot-mode.el
 
-(autoload 'cogre-dot-mode "cogre-dot-mode" "\
+(autoload 'cogre-dot-mode "cogre/cogre-dot-mode" "\
 Major mode for the dot language.
 This is a mini-mode that will first attempt to load and install
 `graphviz-dot-mode' in this buffer.  If that fails, it installs
@@ -4743,11 +3227,11 @@ as a parsing engine.
 
 ;;;***
 
-;;;### (autoloads (cogre-layout) "cogre-layout" "cedet/cogre/cogre-layout.el"
-;;;;;;  (19372 4887))
+;;;### (autoloads (cogre-layout) "cogre/cogre-layout" "cedet/cogre/cogre-layout.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/cogre/cogre-layout.el
 
-(autoload 'cogre-layout "cogre-layout" "\
+(autoload 'cogre-layout "cogre/cogre-layout" "\
 Layout the current graph.
 This function depends on graphviz `dot' program.
 
@@ -4755,11 +3239,11 @@ This function depends on graphviz `dot' program.
 
 ;;;***
 
-;;;### (autoloads (cogre-mode) "cogre-mode" "cedet/cogre/cogre-mode.el"
-;;;;;;  (19390 34820))
+;;;### (autoloads (cogre-mode) "cogre/cogre-mode" "cedet/cogre/cogre-mode.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/cogre/cogre-mode.el
 
-(autoload 'cogre-mode "cogre-mode" "\
+(autoload 'cogre-mode "cogre/cogre-mode" "\
 Connected Graph Editor Mode.
 \\{cogre-mode-map}
 
@@ -4769,16 +3253,16 @@ Connected Graph Editor Mode.
 
 ;;;***
 
-;;;### (autoloads (cogre-periodic-utest cogre-periodic) "cogre-periodic"
-;;;;;;  "cedet/cogre/cogre-periodic.el" (18906 45093))
+;;;### (autoloads (cogre-periodic-utest cogre-periodic) "cogre/cogre-periodic"
+;;;;;;  "cedet/cogre/cogre-periodic.el" (20113 48406))
 ;;; Generated autoloads from cedet/cogre/cogre-periodic.el
 
-(autoload 'cogre-periodic "cogre-periodic" "\
+(autoload 'cogre-periodic "cogre/cogre-periodic" "\
 Create a periodic table of COGRE objects.
 
 \(fn)" t nil)
 
-(autoload 'cogre-periodic-utest "cogre-periodic" "\
+(autoload 'cogre-periodic-utest "cogre/cogre-periodic" "\
 Run the cogre periodic table for unit testing.
 Also test various output mechanisms from the periodic table.
 
@@ -4787,10 +3271,11 @@ Also test various output mechanisms from the periodic table.
 ;;;***
 
 ;;;### (autoloads (cogre-uml-quick-class cogre-export-code cogre-semantic-tag-to-node)
-;;;;;;  "cogre-semantic" "cedet/cogre/cogre-semantic.el" (19390 34606))
+;;;;;;  "cogre/cogre-semantic" "cedet/cogre/cogre-semantic.el" (20113
+;;;;;;  48406))
 ;;; Generated autoloads from cedet/cogre/cogre-semantic.el
 
-(autoload 'cogre-semantic-tag-to-node "cogre-semantic" "\
+(autoload 'cogre-semantic-tag-to-node "cogre/cogre-semantic" "\
 Convert the Semantic tag TAG into a COGRE node.
 Only handles data types nodes.
 To convert function/variables into methods or attributes in
@@ -4798,14 +3283,14 @@ an existing COGRE node, see @TODO - do that.
 
 \(fn TAG)" nil nil)
 
-(autoload 'cogre-export-code "cogre-semantic" "\
+(autoload 'cogre-export-code "cogre/cogre-semantic" "\
 Export the current graph into source-code in FILE.
 Uses `cogre-export-semantic' to convert into Semantic tags.
 Uses `cogre-srecode-setup' to setup SRecode for code generation.
 
 \(fn FILE)" t nil)
 
-(autoload 'cogre-uml-quick-class "cogre-semantic" "\
+(autoload 'cogre-uml-quick-class "cogre/cogre-semantic" "\
 Create a new UML diagram based on CLASS showing only immediate lineage.
 The parent to CLASS, CLASS, and all of CLASSes children will be shown.
 
@@ -4814,23 +3299,23 @@ The parent to CLASS, CLASS, and all of CLASSes children will be shown.
 ;;;***
 
 ;;;### (autoloads (srecode-semantic-handle-:dot srecode-semantic-handle-:cogre
-;;;;;;  cogre-srecode-setup) "cogre-srecode" "cedet/cogre/cogre-srecode.el"
-;;;;;;  (19345 48423))
+;;;;;;  cogre-srecode-setup) "cogre/cogre-srecode" "cedet/cogre/cogre-srecode.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/cogre/cogre-srecode.el
 
-(autoload 'cogre-srecode-setup "cogre-srecode" "\
+(autoload 'cogre-srecode-setup "cogre/cogre-srecode" "\
 Update various paths to get SRecode to identify COGRE macros.
 
 \(fn)" nil nil)
 
-(autoload 'srecode-semantic-handle-:cogre "cogre-srecode" "\
+(autoload 'srecode-semantic-handle-:cogre "cogre/cogre-srecode" "\
 Add macros to dictionary DICT based on COGRE data.
 
 \(fn DICT)" nil nil)
 
 (eval-after-load "srecode-map" '(cogre-srecode-setup))
 
-(autoload 'srecode-semantic-handle-:dot "cogre-srecode" "\
+(autoload 'srecode-semantic-handle-:dot "cogre/cogre-srecode" "\
 Add macros to dictionary DICT based on the current DOT buffer.
 
 \(fn DICT)" nil nil)
@@ -4838,24 +3323,24 @@ Add macros to dictionary DICT based on the current DOT buffer.
 ;;;***
 
 ;;;### (autoloads (cogre-uml-sort-for-lineage cogre-uml-enable-unicode)
-;;;;;;  "cogre-uml" "cedet/cogre/cogre-uml.el" (19390 34401))
+;;;;;;  "cogre/cogre-uml" "cedet/cogre/cogre-uml.el" (20113 48406))
 ;;; Generated autoloads from cedet/cogre/cogre-uml.el
 
-(eieio-defclass-autoload 'cogre-package '(cogre-node) "cogre-uml" "A Package node.\nPackages represent other class diagrams, and list the major nodes\nwithin them.  They can be linked by dependency links.")
+(eieio-defclass-autoload 'cogre-package '(cogre-node) "cogre/cogre-uml" "A Package node.\nPackages represent other class diagrams, and list the major nodes\nwithin them.  They can be linked by dependency links.")
 
-(eieio-defclass-autoload 'cogre-note '(cogre-node) "cogre-uml" "An note node.\nNotes are used to add annotations inside a graph.\nNotes are generally linked to some node, and are supposed to look\nlike a little pieces of paper.")
+(eieio-defclass-autoload 'cogre-note '(cogre-node) "cogre/cogre-uml" "An note node.\nNotes are used to add annotations inside a graph.\nNotes are generally linked to some node, and are supposed to look\nlike a little pieces of paper.")
 
-(eieio-defclass-autoload 'cogre-scoped-node '(cogre-node) "cogre-uml" "A UML node that has a package specifier within which it is scoped.")
+(eieio-defclass-autoload 'cogre-scoped-node '(cogre-node) "cogre/cogre-uml" "A UML node that has a package specifier within which it is scoped.")
 
-(eieio-defclass-autoload 'cogre-class '(cogre-scoped-node) "cogre-uml" "A Class node.\nClass nodes represent a class, and can list the attributes and methods\nwithin them.  Classes can have attribute links, and class hierarchy links.")
+(eieio-defclass-autoload 'cogre-class '(cogre-scoped-node) "cogre/cogre-uml" "A Class node.\nClass nodes represent a class, and can list the attributes and methods\nwithin them.  Classes can have attribute links, and class hierarchy links.")
 
-(eieio-defclass-autoload 'cogre-instance '(cogre-scoped-node) "cogre-uml" "An instance node.\nInstances are used in instance diagrams.\nInstances are linked together with plain links.")
+(eieio-defclass-autoload 'cogre-instance '(cogre-scoped-node) "cogre/cogre-uml" "An instance node.\nInstances are used in instance diagrams.\nInstances are linked together with plain links.")
 
-(eieio-defclass-autoload 'cogre-inherit '(cogre-link) "cogre-uml" "This type of link indicates that the two nodes reference infer inheritance.\nThe `start' node is the child, and the `end' node is the parent.\nThis is supposed to infer that START inherits from END.")
+(eieio-defclass-autoload 'cogre-inherit '(cogre-link) "cogre/cogre-uml" "This type of link indicates that the two nodes reference infer inheritance.\nThe `start' node is the child, and the `end' node is the parent.\nThis is supposed to infer that START inherits from END.")
 
-(eieio-defclass-autoload 'cogre-aggregate '(cogre-link) "cogre-uml" "This type of link indicates aggregation.\nThe `start' node is the owner of the aggregation, the `end' node is\nthe item being aggregated.\nThis is supposed to infer that START contains END.")
+(eieio-defclass-autoload 'cogre-aggregate '(cogre-link) "cogre/cogre-uml" "This type of link indicates aggregation.\nThe `start' node is the owner of the aggregation, the `end' node is\nthe item being aggregated.\nThis is supposed to infer that START contains END.")
 
-(autoload 'cogre-uml-enable-unicode "cogre-uml" "\
+(autoload 'cogre-uml-enable-unicode "cogre/cogre-uml" "\
 Enable use of UNICODE symbols to create COGRE graphs.
 Inheritance uses math triangle on page 25a0.
 Aggregation uses math square on edge 25a0.
@@ -4867,7 +3352,7 @@ cogre chart a little screwy somteims.  Your mileage may vary.
 
 \(fn)" t nil)
 
-(autoload 'cogre-uml-sort-for-lineage "cogre-uml" "\
+(autoload 'cogre-uml-sort-for-lineage "cogre/cogre-uml" "\
 Sort the current graph G for determining inheritance lineage.
 Return it as a list of lists.  Each entry is of the form:
   ( NODE PARENT1 PARENT2 ... PARENTN)
@@ -4876,26 +3361,53 @@ Return it as a list of lists.  Each entry is of the form:
 
 ;;;***
 
-;;;### (autoloads (cogre-utest-quick-class cogre-utest) "cogre-utest"
-;;;;;;  "cedet/cogre/cogre-utest.el" (18912 16027))
+;;;### (autoloads (cogre-utest-quick-class cogre-utest) "cogre/cogre-utest"
+;;;;;;  "cedet/cogre/cogre-utest.el" (20113 48406))
 ;;; Generated autoloads from cedet/cogre/cogre-utest.el
 
-(autoload 'cogre-utest "cogre-utest" "\
+(autoload 'cogre-utest "cogre/cogre-utest" "\
 Unit test Various aspects of COGRE.
 
 \(fn)" t nil)
 
-(autoload 'cogre-utest-quick-class "cogre-utest" "\
+(autoload 'cogre-utest-quick-class "cogre/cogre-utest" "\
 Test the quick-class function.
 
 \(fn)" t nil)
 
 ;;;***
 
+;;;### (autoloads (cogre-picture-insert-rectangle) "cogre/picture-hack"
+;;;;;;  "cedet/cogre/picture-hack.el" (20113 48406))
+;;; Generated autoloads from cedet/cogre/picture-hack.el
+
+(autoload 'cogre-picture-insert-rectangle "cogre/picture-hack" "\
+Overlay RECTANGLE with upper left corner at point.
+Leaves the region surrounding the rectangle.
+
+\(fn RECTANGLE)" nil nil)
+
+;;;***
+
+;;;### (autoloads (wisent-dot-setup-parser) "cogre/wisent-dot" "cedet/cogre/wisent-dot.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/cogre/wisent-dot.el
+
+(autoload 'wisent-dot-setup-parser "cogre/wisent-dot" "\
+Setup buffer for parse.
+
+\(fn)" nil nil)
+
+(add-hook 'graphviz-dot-mode-hook 'wisent-dot-setup-parser)
+
+(add-hook 'cogre-dot-mode-hook 'wisent-dot-setup-parser)
+
+;;;***
+
 ;;;### (autoloads (col-highlight-flash col-highlight-set-interval
 ;;;;;;  col-highlight-toggle-when-idle column-highlight-mode col-highlight-period
 ;;;;;;  col-highlight-vline-face-flag column-highlight) "col-highlight"
-;;;;;;  "col-highlight.el" (19804 63391))
+;;;;;;  "col-highlight.el" (20112 24690))
 ;;; Generated autoloads from col-highlight.el
 
 (let ((loads (get 'column-highlight 'custom-loads))) (if (member '"col-highlight" loads) nil (put 'column-highlight 'custom-loads (cons '"col-highlight" loads))))
@@ -5102,8 +3614,600 @@ Initialize the color theme package by loading color-theme-libraries.
 
 ;;;***
 
+;;;### (autoloads (cedet-android-sdk-update-classpath cedet-android-adb-shell
+;;;;;;  cedet-android-adb-version-check cedet-android-adb-devices
+;;;;;;  cedet-android-adb-help cedet-android-start-ddms cedet-android-layoutopt
+;;;;;;  cedet-android-target-list cedet-android-create-project) "common/cedet-android"
+;;;;;;  "cedet/common/cedet-android.el" (20113 48406))
+;;; Generated autoloads from cedet/common/cedet-android.el
+
+(autoload 'cedet-android-create-project "common/cedet-android" "\
+Create an android project with NAME.
+Your activity class will be created in the java PACKAGE.
+You need to specify a TARGET, which is a number specifying the desired type
+of package you intend to build.
+Create the project in optional DIR, or in the default directory if not specified.
+NAME will be used as the name of the project.
+
+\(fn NAME PACKAGE TARGET &optional DIR)" t nil)
+
+(autoload 'cedet-android-target-list "common/cedet-android" "\
+Get the list of available targets for an android environment.
+
+\(fn)" t nil)
+
+(autoload 'cedet-android-layoutopt "common/cedet-android" "\
+Get the list of available targets for an android environment.
+Argument PROJECTROOT is the directory root of some project to be optimized.
+
+\(fn PROJECTROOT)" t nil)
+
+(autoload 'cedet-android-start-ddms "common/cedet-android" "\
+Start Android's ddms debugging proxy.
+
+\(fn)" t nil)
+
+(autoload 'cedet-android-adb-help "common/cedet-android" "\
+Get help for Android Debug Bridge.
+
+\(fn)" t nil)
+
+(autoload 'cedet-android-adb-devices "common/cedet-android" "\
+The the list of attached devices from Android Debug Bridge.
+
+\(fn)" t nil)
+
+(autoload 'cedet-android-adb-version-check "common/cedet-android" "\
+Check the version of the installed Android ADB command.
+If optional programatic argument NOERROR is non-nil, then
+instead of throwing an error if Global isn't available, then
+return nil.
+
+\(fn &optional NOERROR)" t nil)
+
+(autoload 'cedet-android-adb-shell "common/cedet-android" "\
+Create an inferior shell for Android Debug Bridge.
+
+\(fn)" t nil)
+
+(autoload 'cedet-android-sdk-update-classpath "common/cedet-android" "\
+Update the classpath for `cedet-java' to include the android compile-time libraries.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (cedet-update-autoloads) "common/cedet-autogen"
+;;;;;;  "cedet/common/cedet-autogen.el" (20113 48406))
+;;; Generated autoloads from cedet/common/cedet-autogen.el
+
+(autoload 'cedet-update-autoloads "common/cedet-autogen" "\
+Update autoloads in file LOADDEFS from sources.
+Optional argument DIRECTORY, specifies the directory to scan for
+autoloads.  It defaults to the current directory.
+DIRECTORIES is a list of extra directory to scan.  Those directory
+names are relative to DIRECTORY.  If DIRECTORIES is nil try to scan
+sub directories of DIRECTORY where a `cedet-autogen-tagfile' file
+exists.
+
+\(fn LOADDEFS &optional DIRECTORY &rest DIRECTORIES)" t nil)
+
+;;;***
+
+;;;### (autoloads (cedet-compat-utest) "common/cedet-compat" "cedet/common/cedet-compat.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/common/cedet-compat.el
+
+(if (or (featurep 'xemacs) (inversion-test 'emacs "22.0")) (defalias 'cedet-split-string 'cedet-split-string-1) (defalias 'cedet-split-string 'split-string))
+
+(when (not (fboundp 'with-no-warnings)) (put 'with-no-warnings 'lisp-indent-function 0) (defun with-no-warnings (&rest body) "Copied from `with-no-warnings' in Emacs 23.\nLike `progn', but prevents compiler warnings in the body.\nNote: Doesn't work if this version is being loaded." (car (last body))))
+
+(autoload 'cedet-compat-utest "common/cedet-compat" "\
+Test compatability functions.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (cedet-cscope-version-check cedet-cscope-expand-filename
+;;;;;;  cedet-cscope-search cedet-cscope-command) "common/cedet-cscope"
+;;;;;;  "cedet/common/cedet-cscope.el" (20113 48406))
+;;; Generated autoloads from cedet/common/cedet-cscope.el
+
+(defvar cedet-cscope-command "cscope" "\
+Command name for the CScope executable.")
+
+(custom-autoload 'cedet-cscope-command "common/cedet-cscope" t)
+
+(autoload 'cedet-cscope-search "common/cedet-cscope" "\
+Perform a search with CScope, return the created buffer.
+SEARCHTEXT is text to find.
+TEXTTYPE is the type of text, such as 'regexp, 'string, 'tagname,
+'tagregexp, or 'tagcompletions.
+TYPE is the type of search, meaning that SEARCHTEXT is compared to
+filename, tagname (tags table), references (uses of a tag) , or
+symbol (uses of something not in the tag table.)
+SCOPE is the scope of the search, such as 'project or 'subdirs.
+
+\(fn SEARCHTEXT TEXTTYPE TYPE SCOPE)" nil nil)
+
+(autoload 'cedet-cscope-expand-filename "common/cedet-cscope" "\
+Expand the FILENAME with CScope.
+Return a fully qualified filename.
+
+\(fn FILENAME)" t nil)
+
+(autoload 'cedet-cscope-version-check "common/cedet-cscope" "\
+Check the version of the installed CScope command.
+If optional programatic argument NOERROR is non-nil, then
+instead of throwing an error if cscope isn't available, then
+return nil.
+
+\(fn &optional NOERROR)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "common/cedet-edebug" "cedet/common/cedet-edebug.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/common/cedet-edebug.el
+
+(add-hook 'edebug-setup-hook (lambda nil (require 'cedet-edebug) (defalias 'edebug-prin1-to-string 'cedet-edebug-prin1-to-string) (define-key edebug-mode-map "A" 'data-debug-edebug-expr)))
+
+(add-hook 'debugger-mode-hook (lambda nil (require 'cedet-edebug) (define-key debugger-mode-map "A" 'data-debug-edebug-expr)))
+
+;;;***
+
+;;;### (autoloads (cedet-files-utest) "common/cedet-files" "cedet/common/cedet-files.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/common/cedet-files.el
+
+(autoload 'cedet-files-utest "common/cedet-files" "\
+Test out some file name conversions.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (cedet-gnu-global-version-check cedet-gnu-global-root
+;;;;;;  cedet-gnu-global-show-root cedet-gnu-global-expand-filename
+;;;;;;  cedet-gnu-global-search cedet-global-gtags-command cedet-global-command)
+;;;;;;  "common/cedet-global" "cedet/common/cedet-global.el" (20113
+;;;;;;  48406))
+;;; Generated autoloads from cedet/common/cedet-global.el
+
+(defvar cedet-global-command "global" "\
+Command name for the GNU Global executable.")
+
+(custom-autoload 'cedet-global-command "common/cedet-global" t)
+
+(defvar cedet-global-gtags-command "gtags" "\
+Command name for the GNU Global gtags executable.
+GTAGS is used to create the tags table queried by the 'global' command.")
+
+(custom-autoload 'cedet-global-gtags-command "common/cedet-global" t)
+
+(autoload 'cedet-gnu-global-search "common/cedet-global" "\
+Perform a search with GNU Global, return the created buffer.
+SEARCHTEXT is text to find.
+TEXTTYPE is the type of text, such as 'regexp, 'string, 'tagname,
+'tagregexp, or 'tagcompletions.
+TYPE is the type of search, meaning that SEARCHTEXT is compared to
+filename, tagname (tags table), references (uses of a tag) , or
+symbol (uses of something not in the tag table.)
+SCOPE is the scope of the search, such as 'project or 'subdirs.
+
+\(fn SEARCHTEXT TEXTTYPE TYPE SCOPE)" nil nil)
+
+(autoload 'cedet-gnu-global-expand-filename "common/cedet-global" "\
+Expand the FILENAME with GNU Global.
+Return a fully qualified filename.
+
+\(fn FILENAME)" t nil)
+
+(autoload 'cedet-gnu-global-show-root "common/cedet-global" "\
+Show the root of a GNU Global area under the current buffer.
+
+\(fn)" t nil)
+
+(autoload 'cedet-gnu-global-root "common/cedet-global" "\
+Return the root of any GNU Global scanned project.
+If a default starting DIR is not specified, the current buffer's
+`default-directory' is used.
+
+\(fn &optional DIR)" nil nil)
+
+(autoload 'cedet-gnu-global-version-check "common/cedet-global" "\
+Check the version of the installed GNU Global command.
+If optional programatic argument NOERROR is non-nil, then
+instead of throwing an error if Global isn't available, then
+return nil.
+
+\(fn &optional NOERROR)" t nil)
+
+;;;***
+
+;;;### (autoloads (cedet-graphviz-dot-version-check cedet-graphviz-neato-command
+;;;;;;  cedet-graphviz-dot-command) "common/cedet-graphviz" "cedet/common/cedet-graphviz.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/common/cedet-graphviz.el
+
+(defvar cedet-graphviz-dot-command "dot" "\
+Command name for the Graphviz DOT executable.")
+
+(custom-autoload 'cedet-graphviz-dot-command "common/cedet-graphviz" t)
+
+(defvar cedet-graphviz-neato-command "neato" "\
+Command name for the Graphviz NEATO executable.")
+
+(custom-autoload 'cedet-graphviz-neato-command "common/cedet-graphviz" t)
+
+(autoload 'cedet-graphviz-dot-version-check "common/cedet-graphviz" "\
+Check the version of the installed Graphviz dot command.
+If optional programatic argument NOERROR is non-nil, then
+instead of throwing an error if Global isn't available, then
+return nil.
+
+\(fn &optional NOERROR)" t nil)
+
+;;;***
+
+;;;### (autoloads (cedet-idutils-version-check cedet-idutils-expand-filename
+;;;;;;  cedet-idutils-make-command cedet-idutils-token-command cedet-idutils-file-command)
+;;;;;;  "common/cedet-idutils" "cedet/common/cedet-idutils.el" (20113
+;;;;;;  48406))
+;;; Generated autoloads from cedet/common/cedet-idutils.el
+
+(defvar cedet-idutils-file-command "fnid" "\
+Command name for the ID Utils executable for searching file names.")
+
+(custom-autoload 'cedet-idutils-file-command "common/cedet-idutils" t)
+
+(defvar cedet-idutils-token-command "lid" "\
+Command name for the ID Utils executable for searching for tokens.")
+
+(custom-autoload 'cedet-idutils-token-command "common/cedet-idutils" t)
+
+(defvar cedet-idutils-make-command "mkid" "\
+Command name for the ID Utils executable for creating token databases.")
+
+(custom-autoload 'cedet-idutils-make-command "common/cedet-idutils" t)
+
+(autoload 'cedet-idutils-expand-filename "common/cedet-idutils" "\
+Expand the FILENAME with ID Utils.
+Return a filename relative to the default directory.
+
+\(fn FILENAME)" t nil)
+
+(autoload 'cedet-idutils-version-check "common/cedet-idutils" "\
+Check the version of the installed ID Utils command.
+If optional programatic argument NOERROR is non-nil, then
+instead of throwing an error if Global isn't available, then
+return nil.
+
+\(fn &optional NOERROR)" t nil)
+
+;;;***
+
+;;;### (autoloads (cedet-javap-dump-class cedet-java-version-check)
+;;;;;;  "common/cedet-java" "cedet/common/cedet-java.el" (20113 48406))
+;;; Generated autoloads from cedet/common/cedet-java.el
+
+(autoload 'cedet-java-version-check "common/cedet-java" "\
+Check the version of the installed java command.
+If optional programatic argument NOERROR is non-nil, then
+instead of throwing an error if Global isn't available, then
+return nil.
+
+\(fn &optional NOERROR)" t nil)
+
+(autoload 'cedet-javap-dump-class "common/cedet-java" "\
+Dump out a Java signatures for CLASS.
+Display in a javap output buffer.
+
+\(fn CLASS)" t nil)
+
+;;;***
+
+;;;### (autoloads (global-cedet-m3-minor-mode cedet-m3-minor-mode)
+;;;;;;  "common/cedet-m3" "cedet/common/cedet-m3.el" (20113 48406))
+;;; Generated autoloads from cedet/common/cedet-m3.el
+
+(autoload 'cedet-m3-minor-mode "common/cedet-m3" "\
+Toggle cedet-m3 minor mode, a mouse 3 context menu.
+With prefix argument ARG, turn on if positive, otherwise off.
+Return non-nil if the minor mode is enabled.
+
+\\{cedet-m3-mode-map}
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'global-cedet-m3-minor-mode "common/cedet-m3" "\
+Toggle global use of cedet-m3 minor mode.
+If ARG is positive, enable, if it is negative, disable.
+If ARG is nil, then toggle.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (cedet-utest-batch cedet-utest) "common/cedet-utests"
+;;;;;;  "cedet/common/cedet-utests.el" (20113 48406))
+;;; Generated autoloads from cedet/common/cedet-utests.el
+
+(autoload 'cedet-utest "common/cedet-utests" "\
+Run the CEDET unittests.
+EXIT-ON-ERROR causes the test suite to exit on an error, instead
+of just logging the error.
+
+\(fn &optional EXIT-ON-ERROR)" t nil)
+
+(autoload 'cedet-utest-batch "common/cedet-utests" "\
+Run the CEDET unit test in BATCH mode.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (data-debug-eval-expression data-debug-edebug-expr
+;;;;;;  data-debug-show-stuff data-debug-new-buffer data-debug-mode
+;;;;;;  data-debug-insert-thing data-debug-insert-stuff-vector data-debug-insert-stuff-list
+;;;;;;  data-debug-insert-widget-properties data-debug-insert-hash-table
+;;;;;;  data-debug-insert-property-list) "common/data-debug" "cedet/common/data-debug.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/common/data-debug.el
+
+(autoload 'data-debug-insert-property-list "common/data-debug" "\
+Insert the property list PROPLIST.
+Each line starts with PREFIX.
+The attributes belong to the tag PARENT.
+
+\(fn PROPLIST PREFIX &optional PARENT)" nil nil)
+
+(autoload 'data-debug-insert-hash-table "common/data-debug" "\
+Insert the contents of HASH-TABLE inserting PREFIX before each element.
+
+\(fn HASH-TABLE PREFIX)" nil nil)
+
+(autoload 'data-debug-insert-widget-properties "common/data-debug" "\
+Insert the contents of WIDGET inserting PREFIX before each element.
+
+\(fn WIDGET PREFIX)" nil nil)
+
+(autoload 'data-debug-insert-stuff-list "common/data-debug" "\
+Insert all the parts of STUFFLIST.
+PREFIX specifies what to insert at the start of each line.
+
+\(fn STUFFLIST PREFIX)" nil nil)
+
+(autoload 'data-debug-insert-stuff-vector "common/data-debug" "\
+Insert all the parts of STUFFVECTOR.
+PREFIX specifies what to insert at the start of each line.
+
+\(fn STUFFVECTOR PREFIX)" nil nil)
+
+(autoload 'data-debug-insert-thing "common/data-debug" "\
+Insert THING with PREFIX.
+PREBUTTONTEXT is some text to insert between prefix and the thing
+that is not included in the indentation calculation of any children.
+If PARENT is non-nil, it is somehow related as a parent to thing.
+
+\(fn THING PREFIX PREBUTTONTEXT &optional PARENT)" nil nil)
+
+(autoload 'data-debug-mode "common/data-debug" "\
+Major-mode for the Analyzer debugger.
+
+\\{data-debug-map}
+
+\(fn)" t nil)
+
+(autoload 'data-debug-new-buffer "common/data-debug" "\
+Create a new ddebug buffer with NAME.
+
+\(fn NAME)" nil nil)
+
+(autoload 'data-debug-show-stuff "common/data-debug" "\
+Data debug STUFF in a buffer named *NAME DDebug*.
+
+\(fn STUFF NAME)" nil nil)
+
+(autoload 'data-debug-edebug-expr "common/data-debug" "\
+Dump out the contents of some expression EXPR in edebug with ddebug.
+
+\(fn EXPR)" t nil)
+
+(autoload 'data-debug-eval-expression "common/data-debug" "\
+Evaluate EXPR and display the value.
+If the result is something simple, show it in the echo area.
+If the result is a list or vector, then use the data debugger to display it.
+
+\(fn EXPR)" t nil)
+
+;;;***
+
+;;;### (autoloads (define-fame-channel) "common/fame" "cedet/common/fame.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/common/fame.el
+
+(autoload 'define-fame-channel "common/fame" "\
+Define the new message channel CHANNEL.
+CHANNEL must be a non-nil symbol.
+The optional argument DEFAULT specifies the default value of message
+levels for this channel.  By default it is the value of
+`fame-default-level-values'.
+DOCSTRING is an optional channel documentation.
+
+This defines the option `CHANNEL-fame-levels' to customize the current
+value of message levels.  And the functions `CHANNEL-send-debug',
+`CHANNEL-send-info', `CHANNEL-send-warning', and `CHANNEL-send-error',
+that respectively send debug, informational, warning, and error
+messages to CHANNEL.
+
+\(fn CHANNEL &optional DEFAULT DOCSTRING)" nil (quote macro))
+
+;;;***
+
+;;;### (autoloads (inversion-upgrade-package inversion-add-to-load-path
+;;;;;;  inversion-find-version inversion-require-emacs inversion-require)
+;;;;;;  "common/inversion" "cedet/common/inversion.el" (20113 48406))
+;;; Generated autoloads from cedet/common/inversion.el
+
+(autoload 'inversion-require "common/inversion" "\
+Declare that you need PACKAGE with at least VERSION.
+PACKAGE might be found in FILE.  (See `require'.)
+Throws an error if VERSION is incompatible with what is installed.
+Optional argument DIRECTORY is a location where new versions of
+this tool can be located.  If there is a versioning problem and
+DIRECTORY is provided, inversion will offer to download the file.
+Optional argument RESERVED is saved for later use.
+
+\(fn PACKAGE VERSION &optional FILE DIRECTORY &rest RESERVED)" nil nil)
+
+(autoload 'inversion-require-emacs "common/inversion" "\
+Declare that you need either EMACS-VER, XEMACS-VER or SXEMACE-ver.
+Only checks one based on which kind of Emacs is being run.
+
+\(fn EMACS-VER XEMACS-VER SXEMACS-VER)" nil nil)
+
+(autoload 'inversion-find-version "common/inversion" "\
+Search for the version and incompatible version of PACKAGE.
+Does not load PACKAGE nor requires that it has been previously loaded.
+Search in the directories in `load-path' for a PACKAGE.el library.
+Visit the file found and search for the declarations of variables or
+constants `PACKAGE-version' and `PACKAGE-incompatible-version'.  The
+value of these variables must be a version string.
+
+Return a pair (VERSION-STRING . INCOMPATIBLE-VERSION-STRING) where
+INCOMPATIBLE-VERSION-STRING can be nil.
+Return nil when VERSION-STRING was not found.
+
+\(fn PACKAGE)" nil nil)
+
+(autoload 'inversion-add-to-load-path "common/inversion" "\
+Add the PACKAGE path to `load-path' if necessary.
+MINIMUM is the minimum version requirement of PACKAGE.
+Optional argument INSTALLDIR is the base directory where PACKAGE is
+installed.  It defaults to `default-directory'/PACKAGE.
+SUBDIRS are sub-directories to add to `load-path', following the main
+INSTALLDIR path.
+
+\(fn PACKAGE MINIMUM &optional INSTALLDIR &rest SUBDIRS)" nil nil)
+
+(autoload 'inversion-upgrade-package "common/inversion" "\
+Try to upgrade PACKAGE in DIRECTORY is available.
+
+\(fn PACKAGE &optional DIRECTORY)" t nil)
+
+;;;***
+
+;;;### (autoloads (mode-local-read-function) "common/mode-local"
+;;;;;;  "cedet/common/mode-local.el" (20113 48406))
+;;; Generated autoloads from cedet/common/mode-local.el
+
+(autoload 'mode-local-read-function "common/mode-local" "\
+Interactively read in the name of a mode-local function.
+PROMPT, INITIAL, HIST, and DEFAULT are the same as for `completing-read'.
+
+\(fn PROMPT &optional INITIAL HIST DEFAULT)" nil nil)
+
+;;;***
+
+;;;### (autoloads (pprint-function pprint pprint-to-string) "common/pprint"
+;;;;;;  "cedet/common/pprint.el" (20113 48406))
+;;; Generated autoloads from cedet/common/pprint.el
+
+(autoload 'pprint-to-string "common/pprint" "\
+Return a string containing the pretty-printed representation of OBJECT.
+OBJECT can be any Lisp object.  Quoting characters are used as needed
+to make output that `read' can handle, whenever this is possible.  The
+pretty printer try as much as possible to limit the length of lines to
+given WIDTH.  WIDTH value defaults to `fill-column'.
+
+\(fn OBJECT &optional WIDTH)" nil nil)
+
+(autoload 'pprint "common/pprint" "\
+Output the pretty-printed representation of OBJECT, any Lisp object.
+Quoting characters are printed as needed to make output that `read'
+can handle, whenever this is possible.  Output stream is STREAM, or
+value of `standard-output' (which see).  The pretty printer try as
+much as possible to limit the length of lines to given WIDTH.  WIDTH
+value defaults to `fill-column'.
+
+\(fn OBJECT &optional STREAM WIDTH)" nil nil)
+
+(autoload 'pprint-function "common/pprint" "\
+See a pretty-printed representation of FUNCTION-NAME.
+
+\(fn FUNCTION-NAME)" t nil)
+
+;;;***
+
+;;;### (autoloads (pulse-line-hook-function pulse-toggle-integration-advice
+;;;;;;  pulse-momentary-highlight-region pulse-momentary-highlight-one-line
+;;;;;;  pulse-momentary-highlight-overlay pulse-test pulse) "common/pulse"
+;;;;;;  "cedet/common/pulse.el" (20113 48406))
+;;; Generated autoloads from cedet/common/pulse.el
+
+(autoload 'pulse "common/pulse" "\
+Pulse the colors on our highlight face.
+If optional FACE is provide, reset the face to FACE color,
+instead of `pulse-highlight-start-face'.
+Be sure to call `pulse-reset-face' after calling pulse.
+
+\(fn &optional FACE)" nil nil)
+
+(autoload 'pulse-test "common/pulse" "\
+Test the lightening function for pulsing a line.
+When optional NO-ERROR Don't throw an error if we can't run tests.
+
+\(fn &optional NO-ERROR)" t nil)
+
+(autoload 'pulse-momentary-highlight-overlay "common/pulse" "\
+Pulse the overlay O, unhighlighting before next command.
+Optional argument FACE specifies the fact to do the highlighting.
+
+\(fn O &optional FACE)" nil nil)
+
+(autoload 'pulse-momentary-highlight-one-line "common/pulse" "\
+Highlight the line around POINT, unhighlighting before next command.
+Optional argument FACE specifies the face to do the highlighting.
+
+\(fn POINT &optional FACE)" nil nil)
+
+(autoload 'pulse-momentary-highlight-region "common/pulse" "\
+Highlight between START and END, unhighlighting before next command.
+Optional argument FACE specifies the fact to do the highlighting.
+
+\(fn START END &optional FACE)" nil nil)
+
+(autoload 'pulse-toggle-integration-advice "common/pulse" "\
+Toggle activation of advised functions that will now pulse.
+Wint no ARG, toggle the pulse advice.
+With a negative ARG, disable pulse advice.
+With a positive ARG, enable pulse advice.
+Currently advised functions include:
+  `goto-line'
+  `exchange-point-and-mark'
+  `find-tag'
+  `tags-search'
+  `tags-loop-continue'
+  `pop-tag-mark'
+  `imenu-default-goto-function'
+Pulsing via `pulse-line-hook-function' has also been added to
+the following hook:
+  `next-error-hook'
+
+\(fn ARG)" t nil)
+
+(autoload 'pulse-line-hook-function "common/pulse" "\
+Function used in hooks to pulse the current line.
+Only pulses the line if `pulse-command-advice-flag' is non-nil.
+
+\(fn)" nil nil)
+
+;;;***
+
 ;;;### (autoloads (compilation-recenter-end-enable) "compilation-recenter-end"
-;;;;;;  "compilation-recenter-end.el" (18891 42871))
+;;;;;;  "compilation-recenter-end.el" (20112 24690))
 ;;; Generated autoloads from compilation-recenter-end.el
 
 (autoload 'compilation-recenter-end-enable "compilation-recenter-end" "\
@@ -5181,10 +4285,108 @@ of context-mode-hook.
 
 ;;;***
 
+;;;### (autoloads (eassist-list-methods eassist-switch-h-cpp) "contrib/eassist"
+;;;;;;  "cedet/contrib/eassist.el" (20113 48406))
+;;; Generated autoloads from cedet/contrib/eassist.el
+
+(defvar eassist-header-switches '(("h" "cpp" "cc" "c") ("hpp" "cpp" "cc") ("cpp" "h" "hpp") ("c" "h") ("C" "H") ("H" "C" "CPP" "CC") ("cc" "h" "hpp")) "\
+This variable defines possible switches for `eassist-switch-h-cpp' function.
+Its format is list of (from . (to1 to2 to3...)) elements.  From and toN are
+strings which are extentions of the files.")
+
+(autoload 'eassist-switch-h-cpp "contrib/eassist" "\
+Switch header and body file according to `eassist-header-switches' var.
+The current buffer's file name extention is searched in
+`eassist-header-switches' variable to find out extention for file's counterpart,
+for example *.hpp <--> *.cpp.
+
+\(fn)" t nil)
+
+(autoload 'eassist-list-methods "contrib/eassist" "\
+Show method/function list of current buffer in a newly created buffer.
+This function is recommended to be bound to some convinient hotkey.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "contrib/ede-gnustep" "cedet/contrib/ede-gnustep.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/contrib/ede-gnustep.el
+
+(add-to-list 'ede-project-class-files (ede-project-autoload "edegnustep" :name "GNUstep-Make" :file 'ede-gnustep :proj-file "ProjStep.ede" :load-type 'ede-step-load :class-sym 'ede-step-project) t)
+
+(add-to-list 'ede-project-class-files (ede-project-autoload "gnustep-root" :name "GNUstep-make Top Most" :file 'ede-gnustep :proj-file "RootProjStep.ede" :initializers '(:project-mode scanner) :load-type 'ede-gnustep-load :class-sym 'ede-step-project) t)
+
+(add-to-list 'ede-project-class-files (ede-project-autoload "gnustep" :name "GNUstep-Make in scanner mode" :file 'ede-gnustep :proj-file "ProjStep.ede" :initializers '(:project-mode scanner) :load-type 'ede-gnustep-load :class-sym 'ede-step-project) t)
+
+(add-to-list 'auto-mode-alist '("\\(Root\\)?ProjStep\\.ede" . emacs-lisp-mode))
+
+;;;***
+
+;;;### (autoloads (semantic-tag-folding-mode global-semantic-tag-folding-mode
+;;;;;;  global-semantic-tag-folding-mode) "contrib/semantic-tag-folding"
+;;;;;;  "cedet/contrib/semantic-tag-folding.el" (20113 48406))
+;;; Generated autoloads from cedet/contrib/semantic-tag-folding.el
+
+(defvar global-semantic-tag-folding-mode nil "\
+*If non-nil enable global use of variable `semantic-tag-folding-mode'.
+With this mode enabled, a new folding decoration mode is added.
+Clicking on a + or - in the fringe will fold that tag.")
+
+(custom-autoload 'global-semantic-tag-folding-mode "contrib/semantic-tag-folding" nil)
+
+(autoload 'global-semantic-tag-folding-mode "contrib/semantic-tag-folding" "\
+Toggle global use of option `semantic-tag-folding-mode'.
+If ARG is positive, enable, if it is negative, disable.
+If ARG is nil, then toggle.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'semantic-tag-folding-mode "contrib/semantic-tag-folding" "\
+Minor mode mark semantic tags for folding.
+This mode will display +/- icons in the fringe.  Clicking on them
+will fold the current tag.
+With prefix argument ARG, turn on if positive, otherwise off.  The
+minor mode can be turned on only if semantic feature is available and
+the current buffer was set up for parsing.  Return non-nil if the
+minor mode is enabled.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (wisent-csharp-default-setup) "contrib/wisent-csharp"
+;;;;;;  "cedet/contrib/wisent-csharp.el" (20113 48406))
+;;; Generated autoloads from cedet/contrib/wisent-csharp.el
+
+(autoload 'wisent-csharp-default-setup "contrib/wisent-csharp" "\
+
+
+\(fn)" nil nil)
+
+(add-hook 'csharp-mode-hook #'wisent-csharp-default-setup)
+
+;;;***
+
+;;;### (autoloads (wisent-php-default-setup) "contrib/wisent-php"
+;;;;;;  "cedet/contrib/wisent-php.el" (20113 48406))
+;;; Generated autoloads from cedet/contrib/wisent-php.el
+
+(autoload 'wisent-php-default-setup "contrib/wisent-php" "\
+Hook run to setup Semantic in `php-mode'.
+Use the alternate LALR(1) parser.
+
+\(fn)" nil nil)
+
+(add-hook 'php-mode-hook #'wisent-php-default-setup)
+
+;;;***
+
 ;;;### (autoloads (crosshairs-unhighlight crosshairs-highlight crosshairs
 ;;;;;;  crosshairs-flash crosshairs-toggle-when-idle crosshairs-mode
 ;;;;;;  crosshairs-vline-same-face-flag crosshairs-overlay-priority
-;;;;;;  crosshairs) "crosshairs" "crosshairs.el" (19804 63376))
+;;;;;;  crosshairs) "crosshairs" "crosshairs.el" (20112 24690))
 ;;; Generated autoloads from crosshairs.el
 
 (let ((loads (get 'crosshairs 'custom-loads))) (if (member '"crosshairs" loads) nil (put 'crosshairs 'custom-loads (cons '"crosshairs" loads))))
@@ -5271,7 +4473,7 @@ Optional arg nil means do nothing if this event is a frame switch.
 
 ;;;***
 
-;;;### (autoloads (css-mode) "css-mode" "css-mode.el" (18003 35431))
+;;;### (autoloads (css-mode) "css-mode" "css-mode.el" (20112 24690))
 ;;; Generated autoloads from css-mode.el
 
 (autoload 'css-mode "css-mode" "\
@@ -5287,7 +4489,7 @@ Key bindings:
 
 ;;;### (autoloads (ctypes-read-file ctypes-auto-parse-mode ctypes-file
 ;;;;;;  ctypes-dir ctypes-tags ctypes-all-buffers ctypes-buffer ctypes-define-type-in-mode
-;;;;;;  ctypes-define-type) "ctypes" "ctypes.el" (18227 38128))
+;;;;;;  ctypes-define-type) "ctypes" "ctypes.el" (20112 24690))
 ;;; Generated autoloads from ctypes.el
 
 (autoload 'ctypes-define-type "ctypes" "\
@@ -5397,31 +4599,9 @@ Return non-nil if new types are found.
 
 ;;;***
 
-;;;### (autoloads (cucumber-compilation-run cucumber-compilation-this-scenario
-;;;;;;  cucumber-compilation-this-buffer) "cucumber-mode-compilation"
-;;;;;;  "rinari/util/cucumber-mode-compilation.el" (19848 53016))
-;;; Generated autoloads from rinari/util/cucumber-mode-compilation.el
-
-(autoload 'cucumber-compilation-this-buffer "cucumber-mode-compilation" "\
-Run the current buffer's scenarios through cucumber.
-
-\(fn)" t nil)
-
-(autoload 'cucumber-compilation-this-scenario "cucumber-mode-compilation" "\
-Run the scenario at point through cucumber.
-
-\(fn)" t nil)
-
-(autoload 'cucumber-compilation-run "cucumber-mode-compilation" "\
-Run a cucumber process, dumping output to a compilation buffer.
-
-\(fn CMD)" t nil)
-
-;;;***
-
 ;;;### (autoloads (cycle-buffer-toggle-interesting cycle-buffer-backward-permissive
 ;;;;;;  cycle-buffer-permissive cycle-buffer-backward cycle-buffer)
-;;;;;;  "cycle-buffer" "cycle-buffer.el" (19828 52155))
+;;;;;;  "cycle-buffer" "cycle-buffer.el" (20112 24690))
 ;;; Generated autoloads from cycle-buffer.el
 
 (autoload 'cycle-buffer "cycle-buffer" "\
@@ -5456,7 +4636,7 @@ considered by cycle-buffer when cycle-buffer-interesting is t.
 ;;;***
 
 ;;;### (autoloads (darcsum-view darcsum-whatsnew darcsum-changes)
-;;;;;;  "darcsum" "darcsum/darcsum.el" (19848 53010))
+;;;;;;  "darcsum" "darcsum/darcsum.el" (20113 29601))
 ;;; Generated autoloads from darcsum/darcsum.el
 
 (autoload 'darcsum-changes "darcsum" "\
@@ -5485,82 +4665,6 @@ When invoked interactively, prompt for a directory; by default, the current
 working directory is assumed.
 
 \(fn DIRECTORY)" t nil)
-
-;;;***
-
-;;;### (autoloads (data-debug-eval-expression data-debug-edebug-expr
-;;;;;;  data-debug-show-stuff data-debug-new-buffer data-debug-mode
-;;;;;;  data-debug-insert-thing data-debug-insert-stuff-vector data-debug-insert-stuff-list
-;;;;;;  data-debug-insert-widget-properties data-debug-insert-hash-table
-;;;;;;  data-debug-insert-property-list) "data-debug" "cedet/common/data-debug.el"
-;;;;;;  (19477 27308))
-;;; Generated autoloads from cedet/common/data-debug.el
-
-(autoload 'data-debug-insert-property-list "data-debug" "\
-Insert the property list PROPLIST.
-Each line starts with PREFIX.
-The attributes belong to the tag PARENT.
-
-\(fn PROPLIST PREFIX &optional PARENT)" nil nil)
-
-(autoload 'data-debug-insert-hash-table "data-debug" "\
-Insert the contents of HASH-TABLE inserting PREFIX before each element.
-
-\(fn HASH-TABLE PREFIX)" nil nil)
-
-(autoload 'data-debug-insert-widget-properties "data-debug" "\
-Insert the contents of WIDGET inserting PREFIX before each element.
-
-\(fn WIDGET PREFIX)" nil nil)
-
-(autoload 'data-debug-insert-stuff-list "data-debug" "\
-Insert all the parts of STUFFLIST.
-PREFIX specifies what to insert at the start of each line.
-
-\(fn STUFFLIST PREFIX)" nil nil)
-
-(autoload 'data-debug-insert-stuff-vector "data-debug" "\
-Insert all the parts of STUFFVECTOR.
-PREFIX specifies what to insert at the start of each line.
-
-\(fn STUFFVECTOR PREFIX)" nil nil)
-
-(autoload 'data-debug-insert-thing "data-debug" "\
-Insert THING with PREFIX.
-PREBUTTONTEXT is some text to insert between prefix and the thing
-that is not included in the indentation calculation of any children.
-If PARENT is non-nil, it is somehow related as a parent to thing.
-
-\(fn THING PREFIX PREBUTTONTEXT &optional PARENT)" nil nil)
-
-(autoload 'data-debug-mode "data-debug" "\
-Major-mode for the Analyzer debugger.
-
-\\{data-debug-map}
-
-\(fn)" t nil)
-
-(autoload 'data-debug-new-buffer "data-debug" "\
-Create a new ddebug buffer with NAME.
-
-\(fn NAME)" nil nil)
-
-(autoload 'data-debug-show-stuff "data-debug" "\
-Data debug STUFF in a buffer named *NAME DDebug*.
-
-\(fn STUFF NAME)" nil nil)
-
-(autoload 'data-debug-edebug-expr "data-debug" "\
-Dump out the contents of some expression EXPR in edebug with ddebug.
-
-\(fn EXPR)" t nil)
-
-(autoload 'data-debug-eval-expression "data-debug" "\
-Evaluate EXPR and display the value.
-If the result is something simple, show it in the echo area.
-If the result is a list or vector, then use the data debugger to display it.
-
-\(fn EXPR)" t nil)
 
 ;;;***
 
@@ -5594,7 +4698,7 @@ If the result is a list or vector, then use the data debugger to display it.
 ;;;;;;  diredp-mark/unmark-extension diredp-marked-other-window diredp-marked
 ;;;;;;  diredp-fileset diredp-dired-union-other-window diredp-dired-union
 ;;;;;;  diredp-dired-files-other-window diredp-dired-files diredp-w32-local-drives
-;;;;;;  diff-switches) "dired+" "dired+.el" (19804 60911))
+;;;;;;  diff-switches) "dired+" "dired+.el" (20112 24690))
 ;;; Generated autoloads from dired+.el
 
 (defvar diff-switches "-c" "\
@@ -6309,7 +5413,7 @@ Change the owner of this file.
 ;;;***
 
 ;;;### (autoloads (dired-details-propagate-flag dired-details-hidden-string)
-;;;;;;  "dired-details+" "dired-details+.el" (19806 53623))
+;;;;;;  "dired-details+" "dired-details+.el" (20112 24690))
 ;;; Generated autoloads from dired-details+.el
 
 (defvar dired-details-hidden-string "" "\
@@ -6326,7 +5430,7 @@ buffer created.")
 
 ;;;***
 
-;;;### (autoloads (doc-view) "doc-view" "doc-view.el" (18755 39836))
+;;;### (autoloads (doc-view) "doc-view" "doc-view.el" (20112 24690))
 ;;; Generated autoloads from doc-view.el
 
 (autoload 'doc-view "doc-view" "\
@@ -6340,109 +5444,22 @@ cached files and convert anew.
 
 ;;;***
 
-;;;### (autoloads (doctest-mode doctest-register-mmm-classes) "doctest-mode"
-;;;;;;  "python-mode/doctest-mode.el" (19698 55469))
-;;; Generated autoloads from python-mode/doctest-mode.el
+;;;### (autoloads (autoconf-parameters-for-macro) "ede/autoconf-edit"
+;;;;;;  "cedet/ede/autoconf-edit.el" (20113 48406))
+;;; Generated autoloads from cedet/ede/autoconf-edit.el
 
-(autoload 'doctest-register-mmm-classes "doctest-mode" "\
-Register doctest's mmm classes, allowing doctest to be used as a
-submode region in other major modes, such as python-mode and rst-mode.
-Two classes are registered:
+(autoload 'autoconf-parameters-for-macro "ede/autoconf-edit" "\
+Retrieve the parameters to MACRO.
+Returns a list of the arguments passed into MACRO as strings.
 
-`doctest-docstring'
-
-    Used to edit docstrings containing doctest examples in python-
-    mode.  Docstring submode regions start and end with triple-quoted
-    strings (\"\"\").  In order to avoid confusing start-string
-    markers and end-string markers, all triple-quote strings in the
-    buffer are treated as submode regions (even if they're not
-    actually docstrings).  Use (C-c % C-d) to insert a new doctest-
-    docstring region.  When `doctest-execute' (C-c C-c) is called
-    inside a doctest-docstring region, it executes just the current
-    docstring.  The globals for this execution are constructed by
-    importing the current buffer's contents in Python.
-
-`doctest-example'
-
-    Used to edit doctest examples in text-editing modes, such as
-    `rst-mode' or `text-mode'.  Docstring submode regions start with
-    optionally indented prompts (>>>) and end with blank lines.  Use
-    (C-c % C-e) to insert a new doctest-example region.  When
-    `doctest-execute' (C-c C-c) is called inside a doctest-example
-    region, it executes all examples in the buffer.
-
-If ADD-MODE-EXT-CLASSES is true, then register the new classes in
-`mmm-mode-ext-classes-alist', which will cause them to be used by
-default in the following modes:
-
-    doctest-docstring:  python-mode
-    doctest-example:    rst-mode
-
-If FIX-MMM-FONTIFY-REGION-BUG is true, then register a hook that will
-fix a bug in `mmm-fontify-region' that affects some (but not all)
-versions of emacs.  (See `doctest-fixed-mmm-fontify-region' for more
-info.)
-
-\(fn &optional ADD-MODE-EXT-CLASSES FIX-MMM-FONTIFY-REGION-BUG)" t nil)
-
-(add-to-list 'auto-mode-alist '("\\.doctest$" . doctest-mode))
-
-(autoload 'doctest-mode "doctest-mode" "\
-A major mode for editing text files that contain Python
-doctest examples.  Doctest is a testing framework for Python that
-emulates an interactive session, and checks the result of each
-command.  For more information, see the Python library reference:
-<http://docs.python.org/lib/module-doctest.html>
-
-`doctest-mode' defines three kinds of line, each of which is
-treated differently:
-
-  - 'Source lines' are lines consisting of a Python prompt
-    ('>>>' or '...'), followed by source code.  Source lines are
-    colored (similarly to `python-mode') and auto-indented.
-
-  - 'Output lines' are non-blank lines immediately following
-    source lines.  They are colored using several doctest-
-    specific output faces.
-
-  - 'Text lines' are any other lines.  They are not processed in
-    any special way.
-
-\\{doctest-mode-map}
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (eassist-list-methods eassist-switch-h-cpp) "eassist"
-;;;;;;  "cedet/contrib/eassist.el" (19312 40567))
-;;; Generated autoloads from cedet/contrib/eassist.el
-
-(defvar eassist-header-switches '(("h" "cpp" "cc" "c") ("hpp" "cpp" "cc") ("cpp" "h" "hpp") ("c" "h") ("C" "H") ("H" "C" "CPP" "CC") ("cc" "h" "hpp")) "\
-This variable defines possible switches for `eassist-switch-h-cpp' function.
-Its format is list of (from . (to1 to2 to3...)) elements.  From and toN are
-strings which are extentions of the files.")
-
-(autoload 'eassist-switch-h-cpp "eassist" "\
-Switch header and body file according to `eassist-header-switches' var.
-The current buffer's file name extention is searched in
-`eassist-header-switches' variable to find out extention for file's counterpart,
-for example *.hpp <--> *.cpp.
-
-\(fn)" t nil)
-
-(autoload 'eassist-list-methods "eassist" "\
-Show method/function list of current buffer in a newly created buffer.
-This function is recommended to be bound to some convinient hotkey.
-
-\(fn)" t nil)
+\(fn MACRO &optional IGNORE-BOL IGNORE-CASE)" nil nil)
 
 ;;;***
 
 ;;;### (autoloads (ede-target-parent ede-parent-project ede-load-project-file
 ;;;;;;  project-make-dist project-compile-target project-compile-project
 ;;;;;;  project-edit-file-target ede-compile-target ede-remove-file
-;;;;;;  global-ede-mode) "ede" "cedet/ede/ede.el" (19539 30850))
+;;;;;;  global-ede-mode) "ede/ede" "cedet/ede/ede.el" (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede.el
 
 (defvar ede-projects nil "\
@@ -6451,59 +5468,59 @@ A list of all active projects currently loaded in Emacs.")
 (defvar ede-minor-mode nil "\
 Non-nil in EDE controlled buffers.")
 
-(autoload 'global-ede-mode "ede" "\
+(autoload 'global-ede-mode "ede/ede" "\
 Turn on variable `ede-minor-mode' mode when ARG is positive.
 If ARG is negative, disable.  Toggle otherwise.
 
 \(fn ARG)" t nil)
 
-(autoload 'ede-remove-file "ede" "\
+(autoload 'ede-remove-file "ede/ede" "\
 Remove the current file from targets.
 Optional argument FORCE forces the file to be removed without asking.
 
 \(fn &optional FORCE)" t nil)
 
-(autoload 'ede-compile-target "ede" "\
+(autoload 'ede-compile-target "ede/ede" "\
 Compile the current buffer's associated target.
 
 \(fn)" t nil)
 
-(autoload 'project-edit-file-target "ede" "\
+(autoload 'project-edit-file-target "ede/ede" "\
 Edit the target OT associated w/ this file.
 
-\(fn (OT ede-target))" nil nil)
+\(fn (ot ede-target))" nil nil)
 
-(autoload 'project-compile-project "ede" "\
+(autoload 'project-compile-project "ede/ede" "\
 Compile the entire current project OBJ.
 Argument COMMAND is the command to use when compiling.
 
-\(fn (OBJ ede-project) &optional COMMAND)" nil nil)
+\(fn (obj ede-project) &optional COMMAND)" nil nil)
 
-(autoload 'project-compile-target "ede" "\
+(autoload 'project-compile-target "ede/ede" "\
 Compile the current target OBJ.
 Argument COMMAND is the command to use for compiling the target.
 
-\(fn (OBJ ede-target) &optional COMMAND)" nil nil)
+\(fn (obj ede-target) &optional COMMAND)" nil nil)
 
-(autoload 'project-make-dist "ede" "\
+(autoload 'project-make-dist "ede/ede" "\
 Build a distribution for the project based on THIS project.
 
-\(fn (THIS ede-project))" nil nil)
+\(fn (this ede-project))" nil nil)
 
-(autoload 'ede-load-project-file "ede" "\
+(autoload 'ede-load-project-file "ede/ede" "\
 Project file independent way to read a project in from DIR.
 Optional ROOTRETURN will return the root project for DIR.
 
 \(fn DIR &optional ROOTRETURN)" nil nil)
 
-(autoload 'ede-parent-project "ede" "\
+(autoload 'ede-parent-project "ede/ede" "\
 Return the project belonging to the parent directory.
 Return nil if there is no previous directory.
 Optional argument OBJ is an object to find the parent of.
 
 \(fn &optional OBJ)" nil nil)
 
-(autoload 'ede-target-parent "ede" "\
+(autoload 'ede-target-parent "ede/ede" "\
 Return the project which is the parent of TARGET.
 It is recommended you track the project a different way as this function
 could become slow in time.
@@ -6512,52 +5529,71 @@ could become slow in time.
 
 ;;;***
 
-;;;### (autoloads nil "ede-auto" "cedet/ede/ede-auto.el" (19358 14566))
+;;;### (autoloads (ede-android-load) "ede/ede-android" "cedet/ede/ede-android.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/ede/ede-android.el
+
+(autoload 'ede-android-load "ede/ede-android" "\
+Return an Android Project object if there is a match.
+Return nil if there isn't one.
+Argument DIR is the directory it is created for.
+ROOTPROJ is nil, since there is only one project.
+
+\(fn DIR &optional ROOTPROJ)" nil nil)
+
+(add-to-list 'ede-project-class-files (ede-project-autoload "android" :name "ANDROID ROOT" :file 'ede-android :proj-file "AndroidManifest.xml" :load-type 'ede-android-load :class-sym 'ede-android-project :new-p t) t)
+
+(eieio-defclass-autoload 'ede-android-project '(ede-project eieio-instance-tracker) "ede/ede-android" "Project for Android applications.")
+
+;;;***
+
+;;;### (autoloads nil "ede/ede-auto" "cedet/ede/ede-auto.el" (20113
+;;;;;;  48406))
 ;;; Generated autoloads from cedet/ede/ede-auto.el
 
-(eieio-defclass-autoload 'ede-project-autoload 'nil "ede-auto" "Class representing minimal knowledge set to run preliminary EDE functions.\nWhen more advanced functionality is needed from a project type, that projects\ntype is required and the load function used.")
+(eieio-defclass-autoload 'ede-project-autoload 'nil "ede/ede-auto" "Class representing minimal knowledge set to run preliminary EDE functions.\nWhen more advanced functionality is needed from a project type, that projects\ntype is required and the load function used.")
 
 ;;;***
 
 ;;;### (autoloads (ede-adebug-project-root ede-adebug-project-parent
 ;;;;;;  ede-adebug-project ede-documentation-files ede-description
-;;;;;;  ede-name) "ede-base" "cedet/ede/ede-base.el" (19539 30884))
+;;;;;;  ede-name) "ede/ede-base" "cedet/ede/ede-base.el" (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede-base.el
 
-(eieio-defclass-autoload 'ede-target '(eieio-speedbar-directory-button) "ede-base" "A target is a structure that describes a file set that produces something.\nTargets, as with 'Make', is an entity that will manage a file set \nand knows how to compile or otherwise transform those files into some\nother desired outcome.")
+(eieio-defclass-autoload 'ede-target '(eieio-speedbar-directory-button) "ede/ede-base" "A target is a structure that describes a file set that produces something.\nTargets, as with 'Make', is an entity that will manage a file set \nand knows how to compile or otherwise transform those files into some\nother desired outcome.")
 
-(eieio-defclass-autoload 'ede-project '(ede-project-placeholder) "ede-base" "Top level EDE project specification.\nAll specific project types must derive from this project.")
+(eieio-defclass-autoload 'ede-project '(ede-project-placeholder) "ede/ede-base" "Top level EDE project specification.\nAll specific project types must derive from this project.")
 
-(autoload 'ede-name "ede-base" "\
+(autoload 'ede-name "ede/ede-base" "\
 Return the name of THIS target.
 
-\(fn (THIS ede-target))" nil nil)
+\(fn (this ede-target))" nil nil)
 
-(autoload 'ede-description "ede-base" "\
+(autoload 'ede-description "ede/ede-base" "\
 Return a description suitable for the minibuffer about THIS.
 
-\(fn (THIS ede-project))" nil nil)
+\(fn (this ede-project))" nil nil)
 
-(autoload 'ede-documentation-files "ede-base" "\
+(autoload 'ede-documentation-files "ede/ede-base" "\
 Return the documentation files for the current buffer.
 Not all buffers need documentations, so return nil if no applicable.
 Some projects may have multiple documentation files, so return a list.
 
 \(fn)" nil nil)
 
-(autoload 'ede-adebug-project "ede-base" "\
+(autoload 'ede-adebug-project "ede/ede-base" "\
 Run adebug against the current EDE project.
 Display the results as a debug list.
 
 \(fn)" t nil)
 
-(autoload 'ede-adebug-project-parent "ede-base" "\
+(autoload 'ede-adebug-project-parent "ede/ede-base" "\
 Run adebug against the current EDE parent project.
 Display the results as a debug list.
 
 \(fn)" t nil)
 
-(autoload 'ede-adebug-project-root "ede-base" "\
+(autoload 'ede-adebug-project-root "ede/ede-base" "\
 Run adebug against the current EDE parent project.
 Display the results as a debug list.
 
@@ -6566,20 +5602,20 @@ Display the results as a debug list.
 ;;;***
 
 ;;;### (autoloads (ede-cpp-root-load ede-cpp-root-project-root ede-cpp-root-project-file-for-dir)
-;;;;;;  "ede-cpp-root" "cedet/ede/ede-cpp-root.el" (19565 48709))
+;;;;;;  "ede/ede-cpp-root" "cedet/ede/ede-cpp-root.el" (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede-cpp-root.el
 
-(autoload 'ede-cpp-root-project-file-for-dir "ede-cpp-root" "\
+(autoload 'ede-cpp-root-project-file-for-dir "ede/ede-cpp-root" "\
 Return a full file name to the project file stored in DIR.
 
 \(fn &optional DIR)" nil nil)
 
-(autoload 'ede-cpp-root-project-root "ede-cpp-root" "\
+(autoload 'ede-cpp-root-project-root "ede/ede-cpp-root" "\
 Get the root directory for DIR.
 
 \(fn &optional DIR)" nil nil)
 
-(autoload 'ede-cpp-root-load "ede-cpp-root" "\
+(autoload 'ede-cpp-root-load "ede/ede-cpp-root" "\
 Return a CPP root object if you created one.
 Return nil if there isn't one.
 Argument DIR is the directory it is created for.
@@ -6589,23 +5625,23 @@ ROOTPROJ is nil, since there is only one project.
 
 (add-to-list 'ede-project-class-files (ede-project-autoload "cpp-root" :name "CPP ROOT" :file 'ede-cpp-root :proj-file 'ede-cpp-root-project-file-for-dir :proj-root 'ede-cpp-root-project-root :load-type 'ede-cpp-root-load :class-sym 'ede-cpp-root :new-p nil) t)
 
-(eieio-defclass-autoload 'ede-cpp-root-project '(ede-project eieio-instance-tracker) "ede-cpp-root" "EDE cpp-root project class.\nEach directory needs a project file to control it.")
+(eieio-defclass-autoload 'ede-cpp-root-project '(ede-project eieio-instance-tracker) "ede/ede-cpp-root" "EDE cpp-root project class.\nEach directory needs a project file to control it.")
 
 ;;;***
 
 ;;;### (autoloads (ede-project-sort-targets ede-customize-target
-;;;;;;  ede-customize-current-target ede-customize-project) "ede-custom"
-;;;;;;  "cedet/ede/ede-custom.el" (19441 57882))
+;;;;;;  ede-customize-current-target ede-customize-project) "ede/ede-custom"
+;;;;;;  "cedet/ede/ede-custom.el" (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede-custom.el
 
-(autoload 'ede-customize-project "ede-custom" "\
+(autoload 'ede-customize-project "ede/ede-custom" "\
 Edit fields of the current project through EIEIO & Custom.
 
 \(fn)" t nil)
 
 (defalias 'customize-project 'ede-customize-project)
 
-(autoload 'ede-customize-current-target "ede-custom" "\
+(autoload 'ede-customize-current-target "ede/ede-custom" "\
 Edit fields of the current target through EIEIO & Custom.
 Optional argument OBJ is the target object to customize.
 
@@ -6613,29 +5649,29 @@ Optional argument OBJ is the target object to customize.
 
 (defalias 'customize-target 'ede-customize-current-target)
 
-(autoload 'ede-customize-target "ede-custom" "\
+(autoload 'ede-customize-target "ede/ede-custom" "\
 Edit fields of the current target through EIEIO & Custom.
 Optional argument OBJ is the target object to customize.
 
 \(fn OBJ)" nil nil)
 
-(autoload 'ede-project-sort-targets "ede-custom" "\
+(autoload 'ede-project-sort-targets "ede/ede-custom" "\
 Create a custom-like buffer for sorting targets of current project.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (ede-emacs-load ede-emacs-project-root) "ede-emacs"
-;;;;;;  "cedet/ede/ede-emacs.el" (19441 57958))
+;;;### (autoloads (ede-emacs-load ede-emacs-project-root) "ede/ede-emacs"
+;;;;;;  "cedet/ede/ede-emacs.el" (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede-emacs.el
 
-(autoload 'ede-emacs-project-root "ede-emacs" "\
+(autoload 'ede-emacs-project-root "ede/ede-emacs" "\
 Get the root directory for DIR.
 
 \(fn &optional DIR)" nil nil)
 
-(autoload 'ede-emacs-load "ede-emacs" "\
+(autoload 'ede-emacs-load "ede/ede-emacs" "\
 Return an Emacs Project object if there is a match.
 Return nil if there isn't one.
 Argument DIR is the directory it is created for.
@@ -6645,15 +5681,15 @@ ROOTPROJ is nil, since there is only one project.
 
 (add-to-list 'ede-project-class-files (ede-project-autoload "emacs" :name "EMACS ROOT" :file 'ede-emacs :proj-file "src/emacs.c" :proj-root 'ede-emacs-project-root :load-type 'ede-emacs-load :class-sym 'ede-emacs-project :new-p nil) t)
 
-(eieio-defclass-autoload 'ede-emacs-project '(ede-project eieio-instance-tracker) "ede-emacs" "Project Type for the Emacs source code.")
+(eieio-defclass-autoload 'ede-emacs-project '(ede-project eieio-instance-tracker) "ede/ede-emacs" "Project Type for the Emacs source code.")
 
 ;;;***
 
-;;;### (autoloads (ede-find-file) "ede-files" "cedet/ede/ede-files.el"
-;;;;;;  (19560 7790))
+;;;### (autoloads (ede-find-file) "ede/ede-files" "cedet/ede/ede-files.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede-files.el
 
-(autoload 'ede-find-file "ede-files" "\
+(autoload 'ede-find-file "ede/ede-files" "\
 Find FILE in project.  FILE can be specified without a directory.
 There is no completion at the prompt.  FILE is searched for within
 the current EDE project.
@@ -6663,10 +5699,10 @@ the current EDE project.
 ;;;***
 
 ;;;### (autoloads (ede-enable-generic-projects ede-generic-load)
-;;;;;;  "ede-generic" "cedet/ede/ede-generic.el" (19532 17979))
+;;;;;;  "ede/ede-generic" "cedet/ede/ede-generic.el" (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede-generic.el
 
-(autoload 'ede-generic-load "ede-generic" "\
+(autoload 'ede-generic-load "ede/ede-generic" "\
 Return a Generic Project object if there is a match.
 Return nil if there isn't one.
 Argument DIR is the directory it is created for.
@@ -6674,37 +5710,23 @@ ROOTPROJ is nil, since there is only one project.
 
 \(fn DIR &optional ROOTPROJ)" nil nil)
 
-(autoload 'ede-enable-generic-projects "ede-generic" "\
+(autoload 'ede-enable-generic-projects "ede/ede-generic" "\
 Enable generic project loaders.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads nil "ede-gnustep" "cedet/contrib/ede-gnustep.el"
-;;;;;;  (19474 55392))
-;;; Generated autoloads from cedet/contrib/ede-gnustep.el
-
-(add-to-list 'ede-project-class-files (ede-project-autoload "edegnustep" :name "GNUstep-Make" :file 'ede-gnustep :proj-file "ProjStep.ede" :load-type 'ede-step-load :class-sym 'ede-step-project) t)
-
-(add-to-list 'ede-project-class-files (ede-project-autoload "gnustep-root" :name "GNUstep-make Top Most" :file 'ede-gnustep :proj-file "RootProjStep.ede" :initializers '(:project-mode scanner) :load-type 'ede-gnustep-load :class-sym 'ede-step-project) t)
-
-(add-to-list 'ede-project-class-files (ede-project-autoload "gnustep" :name "GNUstep-Make in scanner mode" :file 'ede-gnustep :proj-file "ProjStep.ede" :initializers '(:project-mode scanner) :load-type 'ede-gnustep-load :class-sym 'ede-step-project) t)
-
-(add-to-list 'auto-mode-alist '("\\(Root\\)?ProjStep\\.ede" . emacs-lisp-mode))
-
-;;;***
-
-;;;### (autoloads (ede-linux-load ede-linux-project-root) "ede-linux"
-;;;;;;  "cedet/ede/ede-linux.el" (19441 57971))
+;;;### (autoloads (ede-linux-load ede-linux-project-root) "ede/ede-linux"
+;;;;;;  "cedet/ede/ede-linux.el" (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede-linux.el
 
-(autoload 'ede-linux-project-root "ede-linux" "\
+(autoload 'ede-linux-project-root "ede/ede-linux" "\
 Get the root directory for DIR.
 
 \(fn &optional DIR)" nil nil)
 
-(autoload 'ede-linux-load "ede-linux" "\
+(autoload 'ede-linux-load "ede/ede-linux" "\
 Return an Linux Project object if there is a match.
 Return nil if there isn't one.
 Argument DIR is the directory it is created for.
@@ -6714,15 +5736,15 @@ ROOTPROJ is nil, since there is only one project.
 
 (add-to-list 'ede-project-class-files (ede-project-autoload "linux" :name "LINUX ROOT" :file 'ede-linux :proj-file "scripts/ver_linux" :proj-root 'ede-linux-project-root :load-type 'ede-linux-load :class-sym 'ede-linux-project :new-p nil) t)
 
-(eieio-defclass-autoload 'ede-linux-project '(ede-project eieio-instance-tracker) "ede-linux" "Project Type for the Linux source code.")
+(eieio-defclass-autoload 'ede-linux-project '(ede-project eieio-instance-tracker) "ede/ede-linux" "Project Type for the Linux source code.")
 
 ;;;***
 
-;;;### (autoloads (ede-enable-locate-on-project) "ede-locate" "cedet/ede/ede-locate.el"
-;;;;;;  (19560 7649))
+;;;### (autoloads (ede-enable-locate-on-project) "ede/ede-locate"
+;;;;;;  "cedet/ede/ede-locate.el" (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede-locate.el
 
-(autoload 'ede-enable-locate-on-project "ede-locate" "\
+(autoload 'ede-enable-locate-on-project "ede/ede-locate" "\
 Enable an EDE locate feature on PROJECT.
 Attempt to guess which project locate style to use
 based on `ede-locate-setup-options'.
@@ -6731,11 +5753,22 @@ based on `ede-locate-setup-options'.
 
 ;;;***
 
-;;;### (autoloads (ede-make-check-version) "ede-make" "cedet/ede/ede-make.el"
-;;;;;;  (19390 33968))
+;;;### (autoloads (ede-m3-ede-items) "ede/ede-m3" "cedet/ede/ede-m3.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/ede/ede-m3.el
+
+(autoload 'ede-m3-ede-items "ede/ede-m3" "\
+Return a list of menu items based on EDE project stats.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (ede-make-check-version) "ede/ede-make" "cedet/ede/ede-make.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede-make.el
 
-(autoload 'ede-make-check-version "ede-make" "\
+(autoload 'ede-make-check-version "ede/ede-make" "\
 Check the version of GNU Make installed.
 The check passes if the MAKE version is no high enough, or if it
 is not GNU make.
@@ -6746,11 +5779,11 @@ If NOERROR is nil, then throw an error on failure.  Return t otherwise.
 
 ;;;***
 
-;;;### (autoloads (ede-pmake-varname) "ede-pmake" "cedet/ede/ede-pmake.el"
-;;;;;;  (19358 14566))
+;;;### (autoloads (ede-pmake-varname) "ede/ede-pmake" "cedet/ede/ede-pmake.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede-pmake.el
 
-(autoload 'ede-pmake-varname "ede-pmake" "\
+(autoload 'ede-pmake-varname "ede/ede-pmake" "\
 Convert OBJ into a variable name name.
 Change .  to _ in the variable name.
 
@@ -6758,62 +5791,63 @@ Change .  to _ in the variable name.
 
 ;;;***
 
-;;;### (autoloads nil "ede-proj" "cedet/ede/ede-proj.el" (19467 44840))
+;;;### (autoloads nil "ede/ede-proj" "cedet/ede/ede-proj.el" (20113
+;;;;;;  48406))
 ;;; Generated autoloads from cedet/ede/ede-proj.el
 
 (add-to-list 'auto-mode-alist '("Project\\.ede$" . emacs-lisp-mode))
 
 ;;;***
 
-;;;### (autoloads (ede-shell-buffer ede-shell-run-something) "ede-shell"
-;;;;;;  "cedet/ede/ede-shell.el" (19358 14566))
+;;;### (autoloads (ede-shell-buffer ede-shell-run-something) "ede/ede-shell"
+;;;;;;  "cedet/ede/ede-shell.el" (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede-shell.el
 
-(autoload 'ede-shell-run-something "ede-shell" "\
+(autoload 'ede-shell-run-something "ede/ede-shell" "\
 Create a shell to run stuff for TARGET.
 COMMAND is a text string representing the thing to be run.
 
-\(fn (TARGET ede-target) COMMAND)" nil nil)
+\(fn (target ede-target) COMMAND)" nil nil)
 
-(autoload 'ede-shell-buffer "ede-shell" "\
+(autoload 'ede-shell-buffer "ede/ede-shell" "\
 Get the buffer for running shell commands for TARGET.
 
-\(fn (TARGET ede-target))" nil nil)
+\(fn (target ede-target))" nil nil)
 
 ;;;***
 
 ;;;### (autoloads (ede-simple-load ede-simple-projectfile-for-dir)
-;;;;;;  "ede-simple" "cedet/ede/ede-simple.el" (19532 13882))
+;;;;;;  "ede/ede-simple" "cedet/ede/ede-simple.el" (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede-simple.el
 
-(autoload 'ede-simple-projectfile-for-dir "ede-simple" "\
+(autoload 'ede-simple-projectfile-for-dir "ede/ede-simple" "\
 Return a full file name to the project file stored in the current directory.
 The directory has three parts:
   <STORAGE ROOT>/<PROJ DIR AS FILE>/ProjSimple.ede
 
 \(fn &optional DIR)" nil nil)
 
-(autoload 'ede-simple-load "ede-simple" "\
+(autoload 'ede-simple-load "ede/ede-simple" "\
 Load a project of type `Simple' for the directory DIR.
 Return nil if there isn't one.
 ROOTPROJ is nil, since we will only create a single EDE project here.
 
 \(fn DIR &optional ROOTPROJ)" nil nil)
 
-(eieio-defclass-autoload 'ede-simple-project '(ede-project eieio-persistent) "ede-simple" "EDE Simple project class.\nEach directory needs a project file to control it.")
+(eieio-defclass-autoload 'ede-simple-project '(ede-project eieio-persistent) "ede/ede-simple" "EDE Simple project class.\nEach directory needs a project file to control it.")
 
 ;;;***
 
-;;;### (autoloads (ede-srecode-insert ede-srecode-setup) "ede-srecode"
-;;;;;;  "cedet/ede/ede-srecode.el" (19530 61596))
+;;;### (autoloads (ede-srecode-insert ede-srecode-setup) "ede/ede-srecode"
+;;;;;;  "cedet/ede/ede-srecode.el" (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede-srecode.el
 
-(autoload 'ede-srecode-setup "ede-srecode" "\
+(autoload 'ede-srecode-setup "ede/ede-srecode" "\
 Update various paths to get SRecode to identify our macros.
 
 \(fn)" nil nil)
 
-(autoload 'ede-srecode-insert "ede-srecode" "\
+(autoload 'ede-srecode-insert "ede/ede-srecode" "\
 Insert at the current point TEMPLATE.
 TEMPLATE should specify a context by using a string format of:
   context:templatename
@@ -6824,11 +5858,11 @@ Note: Just like `srecode-insert', but templates found in 'ede app.
 
 ;;;***
 
-;;;### (autoloads (ede-update-version) "ede-util" "cedet/ede/ede-util.el"
-;;;;;;  (19358 14566))
+;;;### (autoloads (ede-update-version) "ede/ede-util" "cedet/ede/ede-util.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/ede/ede-util.el
 
-(autoload 'ede-update-version "ede-util" "\
+(autoload 'ede-update-version "ede/ede-util" "\
 Update the current projects main version number.
 Argument NEWVERSION is the version number to use in the current project.
 
@@ -6836,37 +5870,59 @@ Argument NEWVERSION is the version number to use in the current project.
 
 ;;;***
 
+;;;### (autoloads (call-tree) "eieio/call-tree" "cedet/eieio/call-tree.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/eieio/call-tree.el
+
+(autoload 'call-tree "eieio/call-tree" "\
+Build a call tree to show all functions called by FUNC.
+
+\(fn FUNC)" t nil)
+
+;;;***
+
+;;;### (autoloads (chart-test-it-all) "eieio/chart" "cedet/eieio/chart.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/eieio/chart.el
+
+(autoload 'chart-test-it-all "eieio/chart" "\
+Test out various charting features.
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads (data-debug-show data-debug-insert-object-button
-;;;;;;  data-debug-insert-object-slots) "eieio-datadebug" "cedet/eieio/eieio-datadebug.el"
-;;;;;;  (19115 2171))
+;;;;;;  data-debug-insert-object-slots) "eieio/eieio-datadebug" "cedet/eieio/eieio-datadebug.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/eieio/eieio-datadebug.el
 
-(autoload 'data-debug-insert-object-slots "eieio-datadebug" "\
+(autoload 'data-debug-insert-object-slots "eieio/eieio-datadebug" "\
 Insert all the slots of OBJECT.
 PREFIX specifies what to insert at the start of each line.
 
 \(fn OBJECT PREFIX)" nil nil)
 
-(autoload 'data-debug-insert-object-button "eieio-datadebug" "\
+(autoload 'data-debug-insert-object-button "eieio/eieio-datadebug" "\
 Insert a button representing OBJECT.
 PREFIX is the text that preceeds the button.
 PREBUTTONTEXT is some text between PREFIX and the object button.
 
 \(fn OBJECT PREFIX PREBUTTONTEXT)" nil nil)
 
-(autoload 'data-debug-show "eieio-datadebug" "\
+(autoload 'data-debug-show "eieio/eieio-datadebug" "\
 Run ddebug against any EIEIO object OBJ
 
-\(fn (OBJ eieio-default-superclass))" nil nil)
+\(fn (obj eieio-default-superclass))" nil nil)
 
 ;;;***
 
 ;;;### (autoloads (eieio-describe-generic eieio-build-class-alist
 ;;;;;;  eieio-describe-constructor eieio-describe-class eieio-browse)
-;;;;;;  "eieio-opt" "cedet/eieio/eieio-opt.el" (19390 36062))
+;;;;;;  "eieio/eieio-opt" "cedet/eieio/eieio-opt.el" (20113 48406))
 ;;; Generated autoloads from cedet/eieio/eieio-opt.el
 
-(autoload 'eieio-browse "eieio-opt" "\
+(autoload 'eieio-browse "eieio/eieio-opt" "\
 Create an object browser window to show all objects.
 If optional ROOT-CLASS, then start with that, otherwise start with
 variable `eieio-default-superclass'.
@@ -6875,20 +5931,20 @@ variable `eieio-default-superclass'.
 
 (defalias 'describe-class 'eieio-describe-class)
 
-(autoload 'eieio-describe-class "eieio-opt" "\
+(autoload 'eieio-describe-class "eieio/eieio-opt" "\
 Describe a CLASS defined by a string or symbol.
 If CLASS is actually an object, then also display current values of that obect.
 Optional HEADERFCN should be called to insert a few bits of info first.
 
 \(fn CLASS &optional HEADERFCN)" t nil)
 
-(autoload 'eieio-describe-constructor "eieio-opt" "\
+(autoload 'eieio-describe-constructor "eieio/eieio-opt" "\
 Describe the constructor function FCN.
 Uses `eieio-describe-class' to describe the class being constructed.
 
 \(fn FCN)" t nil)
 
-(autoload 'eieio-build-class-alist "eieio-opt" "\
+(autoload 'eieio-build-class-alist "eieio/eieio-opt" "\
 Return an alist of all currently active classes for completion purposes.
 Optional argument CLASS is the class to start with.
 If INSTANTIABLE-ONLY is non nil, only allow names of classes which
@@ -6903,7 +5959,7 @@ Optional argument BUILDLIST is more list to attach and is used internally.
 
 (defalias 'eieio-describe-method 'eieio-describe-generic)
 
-(autoload 'eieio-describe-generic "eieio-opt" "\
+(autoload 'eieio-describe-generic "eieio/eieio-opt" "\
 Describe the generic function GENERIC.
 Also extracts information about all methods specific to this generic.
 
@@ -6912,366 +5968,165 @@ Also extracts information about all methods specific to this generic.
 ;;;***
 
 ;;;### (autoloads (eieio-perftest-onemethodcall eieio-perftest-methodcall)
-;;;;;;  "eieio-perftest" "cedet/eieio/eieio-perftest.el" (19010 46106))
+;;;;;;  "eieio/eieio-perftest" "cedet/eieio/eieio-perftest.el" (20113
+;;;;;;  48406))
 ;;; Generated autoloads from cedet/eieio/eieio-perftest.el
 
-(autoload 'eieio-perftest-methodcall "eieio-perftest" "\
+(autoload 'eieio-perftest-methodcall "eieio/eieio-perftest" "\
 Test and time performance of method invocation.
 
 \(fn)" t nil)
 
-(autoload 'eieio-perftest-onemethodcall "eieio-perftest" "\
+(autoload 'eieio-perftest-onemethodcall "eieio/eieio-perftest" "\
 Test and time performance of method invocation.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (object-write-xml) "eieio-xml" "cedet/eieio/eieio-xml.el"
-;;;;;;  (18656 8049))
+;;;### (autoloads (object-write-xml) "eieio/eieio-xml" "cedet/eieio/eieio-xml.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/eieio/eieio-xml.el
 
-(autoload 'object-write-xml "eieio-xml" "\
+(autoload 'object-write-xml "eieio/eieio-xml" "\
 Write object THIS out to the current stream as XML.
   If optional COMMENT is non-nil, include comments when outputting
 this object.
 @todo - support arbitrary schema output
 
-\(fn (THIS eieio-default-superclass) &optional COMMENT)" nil nil)
+\(fn (this eieio-default-superclass) &optional COMMENT)" nil nil)
 
 ;;;***
 
-;;;### (autoloads (emms-cache-toggle emms-cache-disable emms-cache-enable)
-;;;;;;  "emms-cache" "emms/lisp/emms-cache.el" (19848 52901))
-;;; Generated autoloads from emms/lisp/emms-cache.el
+;;;### (autoloads (enable-visual-studio-bookmarks) "eieio/linemark"
+;;;;;;  "cedet/eieio/linemark.el" (20113 48406))
+;;; Generated autoloads from cedet/eieio/linemark.el
 
-(autoload 'emms-cache-enable "emms-cache" "\
-Enable caching of Emms track data.
-
-\(fn)" t nil)
-
-(autoload 'emms-cache-disable "emms-cache" "\
-Disable caching of Emms track data.
-
-\(fn)" t nil)
-
-(autoload 'emms-cache-toggle "emms-cache" "\
-Toggle caching of Emms track data.
+(autoload 'enable-visual-studio-bookmarks "eieio/linemark" "\
+Bind the viss bookmark functions to F2 related keys.
+\\<global-map>
+\\[viss-bookmark-toggle]     - To=ggle a bookmark on this line.
+\\[viss-bookmark-next-buffer]   - Move to the next bookmark.
+\\[viss-bookmark-prev-buffer]   - Move to the previous bookmark.
+\\[viss-bookmark-clear-all-buffer] - Clear all bookmarks.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (emms-lyrics-toggle emms-lyrics-disable emms-lyrics-enable)
-;;;;;;  "emms-lyrics" "emms/lisp/emms-lyrics.el" (19848 52901))
-;;; Generated autoloads from emms/lisp/emms-lyrics.el
+;;;### (autoloads (lmcompile-do-highlight) "eieio/lmcompile" "cedet/eieio/lmcompile.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/eieio/lmcompile.el
 
-(autoload 'emms-lyrics-enable "emms-lyrics" "\
-Enable displaying emms lyrics.
-
-\(fn)" t nil)
-
-(autoload 'emms-lyrics-disable "emms-lyrics" "\
-Disable displaying emms lyrics.
-
-\(fn)" t nil)
-
-(autoload 'emms-lyrics-toggle "emms-lyrics" "\
-Toggle displaying emms lyrics.
+(autoload 'lmcompile-do-highlight "eieio/lmcompile" "\
+Do compilation mode highlighting.
+Works on grep, compile, or other type mode.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (emms-mode-line-toggle emms-mode-line-disable emms-mode-line-enable)
-;;;;;;  "emms-mode-line" "emms/lisp/emms-mode-line.el" (19848 52901))
-;;; Generated autoloads from emms/lisp/emms-mode-line.el
+;;;### (autoloads (directory-tree-thing eieio-class-tree tree-test-it-all)
+;;;;;;  "eieio/tree" "cedet/eieio/tree.el" (20113 48406))
+;;; Generated autoloads from cedet/eieio/tree.el
 
-(autoload 'emms-mode-line-enable "emms-mode-line" "\
-Turn on `emms-mode-line'.
-
-\(fn)" t nil)
-
-(autoload 'emms-mode-line-disable "emms-mode-line" "\
-Turn off `emms-mode-line'.
+(autoload 'tree-test-it-all "eieio/tree" "\
+Try using various features of tree mode in a demo of it's display.
 
 \(fn)" t nil)
 
-(autoload 'emms-mode-line-toggle "emms-mode-line" "\
-Toggle `emms-mode-line'.
+(autoload 'eieio-class-tree "eieio/tree" "\
+Displays a class tree using the TREE package in another buffer.
+Optional argument ROOT-CLASS is the starting point.
+
+\(fn &optional ROOT-CLASS)" t nil)
+
+(autoload 'directory-tree-thing "eieio/tree" "\
+Start at the current directory, and build a giant tree of files.
+Argument PPATH is the path to the directory we are going to analyze.
+
+\(fn PPATH)" t nil)
+
+;;;***
+
+;;;### (autoloads (mhc-cmail-setup) "emacs/mhc-cmail" "mhc/emacs/mhc-cmail.el"
+;;;;;;  (20113 29474))
+;;; Generated autoloads from mhc/emacs/mhc-cmail.el
+
+(autoload 'mhc-cmail-setup "emacs/mhc-cmail" "\
+
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (emms-player-mpd-show emms-player-mpd-connect emms-player-mpd-clear)
-;;;;;;  "emms-player-mpd" "emms/lisp/emms-player-mpd.el" (19848 52901))
-;;; Generated autoloads from emms/lisp/emms-player-mpd.el
+;;;### (autoloads (mhc-gnus-setup) "emacs/mhc-gnus" "mhc/emacs/mhc-gnus.el"
+;;;;;;  (20113 29474))
+;;; Generated autoloads from mhc/emacs/mhc-gnus.el
 
-(autoload 'emms-player-mpd-clear "emms-player-mpd" "\
-Clear the MusicPD playlist.
+(autoload 'mhc-gnus-setup "emacs/mhc-gnus" "\
 
-\(fn)" t nil)
-
-(autoload 'emms-player-mpd-connect "emms-player-mpd" "\
-Connect to MusicPD and retrieve its current playlist.
-
-Afterward, the status of MusicPD will be tracked.
-
-This also has the effect of changing the current EMMS playlist to
-be the same as the current MusicPD playlist.  Thus, this
-function is useful to call if the contents of the EMMS playlist
-buffer get out-of-sync for some reason.
-
-\(fn)" t nil)
-
-(autoload 'emms-player-mpd-show "emms-player-mpd" "\
-Describe the current EMMS track in the minibuffer.
-
-If INSERTP is non-nil, insert the description into the current
-buffer instead.
-
-If CALLBACK is a function, call it with the current buffer and
-description as arguments instead of displaying the description or
-inserting it.
-
-This function uses `emms-show-format' to format the current track.
-It differs from `emms-show' in that it asks MusicPD for the current track,
-rather than EMMS.
-
-\(fn &optional INSERTP CALLBACK)" t nil)
-
-;;;***
-
-;;;### (autoloads (emms-playing-time-disable-display emms-playing-time-enable-display)
-;;;;;;  "emms-playing-time" "emms/lisp/emms-playing-time.el" (19848
-;;;;;;  52901))
-;;; Generated autoloads from emms/lisp/emms-playing-time.el
-
-(autoload 'emms-playing-time-enable-display "emms-playing-time" "\
-Display playing time on mode line.
-
-\(fn)" t nil)
-
-(autoload 'emms-playing-time-disable-display "emms-playing-time" "\
-Remove playing time from mode line.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (emms-playlist-limit-toggle emms-playlist-limit-disable
-;;;;;;  emms-playlist-limit-enable) "emms-playlist-limit" "emms/lisp/emms-playlist-limit.el"
-;;;;;;  (19848 52901))
-;;; Generated autoloads from emms/lisp/emms-playlist-limit.el
-
-(autoload 'emms-playlist-limit-enable "emms-playlist-limit" "\
-Turn on emms playlist limit.
-
-\(fn)" t nil)
-
-(autoload 'emms-playlist-limit-disable "emms-playlist-limit" "\
-Turn off emms playlist limit.
-
-\(fn)" t nil)
-
-(autoload 'emms-playlist-limit-toggle "emms-playlist-limit" "\
-Toggle emms playlist limit.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (emms-playlist-mode) "emms-playlist-mode" "emms/lisp/emms-playlist-mode.el"
-;;;;;;  (19848 52901))
-;;; Generated autoloads from emms/lisp/emms-playlist-mode.el
-
-(autoload 'emms-playlist-mode "emms-playlist-mode" "\
-A major mode for Emms playlists.
-\\{emms-playlist-mode-map}
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (emms-score-toggle emms-score-disable emms-score-enable)
-;;;;;;  "emms-score" "emms/lisp/emms-score.el" (19848 52901))
-;;; Generated autoloads from emms/lisp/emms-score.el
-
-(autoload 'emms-score-enable "emms-score" "\
-Turn on emms-score.
-
-\(fn)" t nil)
-
-(autoload 'emms-score-disable "emms-score" "\
-Turn off emms-score.
-
-\(fn)" t nil)
-
-(autoload 'emms-score-toggle "emms-score" "\
-Toggle emms-score.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (emms-default-players emms-devel emms-all emms-standard
-;;;;;;  emms-minimalistic) "emms-setup" "emms/lisp/emms-setup.el"
-;;;;;;  (19848 52901))
-;;; Generated autoloads from emms/lisp/emms-setup.el
-
-(autoload 'emms-minimalistic "emms-setup" "\
-An Emms setup script.
-Invisible playlists and all the basics for playing media.
-
-\(fn)" nil nil)
-
-(autoload 'emms-standard "emms-setup" "\
-An Emms setup script.
-Everything included in the `emms-minimalistic' setup, the Emms
-interactive playlist mode, reading information from tagged
-audio files, and a metadata cache.
-
-\(fn)" nil nil)
-
-(autoload 'emms-all "emms-setup" "\
-An Emms setup script.
-Everything included in the `emms-standard' setup and adds all the
-stable features which come with the Emms distribution.
-
-\(fn)" nil nil)
-
-(autoload 'emms-devel "emms-setup" "\
-An Emms setup script.
-Everything included in the `emms-all' setup and adds all the
-features which come with the Emms distribution regardless of if
-they are considered stable or not.  Use this if you like living
-on the edge.
-
-\(fn)" nil nil)
-
-(autoload 'emms-default-players "emms-setup" "\
-Set `emms-player-list' to `emms-setup-default-player-list'.
 
 \(fn)" nil nil)
 
 ;;;***
 
-;;;### (autoloads (emms-locate emms-source-file-regex emms-source-file-directory-tree)
-;;;;;;  "emms-source-file" "emms/lisp/emms-source-file.el" (19848
-;;;;;;  52901))
-;;; Generated autoloads from emms/lisp/emms-source-file.el
- (autoload 'emms-play-file "emms-source-file" nil t)
- (autoload 'emms-add-file "emms-source-file" nil t)
- (autoload 'emms-play-directory "emms-source-file" nil t)
- (autoload 'emms-add-directory "emms-source-file" nil t)
- (autoload 'emms-play-directory-tree "emms-source-file" nil t)
- (autoload 'emms-add-directory-tree "emms-source-file" nil t)
- (autoload 'emms-play-find "emms-source-file" nil t)
- (autoload 'emms-add-find "emms-source-file" nil t)
- (autoload 'emms-play-dired "emms-source-file" nil t)
- (autoload 'emms-add-dired "emms-source-file" nil t)
+;;;### (autoloads (mhc-mew-setup) "emacs/mhc-mew" "mhc/emacs/mhc-mew.el"
+;;;;;;  (20113 29474))
+;;; Generated autoloads from mhc/emacs/mhc-mew.el
 
-(autoload 'emms-source-file-directory-tree "emms-source-file" "\
-Return a list of all files under DIR that match REGEX.
-This function uses `emms-source-file-directory-tree-function'.
+(autoload 'mhc-mew-setup "emacs/mhc-mew" "\
 
-\(fn DIR REGEX)" nil nil)
-
-(autoload 'emms-source-file-regex "emms-source-file" "\
-Return a regexp that matches everything any player (that supports
-files) can play.
 
 \(fn)" nil nil)
 
-(autoload 'emms-locate "emms-source-file" "\
-Search for REGEXP and display the results in a locate buffer
+;;;***
+
+;;;### (autoloads (mhc-ps-insert-buffer mhc-ps-save mhc-ps-print
+;;;;;;  mhc-ps-preview mhc-ps) "emacs/mhc-ps" "mhc/emacs/mhc-ps.el"
+;;;;;;  (20113 29474))
+;;; Generated autoloads from mhc/emacs/mhc-ps.el
 
-\(fn REGEXP)" t nil)
- (autoload 'emms-play-url "emms-source-file" nil t)
- (autoload 'emms-add-url "emms-source-file" nil t)
- (autoload 'emms-play-streamlist "emms-source-file" nil t)
- (autoload 'emms-add-streamlist "emms-source-file" nil t)
- (autoload 'emms-play-lastfm "emms-lastfm" nil t)
- (autoload 'emms-add-lastfm "emms-lastfm" nil t)
+(autoload 'mhc-ps "emacs/mhc-ps" "\
+*Create PostScript calendar with selected method.
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'mhc-ps-preview "emacs/mhc-ps" "\
+*Preview PostScript calendar.
+
+\(fn YEAR MONTH &optional CATEGORY-PREDICATE)" t nil)
+
+(autoload 'mhc-ps-print "emacs/mhc-ps" "\
+*Print PostScript calendar.
+
+\(fn YEAR MONTH &optional CATEGORY-PREDICATE)" t nil)
+
+(autoload 'mhc-ps-save "emacs/mhc-ps" "\
+*Save PostScript calendar.
+
+\(fn YEAR MONTH FILE &optional CATEGORY-PREDICATE)" t nil)
+
+(autoload 'mhc-ps-insert-buffer "emacs/mhc-ps" "\
+*Insert PostScript calendar.
+
+\(fn YEAR MONTH BUFFER &optional CATEGORY-PREDICATE)" t nil)
 
 ;;;***
 
-;;;### (autoloads nil "emms-source-playlist" "emms/lisp/emms-source-playlist.el"
-;;;;;;  (19848 52901))
-;;; Generated autoloads from emms/lisp/emms-source-playlist.el
- (autoload 'emms-play-playlist "emms-source-playlist" nil t)
- (autoload 'emms-add-playlist "emms-source-playlist" nil t)
- (autoload 'emms-play-native-playlist "emms-source-playlist" nil t)
- (autoload 'emms-add-native-playlist "emms-source-playlist" nil t)
- (autoload 'emms-play-m3u-playlist "emms-source-playlist" nil t)
- (autoload 'emms-add-m3u-playlist "emms-source-playlist" nil t)
- (autoload 'emms-play-pls-playlist "emms-source-playlist" nil t)
- (autoload 'emms-add-pls-playlist "emms-source-playlist" nil t)
- (autoload 'emms-play-playlist-file "emms-source-playlist" nil t)
- (autoload 'emms-add-playlist-file "emms-source-playlist" nil t)
- (autoload 'emms-play-playlist-directory
-          "emms-source-playlist" nil t)
- (autoload 'emms-add-playlist-directory
-          "emms-source-playlist" nil t)
- (autoload 'emms-play-playlist-directory-tree
-          "emms-source-playlist" nil t)
- (autoload 'emms-add-playlist-directory-tree
-          "emms-source-file" nil t)
+;;;### (autoloads (mhc-wl-setup) "emacs/mhc-wl" "mhc/emacs/mhc-wl.el"
+;;;;;;  (20113 29474))
+;;; Generated autoloads from mhc/emacs/mhc-wl.el
+
+(autoload 'mhc-wl-setup "emacs/mhc-wl" "\
+
+
+\(fn)" nil nil)
 
 ;;;***
 
-;;;### (autoloads (emms-streams) "emms-streams" "emms/lisp/emms-streams.el"
-;;;;;;  (19848 52901))
-;;; Generated autoloads from emms/lisp/emms-streams.el
-
-(autoload 'emms-streams "emms-streams" "\
-Opens the EMMS Streams interface.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (emms-volume-mode-minus emms-volume-mode-plus emms-volume-lower
-;;;;;;  emms-volume-raise) "emms-volume" "emms/lisp/emms-volume.el"
-;;;;;;  (19848 52901))
-;;; Generated autoloads from emms/lisp/emms-volume.el
-
-(autoload 'emms-volume-raise "emms-volume" "\
-Raise the speaker volume.
-
-\(fn)" t nil)
-
-(autoload 'emms-volume-lower "emms-volume" "\
-Lower the speaker volume.
-
-\(fn)" t nil)
-
-(autoload 'emms-volume-mode-plus "emms-volume" "\
-Raise volume and enable or extend the `emms-volume-minor-mode' timeout.
-
-\(fn)" t nil)
-
-(autoload 'emms-volume-mode-minus "emms-volume" "\
-Lower volume and enable or extend the `emms-volume-minor-mode' timeout.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (emms-volume-amixer-change) "emms-volume-amixer"
-;;;;;;  "emms/lisp/emms-volume-amixer.el" (19848 52901))
-;;; Generated autoloads from emms/lisp/emms-volume-amixer.el
-
-(autoload 'emms-volume-amixer-change "emms-volume-amixer" "\
-Change amixer master volume by AMOUNT.
-
-\(fn AMOUNT)" nil nil)
-
-;;;***
-
-;;;### (autoloads (espresso-mode) "espresso" "espresso.el" (19823
-;;;;;;  60498))
+;;;### (autoloads (espresso-mode) "espresso" "espresso.el" (20112
+;;;;;;  24690))
 ;;; Generated autoloads from espresso.el
 
 (autoload 'espresso-mode "espresso" "\
@@ -7289,7 +6144,7 @@ Key bindings:
 ;;;;;;  find-loadfile-by-map find-loadfile-by-mode eval-after-load-by-symbol
 ;;;;;;  eval-after-load-by-symbols eval-after-load-by-hooks eval-after-load-by-maps
 ;;;;;;  eval-after-load-by-modes) "eval-after-load" "eval-after-load.el"
-;;;;;;  (19893 35457))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from eval-after-load.el
 
 (autoload 'eval-after-load-by-modes "eval-after-load" "\
@@ -7367,28 +6222,6 @@ completion.
 
 ;;;***
 
-;;;### (autoloads (define-fame-channel) "fame" "cedet/common/fame.el"
-;;;;;;  (17213 39681))
-;;; Generated autoloads from cedet/common/fame.el
-
-(autoload 'define-fame-channel "fame" "\
-Define the new message channel CHANNEL.
-CHANNEL must be a non-nil symbol.
-The optional argument DEFAULT specifies the default value of message
-levels for this channel.  By default it is the value of
-`fame-default-level-values'.
-DOCSTRING is an optional channel documentation.
-
-This defines the option `CHANNEL-fame-levels' to customize the current
-value of message levels.  And the functions `CHANNEL-send-debug',
-`CHANNEL-send-info', `CHANNEL-send-warning', and `CHANNEL-send-error',
-that respectively send debug, informational, warning, and error
-messages to CHANNEL.
-
-\(fn CHANNEL &optional DEFAULT DOCSTRING)" nil (quote macro))
-
-;;;***
-
 ;;;### (autoloads (fit-frame-or-mouse-drag-vertical-line fit-frame-to-image
 ;;;;;;  fit-frame fit-frame-skip-header-lines-alist fit-frame-fill-column-margin
 ;;;;;;  fit-frame-empty-special-display-height fit-frame-empty-special-display-width
@@ -7396,7 +6229,7 @@ messages to CHANNEL.
 ;;;;;;  fit-frame-max-height fit-frame-min-height fit-frame-max-width-percent
 ;;;;;;  fit-frame-max-width fit-frame-min-width fit-frame-crop-end-blank-flag
 ;;;;;;  fit-frame-inhibit-fitting-flag fit-frame) "fit-frame" "fit-frame.el"
-;;;;;;  (19816 5505))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from fit-frame.el
 
 (let ((loads (get 'fit-frame 'custom-loads))) (if (member '"fit-frame" loads) nil (put 'fit-frame 'custom-loads (cons '"fit-frame" loads))))
@@ -7587,7 +6420,7 @@ Setup this buffer for LaTeX font-lock.  Usually called from a hook.
 ;;;;;;  delete-window mouse-iconify/map-frame iconify/map-frame mouse-show-hide-mark-unmark
 ;;;;;;  show-buffer-menu show-hide hide-everything iconify-everything
 ;;;;;;  jump-to-frame-config-register save-frame-config) "frame-cmds"
-;;;;;;  "frame-cmds.el" (19816 5574))
+;;;;;;  "frame-cmds.el" (20112 24690))
 ;;; Generated autoloads from frame-cmds.el
 
 (autoload 'save-frame-config "frame-cmds" "\
@@ -7975,7 +6808,25 @@ VARIABLE is a symbol that names a user option.
 
 ;;;***
 
-;;;### (autoloads (haml-mode) "haml-mode" "haml-mode.el" (19823 61956))
+;;;### (autoloads (ghc-core-mode ghc-core-create-core) "ghc-core"
+;;;;;;  "haskellmode-emacs/ghc-core.el" (20113 28680))
+;;; Generated autoloads from haskellmode-emacs/ghc-core.el
+
+(autoload 'ghc-core-create-core "ghc-core" "\
+Compiled and load the current buffer as tidy core
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.hcr\\'" . ghc-core-mode))
+
+(autoload 'ghc-core-mode "ghc-core" "\
+Major mode for GHC Core files.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (haml-mode) "haml-mode" "haml-mode.el" (20112 24690))
 ;;; Generated autoloads from haml-mode.el
 
 (autoload 'haml-mode "haml-mode" "\
@@ -7990,7 +6841,7 @@ Major mode for editing Haml files.
 ;;;***
 
 ;;;### (autoloads (haskell-c-mode) "haskell-c" "haskellmode-emacs/haskell-c.el"
-;;;;;;  (19848 52923))
+;;;;;;  (20113 28680))
 ;;; Generated autoloads from haskellmode-emacs/haskell-c.el
 
 (add-to-list 'auto-mode-alist '("\\.hsc\\'" . haskell-c-mode))
@@ -8003,7 +6854,7 @@ Major mode for Haskell FFI files.
 ;;;***
 
 ;;;### (autoloads (haskell-cabal-mode) "haskell-cabal" "haskellmode-emacs/haskell-cabal.el"
-;;;;;;  (19848 52923))
+;;;;;;  (20113 28680))
 ;;; Generated autoloads from haskellmode-emacs/haskell-cabal.el
 
 (add-to-list 'auto-mode-alist '("\\.cabal\\'" . haskell-cabal-mode))
@@ -8016,7 +6867,7 @@ Major mode for Cabal package description files.
 ;;;***
 
 ;;;### (autoloads (haskell-decl-scan-mode) "haskell-decl-scan" "haskellmode-emacs/haskell-decl-scan.el"
-;;;;;;  (19848 52923))
+;;;;;;  (20113 28680))
 ;;; Generated autoloads from haskellmode-emacs/haskell-decl-scan.el
 
 (autoload 'haskell-decl-scan-mode "haskell-decl-scan" "\
@@ -8066,7 +6917,7 @@ Invokes `haskell-decl-scan-mode-hook'.
 ;;;***
 
 ;;;### (autoloads (haskell-doc-show-type haskell-doc-mode) "haskell-doc"
-;;;;;;  "haskellmode-emacs/haskell-doc.el" (19848 52923))
+;;;;;;  "haskellmode-emacs/haskell-doc.el" (20113 28680))
 ;;; Generated autoloads from haskellmode-emacs/haskell-doc.el
 
 (autoload 'haskell-doc-mode "haskell-doc" "\
@@ -8089,7 +6940,7 @@ current buffer.
 ;;;***
 
 ;;;### (autoloads (haskell-indent-mode) "haskell-indent" "haskellmode-emacs/haskell-indent.el"
-;;;;;;  (19848 52923))
+;;;;;;  (20113 28680))
 ;;; Generated autoloads from haskellmode-emacs/haskell-indent.el
 
 (autoload 'haskell-indent-mode "haskell-indent" "\
@@ -8121,7 +6972,7 @@ Invokes `haskell-indent-hook' if not nil.
 ;;;***
 
 ;;;### (autoloads (haskell-indentation-mode) "haskell-indentation"
-;;;;;;  "haskellmode-emacs/haskell-indentation.el" (19848 52923))
+;;;;;;  "haskellmode-emacs/haskell-indentation.el" (20113 28680))
 ;;; Generated autoloads from haskellmode-emacs/haskell-indentation.el
 
 (autoload 'haskell-indentation-mode "haskell-indentation" "\
@@ -8136,7 +6987,7 @@ autofill-mode.
 
 ;;;### (autoloads (haskell-hayoo haskell-hoogle literate-haskell-mode
 ;;;;;;  haskell-mode) "haskell-mode" "haskellmode-emacs/haskell-mode.el"
-;;;;;;  (19848 52923))
+;;;;;;  (20113 28680))
 ;;; Generated autoloads from haskellmode-emacs/haskell-mode.el
 
 (add-to-list 'load-path (or (file-name-directory load-file-name) (car load-path)))
@@ -8205,8 +7056,8 @@ Do a Hayoo search for QUERY.
 ;;;***
 
 ;;;### (autoloads (update-file-header make-box-comment make-divider
-;;;;;;  make-revision make-header) "header2" "header2.el" (19807
-;;;;;;  38146))
+;;;;;;  make-revision make-header) "header2" "header2.el" (20112
+;;;;;;  24690))
 ;;; Generated autoloads from header2.el
 
 (autoload 'make-header "header2" "\
@@ -8248,11 +7099,11 @@ the strings that cause them to be invoked.
 ;;;***
 
 ;;;### (autoloads (hideshowvis-enable hideshowvis-minor-mode hideshowvis-click-fringe)
-;;;;;;  "hideshowvis" "hideshowvis.el" (19836 51591))
+;;;;;;  "hideshowvis" "hideshowvis.el" (20112 24690))
 ;;; Generated autoloads from hideshowvis.el
 
 (autoload 'hideshowvis-click-fringe "hideshowvis" "\
-Not documented
+
 
 \(fn EVENT)" t nil)
 
@@ -8273,7 +7124,7 @@ Will enable hideshowvis minor mode
 ;;;***
 
 ;;;### (autoloads (highlight-parentheses-mode) "highlight-parentheses"
-;;;;;;  "highlight-parentheses.el" (19815 53070))
+;;;;;;  "highlight-parentheses.el" (20112 24690))
 ;;; Generated autoloads from highlight-parentheses.el
 
 (autoload 'highlight-parentheses-mode "highlight-parentheses" "\
@@ -8285,7 +7136,7 @@ Minor mode to highlight the surrounding parentheses.
 
 ;;;### (autoloads (hl-line-flash hl-line-when-idle-interval hl-line-toggle-when-idle
 ;;;;;;  hl-line-inhibit-highlighting-for-modes hl-line-flash-show-period)
-;;;;;;  "hl-line+" "hl-line+.el" (19804 63413))
+;;;;;;  "hl-line+" "hl-line+.el" (20112 24690))
 ;;; Generated autoloads from hl-line+.el
 
 (defface hl-line '((t (:background "SlateGray3"))) "\
@@ -8332,7 +7183,7 @@ With a prefix argument, highlight for that many seconds.
 ;;;***
 
 ;;;### (autoloads (iimage-mode turn-on-iimage-mode) "iimage" "iimage.el"
-;;;;;;  (19823 30503))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from iimage.el
 
 (autoload 'turn-on-iimage-mode "iimage" "\
@@ -8348,9 +7199,9 @@ Toggle inline image minor mode.
 ;;;***
 
 ;;;### (autoloads (inferior-haskell-find-haddock inferior-haskell-find-definition
-;;;;;;  inferior-haskell-info inferior-haskell-type inferior-haskell-load-file
-;;;;;;  switch-to-haskell) "inf-haskell" "haskellmode-emacs/inf-haskell.el"
-;;;;;;  (19848 52923))
+;;;;;;  inferior-haskell-info inferior-haskell-type inferior-haskell-load-and-run
+;;;;;;  inferior-haskell-load-file switch-to-haskell) "inf-haskell"
+;;;;;;  "haskellmode-emacs/inf-haskell.el" (20113 28680))
 ;;; Generated autoloads from haskellmode-emacs/inf-haskell.el
 
 (defalias 'run-haskell 'switch-to-haskell)
@@ -8365,6 +7216,11 @@ Pass the current buffer's file to the inferior haskell process.
 If prefix arg \\[universal-argument] is given, just reload the previous file.
 
 \(fn &optional RELOAD)" t nil)
+
+(autoload 'inferior-haskell-load-and-run "inf-haskell" "\
+Pass the current buffer's file to haskell and then run a COMMAND.
+
+\(fn COMMAND)" t nil)
 
 (autoload 'inferior-haskell-type "inf-haskell" "\
 Query the haskell process for the type of the given expression.
@@ -8403,111 +7259,67 @@ we load it.
 
 ;;;***
 
-;;;### (autoloads (run-ruby inf-ruby inf-ruby-keys) "inf-ruby" "rinari/util/inf-ruby.el"
-;;;;;;  (19848 53016))
-;;; Generated autoloads from rinari/util/inf-ruby.el
+;;;### (autoloads (inferior-shen) "inf-shen" "shen-mode/inf-shen.el"
+;;;;;;  (20113 29604))
+;;; Generated autoloads from shen-mode/inf-shen.el
 
-(autoload 'inf-ruby-keys "inf-ruby" "\
-Set local key defs to invoke inf-ruby from ruby-mode.
+(defvar inferior-shen-filter-regexp "\\`\\s *\\(:\\(\\w\\|\\s_\\)\\)?\\s *\\'" "\
+*What not to save on inferior Shen's input history.
+Input matching this regexp is not saved on the input history in Inferior Shen
+mode.  Default is whitespace followed by 0 or 1 single-letter colon-keyword
+\(as in :a, :c, etc.)")
 
-\(fn)" nil nil)
+(defvar inferior-shen-program "shen" "\
+*Program name for invoking an inferior Shen with for Inferior Shen mode.")
 
-(autoload 'inf-ruby "inf-ruby" "\
-Run an inferior Ruby process in a buffer.
-With prefix argument, prompts for which Ruby implementation
-\(from the list `inf-ruby-implementations') to use. Runs the
-hooks `inf-ruby-mode-hook' (after the `comint-mode-hook' is
-run).
+(defvar inferior-shen-load-command "(load \"%s\")\n" "\
+*Format-string for building a Shen expression to load a file.
+This format string should use `%s' to substitute a file name
+and should result in a Shen expression that will command the inferior Shen
+to load that file.  The default works acceptably on most Shens.
+The string \"(progn (load \\\"%s\\\" :verbose nil :print t) (values))\\n\"
+produces cosmetically superior output for this application,
+but it works only in Common Shen.")
 
-\(fn &optional IMPL)" t nil)
+(defvar inferior-shen-prompt "^[^> \n]*>+:? *" "\
+Regexp to recognise prompts in the Inferior Shen mode.
+Defaults to \"^[^> \\n]*>+:? *\", which works pretty good for Lucid, kcl,
+and franz.  This variable is used to initialize `comint-prompt-regexp' in the
+Inferior Shen buffer.
 
-(autoload 'run-ruby "inf-ruby" "\
-Run an inferior Ruby process, input and output via buffer *ruby*.
-If there is a process already running in `*ruby*', switch to that buffer.
+This variable is only used if the variable
+`comint-use-prompt-regexp-instead-of-fields' is non-nil.
+
+More precise choices:
+Lucid Common Shen: \"^\\\\(>\\\\|\\\\(->\\\\)+\\\\) *\"
+franz: \"^\\\\(->\\\\|<[0-9]*>:\\\\) *\"
+kcl: \"^>+ *\"
+
+This is a fine thing to set in your .emacs file.")
+
+(defvar inferior-shen-mode-hook 'nil "\
+*Hook for customising Inferior Shen mode.")
+
+(autoload 'inferior-shen "inf-shen" "\
+Run an inferior Shen process, input and output via buffer `*inferior-shen*'.
+If there is a process already running in `*inferior-shen*', just switch
+to that buffer.
 With argument, allows you to edit the command line (default is value
-of `ruby-program-name').  Runs the hooks `inferior-ruby-mode-hook'
-\(after the `comint-mode-hook' is run).
+of `inferior-shen-program').  Runs the hooks from
+`inferior-shen-mode-hook' (after the `comint-mode-hook' is run).
 \(Type \\[describe-mode] in the process buffer for a list of commands.)
 
-\(fn &optional COMMAND NAME)" t nil)
+\(fn CMD)" t nil)
+ (add-hook 'same-window-buffer-names "*inferior-shen*")
 
-(eval-after-load 'ruby-mode '(add-hook 'ruby-mode-hook 'inf-ruby-keys))
-
-;;;***
-
-;;;### (autoloads (pluralize-string singularize-string) "inflections"
-;;;;;;  "rinari/util/jump/inflections.el" (19848 53018))
-;;; Generated autoloads from rinari/util/jump/inflections.el
-
-(autoload 'singularize-string "inflections" "\
-Not documented
-
-\(fn STR)" nil nil)
-
-(autoload 'pluralize-string "inflections" "\
-Not documented
-
-\(fn STR)" nil nil)
-
-;;;***
-
-;;;### (autoloads (inversion-upgrade-package inversion-add-to-load-path
-;;;;;;  inversion-find-version inversion-require-emacs inversion-require)
-;;;;;;  "inversion" "cedet/common/inversion.el" (19155 62054))
-;;; Generated autoloads from cedet/common/inversion.el
-
-(autoload 'inversion-require "inversion" "\
-Declare that you need PACKAGE with at least VERSION.
-PACKAGE might be found in FILE.  (See `require'.)
-Throws an error if VERSION is incompatible with what is installed.
-Optional argument DIRECTORY is a location where new versions of
-this tool can be located.  If there is a versioning problem and
-DIRECTORY is provided, inversion will offer to download the file.
-Optional argument RESERVED is saved for later use.
-
-\(fn PACKAGE VERSION &optional FILE DIRECTORY &rest RESERVED)" nil nil)
-
-(autoload 'inversion-require-emacs "inversion" "\
-Declare that you need either EMACS-VER, or XEMACS-VER.
-Only checks one based on which kind of Emacs is being run.
-
-\(fn EMACS-VER XEMACS-VER)" nil nil)
-
-(autoload 'inversion-find-version "inversion" "\
-Search for the version and incompatible version of PACKAGE.
-Does not load PACKAGE nor requires that it has been previously loaded.
-Search in the directories in `load-path' for a PACKAGE.el library.
-Visit the file found and search for the declarations of variables or
-constants `PACKAGE-version' and `PACKAGE-incompatible-version'.  The
-value of these variables must be a version string.
-
-Return a pair (VERSION-STRING . INCOMPATIBLE-VERSION-STRING) where
-INCOMPATIBLE-VERSION-STRING can be nil.
-Return nil when VERSION-STRING was not found.
-
-\(fn PACKAGE)" nil nil)
-
-(autoload 'inversion-add-to-load-path "inversion" "\
-Add the PACKAGE path to `load-path' if necessary.
-MINIMUM is the minimum version requirement of PACKAGE.
-Optional argument INSTALLDIR is the base directory where PACKAGE is
-installed.  It defaults to `default-directory'/PACKAGE.
-SUBDIRS are sub-directories to add to `load-path', following the main
-INSTALLDIR path.
-
-\(fn PACKAGE MINIMUM &optional INSTALLDIR &rest SUBDIRS)" nil nil)
-
-(autoload 'inversion-upgrade-package "inversion" "\
-Try to upgrade PACKAGE in DIRECTORY is available.
-
-\(fn PACKAGE &optional DIRECTORY)" t nil)
+(defalias 'run-shen 'inferior-shen)
 
 ;;;***
 
 ;;;### (autoloads (inferior-js-mode switch-to-js js-load-file-and-go
 ;;;;;;  js-load-file js-send-buffer-and-go js-send-buffer js-send-last-sexp
 ;;;;;;  js-send-last-sexp-and-go js-send-region-and-go js-send-region
-;;;;;;  run-js) "js-comint" "js-comint.el" (18762 18530))
+;;;;;;  run-js) "js-comint" "js-comint.el" (20112 24690))
 ;;; Generated autoloads from js-comint.el
 
 (autoload 'run-js "js-comint" "\
@@ -8588,7 +7400,7 @@ Javascript source.
 
 ;;;***
 
-;;;### (autoloads (js2-mode) "js2-mode" "js2-mode.el" (18804 37919))
+;;;### (autoloads (js2-mode) "js2-mode" "js2-mode.el" (20112 24690))
 ;;; Generated autoloads from js2-mode.el
  (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
@@ -8599,42 +7411,7 @@ Major mode for editing JavaScript code.
 
 ;;;***
 
-;;;### (autoloads (defjump) "jump" "rinari/util/jump/jump.el" (19848
-;;;;;;  53018))
-;;; Generated autoloads from rinari/util/jump/jump.el
-
-(autoload 'defjump "jump" "\
-Define NAME as a function with behavior determined by SPECS.
-SPECS should be a list of cons cells of the form
-
-   (jump-from-spec . jump-to-spec)
-
-NAME will then try subsequent jump-from-specs until one succeeds,
-at which point any resulting match information, along with the
-related jump-to-spec will be used to jump to the intended buffer.
-See `jump-to' and `jump-from' for information on spec
-construction.
-
-ROOT should specify the root of the project in which all jumps
-take place, it can be either a string directory path, or a
-function returning
-
-Optional argument DOC specifies the documentation of the
-resulting function.
-
-Optional argument MAKE can be used to specify that missing files
-should be created.  If MAKE is a function then it will be called
-with the file path as it's only argument.  After possibly calling
-MAKE `find-file' will be used to open the path.
-
-Optional argument METHOD-COMMAND overrides the function used to
-find the current method which defaults to `which-function'.
-
-\(fn NAME SPECS ROOT &optional DOC MAKE METHOD-COMMAND)" nil nil)
-
-;;;***
-
-;;;### (autoloads (keats-mode) "keats" "keats/keats.el" (19848 52912))
+;;;### (autoloads (keats-mode) "keats" "keats/keats.el" (20112 50018))
 ;;; Generated autoloads from keats/keats.el
 
 (autoload 'keats-mode "keats" "\
@@ -8645,7 +7422,7 @@ Simple interface to Emacs keybinding cheats.
 ;;;***
 
 ;;;### (autoloads (keats-interactive-mode) "keats-interactive" "keats/keats-interactive.el"
-;;;;;;  (19848 52912))
+;;;;;;  (20112 50018))
 ;;; Generated autoloads from keats/keats-interactive.el
 
 (autoload 'keats-interactive-mode "keats-interactive" "\
@@ -8699,20 +7476,20 @@ runs the hooks in `docTeX-mode-hook'.
 ;;; Generated autoloads from mu-cite-201006212322/latex-math-symbol.el
 
 (autoload 'latex-math-decode-region "latex-math-symbol" "\
-Not documented
+
 
 \(fn BEG END)" t nil)
 
 (autoload 'latex-math-decode-buffer "latex-math-symbol" "\
-Not documented
+
 
 \(fn)" t nil)
 
 ;;;***
 
 ;;;### (autoloads (insert-lib-requires-as-comment lib-requires lib-requires-tree
-;;;;;;  lib-requires-header) "lib-requires" "lib-requires.el" (18277
-;;;;;;  44528))
+;;;;;;  lib-requires-header) "lib-requires" "lib-requires.el" (20112
+;;;;;;  24690))
 ;;; Generated autoloads from lib-requires.el
 
 (defvar lib-requires-header ";; Features that might be required by this library:\n;;\n" "\
@@ -8787,24 +7564,8 @@ See also `lib-requires' and `lib-requires-tree'.
 
 ;;;***
 
-;;;### (autoloads (enable-visual-studio-bookmarks) "linemark" "cedet/eieio/linemark.el"
-;;;;;;  (18791 54624))
-;;; Generated autoloads from cedet/eieio/linemark.el
-
-(autoload 'enable-visual-studio-bookmarks "linemark" "\
-Bind the viss bookmark functions to F2 related keys.
-\\<global-map>
-\\[viss-bookmark-toggle]     - To=ggle a bookmark on this line.
-\\[viss-bookmark-next-buffer]   - Move to the next bookmark.
-\\[viss-bookmark-prev-buffer]   - Move to the previous bookmark.
-\\[viss-bookmark-clear-all-buffer] - Clear all bookmarks.
-
-\(fn)" t nil)
-
-;;;***
-
 ;;;### (autoloads (global-linum-mode linum-mode linum-format) "linum"
-;;;;;;  "linum.el" (19893 36209))
+;;;;;;  "linum.el" (20112 24690))
 ;;; Generated autoloads from linum.el
 
 (defvar linum-format 'dynamic "\
@@ -8844,7 +7605,7 @@ See `linum-mode' for more information on Linum mode.
 
 ;;;### (autoloads (linum-update-window linum+-generate-linum-format
 ;;;;;;  linum+-smart-format linum+-dynamic-format linum-format) "linum+"
-;;;;;;  "linum+.el" (19893 32815))
+;;;;;;  "linum+.el" (20112 24690))
 ;;; Generated autoloads from linum+.el
 
 (defvar linum-format 'smart "\
@@ -8889,24 +7650,1514 @@ Update line numbers for the portion visible in window WIN.
 
 ;;;***
 
-;;;### (autoloads (lmcompile-do-highlight) "lmcompile" "cedet/eieio/lmcompile.el"
-;;;;;;  (18791 54642))
-;;; Generated autoloads from cedet/eieio/lmcompile.el
+;;;### (autoloads (bbdb-insinuate-message bbdb-initialize bbdb-multiple-buffers
+;;;;;;  bbdb-submit-bug-report) "lisp/bbdb" "bbdb/lisp/bbdb.el" (18397
+;;;;;;  42911))
+;;; Generated autoloads from bbdb/lisp/bbdb.el
 
-(autoload 'lmcompile-do-highlight "lmcompile" "\
-Do compilation mode highlighting.
-Works on grep, compile, or other type mode.
+(autoload 'bbdb-submit-bug-report "lisp/bbdb" "\
+Submit a bug report, with pertinent information to the BBDB info list.
+
+\(fn)" t nil)
+
+(defvar bbdb-multiple-buffers nil "\
+When non-nil we create a new buffer of every buffer causing pop-ups.
+You can also set this to a function returning a buffer name.")
+
+(custom-autoload 'bbdb-multiple-buffers "lisp/bbdb" t)
+
+(autoload 'bbdb-initialize "lisp/bbdb" "\
+*Initialize the BBDB.  One or more of the following symbols can be
+passed as arguments to initiate the appropriate insinuations.
+
+ Initialization of mail/news readers:
+
+   gnus       Initialize BBDB support for the gnus mail/news reader
+              version 3.15 or newer.  If you pass the `gnus' symbol,
+              you should probably also pass the `message' symbol.
+   mh-e       Initialize BBDB support for the MH-E mail reader.
+   rmail      Initialize BBDB support for the RMAIL mail reader.
+   sendmail   Initialize BBDB support for sendmail (M-x mail).
+   vm         Initialize BBDB support for the VM mail reader.
+              NOTE: For the VM insinuation to work properly, you must
+              either call `bbdb-initialize' with the `vm' symbol from
+              within your VM initialization file (\"~/.vm\") or you
+              must call `bbdb-insinuate-vm' manually from within your
+              VM initialization file.
+
+ Initialization of miscellaneous package:
+
+   message    Initialize BBDB support for Message mode.
+   reportmail Initialize BBDB support for the Reportmail mail
+              notification package.
+   sc or      Initialize BBDB support for the Supercite message
+   supercite  citation package.
+   w3         Initialize BBDB support for Web browsers.
+
+\(fn &rest TO-INSINUATE)" nil nil)
+
+(autoload 'bbdb-insinuate-message "lisp/bbdb" "\
+Call this function to hook BBDB into `message-mode'.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-get-only-first-address-p bbdb-get-addresses-headers
+;;;;;;  bbdb-update-records bbdb-update-records-mode bbdb-help bbdb-info
+;;;;;;  bbdb-creation-no-change bbdb-creation-newer bbdb-creation-older
+;;;;;;  bbdb-timestamp-newer bbdb-timestamp-older bbdb-finger bbdb-dial
+;;;;;;  bbdb-add-or-remove-mail-alias bbdb-define-all-aliases bbdb-yank
+;;;;;;  bbdb-complete-name bbdb-read-addresses-with-completion bbdb-completion-predicate
+;;;;;;  bbdb-completion-check-record bbdb-show-all-recipients bbdb-send-mail
+;;;;;;  bbdb-dwim-net-address bbdb-sort-addresses bbdb-sort-phones
+;;;;;;  bbdb-sort-notes bbdb-refile-record bbdb-omit-record bbdb-display-record-with-layout
+;;;;;;  bbdb-display-record-completely bbdb-display-all-records-completely
+;;;;;;  bbdb-toggle-records-display-layout bbdb-toggle-all-records-display-layout
+;;;;;;  bbdb-delete-current-record bbdb-delete-current-field-or-record
+;;;;;;  bbdb-transpose-fields bbdb-record-edit-property bbdb-record-edit-notes
+;;;;;;  bbdb-edit-current-field bbdb-insert-new-field bbdb-append-records
+;;;;;;  bbdb-append-records-p bbdb-apply-next-command-to-all-records
+;;;;;;  bbdb-create bbdb-redisplay-records bbdb-changed bbdb-notes
+;;;;;;  bbdb-net bbdb-company bbdb-name bbdb bbdb-search-invert-set)
+;;;;;;  "lisp/bbdb-com" "bbdb/lisp/bbdb-com.el" (18397 42930))
+;;; Generated autoloads from bbdb/lisp/bbdb-com.el
+
+(autoload 'bbdb-search-invert-set "lisp/bbdb-com" "\
+Typing \\<bbdb-mode-map>\\[bbdb-search-invert-set] inverts the meaning of the next search command.
+Sets `bbdb-search-invert' to t.
+You will have to call this function again, if you want to
+do repeated inverted searches.
+
+\(fn)" t nil)
+
+(autoload 'bbdb "lisp/bbdb-com" "\
+Display all entries in the BBDB matching the regexp STRING
+in either the name(s), company, network address, or notes.
+
+\(fn STRING ELIDEP)" t nil)
+
+(autoload 'bbdb-name "lisp/bbdb-com" "\
+Display all entries in the BBDB matching the regexp STRING in the name
+\(or ``alternate'' names).
+
+\(fn STRING ELIDEP)" t nil)
+
+(autoload 'bbdb-company "lisp/bbdb-com" "\
+Display all entries in BBDB matching STRING in the company field.
+
+\(fn STRING ELIDEP)" t nil)
+
+(autoload 'bbdb-net "lisp/bbdb-com" "\
+Display all entries in BBDB matching regexp STRING in the network address.
+
+\(fn STRING ELIDEP)" t nil)
+
+(autoload 'bbdb-notes "lisp/bbdb-com" "\
+Display all entries in BBDB matching STRING in the named notes field.
+
+\(fn WHICH STRING ELIDEP)" t nil)
+
+(autoload 'bbdb-changed "lisp/bbdb-com" "\
+Display all entries in the bbdb database which have been changed since
+the database was last saved.
+
+\(fn ELIDEP)" t nil)
+
+(autoload 'bbdb-redisplay-records "lisp/bbdb-com" "\
+Regrinds the contents of the *BBDB* buffer, without scrolling.
+If possible, you should call `bbdb-redisplay-one-record' instead.
+
+\(fn)" nil nil)
+
+(autoload 'bbdb-create "lisp/bbdb-com" "\
+Add a new entry to the bbdb database ; prompts for all relevant info
+using the echo area, inserts the new record in the db, sorted alphabetically,
+and offers to save the db file.  DO NOT call this from a program.  Call
+bbdb-create-internal instead.
+
+\(fn RECORD)" t nil)
+
+(autoload 'bbdb-apply-next-command-to-all-records "lisp/bbdb-com" "\
+Typing \\<bbdb-mode-map>\\[bbdb-apply-next-command-to-all-records] in the *BBDB* buffer makes the next command operate on all
+of the records currently displayed.  (Note that this only works for
+certain commands.)
+
+\(fn)" t nil)
+
+(autoload 'bbdb-append-records-p "lisp/bbdb-com" "\
+
+
+\(fn)" nil nil)
+
+(autoload 'bbdb-append-records "lisp/bbdb-com" "\
+Typing \\<bbdb-mode-map>\\[bbdb-append-records] in the *BBDB* buffer makes the next search/display command to append
+new records to those in the *BBDB* buffer.
+
+With an prefix arg (C-u) toggle between always append and no append.
+With an prefix arg that is a positive number append will be enabled for that
+many times.
+With any other argument append will be enabled once.
+
+\(fn ARG)" t nil)
+
+(autoload 'bbdb-insert-new-field "lisp/bbdb-com" "\
+Add a new field to the current record; the field type and contents
+are prompted for if not supplied.
+
+If you are inserting a new phone-number field, you can control whether
+it is a north american or european phone number by providing a prefix
+argument.  A prefix arg of ^U means it's to be a euronumber, and any
+other prefix arg means it's to be a a structured north american number.
+Otherwise, which style is used is controlled by the variable
+`bbdb-north-american-phone-numbers-p'.
+
+If you are inserting a new net address, you can have BBDB append a
+default domain to any net address that does not contain one.  Set
+`bbdb-default-domain' to a string such as \"mycompany.com\" (or,
+depending on your environment, (getenv \"DOMAINNAME\")), and
+\"@mycompany.com\" will be appended to an address that is entered as
+just a username.  A prefix arg of ^U (or a `bbdb-default-domain'
+value of \"\", the default) means do not alter the address.
+
+\(fn RECORD NAME CONTENTS)" t nil)
+
+(autoload 'bbdb-edit-current-field "lisp/bbdb-com" "\
+Edit the contents of the Insidious Big Brother Database field displayed on
+the current line (this is only meaningful in the \"*BBDB*\" buffer.)   If the
+cursor is in the middle of a multi-line field, such as an address or comments
+section, then the entire field is edited, not just the current line.
+
+\(fn)" t nil)
+
+(autoload 'bbdb-record-edit-notes "lisp/bbdb-com" "\
+
+
+\(fn BBDB-RECORD &optional REGRIND)" t nil)
+
+(autoload 'bbdb-record-edit-property "lisp/bbdb-com" "\
+
+
+\(fn BBDB-RECORD &optional PROP REGRIND)" t nil)
+
+(autoload 'bbdb-transpose-fields "lisp/bbdb-com" "\
+This is like the `transpose-lines' command, but it is for BBDB fields.
+If the cursor is on a field of a BBDB record, that field and the previous
+field will be transposed.
+
+With argument ARG, takes previous line and moves it past ARG fields.
+With argument 0, interchanges field point is in with field mark is in.
+
+Both fields must be in the same record, and must be of the same basic type
+\(that is, you can use this command to change the order in which phone-number
+fields are listed, but you can't use it to make an address appear before a
+phone number; the order of field types is fixed.)
+
+\(fn &optional ARG)" t nil)
+
+(autoload 'bbdb-delete-current-field-or-record "lisp/bbdb-com" "\
+Delete the line which the cursor is on; actually, delete the field which
+that line represents from the database.  If the cursor is on the first line
+of a database entry (the name/company line) then the entire entry will be
+deleted.
+
+\(fn &optional RECORDS NOPROMPT)" t nil)
+
+(autoload 'bbdb-delete-current-record "lisp/bbdb-com" "\
+Delete the entire bbdb database entry which the cursor is within.
+Pressing \\<bbdb-mode-map>\\[bbdb-apply-next-command-to-all-records] will
+delete all records listed in the BBDB buffer.
+
+\(fn RECS &optional NOPROMPT)" t nil)
+
+(autoload 'bbdb-toggle-all-records-display-layout "lisp/bbdb-com" "\
+Show all the fields of all visible records.
+Like `bbdb-toggle-records-display-layout' but for all visible records.
+
+\(fn ARG &optional RECORDS)" t nil)
+
+(autoload 'bbdb-toggle-records-display-layout "lisp/bbdb-com" "\
+Toggle whether the current record is displayed expanded or elided
+\(multi-line or one-line display.)  With a numeric argument of 0, the
+current record will unconditionally be made elided; with any other argument,
+the current record will unconditionally be shown expanded.
+\\<bbdb-mode-map>
+If \"\\[bbdb-apply-next-command-to-all-records]\\[bbdb-toggle-records-display-layout]\" is used instead of simply \"\\[bbdb-toggle-records-display-layout]\", then the state of all records will
+be changed instead of just the one at point.  In this case, an argument
+of 0 means that all records will unconditionally be made elided; any other
+numeric argument means that all of the records will unconditionally be shown
+expanded; and no numeric argument means that the records are made to be in
+the opposite state of the record under point.
+
+\(fn ARG)" t nil)
+
+(autoload 'bbdb-display-all-records-completely "lisp/bbdb-com" "\
+Show all the fields of all currently displayed records.
+The display layout `full-multi-line' is used for this.
+
+\(fn ARG &optional RECORDS)" t nil)
+
+(autoload 'bbdb-display-record-completely "lisp/bbdb-com" "\
+Show all the fields of the current record.
+The display layout `full-multi-line' is used for this.
+
+\(fn ARG)" t nil)
+
+(autoload 'bbdb-display-record-with-layout "lisp/bbdb-com" "\
+Show all the fields of the current record using LAYOUT.
+
+\(fn LAYOUT &optional RECORDS)" t nil)
+
+(autoload 'bbdb-omit-record "lisp/bbdb-com" "\
+Remove the current record from the display without deleting it from the
+database.  With a prefix argument, omit the next N records.  If negative,
+omit backwards.
+
+\(fn N)" t nil)
+
+(autoload 'bbdb-refile-record "lisp/bbdb-com" "\
+Merge the current record into some other record; that is, delete the
+record under point after copying all of the data within it into some other
+record.  this is useful if you realize that somehow a redundant record has
+gotten into the database, and you want to merge it with another.
+
+If both records have names and/or companies, you are asked which to use.
+Phone numbers, addresses, and network addresses are simply concatenated.
+The first record is the record under the point; the second is prompted for.
+Completion behaviour is as dictated by the variable `bbdb-completion-type'.
+
+\(fn OLD-RECORD NEW-RECORD)" t nil)
+
+(autoload 'bbdb-sort-notes "lisp/bbdb-com" "\
+Sort the notes in the record according to `bbdb-notes-sort-order'.
+Can be used in `bbdb-change-hook'.
+
+\(fn REC)" nil nil)
+
+(autoload 'bbdb-sort-phones "lisp/bbdb-com" "\
+Sort the phones in the record according to the location.
+Can be used in `bbdb-change-hook'.
+
+\(fn REC)" nil nil)
+
+(autoload 'bbdb-sort-addresses "lisp/bbdb-com" "\
+Sort the addresses in the record according to the location.
+Can be used in `bbdb-change-hook'.
+
+\(fn REC)" nil nil)
+
+(autoload 'bbdb-dwim-net-address "lisp/bbdb-com" "\
+Return a string to use as the email address of the given record.
+It is formatted like \"Firstname Lastname <addr>\" unless both the first name
+and last name are constituents of the address, as in John.Doe@SomeHost, or the
+address is already in the form \"Name <foo>\" or \"foo (Name)\", in which case
+the address is used as-is.
+
+If the record has the field 'mail-name it is used instead of the record's name.
+
+If `bbdb-dwim-net-address-allow-redundancy' is non-nil, the name is always
+included.  If `bbdb-dwim-net-address-allow-redundancy' is 'netonly the name is
+never included!
+
+A title is prepended from the field `bbdb-dwim-net-address-title-field' if it
+exists.
+
+\(fn RECORD &optional NET)" nil nil)
+
+(autoload 'bbdb-send-mail "lisp/bbdb-com" "\
+Compose a mail message to the person indicated by the current bbdb record.
+The first (most-recently-added) address is used if there are more than one.
+\\<bbdb-mode-map>
+If \"\\[bbdb-apply-next-command-to-all-records]\\[bbdb-send-mail]\" is used instead of simply \"\\[bbdb-send-mail]\", then mail will be sent to all of the
+folks listed in the *BBDB* buffer instead of just the person at point.
+
+\(fn BBDB-RECORD &optional SUBJECT)" t nil)
+
+(autoload 'bbdb-show-all-recipients "lisp/bbdb-com" "\
+*Display BBDB records for all recipients of the message in this buffer.
+
+\(fn)" t nil)
+
+(autoload 'bbdb-completion-check-record "lisp/bbdb-com" "\
+
+
+\(fn SYM REC)" nil nil)
+
+(autoload 'bbdb-completion-predicate "lisp/bbdb-com" "\
+For use as the third argument to `completing-read'.
+Obey the semantics of `bbdb-completion-type'.
+
+\(fn SYMBOL)" nil nil)
+
+(autoload 'bbdb-read-addresses-with-completion "lisp/bbdb-com" "\
+Like `read-string', but allows `bbdb-complete-name' style completion.
+
+\(fn PROMPT &optional DEFAULT)" nil nil)
+
+(autoload 'bbdb-complete-name "lisp/bbdb-com" "\
+Complete the user full-name or net-address before point (up to the
+preceeding newline, colon, or comma, or the value of START-POS).  If
+what has been typed is unique, insert an entry of the form \"User Name
+<net-addr>\" (although see documentation for
+bbdb-dwim-net-address-allow-redundancy).  If it is a valid completion
+but not unique, a list of completions is displayed.
+
+If the completion is done and `bbdb-complete-name-allow-cycling' is
+true then cycle through the nets for the matching record.
+
+When called with a prefix arg then display a list of all nets.
+
+Completion behaviour can be controlled with `bbdb-completion-type'.
+
+\(fn &optional START-POS)" t nil)
+
+(autoload 'bbdb-yank "lisp/bbdb-com" "\
+Insert the current contents of the *BBDB* buffer at point.
+
+\(fn)" t nil)
+
+(autoload 'bbdb-define-all-aliases "lisp/bbdb-com" "\
+Define mail aliases for some of the records in the database.
+Every record which has a `mail-alias' field (but see
+`bbdb-define-all-aliases-field') will have a mail alias defined for it
+which is the contents of that field.  If there are multiple
+comma-separated words in this field, then all of those words will be
+defined as aliases for that record.
+
+If multiple entries in the database have the same mail alias, then
+that alias expands to a comma-separated list of the primary network
+addresses of all of those people.
+
+An alias ending in \"*\" will expand to all the nets of the record.
+An alias ending in \"[NTH]\" will expand the the NTH net of the
+record.
+
+Special nets exist and expand to other nets using one of
+`bbdb-magic-net-*', `bbdb-magic-net-1' or `bbdb-magic-net-SOMETHING'.
+Magic nets may not contain any comma character. If you need one, please
+put it into a custom magic net function or use the octal escape
+sequence \"\\054\".
+
+Nets matching \"FUNCTION/ARG\" (i.e. containing at least one \"/\")
+will be passed to the function `bbdb-magic-net-FUNCTION' with the
+string argument ARG.
+
+Nets starting with a \"(\" will be considered as a lisp list where the
+first element is prefixed by `bbdb-magic-net-' and then called as a
+function with the rest of the list as arguments.
+
+Nets which do not contain an \"@\" character and also exist as aliases
+are expanded recursively.  This can be used to define hierarchical
+aliases.
+
+Other nets are formatted by `bbdb-dwim-net-address'.
+
+\(fn)" t nil)
+
+(autoload 'bbdb-add-or-remove-mail-alias "lisp/bbdb-com" "\
+Add NEWALIAS in all RECORDS or remove it if DELETE it t.
+When called with prefix argument it will remove the alias.
+We honor `bbdb-apply-next-command-to-all-records'!
+The new alias will only be added if it isn't there yet.
+
+\(fn &optional RECORDS NEWALIAS DELETE)" t nil)
+
+(autoload 'bbdb-dial "lisp/bbdb-com" "\
+Dial the number at point.
+If the point is at the beginning of a record, dial the first
+phone number.  Does not dial the extension.  Does not apply the
+transformations from bbdb-dial-local-prefix-alist if a prefix arg
+is given.
+
+\(fn PHONE FORCE-AREA-CODE)" t nil)
+
+(autoload 'bbdb-finger "lisp/bbdb-com" "\
+Finger the network address of a BBDB record.
+If this command is executed from the *BBDB* buffer, finger the network
+address of the record at point; otherwise, it prompts for a user.
+With a numeric prefix argument, finger the Nth network address of the
+current record; with a prefix argument of ^U, finger all of them.
+The *finger* buffer is filled asynchronously, meaning that you don't
+have to wait around for it to finish; but fingering another user before
+the first finger has finished could have unpredictable results.
+\\<bbdb-mode-map>
+If this command is executed from the *BBDB* buffer, it may be prefixed
+with \"\\[bbdb-apply-next-command-to-all-records]\" (as in \"\\[bbdb-apply-next-command-to-all-records]\\[bbdb-finger]\" instead of simply \"\\[bbdb-finger]\"), meaning to finger all of
+the users currently listed in the *BBDB* buffer instead of just the one
+at point.  The numeric prefix argument has the same interpretation.
+
+You can define a special network address to \"finger\" by defining a
+field `finger-host' (default value of `bbdb-finger-host-field').
+
+\(fn RECORD &optional WHICH-ADDRESS)" t nil)
+
+(autoload 'bbdb-timestamp-older "lisp/bbdb-com" "\
+*Display records with timestamp older than DATE.
+DATE must be in yyyy-mm-dd format.
+
+\(fn DATE)" t nil)
+
+(autoload 'bbdb-timestamp-newer "lisp/bbdb-com" "\
+*Display records with timestamp newer than DATE.
+DATE must be in yyyy-mm-dd format.
+
+\(fn DATE)" t nil)
+
+(autoload 'bbdb-creation-older "lisp/bbdb-com" "\
+*Display records with creation-date older than DATE.
+DATE must be in yyyy-mm-dd format.
+
+\(fn DATE)" t nil)
+
+(autoload 'bbdb-creation-newer "lisp/bbdb-com" "\
+*Display records with creation-date newer than DATE.
+DATE must be in yyyy-mm-dd format.
+
+\(fn DATE)" t nil)
+
+(autoload 'bbdb-creation-no-change "lisp/bbdb-com" "\
+*Display records that have the same timestamp and creation-date.
+
+\(fn)" t nil)
+
+(autoload 'bbdb-info "lisp/bbdb-com" "\
+
+
+\(fn)" t nil)
+
+(autoload 'bbdb-help "lisp/bbdb-com" "\
+
+
+\(fn)" t nil)
+
+(defvar bbdb-update-records-mode 'annotating "\
+Controls how `bbdb-update-records' processes email addresses.
+Set this to an expression which evaluates either to 'searching or
+'annotating.  When set to 'annotating email addresses will be fed to
+`bbdb-annotate-message-sender' in order to update existing records or create
+new ones.  A value of 'searching will search just for existing records having
+the right net.
+
+There is a version of this variable for each MUA, which overrides this variable
+when set!
+
+This variable is also used for inter-function communication between the
+functions `bbdb-update-records' and `bbdb-prompt-for-create'.")
+
+(custom-autoload 'bbdb-update-records-mode "lisp/bbdb-com" t)
+
+(autoload 'bbdb-update-records "lisp/bbdb-com" "\
+Returns the records corresponding to the list of addresses ADDRS,
+creating or modifying them as necessary.  A record will be created if
+AUTO-CREATE-P is non-nil or if OFFER-TO-CREATE is true and the user
+confirms the creation.
+
+`bbdb-update-records-mode' controls if records are updated or not.
+A MUA specific variable, e.g. `bbdb/vm-update-records-mode', can
+overwrite this.
+
+See also `bbdb-get-only-first-address-p' to limit the update to the
+sender of the message.
+
+When hitting C-g once you will not be asked any more for new people listed
+in this message, but it will search only for existing records.  When hitting
+C-g again it will stop scanning.
+
+\(fn ADDRS AUTO-CREATE-P OFFER-TO-CREATE)" nil nil)
+
+(defvar bbdb-get-addresses-headers '((authors "From" "Resent-From" "Reply-To") (recipients "Resent-To" "Resent-CC" "To" "CC" "BCC")) "\
+*List of headers to search for senders and recipients email addresses.
+The headers are grouped into two classes, the authors and the senders headers.")
+
+(custom-autoload 'bbdb-get-addresses-headers "lisp/bbdb-com" t)
+
+(defvar bbdb-get-only-first-address-p nil "\
+*If t `bbdb-update-records' will return only the first one.
+Changing this variable will show its effect only after clearing the
+`bbdb-message-cache' of a folder or closing and visiting it again.")
+
+(custom-autoload 'bbdb-get-only-first-address-p "lisp/bbdb-com" t)
+
+;;;***
+
+;;;### (autoloads (bbdb-create-ftp-site bbdb-ftp) "lisp/bbdb-ftp"
+;;;;;;  "bbdb/lisp/bbdb-ftp.el" (18011 20884))
+;;; Generated autoloads from bbdb/lisp/bbdb-ftp.el
+
+(autoload 'bbdb-ftp "lisp/bbdb-ftp" "\
+Use ange-ftp to open an ftp-connection to a BBDB record's name.
+If this command is executed from the *BBDB* buffer, ftp the site of
+the record at point; otherwise, it prompts for an ftp-site.
+
+\(fn BBDB-RECORD &optional WHICH)" t nil)
+
+(autoload 'bbdb-create-ftp-site "lisp/bbdb-ftp" "\
+Add a new ftp-site entry to the bbdb database.
+Prompts for all relevant info using the echo area,
+inserts the new record in the db, sorted alphabetically.
+
+\(fn RECORD)" t nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-insinuate-gnus bbdb/gnus-summary-show-all-recipients
+;;;;;;  bbdb/gnus-score bbdb/gnus-snarf-signature bbdb/gnus-show-all-recipients
+;;;;;;  bbdb/gnus-show-records bbdb/gnus-annotate-sender bbdb/gnus-update-records
+;;;;;;  bbdb/gnus-update-record) "lisp/bbdb-gnus" "bbdb/lisp/bbdb-gnus.el"
+;;;;;;  (18389 44231))
+;;; Generated autoloads from bbdb/lisp/bbdb-gnus.el
+
+(autoload 'bbdb/gnus-update-record "lisp/bbdb-gnus" "\
+Return the record corresponding to the current Gnus message, creating
+or modifying it as necessary.  A record will be created if
+bbdb/news-auto-create-p is non-nil, or if OFFER-TO-CREATE is true and
+the user confirms the creation.
+
+\(fn &optional OFFER-TO-CREATE)" nil nil)
+
+(autoload 'bbdb/gnus-update-records "lisp/bbdb-gnus" "\
+Return the records corresponding to the current Gnus message, creating
+or modifying it as necessary.  A record will be created if
+`bbdb/news-auto-create-p' is non-nil or if OFFER-TO-CREATE is true
+and the user confirms the creation.
+
+The variable `bbdb/gnus-update-records-mode' controls what actions
+are performed and it might override `bbdb-update-records-mode'.
+
+When hitting C-g once you will not be asked anymore for new people listed
+in this message, but it will search only for existing records.  When hitting
+C-g again it will stop scanning.
+
+\(fn &optional OFFER-TO-CREATE)" nil nil)
+
+(autoload 'bbdb/gnus-annotate-sender "lisp/bbdb-gnus" "\
+Add a line to the end of the Notes field of the BBDB record
+corresponding to the sender of this message.  If REPLACE is non-nil,
+replace the existing notes entry (if any).
+
+\(fn STRING &optional REPLACE)" t nil)
+
+(autoload 'bbdb/gnus-show-records "lisp/bbdb-gnus" "\
+Display the contents of the BBDB for all addresses of this message.
+This buffer will be in `bbdb-mode', with associated keybindings.
+
+\(fn &optional ADDRESS-CLASS)" t nil)
+
+(autoload 'bbdb/gnus-show-all-recipients "lisp/bbdb-gnus" "\
+Show all recipients of this message. Counterpart to `bbdb/vm-show-sender'.
+
+\(fn)" t nil)
+
+(autoload 'bbdb/gnus-snarf-signature "lisp/bbdb-gnus" "\
+Snarf signature from the corresponding *Article* buffer.
+
+\(fn)" t nil)
+
+(autoload 'bbdb/gnus-score "lisp/bbdb-gnus" "\
+This returns a score alist for Gnus.  A score pair will be made for
+every member of the net field in records which also have a gnus-score
+field.  This allows the BBDB to serve as a supplemental global score
+file, with the advantage that it can keep up with multiple and changing
+addresses better than the traditionally static global scorefile.
+
+\(fn GROUP)" nil nil)
+
+(autoload 'bbdb/gnus-summary-show-all-recipients "lisp/bbdb-gnus" "\
+Display BBDB records for all recipients of the message.
+
+\(fn NOT-ELIDED)" t nil)
+
+(autoload 'bbdb-insinuate-gnus "lisp/bbdb-gnus" "\
+Call this function to hook BBDB into Gnus.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-menu bbdb-fontify-buffer) "lisp/bbdb-gui"
+;;;;;;  "bbdb/lisp/bbdb-gui.el" (17961 17312))
+;;; Generated autoloads from bbdb/lisp/bbdb-gui.el
+
+(autoload 'bbdb-fontify-buffer "lisp/bbdb-gui" "\
+
+
+\(fn &optional RECORDS)" t nil)
+
+(autoload 'bbdb-menu "lisp/bbdb-gui" "\
+
+
+\(fn EVENT)" t nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-force-record-create sample-bbdb-canonicalize-net-hook
+;;;;;;  bbdb-auto-notes-hook bbdb-ignore-some-messages-hook bbdb-ignore-selected-messages-hook
+;;;;;;  bbdb-ignore-most-messages-hook bbdb-extract-field-value bbdb-header-start
+;;;;;;  bbdb-creation-date-hook bbdb-timestamp-hook) "lisp/bbdb-hooks"
+;;;;;;  "bbdb/lisp/bbdb-hooks.el" (18011 20885))
+;;; Generated autoloads from bbdb/lisp/bbdb-hooks.el
+
+(autoload 'bbdb-timestamp-hook "lisp/bbdb-hooks" "\
+For use as a `bbdb-change-hook'; maintains a notes-field called `timestamp'
+for the given record which contains the time when it was last modified.  If
+there is such a field there already, it is changed, otherwise it is added.
+
+\(fn RECORD)" nil nil)
+
+(autoload 'bbdb-creation-date-hook "lisp/bbdb-hooks" "\
+For use as a `bbdb-create-hook'; adds a notes-field called `creation-date'
+which is the current time string.
+
+\(fn RECORD)" nil nil)
+
+(autoload 'bbdb-header-start "lisp/bbdb-hooks" "\
+Returns a marker at the beginning of the header block of the current
+message.  This will not necessarily be in the current buffer.
+
+\(fn)" nil nil)
+
+(autoload 'bbdb-extract-field-value "lisp/bbdb-hooks" "\
+Given the name of a field (like \"Subject\") this returns the value of
+that field in the current message, or nil.  This works whether you're in
+Gnus, Rmail, or VM.  This works on multi-line fields, but if more than
+one field of the same name is present, only the last is returned.  It is
+expected that the current buffer has a message in it, and (point) is at the
+beginning of the message headers.
+
+\(fn FIELD-NAME)" nil nil)
+
+(autoload 'bbdb-ignore-most-messages-hook "lisp/bbdb-hooks" "\
+For use as the value of bbdb/news-auto-create-p or bbdb/mail-auto-create-p.
+This will automatically create BBDB entries for messages which match
+the bbdb-ignore-most-messages-alist (which see) and *no* others.
+
+\(fn &optional INVERT-SENSE)" nil nil)
+
+(autoload 'bbdb-ignore-selected-messages-hook "lisp/bbdb-hooks" "\
+For use as a bbdb/news-auto-create-hook or bbdb/mail-auto-create-hook.
+This will automatically create BBDB entries for messages based on a
+combination of bbdb-ignore-some-messages-alist and
+bbdb-ignore-most-messages-alist.  It first looks at the SOME list.  If
+that doesn't disqualify a message, then it looks at the MOST list.  If
+that qualifies the message, the record is auto-created, but a
+confirmation is conditionally sought, based on the value of
+`bbdb-ignore-selected-messages-confirmation'.
+
+\(fn)" nil nil)
+
+(autoload 'bbdb-ignore-some-messages-hook "lisp/bbdb-hooks" "\
+For use as a `bbdb/news-auto-create-hook' or `bbdb/mail-auto-create-hook'.
+This will automatically create BBDB entries for messages which do *not*
+match the `bbdb-ignore-some-messages-alist' (which see).
+
+\(fn)" nil nil)
+
+(autoload 'bbdb-auto-notes-hook "lisp/bbdb-hooks" "\
+For use as a `bbdb-notice-hook'.  This might automatically add some text
+to the notes field of the BBDB record corresponding to the current record
+based on the header of the current message.  See the documentation for
+the variables `bbdb-auto-notes-alist' and `bbdb-auto-notes-ignore'.
+
+\(fn RECORD)" nil nil)
+
+(autoload 'sample-bbdb-canonicalize-net-hook "lisp/bbdb-hooks" "\
+
+
+\(fn ADDR)" nil nil)
+
+(autoload 'bbdb-force-record-create "lisp/bbdb-hooks" "\
+Force automatic creation of a BBDB records for the current message.
+You might add this to the reply hook of your MUA in order to automatically
+get records added for those people you reply to.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (magit-status) "magit" "magit/magit.el" (19848
-;;;;;;  52928))
+;;;### (autoloads (bbdb-merge-file bbdb-merge-record) "lisp/bbdb-merge"
+;;;;;;  "bbdb/lisp/bbdb-merge.el" (17865 1144))
+;;; Generated autoloads from bbdb/lisp/bbdb-merge.el
+
+(autoload 'bbdb-merge-record "lisp/bbdb-merge" "\
+Generic merge function.
+
+Merges new-record into your bbdb, using DATE to check who's more
+up-to-date and OVERRIDE to decide who gets precedence if two dates
+match. DATE can be extracted from a notes if it's an alist with an
+element marked timestamp. Set OVERRIDE to 'new to allow the new record
+to stomp on existing data, 'old to preserve existing data or nil to
+merge both together. If it can't find a record to merge with, it will
+create a new record. If MERGE-RECORD is set, it's a record discovered
+by other means that should be merged with.
+
+Returns the Grand Unified Record.
+
+\(fn NEW-RECORD &optional MERGE-RECORD OVERRIDE)" nil nil)
+
+(autoload 'bbdb-merge-file "lisp/bbdb-merge" "\
+Merge a bbdb file into the in-core bbdb.
+
+\(fn &optional BBDB-NEW OVERRIDE MATCH-FUN)" t nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-insinuate-mh bbdb/mh-show-sender bbdb/mh-annotate-sender
+;;;;;;  bbdb/mh-update-record) "lisp/bbdb-mhe" "bbdb/lisp/bbdb-mhe.el"
+;;;;;;  (17967 44425))
+;;; Generated autoloads from bbdb/lisp/bbdb-mhe.el
+
+(autoload 'bbdb/mh-update-record "lisp/bbdb-mhe" "\
+Returns the record corresponding to the current MH message, creating or
+modifying it as necessary.  A record will be created if
+bbdb/mail-auto-create-p is non-nil, or if OFFER-TO-CREATE is true and
+the user confirms the creation.
+
+\(fn &optional OFFER-TO-CREATE)" nil nil)
+
+(autoload 'bbdb/mh-annotate-sender "lisp/bbdb-mhe" "\
+Add a line to the end of the Notes field of the BBDB record
+corresponding to the sender of this message.  If REPLACE is non-nil,
+replace the existing notes entry (if any).
+
+\(fn STRING &optional REPLACE)" t nil)
+
+(autoload 'bbdb/mh-show-sender "lisp/bbdb-mhe" "\
+Display the contents of the BBDB for the sender of this message.
+This buffer will be in bbdb-mode, with associated keybindings.
+
+\(fn)" t nil)
+
+(autoload 'bbdb-insinuate-mh "lisp/bbdb-mhe" "\
+Call this function to hook BBDB into MH-E.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-migrate-update-file-version bbdb-migrate-rewrite-all
+;;;;;;  bbdb-unmigrate-record bbdb-migrate bbdb-migration-query)
+;;;;;;  "lisp/bbdb-migrate" "bbdb/lisp/bbdb-migrate.el" (18011 20885))
+;;; Generated autoloads from bbdb/lisp/bbdb-migrate.el
+
+(autoload 'bbdb-migration-query "lisp/bbdb-migrate" "\
+Ask if the database is to be migrated.
+ONDISK is the version number of the database as currently stored on
+disk.  Returns the version for the saved database.
+
+\(fn ONDISK)" nil nil)
+
+(autoload 'bbdb-migrate "lisp/bbdb-migrate" "\
+Migrate the BBDB from the version on disk (the car of
+`bbdb-file-format-migration') to the current version (in
+`bbdb-file-format').
+
+\(fn RECORDS)" nil nil)
+
+(autoload 'bbdb-unmigrate-record "lisp/bbdb-migrate" "\
+Reverse-migrate a single record from the current version (in
+`bbdb-file-format') to the version to be saved (the cdr of
+`bbdb-file-format-migration').
+
+\(fn RECORD)" nil nil)
+
+(autoload 'bbdb-migrate-rewrite-all "lisp/bbdb-migrate" "\
+Rewrite each and every record in the bbdb file; this is necessary if we
+are updating an old file format.  MESSAGE-P says whether to sound off
+for each record converted.  If RECORDS is non-nil, its value will be
+used as the list of records to update.
+
+\(fn MESSAGE-P &optional RECORDS)" nil nil)
+
+(autoload 'bbdb-migrate-update-file-version "lisp/bbdb-migrate" "\
+Change the `file-version' string from the OLD version to the NEW
+version.
+
+\(fn OLD NEW)" nil nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-print) "lisp/bbdb-print" "bbdb/lisp/bbdb-print.el"
+;;;;;;  (17884 52100))
+;;; Generated autoloads from bbdb/lisp/bbdb-print.el
+
+(autoload 'bbdb-print "lisp/bbdb-print" "\
+Make a TeX file for printing out the bbdb database.\\<bbdb-mode-map>
+If \"\\[bbdb-apply-next-command-to-all-records]\\[bbdb-print]\" is used instead of simply \"\\[bbdb-print]\", then includes only the
+people currently in the *BBDB* buffer.  With a prefix argument, makes
+a brief (one-line-per-entry) printout.
+
+There are various variables for customizing the content & format of
+the printout, notably the variables `bbdb-print-alist' and
+`bbdb-print-require'.  See the file bbdb-print.el for more information.
+
+\(fn VISIBLE-RECORDS TO-FILE BRIEF)" t nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-insinuate-reportmail) "lisp/bbdb-reportmail"
+;;;;;;  "bbdb/lisp/bbdb-reportmail.el" (17884 52100))
+;;; Generated autoloads from bbdb/lisp/bbdb-reportmail.el
+
+(autoload 'bbdb-insinuate-reportmail "lisp/bbdb-reportmail" "\
+Call this function to hook BBDB into reportmail.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-insinuate-rmail bbdb/rmail-show-sender bbdb/rmail-annotate-sender
+;;;;;;  bbdb/rmail-update-records bbdb/rmail-update-record) "lisp/bbdb-rmail"
+;;;;;;  "bbdb/lisp/bbdb-rmail.el" (17961 17377))
+;;; Generated autoloads from bbdb/lisp/bbdb-rmail.el
+
+(autoload 'bbdb/rmail-update-record "lisp/bbdb-rmail" "\
+
+
+\(fn &optional OFFER-TO-CREATE)" nil nil)
+
+(autoload 'bbdb/rmail-update-records "lisp/bbdb-rmail" "\
+Returns the records corresponding to the current RMAIL emssage,
+creating or modifying them as necessary.  A record will be created if
+bbdb/mail-auto-create-p is non-nil or if OFFER-TO-CREATE is true, and
+the user confirms the creation.
+
+The variable `bbdb/rmail-update-records-mode' controls what actions
+are performed and it might override `bbdb-update-records-mode'.
+
+When hitting C-g once you will not be asked anymore for new people
+listed n this message, but it will search only for existing records.
+When hitting C-g again it will stop scanning.
+
+\(fn &optional OFFER-TO-CREATE)" nil nil)
+
+(autoload 'bbdb/rmail-annotate-sender "lisp/bbdb-rmail" "\
+Add a line to the end of the Notes field of the BBDB record
+corresponding to the sender of this message.  If REPLACE is non-nil,
+replace the existing notes entry (if any).
+
+\(fn STRING &optional REPLACE)" t nil)
+
+(autoload 'bbdb/rmail-show-sender "lisp/bbdb-rmail" "\
+Display the contents of the BBDB for the sender of this message.
+This buffer will be in bbdb-mode, with associated keybindings.
+
+\(fn)" t nil)
+
+(autoload 'bbdb-insinuate-rmail "lisp/bbdb-rmail" "\
+Call this function to hook BBDB into RMAIL.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-insinuate-sc bbdb/sc-default) "lisp/bbdb-sc"
+;;;;;;  "bbdb/lisp/bbdb-sc.el" (17884 52100))
+;;; Generated autoloads from bbdb/lisp/bbdb-sc.el
+
+(autoload 'bbdb/sc-default "lisp/bbdb-sc" "\
+If the current \"from\" field in `sc-mail-info' alist
+contains only an e-mail address, lookup e-mail address in
+BBDB, and prepend a new \"from\" field to `sc-mail-info'.
+
+\(fn)" nil nil)
+
+(autoload 'bbdb-insinuate-sc "lisp/bbdb-sc" "\
+Call this function to hook BBDB into Supercite.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-rfc822-addresses bbdb-extract-address-components
+;;;;;;  bbdb-snarf-region bbdb-snarf) "lisp/bbdb-snarf" "bbdb/lisp/bbdb-snarf.el"
+;;;;;;  (17961 17312))
+;;; Generated autoloads from bbdb/lisp/bbdb-snarf.el
+
+(autoload 'bbdb-snarf "lisp/bbdb-snarf" "\
+snarf up a bbdb record WHERE the point is.
+We assume things are line-broken and paragraph-bounded.
+The name comes first and other fields (address,
+phone, email, web pages) are recognized by context.
+
+Required context:
+    addresses end with \"City, State ZIP\" or \"City, State\"
+    phones match bbdb-snarf-phone-regexp
+        (currently US-style phones)
+    e-mail addresses have @'s in them
+    web sites are recognized by http:// or www.
+
+Address and phone context are currently US-specific;
+patches to internationalize these assumptions are welcome.
+
+\\[bbdb-snarf] is similar to \\[bbdb-whois-sentinel], but less specialized.
+
+\(fn WHERE)" t nil)
+
+(autoload 'bbdb-snarf-region "lisp/bbdb-snarf" "\
+snarf up a bbdb record in the current region.  See `bbdb-snarf' for
+more details.
+
+\(fn BEGIN END)" t nil)
+
+(autoload 'bbdb-extract-address-components "lisp/bbdb-snarf" "\
+Return a list of address components found in ADSTRING.
+If extracting fails one probably has to adjust the variable
+`bbdb-extract-address-component-regexps'.
+
+\(fn ADSTRING &optional IGNORE-ERRORS)" nil nil)
+
+(autoload 'bbdb-rfc822-addresses "lisp/bbdb-snarf" "\
+Split ADDRLINE into a list of parsed addresses.
+
+You can't do this with rfc822.el in any sort of useful way because it discards
+the comments. You can't do this with mail-extr.el because the multiple address
+parsing in GNU Emacs appears to be broken beyond belief, and the XEmacs
+version doesn't support multiple addresses.
+
+\(fn ADDRLINE &optional IGNORE-ERRORS)" nil nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-srv-add-phone bbdb/srv-auto-create-mail-news-dispatcher
+;;;;;;  bbdb/srv-handle-headers-with-delay) "lisp/bbdb-srv" "bbdb/lisp/bbdb-srv.el"
+;;;;;;  (17884 52100))
+;;; Generated autoloads from bbdb/lisp/bbdb-srv.el
+
+(autoload 'bbdb/srv-handle-headers-with-delay "lisp/bbdb-srv" "\
+Just like bbdb/srv-handle-headers, but only updates every few seconds.
+This is so that trying to display many records in succession won't queue them
+up, but will end up only displaying a record when no displays have been
+requested for a couple of seconds.
+
+\(fn HEADERS)" nil nil)
+
+(defalias 'bbdb-srv 'bbdb/srv-handle-headers-with-delay)
+
+(autoload 'bbdb/srv-auto-create-mail-news-dispatcher "lisp/bbdb-srv" "\
+For use as the value of bbdb/srv-auto-create-p.
+This will try to decide if this is a mail message or a news message, and then
+run either bbdb/news-auto-create-p or bbdb/mail-auto-create-p as appropriate.
+\(The heuristic is that news messages never have a Status or X-Mozilla-Status
+header; and that mail messages never have Path headers.)
+
+\(fn)" nil nil)
+
+(autoload 'bbdb-srv-add-phone "lisp/bbdb-srv" "\
+
+
+\(fn PHONE-STRING &optional DESCRIPTION RECORD)" nil nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-insinuate-vm bbdb/vm-set-auto-folder-alist
+;;;;;;  bbdb/vm-set-auto-folder-alist-headers bbdb/vm-set-auto-folder-alist-field
+;;;;;;  bbdb/vm-show-sender bbdb/vm-show-all-recipients bbdb/vm-show-records
+;;;;;;  bbdb/vm-annotate-sender bbdb/vm-update-records bbdb/vm-update-record)
+;;;;;;  "lisp/bbdb-vm" "bbdb/lisp/bbdb-vm.el" (18389 44231))
+;;; Generated autoloads from bbdb/lisp/bbdb-vm.el
+
+(autoload 'bbdb/vm-update-record "lisp/bbdb-vm" "\
+
+
+\(fn &optional OFFER-TO-CREATE)" nil nil)
+
+(autoload 'bbdb/vm-update-records "lisp/bbdb-vm" "\
+Returns the records corresponding to the current VM message,
+creating or modifying them as necessary.  A record will be created if
+`bbdb/mail-auto-create-p' is non-nil or if OFFER-TO-CREATE is true, and
+the user confirms the creation.
+
+The variable `bbdb/vm-update-records-mode' controls what actions
+are performed and it might override `bbdb-update-records-mode'.
+
+When hitting C-g once you will not be asked anymore for new people listed
+in this message, but it will search only for existing records.  When hitting
+C-g again it will stop scanning.
+
+\(fn &optional OFFER-TO-CREATE)" nil nil)
+
+(autoload 'bbdb/vm-annotate-sender "lisp/bbdb-vm" "\
+Add a line to the end of the Notes field of the BBDB record
+corresponding to the sender of this message.  If REPLACE is non-nil,
+replace the existing notes entry (if any).
+
+\(fn STRING &optional REPLACE)" t nil)
+
+(autoload 'bbdb/vm-show-records "lisp/bbdb-vm" "\
+Display the contents of the BBDB for the sender of this message.
+This buffer will be in bbdb-mode, with associated keybindings.
+
+\(fn &optional ADDRESS-CLASS)" t nil)
+
+(autoload 'bbdb/vm-show-all-recipients "lisp/bbdb-vm" "\
+Show all recipients of this message. Counterpart to `bbdb/vm-show-sender'.
+
+\(fn)" t nil)
+
+(autoload 'bbdb/vm-show-sender "lisp/bbdb-vm" "\
+Display the contents of the BBDB for the senders of this message.
+With a prefix argument show the recipients instead,
+with two prefix arguments show all records.
+This buffer will be in `bbdb-mode', with associated keybindings.
+
+\(fn &optional SHOW-RECIPIENTS)" t nil)
+
+(defvar bbdb/vm-set-auto-folder-alist-field 'vm-folder "\
+*The field which `bbdb/vm-set-auto-folder-alist' searches for.")
+
+(custom-autoload 'bbdb/vm-set-auto-folder-alist-field "lisp/bbdb-vm" t)
+
+(defvar bbdb/vm-set-auto-folder-alist-headers '("From:" "To:" "CC:") "\
+*The headers used by `bbdb/vm-set-auto-folder-alist'.
+The order in this list is the order how matching will be performed!")
+
+(custom-autoload 'bbdb/vm-set-auto-folder-alist-headers "lisp/bbdb-vm" t)
+
+(autoload 'bbdb/vm-set-auto-folder-alist "lisp/bbdb-vm" "\
+Create a `vm-auto-folder-alist' according to the records in the bbdb.
+For each record that has a 'vm-folder' attribute, add an
+element (email-regexp . folder) to the `vm-auto-folder-alist'.
+
+The element gets added to the 'element-name' sublist of the
+`vm-auto-folder-alist'.
+
+The car of the element consists of all the email addresses for the
+bbdb record concatenated with OR; the cdr is the value of the
+vm-folder attribute.
+
+If the first character of vm-folders value is a quote ' it will be
+parsed as lisp expression and is evaluated to return a folder name,
+e.g. define you own function `my-folder-name' and set it to
+        '(my-folder-name)
+
+\(fn)" t nil)
+
+(autoload 'bbdb-insinuate-vm "lisp/bbdb-vm" "\
+Call this function to hook BBDB into VM.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-insinuate-w3 bbdb-www-grab-homepage bbdb-www)
+;;;;;;  "lisp/bbdb-w3" "bbdb/lisp/bbdb-w3.el" (17884 52100))
+;;; Generated autoloads from bbdb/lisp/bbdb-w3.el
+
+(autoload 'bbdb-www "lisp/bbdb-w3" "\
+Visit URLs stored in the `www' field of the current record.
+\\[bbdb-apply-next-command-to-all-records]\\[bbdb-www] means to try all records currently visible.
+Non-interactively, do all records if arg is nonnil.
+
+\(fn REC &optional WHICH)" t nil)
+
+(autoload 'bbdb-www-grab-homepage "lisp/bbdb-w3" "\
+Grab the current URL and store it in the bbdb database
+
+\(fn RECORD)" t nil)
+
+(autoload 'bbdb-insinuate-w3 "lisp/bbdb-w3" "\
+Call this function to hook BBDB into W3.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-whois) "lisp/bbdb-whois" "bbdb/lisp/bbdb-whois.el"
+;;;;;;  (18011 20885))
+;;; Generated autoloads from bbdb/lisp/bbdb-whois.el
+
+(autoload 'bbdb-whois "lisp/bbdb-whois" "\
+
+
+\(fn THE-RECORD &optional SERVER)" t nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-load-touchtones bbdb-sound-volume bbdb-sounds-directory
+;;;;;;  bbdb-xemacs-display-completion-list) "lisp/bbdb-xemacs" "bbdb/lisp/bbdb-xemacs.el"
+;;;;;;  (18011 20885))
+;;; Generated autoloads from bbdb/lisp/bbdb-xemacs.el
+
+(autoload 'bbdb-xemacs-display-completion-list "lisp/bbdb-xemacs" "\
+Wrapper for `display-completion-list'.
+Allows callbacks on XEmacs `display-completion-list' is called with
+`:activate-callback CALLBACK' if CALLBACK is non-nil.
+`:user-data DATA' is also used if DATA is non-nil.
+Neither are used if CALLBACK is nil.
+
+\(fn LIST &optional CALLBACK DATA)" nil nil)
+
+(defvar bbdb-sounds-directory (expand-file-name "~/.xemacs/etc/sounds") "\
+The directory to load the touchtone sound files from, or nil if none.")
+
+(custom-autoload 'bbdb-sounds-directory "lisp/bbdb-xemacs" t)
+
+(defvar bbdb-sound-volume 50 "\
+Volume for playing sounds.")
+
+(custom-autoload 'bbdb-sound-volume "lisp/bbdb-xemacs" t)
+
+(autoload 'bbdb-load-touchtones "lisp/bbdb-xemacs" "\
+Load the touchtone sounds into `sound-alist'.
+The directory specified in `bbdb-sounds-directory' is searched for the files
+touchtone.*\\.\\(wav\\|au\\) as named in `bbdb-sound-files'.
+They are stored in `sound-alist' as touchtone0 to touchtone11.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (emms-cache-toggle emms-cache-disable emms-cache-enable)
+;;;;;;  "lisp/emms-cache" "emms/lisp/emms-cache.el" (20112 49989))
+;;; Generated autoloads from emms/lisp/emms-cache.el
+
+(autoload 'emms-cache-enable "lisp/emms-cache" "\
+Enable caching of Emms track data.
+
+\(fn)" t nil)
+
+(autoload 'emms-cache-disable "lisp/emms-cache" "\
+Disable caching of Emms track data.
+
+\(fn)" t nil)
+
+(autoload 'emms-cache-toggle "lisp/emms-cache" "\
+Toggle caching of Emms track data.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (emms-lyrics-toggle emms-lyrics-disable emms-lyrics-enable)
+;;;;;;  "lisp/emms-lyrics" "emms/lisp/emms-lyrics.el" (20112 49989))
+;;; Generated autoloads from emms/lisp/emms-lyrics.el
+
+(autoload 'emms-lyrics-enable "lisp/emms-lyrics" "\
+Enable displaying emms lyrics.
+
+\(fn)" t nil)
+
+(autoload 'emms-lyrics-disable "lisp/emms-lyrics" "\
+Disable displaying emms lyrics.
+
+\(fn)" t nil)
+
+(autoload 'emms-lyrics-toggle "lisp/emms-lyrics" "\
+Toggle displaying emms lyrics.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (emms-mode-line-toggle emms-mode-line-disable emms-mode-line-enable)
+;;;;;;  "lisp/emms-mode-line" "emms/lisp/emms-mode-line.el" (20112
+;;;;;;  49989))
+;;; Generated autoloads from emms/lisp/emms-mode-line.el
+
+(autoload 'emms-mode-line-enable "lisp/emms-mode-line" "\
+Turn on `emms-mode-line'.
+
+\(fn)" t nil)
+
+(autoload 'emms-mode-line-disable "lisp/emms-mode-line" "\
+Turn off `emms-mode-line'.
+
+\(fn)" t nil)
+
+(autoload 'emms-mode-line-toggle "lisp/emms-mode-line" "\
+Toggle `emms-mode-line'.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (emms-player-mpd-show emms-player-mpd-connect emms-player-mpd-clear)
+;;;;;;  "lisp/emms-player-mpd" "emms/lisp/emms-player-mpd.el" (20112
+;;;;;;  49989))
+;;; Generated autoloads from emms/lisp/emms-player-mpd.el
+
+(autoload 'emms-player-mpd-clear "lisp/emms-player-mpd" "\
+Clear the MusicPD playlist.
+
+\(fn)" t nil)
+
+(autoload 'emms-player-mpd-connect "lisp/emms-player-mpd" "\
+Connect to MusicPD and retrieve its current playlist.
+
+Afterward, the status of MusicPD will be tracked.
+
+This also has the effect of changing the current EMMS playlist to
+be the same as the current MusicPD playlist.  Thus, this
+function is useful to call if the contents of the EMMS playlist
+buffer get out-of-sync for some reason.
+
+\(fn)" t nil)
+
+(autoload 'emms-player-mpd-show "lisp/emms-player-mpd" "\
+Describe the current EMMS track in the minibuffer.
+
+If INSERTP is non-nil, insert the description into the current
+buffer instead.
+
+If CALLBACK is a function, call it with the current buffer and
+description as arguments instead of displaying the description or
+inserting it.
+
+This function uses `emms-show-format' to format the current track.
+It differs from `emms-show' in that it asks MusicPD for the current track,
+rather than EMMS.
+
+\(fn &optional INSERTP CALLBACK)" t nil)
+
+;;;***
+
+;;;### (autoloads (emms-playing-time-disable-display emms-playing-time-enable-display)
+;;;;;;  "lisp/emms-playing-time" "emms/lisp/emms-playing-time.el"
+;;;;;;  (20112 49989))
+;;; Generated autoloads from emms/lisp/emms-playing-time.el
+
+(autoload 'emms-playing-time-enable-display "lisp/emms-playing-time" "\
+Display playing time on mode line.
+
+\(fn)" t nil)
+
+(autoload 'emms-playing-time-disable-display "lisp/emms-playing-time" "\
+Remove playing time from mode line.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (emms-playlist-limit-toggle emms-playlist-limit-disable
+;;;;;;  emms-playlist-limit-enable) "lisp/emms-playlist-limit" "emms/lisp/emms-playlist-limit.el"
+;;;;;;  (20112 49989))
+;;; Generated autoloads from emms/lisp/emms-playlist-limit.el
+
+(autoload 'emms-playlist-limit-enable "lisp/emms-playlist-limit" "\
+Turn on emms playlist limit.
+
+\(fn)" t nil)
+
+(autoload 'emms-playlist-limit-disable "lisp/emms-playlist-limit" "\
+Turn off emms playlist limit.
+
+\(fn)" t nil)
+
+(autoload 'emms-playlist-limit-toggle "lisp/emms-playlist-limit" "\
+Toggle emms playlist limit.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (emms-playlist-mode) "lisp/emms-playlist-mode"
+;;;;;;  "emms/lisp/emms-playlist-mode.el" (20112 49989))
+;;; Generated autoloads from emms/lisp/emms-playlist-mode.el
+
+(autoload 'emms-playlist-mode "lisp/emms-playlist-mode" "\
+A major mode for Emms playlists.
+\\{emms-playlist-mode-map}
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (emms-score-toggle emms-score-disable emms-score-enable)
+;;;;;;  "lisp/emms-score" "emms/lisp/emms-score.el" (20112 49989))
+;;; Generated autoloads from emms/lisp/emms-score.el
+
+(autoload 'emms-score-enable "lisp/emms-score" "\
+Turn on emms-score.
+
+\(fn)" t nil)
+
+(autoload 'emms-score-disable "lisp/emms-score" "\
+Turn off emms-score.
+
+\(fn)" t nil)
+
+(autoload 'emms-score-toggle "lisp/emms-score" "\
+Toggle emms-score.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (emms-default-players emms-devel emms-all emms-standard
+;;;;;;  emms-minimalistic) "lisp/emms-setup" "emms/lisp/emms-setup.el"
+;;;;;;  (20112 49989))
+;;; Generated autoloads from emms/lisp/emms-setup.el
+
+(autoload 'emms-minimalistic "lisp/emms-setup" "\
+An Emms setup script.
+Invisible playlists and all the basics for playing media.
+
+\(fn)" nil nil)
+
+(autoload 'emms-standard "lisp/emms-setup" "\
+An Emms setup script.
+Everything included in the `emms-minimalistic' setup, the Emms
+interactive playlist mode, reading information from tagged
+audio files, and a metadata cache.
+
+\(fn)" nil nil)
+
+(autoload 'emms-all "lisp/emms-setup" "\
+An Emms setup script.
+Everything included in the `emms-standard' setup and adds all the
+stable features which come with the Emms distribution.
+
+\(fn)" nil nil)
+
+(autoload 'emms-devel "lisp/emms-setup" "\
+An Emms setup script.
+Everything included in the `emms-all' setup and adds all the
+features which come with the Emms distribution regardless of if
+they are considered stable or not.  Use this if you like living
+on the edge.
+
+\(fn)" nil nil)
+
+(autoload 'emms-default-players "lisp/emms-setup" "\
+Set `emms-player-list' to `emms-setup-default-player-list'.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (emms-locate emms-source-file-regex emms-source-file-directory-tree)
+;;;;;;  "lisp/emms-source-file" "emms/lisp/emms-source-file.el" (20112
+;;;;;;  49989))
+;;; Generated autoloads from emms/lisp/emms-source-file.el
+ (autoload 'emms-play-file "emms-source-file" nil t)
+ (autoload 'emms-add-file "emms-source-file" nil t)
+ (autoload 'emms-play-directory "emms-source-file" nil t)
+ (autoload 'emms-add-directory "emms-source-file" nil t)
+ (autoload 'emms-play-directory-tree "emms-source-file" nil t)
+ (autoload 'emms-add-directory-tree "emms-source-file" nil t)
+ (autoload 'emms-play-find "emms-source-file" nil t)
+ (autoload 'emms-add-find "emms-source-file" nil t)
+ (autoload 'emms-play-dired "emms-source-file" nil t)
+ (autoload 'emms-add-dired "emms-source-file" nil t)
+
+(autoload 'emms-source-file-directory-tree "lisp/emms-source-file" "\
+Return a list of all files under DIR that match REGEX.
+This function uses `emms-source-file-directory-tree-function'.
+
+\(fn DIR REGEX)" nil nil)
+
+(autoload 'emms-source-file-regex "lisp/emms-source-file" "\
+Return a regexp that matches everything any player (that supports
+files) can play.
+
+\(fn)" nil nil)
+
+(autoload 'emms-locate "lisp/emms-source-file" "\
+Search for REGEXP and display the results in a locate buffer
+
+\(fn REGEXP)" t nil)
+ (autoload 'emms-play-url "emms-source-file" nil t)
+ (autoload 'emms-add-url "emms-source-file" nil t)
+ (autoload 'emms-play-streamlist "emms-source-file" nil t)
+ (autoload 'emms-add-streamlist "emms-source-file" nil t)
+ (autoload 'emms-play-lastfm "emms-lastfm" nil t)
+ (autoload 'emms-add-lastfm "emms-lastfm" nil t)
+
+;;;***
+
+;;;### (autoloads nil "lisp/emms-source-playlist" "emms/lisp/emms-source-playlist.el"
+;;;;;;  (20112 49989))
+;;; Generated autoloads from emms/lisp/emms-source-playlist.el
+ (autoload 'emms-play-playlist "emms-source-playlist" nil t)
+ (autoload 'emms-add-playlist "emms-source-playlist" nil t)
+ (autoload 'emms-play-native-playlist "emms-source-playlist" nil t)
+ (autoload 'emms-add-native-playlist "emms-source-playlist" nil t)
+ (autoload 'emms-play-m3u-playlist "emms-source-playlist" nil t)
+ (autoload 'emms-add-m3u-playlist "emms-source-playlist" nil t)
+ (autoload 'emms-play-pls-playlist "emms-source-playlist" nil t)
+ (autoload 'emms-add-pls-playlist "emms-source-playlist" nil t)
+ (autoload 'emms-play-playlist-file "emms-source-playlist" nil t)
+ (autoload 'emms-add-playlist-file "emms-source-playlist" nil t)
+ (autoload 'emms-play-playlist-directory
+          "emms-source-playlist" nil t)
+ (autoload 'emms-add-playlist-directory
+          "emms-source-playlist" nil t)
+ (autoload 'emms-play-playlist-directory-tree
+          "emms-source-playlist" nil t)
+ (autoload 'emms-add-playlist-directory-tree
+          "emms-source-file" nil t)
+
+;;;***
+
+;;;### (autoloads (emms-streams) "lisp/emms-streams" "emms/lisp/emms-streams.el"
+;;;;;;  (20112 49989))
+;;; Generated autoloads from emms/lisp/emms-streams.el
+
+(autoload 'emms-streams "lisp/emms-streams" "\
+Opens the EMMS Streams interface.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (emms-volume-mode-minus emms-volume-mode-plus emms-volume-lower
+;;;;;;  emms-volume-raise) "lisp/emms-volume" "emms/lisp/emms-volume.el"
+;;;;;;  (20112 49989))
+;;; Generated autoloads from emms/lisp/emms-volume.el
+
+(autoload 'emms-volume-raise "lisp/emms-volume" "\
+Raise the speaker volume.
+
+\(fn)" t nil)
+
+(autoload 'emms-volume-lower "lisp/emms-volume" "\
+Lower the speaker volume.
+
+\(fn)" t nil)
+
+(autoload 'emms-volume-mode-plus "lisp/emms-volume" "\
+Raise volume and enable or extend the `emms-volume-minor-mode' timeout.
+
+\(fn)" t nil)
+
+(autoload 'emms-volume-mode-minus "lisp/emms-volume" "\
+Lower volume and enable or extend the `emms-volume-minor-mode' timeout.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (emms-volume-amixer-change) "lisp/emms-volume-amixer"
+;;;;;;  "emms/lisp/emms-volume-amixer.el" (20112 49989))
+;;; Generated autoloads from emms/lisp/emms-volume-amixer.el
+
+(autoload 'emms-volume-amixer-change "lisp/emms-volume-amixer" "\
+Change amixer master volume by AMOUNT.
+
+\(fn AMOUNT)" nil nil)
+
+;;;***
+
+;;;### (autoloads (tq-create) "lisp/tq" "emms/lisp/tq.el" (20112
+;;;;;;  49989))
+;;; Generated autoloads from emms/lisp/tq.el
+
+(autoload 'tq-create "lisp/tq" "\
+Create and return a transaction queue communicating with PROCESS.
+PROCESS should be a subprocess capable of sending and receiving
+streams of bytes.  It may be a local process, or it may be connected
+to a tcp server on another machine.
+
+\(fn PROCESS)" nil nil)
+
+;;;***
+
+;;;### (autoloads (magit-status) "magit" "magit/magit.el" (20113
+;;;;;;  28696))
 ;;; Generated autoloads from magit/magit.el
 
 (autoload 'magit-status "magit" "\
-Not documented
+
 
 \(fn DIR)" t nil)
 
@@ -8930,12 +9181,12 @@ Minor mode for interfacing with cryptographic functions.
 \(fn &optional ARG)" t nil)
 
 (autoload 'mc-install-read-mode "mailcrypt" "\
-Not documented
+
 
 \(fn)" t nil)
 
 (autoload 'mc-install-write-mode "mailcrypt" "\
-Not documented
+
 
 \(fn)" t nil)
 
@@ -8947,7 +9198,7 @@ Not documented
 ;;;***
 
 ;;;### (autoloads (markdown-mode) "markdown-mode" "markdown-mode/markdown-mode.el"
-;;;;;;  (19848 52932))
+;;;;;;  (20113 28703))
 ;;; Generated autoloads from markdown-mode/markdown-mode.el
 
 (autoload 'markdown-mode "markdown-mode" "\
@@ -8959,7 +9210,7 @@ Major mode for editing Markdown files.
 
 ;;;### (autoloads (mars-tiling-favorite-secondary-layouts mars-tiling-favorite-main-layouts
 ;;;;;;  mars-tiling-master-top mars-tiling-master-left mars-tiling)
-;;;;;;  "mars-tiling" "mars-tiling.el" (19807 54291))
+;;;;;;  "mars-tiling" "mars-tiling.el" (20112 24690))
 ;;; Generated autoloads from mars-tiling.el
 
 (let ((loads (get 'mars-tiling 'custom-loads))) (if (member '"mars-tiling" loads) nil (put 'mars-tiling 'custom-loads (cons '"mars-tiling" loads))))
@@ -8999,7 +9250,7 @@ minibuffer resizing (with new BALANCE-WINDOWS)." ad-do-it (flet ((crop-percent (
 ;;;;;;  mars-windows-archiver-save kiwon/last-window-configuration-file
 ;;;;;;  mars-windows-register-limit mars-windows-archiver-file configuration-file-name
 ;;;;;;  mars-windows-archiver) "mars-windows-archiver" "mars-windows-archiver.el"
-;;;;;;  (19813 33195))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from mars-windows-archiver.el
 
 (let ((loads (get 'mars-windows-archiver 'custom-loads))) (if (member '"mars-windows-archiver" loads) nil (put 'mars-windows-archiver 'custom-loads (cons '"mars-windows-archiver" loads))))
@@ -9029,37 +9280,37 @@ Script to restore the window configuration at startup.")
 (custom-autoload 'kiwon/last-window-configuration-file "mars-windows-archiver" t)
 
 (autoload 'mars-windows-archiver-save "mars-windows-archiver" "\
-Not documented
+
 
 \(fn &optional DONT-ALERT)" t nil)
 
 (autoload 'mars-windows-archiver-clear "mars-windows-archiver" "\
-Not documented
+
 
 \(fn)" t nil)
 
 (autoload 'mars-windows-archiver-restore "mars-windows-archiver" "\
-Not documented
+
 
 \(fn &optional NUM)" t nil)
 
 (autoload 'mars-windows-archiver-load "mars-windows-archiver" "\
-Not documented
+
 
 \(fn)" t nil)
 
 (autoload 'mars-windows-archiver-load-in-session "mars-windows-archiver" "\
-Not documented
+
 
 \(fn)" nil nil)
 
 (autoload 'kiwon/save-window-configuration "mars-windows-archiver" "\
-Not documented
+
 
 \(fn)" nil nil)
 
 (autoload 'kiwon/restore-window-configuration "mars-windows-archiver" "\
-Not documented
+
 
 \(fn)" nil nil)
 
@@ -9322,7 +9573,7 @@ Fetch key with specified id from a server.
 \(fn)" t nil)
 
 (autoload 'mc-rmail-view-quit "mc-toplev" "\
-Not documented
+
 
 \(fn)" t nil)
 
@@ -9342,17 +9593,17 @@ Not documented
 \(fn)" t nil)
 
 (autoload 'mc-gnus-verify-signature "mc-toplev" "\
-Not documented
+
 
 \(fn)" t nil)
 
 (autoload 'mc-gnus-snarf-keys "mc-toplev" "\
-Not documented
+
 
 \(fn)" t nil)
 
 (autoload 'mc-gnus-decrypt-message "mc-toplev" "\
-Not documented
+
 
 \(fn)" t nil)
 
@@ -9367,7 +9618,7 @@ Decrypt the contents of the current MH message in the show buffer.
 \(fn)" t nil)
 
 (autoload 'mc-mh-snarf-keys "mc-toplev" "\
-Not documented
+
 
 \(fn)" t nil)
 
@@ -9393,86 +9644,10 @@ Not documented
 
 ;;;***
 
-;;;### (autoloads (mhc-cmail-setup) "mhc-cmail" "mhc/emacs/mhc-cmail.el"
-;;;;;;  (19848 52955))
-;;; Generated autoloads from mhc/emacs/mhc-cmail.el
-
-(autoload 'mhc-cmail-setup "mhc-cmail" "\
-Not documented
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (mhc-gnus-setup) "mhc-gnus" "mhc/emacs/mhc-gnus.el"
-;;;;;;  (19848 52955))
-;;; Generated autoloads from mhc/emacs/mhc-gnus.el
-
-(autoload 'mhc-gnus-setup "mhc-gnus" "\
-Not documented
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (mhc-mew-setup) "mhc-mew" "mhc/emacs/mhc-mew.el"
-;;;;;;  (19848 52955))
-;;; Generated autoloads from mhc/emacs/mhc-mew.el
-
-(autoload 'mhc-mew-setup "mhc-mew" "\
-Not documented
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (mhc-ps-insert-buffer mhc-ps-save mhc-ps-print
-;;;;;;  mhc-ps-preview mhc-ps) "mhc-ps" "mhc/emacs/mhc-ps.el" (19848
-;;;;;;  52955))
-;;; Generated autoloads from mhc/emacs/mhc-ps.el
-
-(autoload 'mhc-ps "mhc-ps" "\
-*Create PostScript calendar with selected method.
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'mhc-ps-preview "mhc-ps" "\
-*Preview PostScript calendar.
-
-\(fn YEAR MONTH &optional CATEGORY-PREDICATE)" t nil)
-
-(autoload 'mhc-ps-print "mhc-ps" "\
-*Print PostScript calendar.
-
-\(fn YEAR MONTH &optional CATEGORY-PREDICATE)" t nil)
-
-(autoload 'mhc-ps-save "mhc-ps" "\
-*Save PostScript calendar.
-
-\(fn YEAR MONTH FILE &optional CATEGORY-PREDICATE)" t nil)
-
-(autoload 'mhc-ps-insert-buffer "mhc-ps" "\
-*Insert PostScript calendar.
-
-\(fn YEAR MONTH BUFFER &optional CATEGORY-PREDICATE)" t nil)
-
-;;;***
-
-;;;### (autoloads (mhc-wl-setup) "mhc-wl" "mhc/emacs/mhc-wl.el" (19848
-;;;;;;  52955))
-;;; Generated autoloads from mhc/emacs/mhc-wl.el
-
-(autoload 'mhc-wl-setup "mhc-wl" "\
-Not documented
-
-\(fn)" nil nil)
-
-;;;***
-
 ;;;### (autoloads (paren-backward-sexp paren-forward-sexp paren-toggle-open-paren-context
 ;;;;;;  paren-toggle-matching-quoted-paren paren-toggle-matching-paired-delimiter
 ;;;;;;  paren-deactivate paren-activate) "mic-paren" "mic-paren.el"
-;;;;;;  (19397 47224))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from mic-paren.el
 
 (autoload 'paren-activate "mic-paren" "\
@@ -9556,14 +9731,14 @@ See `paren-match-quoted-paren'.
 ;;; Generated autoloads from emacs-w3m/mime-w3m.el
 
 (autoload 'mime-w3m-preview-text/html "mime-w3m" "\
-Not documented
+
 
 \(fn ENTITY SITUATION)" nil nil)
 
 ;;;***
 
 ;;;### (autoloads (mode-line-reminder-duration) "misc-fns" "misc-fns.el"
-;;;;;;  (19816 7986))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from misc-fns.el
 
 (defvar mode-line-reminder-duration 10 "\
@@ -9582,7 +9757,7 @@ Not documented
 ;;;;;;  mode-compile-ignore-makerule-regexp mode-compile-prefered-default-makerule
 ;;;;;;  mode-compile-make-options mode-compile-ignore-makefile-backups
 ;;;;;;  mode-compile-make-program) "mode-compile" "mode-compile.el"
-;;;;;;  (19160 27200))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from mode-compile.el
 
 (defvar mode-compile-make-program "make" "\
@@ -9832,21 +10007,9 @@ Bound on \\[mode-compile-kill].
 
 ;;;***
 
-;;;### (autoloads (mode-local-read-function) "mode-local" "cedet/common/mode-local.el"
-;;;;;;  (19390 36251))
-;;; Generated autoloads from cedet/common/mode-local.el
-
-(autoload 'mode-local-read-function "mode-local" "\
-Interactively read in the name of a mode-local function.
-PROMPT, INITIAL, HIST, and DEFAULT are the same as for `completing-read'.
-
-\(fn PROMPT &optional INITIAL HIST DEFAULT)" nil nil)
-
-;;;***
-
 ;;;### (autoloads (bbdb/send-hook bbdb/send-auto-notes-hook bbdb/send-ignore-some-messages-hook
 ;;;;;;  bbdb/send-ignore-most-messages-hook) "moy-bbdb" "moy-bbdb.el"
-;;;;;;  (19406 54950))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from moy-bbdb.el
 
 (autoload 'bbdb/send-ignore-most-messages-hook "moy-bbdb" "\
@@ -9881,7 +10044,7 @@ Parse headers of outgoing message, insert the addresses of the
 ;;;***
 
 ;;;### (autoloads (inferior-moz-mode moz-minor-mode) "moz" "moz.el"
-;;;;;;  (19824 1707))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from moz.el
 
 (autoload 'moz-minor-mode "moz" "\
@@ -9978,17 +10141,17 @@ Compress nested cited prefixes.
 ;;; Generated autoloads from mu-cite-201006212322/mu-register.el
 
 (autoload 'mu-cite-get-prefix-method "mu-register" "\
-Not documented
+
 
 \(fn)" nil nil)
 
 (autoload 'mu-cite-get-prefix-register-method "mu-register" "\
-Not documented
+
 
 \(fn)" nil nil)
 
 (autoload 'mu-cite-get-prefix-register-verbose-method "mu-register" "\
-Not documented
+
 
 \(fn)" nil nil)
 
@@ -10024,8 +10187,8 @@ The return value is the string as entered in the minibuffer.
 
 ;;;***
 
-;;;### (autoloads (multi-term) "multi-term" "multi-term.el" (19801
-;;;;;;  36994))
+;;;### (autoloads (multi-term) "multi-term" "multi-term.el" (20112
+;;;;;;  24690))
 ;;; Generated autoloads from multi-term.el
 
 (autoload 'multi-term "multi-term" "\
@@ -10037,7 +10200,7 @@ Will prompt you shell name when you type `C-u' before this command.
 ;;;***
 
 ;;;### (autoloads (mwe:open-command-log-buffer mwe:log-keyboard-commands)
-;;;;;;  "mwe-log-commands" "mwe-log-commands.el" (19828 48130))
+;;;;;;  "mwe-log-commands" "mwe-log-commands.el" (20112 24690))
 ;;; Generated autoloads from mwe-log-commands.el
 
 (autoload 'mwe:log-keyboard-commands "mwe-log-commands" "\
@@ -10164,8 +10327,8 @@ Octet setting for MIME module.
 
 ;;;***
 
-;;;### (autoloads (openwith-mode) "openwith" "openwith.el" (18465
-;;;;;;  38760))
+;;;### (autoloads (openwith-mode) "openwith" "openwith.el" (20112
+;;;;;;  24690))
 ;;; Generated autoloads from openwith.el
 
 (defvar openwith-mode nil "\
@@ -10186,7 +10349,7 @@ Automatically open files with external programs.
 
 ;;;### (autoloads (org-fireforg-registry-update org-fireforg-registry-insinuate
 ;;;;;;  org-fireforg-registry-initialize) "org-fireforg" "org-fireforg.el"
-;;;;;;  (19810 18344))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from org-fireforg.el
 
 (autoload 'org-fireforg-registry-initialize "org-fireforg" "\
@@ -10211,7 +10374,7 @@ Update the registry for the current Org file, if it is in org-fireforg-registry-
 
 ;;;***
 
-;;;### (autoloads (paredit-mode) "paredit" "paredit.el" (19826 17897))
+;;;### (autoloads (paredit-mode) "paredit" "paredit.el" (20112 24690))
 ;;; Generated autoloads from paredit.el
 
 (autoload 'paredit-mode "paredit" "\
@@ -10227,20 +10390,8 @@ Paredit behaves badly if parentheses are imbalanced, so exercise
 
 ;;;***
 
-;;;### (autoloads (cogre-picture-insert-rectangle) "picture-hack"
-;;;;;;  "cedet/cogre/picture-hack.el" (18897 57890))
-;;; Generated autoloads from cedet/cogre/picture-hack.el
-
-(autoload 'cogre-picture-insert-rectangle "picture-hack" "\
-Overlay RECTANGLE with upper left corner at point.
-Leaves the region surrounding the rectangle.
-
-\(fn RECTANGLE)" nil nil)
-
-;;;***
-
 ;;;### (autoloads (refresh-pretty-control-l pp^L-^L-string Pretty-Control-L)
-;;;;;;  "pp-c-l" "pp-c-l.el" (19822 7308))
+;;;;;;  "pp-c-l" "pp-c-l.el" (20112 24690))
 ;;; Generated autoloads from pp-c-l.el
 
 (let ((loads (get 'Pretty-Control-L 'custom-loads))) (if (member '"pp-c-l" loads) nil (put 'Pretty-Control-L 'custom-loads (cons '"pp-c-l" loads))))
@@ -10264,37 +10415,7 @@ Reinitialize `pretty-control-l-mode', if on, to update the display.
 
 ;;;***
 
-;;;### (autoloads (pprint-function pprint pprint-to-string) "pprint"
-;;;;;;  "cedet/common/pprint.el" (17213 39693))
-;;; Generated autoloads from cedet/common/pprint.el
-
-(autoload 'pprint-to-string "pprint" "\
-Return a string containing the pretty-printed representation of OBJECT.
-OBJECT can be any Lisp object.  Quoting characters are used as needed
-to make output that `read' can handle, whenever this is possible.  The
-pretty printer try as much as possible to limit the length of lines to
-given WIDTH.  WIDTH value defaults to `fill-column'.
-
-\(fn OBJECT &optional WIDTH)" nil nil)
-
-(autoload 'pprint "pprint" "\
-Output the pretty-printed representation of OBJECT, any Lisp object.
-Quoting characters are printed as needed to make output that `read'
-can handle, whenever this is possible.  Output stream is STREAM, or
-value of `standard-output' (which see).  The pretty printer try as
-much as possible to limit the length of lines to given WIDTH.  WIDTH
-value defaults to `fill-column'.
-
-\(fn OBJECT &optional STREAM WIDTH)" nil nil)
-
-(autoload 'pprint-function "pprint" "\
-See a pretty-printed representation of FUNCTION-NAME.
-
-\(fn FUNCTION-NAME)" t nil)
-
-;;;***
-
-;;;### (autoloads nil "ps-ccrypt" "ps-ccrypt.el" (19826 17458))
+;;;### (autoloads nil "ps-ccrypt" "ps-ccrypt.el" (20112 24690))
 ;;; Generated autoloads from ps-ccrypt.el
 (defun auto-encryption-mode (&optional arg)
  "\
@@ -10311,8 +10432,8 @@ Returns the new status of auto encryption (non-nil means on)."
 
 ;;;***
 
-;;;### (autoloads (svn-status svn-checkout) "psvn" "psvn.el" (19826
-;;;;;;  17373))
+;;;### (autoloads (svn-status svn-checkout) "psvn" "psvn.el" (20112
+;;;;;;  24690))
 ;;; Generated autoloads from psvn.el
 
 (autoload 'svn-checkout "psvn" "\
@@ -10336,73 +10457,8 @@ If there is no .svn directory, examine if there is CVS and run
 
 ;;;***
 
-;;;### (autoloads (pulse-line-hook-function pulse-toggle-integration-advice
-;;;;;;  pulse-momentary-highlight-region pulse-momentary-highlight-one-line
-;;;;;;  pulse-momentary-highlight-overlay pulse-test pulse) "pulse"
-;;;;;;  "cedet/common/pulse.el" (19539 31151))
-;;; Generated autoloads from cedet/common/pulse.el
-
-(autoload 'pulse "pulse" "\
-Pulse the colors on our highlight face.
-If optional FACE is provide, reset the face to FACE color,
-instead of `pulse-highlight-start-face'.
-Be sure to call `pulse-reset-face' after calling pulse.
-
-\(fn &optional FACE)" nil nil)
-
-(autoload 'pulse-test "pulse" "\
-Test the lightening function for pulsing a line.
-When optional NO-ERROR Don't throw an error if we can't run tests.
-
-\(fn &optional NO-ERROR)" t nil)
-
-(autoload 'pulse-momentary-highlight-overlay "pulse" "\
-Pulse the overlay O, unhighlighting before next command.
-Optional argument FACE specifies the fact to do the highlighting.
-
-\(fn O &optional FACE)" nil nil)
-
-(autoload 'pulse-momentary-highlight-one-line "pulse" "\
-Highlight the line around POINT, unhighlighting before next command.
-Optional argument FACE specifies the face to do the highlighting.
-
-\(fn POINT &optional FACE)" nil nil)
-
-(autoload 'pulse-momentary-highlight-region "pulse" "\
-Highlight between START and END, unhighlighting before next command.
-Optional argument FACE specifies the fact to do the highlighting.
-
-\(fn START END &optional FACE)" nil nil)
-
-(autoload 'pulse-toggle-integration-advice "pulse" "\
-Toggle activation of advised functions that will now pulse.
-Wint no ARG, toggle the pulse advice.
-With a negative ARG, disable pulse advice.
-With a positive ARG, enable pulse advice.
-Currently advised functions include:
-  `goto-line'
-  `exchange-point-and-mark'
-  `find-tag'
-  `tags-search'
-  `tags-loop-continue'
-  `pop-tag-mark'
-  `imenu-default-goto-function'
-Pulsing via `pulse-line-hook-function' has also been added to
-the following hook:
-  `next-error-hook'
-
-\(fn ARG)" t nil)
-
-(autoload 'pulse-line-hook-function "pulse" "\
-Function used in hooks to pulse the current line.
-Only pulses the line if `pulse-command-advice-flag' is non-nil.
-
-\(fn)" nil nil)
-
-;;;***
-
 ;;;### (autoloads (pwsafe-add-entry pwsafe) "pwsafe" "pwsafe.el"
-;;;;;;  (19826 16452))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from pwsafe.el
 
 (autoload 'pwsafe "pwsafe" "\
@@ -10414,85 +10470,13 @@ The following keys are defined:
 \(fn FORCE)" t nil)
 
 (autoload 'pwsafe-add-entry "pwsafe" "\
-Not documented
+
 
 \(fn NAME)" t nil)
 
 ;;;***
 
-;;;### (autoloads (py-shell python-mode) "python-mode" "python-mode/python-mode.el"
-;;;;;;  (19753 44085))
-;;; Generated autoloads from python-mode/python-mode.el
-
-(autoload 'python-mode "python-mode" "\
-Major mode for editing Python files.
-To submit a problem report, enter `\\[py-submit-bug-report]' from a
-`python-mode' buffer.  Do `\\[py-describe-mode]' for detailed
-documentation.  To see what version of `python-mode' you are running,
-enter `\\[py-version]'.
-
-This mode knows about Python indentation, tokens, comments and
-continuation lines.  Paragraphs are separated by blank lines only.
-
-COMMANDS
-\\{py-mode-map}
-VARIABLES
-
-py-indent-offset		indentation increment
-py-block-comment-prefix		comment string used by `comment-region'
-py-python-command		shell command to invoke Python interpreter
-py-temp-directory		directory used for temp files (if needed)
-py-beep-if-tab-change		ring the bell if `tab-width' is changed
-
-\(fn)" t nil)
-
-(let ((modes '(("jython" . jython-mode) ("python" . python-mode)))) (while modes (when (not (assoc (car modes) interpreter-mode-alist)) (push (car modes) interpreter-mode-alist)) (setq modes (cdr modes))))
-
-(when (not (or (rassq 'python-mode auto-mode-alist) (rassq 'jython-mode auto-mode-alist))) (push '("\\.py$" . python-mode) auto-mode-alist))
-
-(autoload 'py-shell "python-mode" "\
-Start an interactive Python interpreter in another window.
-This is like Shell mode, except that Python is running in the window
-instead of a shell.  See the `Interactive Shell' and `Shell Mode'
-sections of the Emacs manual for details, especially for the key
-bindings active in the `*Python*' buffer.
-
-With optional \\[universal-argument], the user is prompted for the
-flags to pass to the Python interpreter.  This has no effect when this
-command is used to switch to an existing process, only when a new
-process is started.  If you use this, you will probably want to ensure
-that the current arguments are retained (they will be included in the
-prompt).  This argument is ignored when this function is called
-programmatically, or when running in Emacs 19.34 or older.
-
-Note: You can toggle between using the CPython interpreter and the
-Jython interpreter by hitting \\[py-toggle-shells].  This toggles
-buffer local variables which control whether all your subshell
-interactions happen to the `*Jython*' or `*Python*' buffers (the
-latter is the name used for the CPython buffer).
-
-Warning: Don't use an interactive Python if you change sys.ps1 or
-sys.ps2 from their default values, or if you're running code that
-prints `>>> ' or `... ' at the start of a line.  `python-mode' can't
-distinguish your output from Python's output, and assumes that `>>> '
-at the start of a line is a prompt from Python.  Similarly, the Emacs
-Shell mode code assumes that both `>>> ' and `... ' at the start of a
-line are Python prompts.  Bad things can happen if you fool either
-mode.
-
-Warning:  If you do any editing *in* the process buffer *while* the
-buffer is accepting output from Python, do NOT attempt to `undo' the
-changes.  Some of the output (nowhere near the parts you changed!) may
-be lost if you do.  This appears to be an Emacs bug, an unfortunate
-interaction between undo and process filters; the same problem exists in
-non-Python process buffers using the default (Emacs-supplied) process
-filter.
-
-\(fn &optional ARGPROMPT)" t nil)
-
-;;;***
-
-;;;### (autoloads (inferior-qi) "qi-mode" "qi-mode.el" (18760 13748))
+;;;### (autoloads (inferior-qi) "qi-mode" "qi-mode.el" (20112 24690))
 ;;; Generated autoloads from qi-mode.el
 
 (defvar inferior-qi-filter-regexp "\\`\\s *\\(:\\(\\w\\|\\s_\\)\\)?\\s *\\'" "\
@@ -10549,26 +10533,27 @@ of `inferior-qi-program').  Runs the hooks from
 ;;;***
 
 ;;;### (autoloads (quickpeek-help quickpeek-get-focus quickpeek-frame-mode)
-;;;;;;  "quickpeek" "cedet/quickpeek/quickpeek.el" (17213 41766))
+;;;;;;  "quickpeek/quickpeek" "cedet/quickpeek/quickpeek.el" (20113
+;;;;;;  48406))
 ;;; Generated autoloads from cedet/quickpeek/quickpeek.el
 
 (defalias 'quickpeek 'quickpeek-frame-mode)
 
-(autoload 'quickpeek-frame-mode "quickpeek" "\
+(autoload 'quickpeek-frame-mode "quickpeek/quickpeek" "\
 Initialize `quickpeek'.
 If optional ARG is less than 0, turn off this mode, positive turn on.
 If nil, then toggle.
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'quickpeek-get-focus "quickpeek" "\
+(autoload 'quickpeek-get-focus "quickpeek/quickpeek" "\
 Change frame focus to or from the `quickpeek' frame.
 If the selected frame is not `quickpeek', then `quickpeek' frame is
 selected.  If the `quickpeek' frame is active, then select the attached frame.
 
 \(fn)" t nil)
 
-(autoload 'quickpeek-help "quickpeek" "\
+(autoload 'quickpeek-help "quickpeek/quickpeek" "\
 Display a quickpeek buffer in a temporary window.
 Like `quickpeek', but without an extra frame, timers, or tracking.
 
@@ -10576,9 +10561,24 @@ Like `quickpeek', but without an extra frame, timers, or tracking.
 
 ;;;***
 
+;;;### (autoloads (rebase-mode) "rebase-mode" "magit/rebase-mode.el"
+;;;;;;  (20113 28696))
+;;; Generated autoloads from magit/rebase-mode.el
+
+(autoload 'rebase-mode "rebase-mode" "\
+Major mode for editing of a git rebase file
+
+Rebase files are generated when you run 'git rebase -i' or run `magit-interactive-rebase'
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("git-rebase-todo" . rebase-mode))
+
+;;;***
+
 ;;;### (autoloads (rm-mouse-drag-region rm-kill-ring-save rm-kill-region
 ;;;;;;  rm-exchange-point-and-mark rm-set-mark rm-example-picture-mode-bindings)
-;;;;;;  "rect-mark" "rect-mark.el" (19826 16220))
+;;;;;;  "rect-mark" "rect-mark.el" (20112 24690))
 ;;; Generated autoloads from rect-mark.el
  (define-key ctl-x-map "r\C-@" 'rm-set-mark)
  (define-key ctl-x-map [?r ?\C-\ ] 'rm-set-mark)
@@ -10640,7 +10640,7 @@ This must be bound to a button-down mouse event.
 
 ;;;### (autoloads (remember-diary-extract-entries remember-clipboard
 ;;;;;;  remember-other-frame remember) "remember" "remember/remember.el"
-;;;;;;  (19848 53012))
+;;;;;;  (20113 29605))
 ;;; Generated autoloads from remember/remember.el
 
 (autoload 'remember "remember" "\
@@ -10672,7 +10672,7 @@ Extract diary entries from the region.
 ;;;***
 
 ;;;### (autoloads (remember-bbdb-store-in-mailbox) "remember-bbdb"
-;;;;;;  "remember/remember-bbdb.el" (19848 53012))
+;;;;;;  "remember/remember-bbdb.el" (20113 29605))
 ;;; Generated autoloads from remember/remember-bbdb.el
 
 (autoload 'remember-bbdb-store-in-mailbox "remember-bbdb" "\
@@ -10686,7 +10686,7 @@ field, for the purpose of appropriate splitting.
 ;;;***
 
 ;;;### (autoloads (remember-location remember-url) "remember-bibl"
-;;;;;;  "remember/remember-bibl.el" (19848 53012))
+;;;;;;  "remember/remember-bibl.el" (20113 29605))
 ;;; Generated autoloads from remember/remember-bibl.el
 
 (autoload 'remember-url "remember-bibl" "\
@@ -10702,7 +10702,7 @@ Remember a bookmark location in `bibl-mode'.
 ;;;***
 
 ;;;### (autoloads (remember-blosxom) "remember-blosxom" "remember/remember-blosxom.el"
-;;;;;;  (19848 53012))
+;;;;;;  (20113 29605))
 ;;; Generated autoloads from remember/remember-blosxom.el
 
 (autoload 'remember-blosxom "remember-blosxom" "\
@@ -10715,7 +10715,7 @@ This function can be added to `remember-handler-functions'.
 
 ;;;### (autoloads (remember-emacs-wiki-journal-add-entry-maybe remember-emacs-wiki-journal-add-entry-auto
 ;;;;;;  remember-emacs-wiki-journal-add-entry) "remember-emacs-wiki-journal"
-;;;;;;  "remember/remember-emacs-wiki-journal.el" (19848 53012))
+;;;;;;  "remember/remember-emacs-wiki-journal.el" (20113 29605))
 ;;; Generated autoloads from remember/remember-emacs-wiki-journal.el
 
 (autoload 'remember-emacs-wiki-journal-add-entry "remember-emacs-wiki-journal" "\
@@ -10738,7 +10738,7 @@ entry if the first line matches `emacs-wiki-journal-category-regexp'.
 ;;;***
 
 ;;;### (autoloads (remember-planner-append) "remember-planner" "remember/remember-planner.el"
-;;;;;;  (19848 53012))
+;;;;;;  (20113 29605))
 ;;; Generated autoloads from remember/remember-planner.el
 
 (autoload 'remember-planner-append "remember-planner" "\
@@ -10751,7 +10751,7 @@ This function can be added to `remember-handler-functions'.
 
 ;;;### (autoloads (resume save-current-configuration wipe restore-window-configuration
 ;;;;;;  current-window-configuration-printable) "revive" "revive.el"
-;;;;;;  (19832 54734))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from revive.el
 
 (autoload 'current-window-configuration-printable "revive" "\
@@ -10796,7 +10796,7 @@ Configuration should be saved by save-current-configuration.
 ;;;***
 
 ;;;### (autoloads (rinari-minor-mode rinari-launch) "rinari" "rinari/rinari.el"
-;;;;;;  (19848 53016))
+;;;;;;  (20113 29610))
 ;;; Generated autoloads from rinari/rinari.el
 
 (autoload 'rinari-launch "rinari" "\
@@ -10819,7 +10819,7 @@ with the Ruby on Rails framework.
 ;;;***
 
 ;;;### (autoloads (rinari-merb-minor-mode) "rinari-merb" "rinari/rinari-merb.el"
-;;;;;;  (19848 53016))
+;;;;;;  (20113 29610))
 ;;; Generated autoloads from rinari/rinari-merb.el
 
 (autoload 'rinari-merb-minor-mode "rinari-merb" "\
@@ -10830,409 +10830,62 @@ with the Ruby on Rails framework.
 
 ;;;***
 
-;;;### (autoloads (rpm) "rpm" "cedet/speedbar/rpm.el" (17213 40778))
-;;; Generated autoloads from cedet/speedbar/rpm.el
+;;;### (autoloads (semantic-bovine-debug-create-frame) "semantic/bovine/bovine-debug"
+;;;;;;  "cedet/semantic/bovine/bovine-debug.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/bovine/bovine-debug.el
 
-(autoload 'rpm "rpm" "\
-Red Hat Package Management in Emacs.
+(autoload 'semantic-bovine-debug-create-frame "semantic/bovine/bovine-debug" "\
+Create one bovine frame.
+NONTERM is the name of a rule we are currently parsing.
+RULE is the index into the list of rules in NONTERM.
+MATCH is the index into the list of matches in RULE.
+For example:
+  this: that
+      | other thing
+      | here
+      ;
+The NONTERM is THIS.
+The RULE is for \"thing\" is 1.
+The MATCH for \"thing\" is 1.
+COLLECTION is a list of `things' that have been matched so far.
+LEXTOKEN, is a token returned by the lexer which is being matched.
+
+\(fn NONTERM RULE MATCH COLLECTION LEXTOKEN)" nil nil)
+
+(eieio-defclass-autoload 'semantic-bovine-debug-parser '(semantic-debug-parser) "semantic/bovine/bovine-debug" "Represents a parser and its state.")
+
+;;;***
+
+;;;### (autoloads (bovine-grammar-mode) "semantic/bovine/bovine-grammar"
+;;;;;;  "cedet/semantic/bovine/bovine-grammar.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/bovine/bovine-grammar.el
+
+(autoload 'bovine-grammar-mode "semantic/bovine/bovine-grammar" "\
+Major mode for editing Bovine grammars.
 
 \(fn)" t nil)
 
-;;;***
-
-;;;### (autoloads (ruby-compilation-this-buffer ruby-compilation-cap
-;;;;;;  ruby-compilation-rake ruby-compilation-run pcomplete/cap
-;;;;;;  pcomplete/rake) "ruby-compilation" "rinari/util/ruby-compilation.el"
-;;;;;;  (19848 53016))
-;;; Generated autoloads from rinari/util/ruby-compilation.el
+(add-to-list 'auto-mode-alist '("\\.by$" . bovine-grammar-mode))
 
-(autoload 'pcomplete/rake "ruby-compilation" "\
-Not documented
-
-\(fn)" nil nil)
-
-(autoload 'pcomplete/cap "ruby-compilation" "\
-Not documented
-
-\(fn)" nil nil)
-
-(autoload 'ruby-compilation-run "ruby-compilation" "\
-Run a ruby process dumping output to a ruby compilation buffer.
-
-\(fn CMD &optional RUBY-OPTIONS)" t nil)
-
-(autoload 'ruby-compilation-rake "ruby-compilation" "\
-Run a rake process dumping output to a ruby compilation buffer.
-
-\(fn &optional EDIT TASK ENV-VARS)" t nil)
-
-(autoload 'ruby-compilation-cap "ruby-compilation" "\
-Run a capistrano process dumping output to a ruby compilation buffer.
-
-\(fn &optional EDIT TASK ENV-VARS)" t nil)
-
-(autoload 'ruby-compilation-this-buffer "ruby-compilation" "\
-Run the current buffer through Ruby compilation.
-
-\(fn)" t nil)
+(eval-after-load "speedbar" '(speedbar-add-supported-extension ".by"))
 
 ;;;***
 
-;;;### (autoloads (ruby-mode) "ruby-mode" "rinari/util/ruby-mode.el"
-;;;;;;  (19848 53016))
-;;; Generated autoloads from rinari/util/ruby-mode.el
-
-(autoload 'ruby-mode "ruby-mode" "\
-Major mode for editing Ruby scripts.
-\\[ruby-indent-line] properly indents subexpressions of multi-line
-class, module, def, if, while, for, do, and case statements, taking
-nesting into account.
-
-The variable ruby-indent-level controls the amount of indentation.
-\\{ruby-mode-map}
-
-\(fn)" t nil)
-
-(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-
-(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
-
-(add-to-list 'interpreter-mode-alist '("rbx" . ruby-mode))
-
-(add-to-list 'interpreter-mode-alist '("jruby" . ruby-mode))
-
-(add-to-list 'interpreter-mode-alist '("ruby1.9" . ruby-mode))
-
-(add-to-list 'interpreter-mode-alist '("ruby1.8" . ruby-mode))
-
-;;;***
-
-;;;### (autoloads (gud-speedbar-buttons) "sb-gud" "cedet/speedbar/sb-gud.el"
-;;;;;;  (16232 37556))
-;;; Generated autoloads from cedet/speedbar/sb-gud.el
-
-(autoload 'gud-speedbar-buttons "sb-gud" "\
-Create a speedbar display based on the current state of GUD.
-If the GUD BUFFER is not running a supported debugger, then turn
-off the specialized speedbar mode.
-
-\(fn BUFFER)" nil nil)
-
-;;;***
-
-;;;### (autoloads (Info-speedbar-buttons Info-speedbar-browser) "sb-info"
-;;;;;;  "cedet/speedbar/sb-info.el" (18873 37159))
-;;; Generated autoloads from cedet/speedbar/sb-info.el
-
-(autoload 'Info-speedbar-browser "sb-info" "\
-Initialize speedbar to display an info node browser.
-This will add a speedbar major display mode.
-
-\(fn)" t nil)
-
-(autoload 'Info-speedbar-buttons "sb-info" "\
-Create a speedbar display to help navigation in an Info file.
-BUFFER is the buffer speedbar is requesting buttons for.
-
-\(fn BUFFER)" nil nil)
-
-(eval-after-load "info" '(require 'sb-info))
-
-;;;***
-
-;;;### (autoloads (rmail-speedbar-buttons) "sb-rmail" "cedet/speedbar/sb-rmail.el"
-;;;;;;  (15958 27182))
-;;; Generated autoloads from cedet/speedbar/sb-rmail.el
-
-(autoload 'rmail-speedbar-buttons "sb-rmail" "\
-Create buttons for BUFFER containing rmail messages.
-Click on the address under Reply to: to reply to this person.
-Under Folders: Click a name to read it, or on the <M> to move the
-current message into that RMAIL folder.
-
-\(fn BUFFER)" nil nil)
-
-;;;***
-
-;;;### (autoloads (w3-speedbar-buttons) "sb-w3" "cedet/speedbar/sb-w3.el"
-;;;;;;  (17213 40805))
-;;; Generated autoloads from cedet/speedbar/sb-w3.el
-
-(autoload 'w3-speedbar-buttons "sb-w3" "\
-Create speedbar buttons for the current web BUFFER displayed in w3 mode.
-
-\(fn BUFFER)" nil nil)
-
-;;;***
-
-;;;### (autoloads (semantic-bovinate-toplevel semantic-refresh-tags-safe
-;;;;;;  semantic-fetch-tags semantic-parse-region-default) "semantic"
-;;;;;;  "cedet/semantic/semantic.el" (19403 32013))
-;;; Generated autoloads from cedet/semantic/semantic.el
-
-(autoload 'semantic-parse-region-default "semantic" "\
-Parse the area between START and END, and return any tags found.
-If END needs to be extended due to a lexical token being too large,
-it will be silently ignored.
-Optional arguments:
-NONTERMINAL is the rule to start parsing at if it is known.
-DEPTH specifies the lexical depth to scan.
-RETURNONERROR specifies that parsing should end when encountering
-unterminated syntax.
-
-\(fn START END &optional NONTERMINAL DEPTH RETURNONERROR)" nil nil)
-
-(autoload 'semantic-fetch-tags "semantic" "\
-Fetch semantic tags from the current buffer.
-If the buffer cache is up to date, return that.
-If the buffer cache is out of date, attempt an incremental reparse.
-If the buffer has not been parsed before, or if the incremental reparse
-fails, then parse the entire buffer.
-If a lexical error had been previously discovered and the buffer
-was marked unparseable, then do nothing, and return the cache.
-
-\(fn)" nil nil)
-
-(autoload 'semantic-refresh-tags-safe "semantic" "\
-Refresh the current buffer's tags safely.
-
-Return non-nil if the refresh was successful.
-Return nil if there is some sort of syntax error preventing a reparse.
-
-Does nothing if the current buffer doesn't need reparsing.
-
-\(fn)" nil nil)
-
-(autoload 'semantic-bovinate-toplevel "semantic" "\
-Backward compatibility function.
-
-\(fn &optional IGNORED)" nil nil)
-
-(make-obsolete 'semantic-bovinate-toplevel 'semantic-fetch-tags)
-
-(defsubst semantic-fetch-available-tags nil "\
-Fetch available semantic tags from the current buffer.
-That is, return tags currently in the cache without parsing the
-current buffer.
-Parse operations happen asynchronously when needed on Emacs idle time.
-Use the `semantic-after-toplevel-cache-change-hook' and
-`semantic-after-partial-cache-change-hook' hooks to synchronize with
-new tags when they become available." semantic--buffer-cache)
-
-;;;***
-
-;;;### (autoloads (semanticdb-debug-file-tag-check semantic-adebug-searchdb
-;;;;;;  semantic-adebug-bovinate data-debug-insert-db-and-tag-button
-;;;;;;  data-debug-insert-find-results-button data-debug-insert-find-results
-;;;;;;  data-debug-insert-tag-list-button data-debug-insert-tag-list
-;;;;;;  data-debug-insert-tag data-debug-insert-tag-parts-from-point)
-;;;;;;  "semantic-adebug" "cedet/semantic/semantic-adebug.el" (19358
-;;;;;;  14566))
-;;; Generated autoloads from cedet/semantic/semantic-adebug.el
-
-(autoload 'data-debug-insert-tag-parts-from-point "semantic-adebug" "\
-Call `data-debug-insert-tag-parts' based on text properties at POINT.
-
-\(fn POINT)" nil nil)
-
-(autoload 'data-debug-insert-tag "semantic-adebug" "\
-Insert TAG into the current buffer at the current point.
-PREFIX specifies text to insert in front of TAG.
-PREBUTTONTEXT is text appearing btewen the prefix and TAG.
-Optional PARENT is the parent tag containing TAG.
-Add text properties needed to allow tag expansion later.
-
-\(fn TAG PREFIX PREBUTTONTEXT &optional PARENT)" nil nil)
-
-(autoload 'data-debug-insert-tag-list "semantic-adebug" "\
-Insert the tag list TAGLIST with PREFIX.
-Optional argument PARENT specifies the part of TAGLIST.
-
-\(fn TAGLIST PREFIX &optional PARENT)" nil nil)
-
-(autoload 'data-debug-insert-tag-list-button "semantic-adebug" "\
-Insert a single summary of a TAGLIST.
-PREFIX is the text that preceeds the button.
-PREBUTTONTEXT is some text between PREFIX and the taglist button.
-PARENT is the tag that represents the parent of all the tags.
-
-\(fn TAGLIST PREFIX PREBUTTONTEXT &optional PARENT)" nil nil)
-
-(autoload 'data-debug-insert-find-results "semantic-adebug" "\
-Insert the find results FINDRES with PREFIX.
-
-\(fn FINDRES PREFIX)" nil nil)
-
-(autoload 'data-debug-insert-find-results-button "semantic-adebug" "\
-Insert a single summary of a find results FINDRES.
-PREFIX is the text that preceeds the button.
-PREBUTTONTEXT is some text between prefix and the find results button.
-
-\(fn FINDRES PREFIX PREBUTTONTEXT)" nil nil)
-
-(autoload 'data-debug-insert-db-and-tag-button "semantic-adebug" "\
-Insert a single summary of short list DBTAG of format (DB . TAG).
-PREFIX is the text that preceeds the button.
-PREBUTTONTEXT is some text between prefix and the find results button.
-
-\(fn DBTAG PREFIX PREBUTTONTEXT)" nil nil)
-
-(autoload 'semantic-adebug-bovinate "semantic-adebug" "\
-The same as `bovinate'.  Display the results in a debug buffer.
-
-\(fn)" t nil)
-
-(autoload 'semantic-adebug-searchdb "semantic-adebug" "\
-Search the semanticdb for REGEX for the current buffer.
-Display the results as a debug list.
-
-\(fn REGEX)" t nil)
-
-(autoload 'semanticdb-debug-file-tag-check "semantic-adebug" "\
-Report debug info for checking STARTFILE for up-to-date tags.
-
-\(fn STARTFILE)" t nil)
-
-;;;***
-
-;;;### (autoloads (semantic-adebug-analyze semantic-analyze-current-context
-;;;;;;  semantic-analyze-current-symbol) "semantic-analyze" "cedet/semantic/semantic-analyze.el"
-;;;;;;  (19403 32136))
-;;; Generated autoloads from cedet/semantic/semantic-analyze.el
-
-(autoload 'semantic-analyze-current-symbol "semantic-analyze" "\
-Call ANALYZEHOOKFCN after analyzing the symbol under POSITION.
-The ANALYZEHOOKFCN is called with the current symbol bounds, and the
-analyzed prefix.  It should take the arguments (START END PREFIX).
-The ANALYZEHOOKFCN is only called if some sort of prefix with bounds was
-found under POSITION.
-
-The results of ANALYZEHOOKFCN is returned, or nil if there was nothing to
-call it with.
-
-For regular analysis, you should call `semantic-analyze-current-context'
-to calculate the context information.  The purpose for this function is
-to provide a large number of non-cached analysis for filtering symbols.
-
-\(fn ANALYZEHOOKFCN &optional POSITION)" nil nil)
-
-(autoload 'semantic-analyze-current-context "semantic-analyze" "\
-Analyze the current context at optional POSITION.
-If called interactively, display interesting information about POSITION
-in a separate buffer.
-Returns an object based on symbol `semantic-analyze-context'.
-
-This function can be overriden with the symbol `analyze-context'.
-When overriding this function, your override will be called while
-cursor is at POSITION.  In addition, your function will not be called
-if a cached copy of the return object is found.
-
-\(fn &optional POSITION)" t nil)
-
-(autoload 'semantic-adebug-analyze "semantic-analyze" "\
-Perform `semantic-analyze-current-context'.
-Display the results as a debug list.
-Optional argument CTXT is the context to show.
-
-\(fn &optional CTXT)" t nil)
-
-;;;***
-
-;;;### (autoloads (semantic-analyze-possible-completions semantic-analyze-tags-of-class-list
-;;;;;;  semantic-analyze-type-constants) "semantic-analyze-complete"
-;;;;;;  "cedet/semantic/semantic-analyze-complete.el" (19414 13159))
-;;; Generated autoloads from cedet/semantic/semantic-analyze-complete.el
-
-(autoload 'semantic-analyze-type-constants "semantic-analyze-complete" "\
-For the tag TYPE, return any constant symbols of TYPE.
-Used as options when completing.
-
-\(fn TYPE)" nil nil)
-
-(autoload 'semantic-analyze-tags-of-class-list "semantic-analyze-complete" "\
-Return the tags in TAGS that are of classes in CLASSLIST.
-
-\(fn TAGS CLASSLIST)" nil nil)
-
-(autoload 'semantic-analyze-possible-completions "semantic-analyze-complete" "\
-Return a list of semantic tags which are possible completions.
-CONTEXT is either a position (such as point), or a precalculated
-context.  Passing in a context is useful if the caller also needs
-to access parts of the analysis.
-The remaining FLAGS arguments are passed to the mode specific completion engine.
-Bad flags should be ignored by modes that don't use them.
-See `semantic-analyze-possible-completions-default' for details on the default FLAGS.
-
-Completions run through the following filters:
-  * Elements currently in scope
-  * Constants currently in scope
-  * Elements match the :prefix in the CONTEXT.
-  * Type of the completion matches the type of the context.
-Context type matching can identify the following:
-  * No specific type
-  * Assignment into a variable of some type.
-  * Argument to a function with type constraints.
-When called interactively, displays the list of possible completions
-in a buffer.
-
-\(fn CONTEXT &rest FLAGS)" t nil)
-
-;;;***
-
-;;;### (autoloads (semantic-analyze-debug-assist) "semantic-analyze-debug"
-;;;;;;  "cedet/semantic/semantic-analyze-debug.el" (19391 52160))
-;;; Generated autoloads from cedet/semantic/semantic-analyze-debug.el
-
-(autoload 'semantic-analyze-debug-assist "semantic-analyze-debug" "\
-Debug semantic analysis at the current point.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (semantic-analyze-proto-impl-toggle semantic-analyze-current-tag
-;;;;;;  semantic-analyze-tag-references) "semantic-analyze-refs"
-;;;;;;  "cedet/semantic/semantic-analyze-refs.el" (19546 10573))
-;;; Generated autoloads from cedet/semantic/semantic-analyze-refs.el
-
-(autoload 'semantic-analyze-tag-references "semantic-analyze-refs" "\
-Analyze the references for TAG.
-Returns a class with information about TAG.
-
-Optional argument DB is a database.  It will be used to help
-locate TAG.
-
-Use `semantic-analyze-current-tag' to debug this fcn.
-
-\(fn TAG &optional DB)" nil nil)
-
-(autoload 'semantic-analyze-current-tag "semantic-analyze-refs" "\
-Analyze the tag under point.
-
-\(fn)" t nil)
-
-(autoload 'semantic-analyze-proto-impl-toggle "semantic-analyze-refs" "\
-Toggle between the implementation, and a prototype of tag under point.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (semantic-bovinate-stream semantic-lambda) "semantic-bovine"
-;;;;;;  "cedet/semantic/bovine/semantic-bovine.el" (19358 14567))
+;;;### (autoloads (semantic-bovinate-stream semantic-lambda) "semantic/bovine/semantic-bovine"
+;;;;;;  "cedet/semantic/bovine/semantic-bovine.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/bovine/semantic-bovine.el
 
 (defvar semantic-bovinate-nonterminal-check-obarray nil "\
 Obarray of streams already parsed for nonterminal symbols.
 Use this to detect infinite recursion during a parse.")
 
-(autoload 'semantic-lambda "semantic-bovine" "\
+(autoload 'semantic-lambda "semantic/bovine/semantic-bovine" "\
 Create a lambda expression to return a list including RETURN-VAL.
 The return list is a lambda expression to be used in a bovine table.
 
 \(fn &rest RETURN-VAL)" nil (quote macro))
 
-(autoload 'semantic-bovinate-stream "semantic-bovine" "\
+(autoload 'semantic-bovinate-stream "semantic/bovine/semantic-bovine" "\
 Bovinate STREAM, starting at the first NONTERMINAL rule.
 Use `bovine-toplevel' if NONTERMINAL is not provided.
 This is the core routine for converting a stream into a table.
@@ -11248,8 +10901,8 @@ list of semantic tokens found.
 
 ;;;### (autoloads (semantic-c-add-preprocessor-symbol semantic-default-c-setup
 ;;;;;;  semantic-c-member-of-autocast semantic-lex-c-preprocessor-symbol-file
-;;;;;;  semantic-lex-c-preprocessor-symbol-map) "semantic-c" "cedet/semantic/bovine/semantic-c.el"
-;;;;;;  (19546 10661))
+;;;;;;  semantic-lex-c-preprocessor-symbol-map) "semantic/bovine/semantic-c"
+;;;;;;  "cedet/semantic/bovine/semantic-c.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/bovine/semantic-c.el
 
 (defvar semantic-lex-c-preprocessor-symbol-map nil "\
@@ -11279,7 +10932,7 @@ into a C file, and do this:
 
 The output table will describe the symbols needed.")
 
-(custom-autoload 'semantic-lex-c-preprocessor-symbol-map "semantic-c" nil)
+(custom-autoload 'semantic-lex-c-preprocessor-symbol-map "semantic/bovine/semantic-c" nil)
 
 (defvar semantic-lex-c-preprocessor-symbol-file nil "\
 List of C/C++ files that contain preprocessor macros for the C lexer.
@@ -11288,7 +10941,7 @@ are included in every C/C++ file parsed by semantic.
 You can use this variable instead of `semantic-lex-c-preprocessor-symbol-map'
 to store your global macros in a more natural way.")
 
-(custom-autoload 'semantic-lex-c-preprocessor-symbol-file "semantic-c" nil)
+(custom-autoload 'semantic-lex-c-preprocessor-symbol-file "semantic/bovine/semantic-c" nil)
 
 (defvar semantic-c-member-of-autocast 't "\
 Non-nil means classes with a '->' operator will cast to its return type.
@@ -11307,14 +10960,14 @@ if `semantic-c-member-of-autocast' is non-nil :
 if `semantic-c-member-of-autocast' is nil :
   foo->[here completion will list method of Foo]")
 
-(custom-autoload 'semantic-c-member-of-autocast "semantic-c" t)
+(custom-autoload 'semantic-c-member-of-autocast "semantic/bovine/semantic-c" t)
 
-(autoload 'semantic-default-c-setup "semantic-c" "\
+(autoload 'semantic-default-c-setup "semantic/bovine/semantic-c" "\
 Set up a buffer for semantic parsing of the C language.
 
 \(fn)" nil nil)
 
-(autoload 'semantic-c-add-preprocessor-symbol "semantic-c" "\
+(autoload 'semantic-c-add-preprocessor-symbol "semantic/bovine/semantic-c" "\
 Add a preprocessor symbol SYM with a REPLACEMENT value.
 
 \(fn SYM REPLACEMENT)" t nil)
@@ -11325,13 +10978,420 @@ Add a preprocessor symbol SYM with a REPLACEMENT value.
 
 ;;;***
 
+;;;### (autoloads (semantic-clang-activate) "semantic/bovine/semantic-clang"
+;;;;;;  "cedet/semantic/bovine/semantic-clang.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/bovine/semantic-clang.el
+
+(autoload 'semantic-clang-activate "semantic/bovine/semantic-clang" "\
+Activate clang completions for C/C++.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (semantic-default-elisp-setup) "semantic/bovine/semantic-el"
+;;;;;;  "cedet/semantic/bovine/semantic-el.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/bovine/semantic-el.el
+
+(autoload 'semantic-default-elisp-setup "semantic/bovine/semantic-el" "\
+Setup hook function for Emacs Lisp files and Semantic.
+
+\(fn)" nil nil)
+
+(add-hook 'emacs-lisp-mode-hook 'semantic-default-elisp-setup)
+
+(add-hook 'lisp-mode-hook 'semantic-default-elisp-setup)
+
+(eval-after-load "semanticdb" '(require 'semanticdb-el))
+
+;;;***
+
+;;;### (autoloads (semantic-default-f90-setup) "semantic/bovine/semantic-f90"
+;;;;;;  "cedet/semantic/bovine/semantic-f90.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/bovine/semantic-f90.el
+
+(autoload 'semantic-default-f90-setup "semantic/bovine/semantic-f90" "\
+Set up a buffer for semantic parsing of the F90 language.
+
+\(fn)" nil nil)
+
+(add-hook 'f90-mode-hook 'semantic-default-f90-setup)
+
+;;;***
+
+;;;### (autoloads (semantic-gcc-test-output-parser-this-machine semantic-gcc-test-output-parser
+;;;;;;  semantic-gcc-setup) "semantic/bovine/semantic-gcc" "cedet/semantic/bovine/semantic-gcc.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/semantic/bovine/semantic-gcc.el
+
+(autoload 'semantic-gcc-setup "semantic/bovine/semantic-gcc" "\
+Setup Semantic C/C++ parsing based on GCC output.
+
+\(fn)" t nil)
+
+(autoload 'semantic-gcc-test-output-parser "semantic/bovine/semantic-gcc" "\
+Test the output parser against some collected strings.
+
+\(fn)" t nil)
+
+(autoload 'semantic-gcc-test-output-parser-this-machine "semantic/bovine/semantic-gcc" "\
+Test the output parser against the machine currently running Emacs.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (semantic-default-make-setup) "semantic/bovine/semantic-make"
+;;;;;;  "cedet/semantic/bovine/semantic-make.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/bovine/semantic-make.el
+
+(autoload 'semantic-default-make-setup "semantic/bovine/semantic-make" "\
+Set up a Makefile buffer for parsing with semantic.
+
+\(fn)" nil nil)
+
+(add-hook 'makefile-mode-hook 'semantic-default-make-setup)
+
+;;;***
+
+;;;### (autoloads (semantic-default-scheme-setup) "semantic/bovine/semantic-scm"
+;;;;;;  "cedet/semantic/bovine/semantic-scm.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/bovine/semantic-scm.el
+
+(autoload 'semantic-default-scheme-setup "semantic/bovine/semantic-scm" "\
+Setup hook function for Emacs Lisp files and Semantic.
+
+\(fn)" nil nil)
+
+(add-hook 'scheme-mode-hook 'semantic-default-scheme-setup)
+
+;;;***
+
+;;;### (autoloads (semantic-default-skel-setup) "semantic/bovine/semantic-skel"
+;;;;;;  "cedet/semantic/bovine/semantic-skel.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/bovine/semantic-skel.el
+
+(autoload 'semantic-default-skel-setup "semantic/bovine/semantic-skel" "\
+Set up a buffer for semantic parsing of the skeleton language.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (semantic-load-enable-primary-exuberent-ctags-support)
+;;;;;;  "semantic/ctags/semantic-ectag-lang" "cedet/semantic/ctags/semantic-ectag-lang.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/semantic/ctags/semantic-ectag-lang.el
+
+(autoload 'semantic-load-enable-primary-exuberent-ctags-support "semantic/ctags/semantic-ectag-lang" "\
+Enable all ectag supported parsers for new languages.
+This is support for any language that does not have a regular
+semantic parser.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (semantic-load-enable-secondary-exuberent-ctags-support)
+;;;;;;  "semantic/ctags/semantic-ectag-lang2" "cedet/semantic/ctags/semantic-ectag-lang2.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/semantic/ctags/semantic-ectag-lang2.el
+
+(autoload 'semantic-load-enable-secondary-exuberent-ctags-support "semantic/ctags/semantic-ectag-lang2" "\
+Enable exuberent ctags support as a secondary parser.
+This is for semanticdb out-of-buffer parsing support.
+Any mode that has been tested to work will be added to this function.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (semantic-ectag-parse-buffer) "semantic/ctags/semantic-ectag-parse"
+;;;;;;  "cedet/semantic/ctags/semantic-ectag-parse.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/ctags/semantic-ectag-parse.el
+
+(autoload 'semantic-ectag-parse-buffer "semantic/ctags/semantic-ectag-parse" "\
+Execute Exuberent CTags on this buffer.
+Convert the output tags into Semantic tags.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (semanticdb-enable-exuberent-ctags) "semantic/ctags/semanticdb-ectag"
+;;;;;;  "cedet/semantic/ctags/semanticdb-ectag.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/ctags/semanticdb-ectag.el
+
+(autoload 'semanticdb-enable-exuberent-ctags "semantic/ctags/semanticdb-ectag" "\
+Enable the use of exuberent ctags for out-of-buffer parsing for MODE.
+MODE is a `major-mode' symbol used.
+Throws an error if `semantic-ectag-program' is not of the correct
+version needed by Semantic ctags support.
+
+\(fn MODE)" t nil)
+
+;;;***
+
+;;;### (autoloads (semantic-bovinate-toplevel semantic-refresh-tags-safe
+;;;;;;  semantic-fetch-tags semantic-parse-region-default) "semantic/semantic"
+;;;;;;  "cedet/semantic/semantic.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/semantic.el
+
+(autoload 'semantic-parse-region-default "semantic/semantic" "\
+Parse the area between START and END, and return any tags found.
+If END needs to be extended due to a lexical token being too large,
+it will be silently ignored.
+Optional arguments:
+NONTERMINAL is the rule to start parsing at if it is known.
+DEPTH specifies the lexical depth to scan.
+RETURNONERROR specifies that parsing should end when encountering
+unterminated syntax.
+
+\(fn START END &optional NONTERMINAL DEPTH RETURNONERROR)" nil nil)
+
+(autoload 'semantic-fetch-tags "semantic/semantic" "\
+Fetch semantic tags from the current buffer.
+If the buffer cache is up to date, return that.
+If the buffer cache is out of date, attempt an incremental reparse.
+If the buffer has not been parsed before, or if the incremental reparse
+fails, then parse the entire buffer.
+If a lexical error had been previously discovered and the buffer
+was marked unparseable, then do nothing, and return the cache.
+
+\(fn)" nil nil)
+
+(autoload 'semantic-refresh-tags-safe "semantic/semantic" "\
+Refresh the current buffer's tags safely.
+
+Return non-nil if the refresh was successful.
+Return nil if there is some sort of syntax error preventing a reparse.
+
+Does nothing if the current buffer doesn't need reparsing.
+
+\(fn)" nil nil)
+
+(autoload 'semantic-bovinate-toplevel "semantic/semantic" "\
+Backward compatibility function.
+
+\(fn &optional IGNORED)" nil nil)
+
+(make-obsolete 'semantic-bovinate-toplevel 'semantic-fetch-tags)
+
+(defsubst semantic-fetch-available-tags nil "\
+Fetch available semantic tags from the current buffer.
+That is, return tags currently in the cache without parsing the
+current buffer.
+Parse operations happen asynchronously when needed on Emacs idle time.
+Use the `semantic-after-toplevel-cache-change-hook' and
+`semantic-after-partial-cache-change-hook' hooks to synchronize with
+new tags when they become available." semantic--buffer-cache)
+
+;;;***
+
+;;;### (autoloads (semanticdb-debug-file-tag-check semantic-adebug-searchdb
+;;;;;;  semantic-adebug-bovinate data-debug-insert-db-and-tag-button
+;;;;;;  data-debug-insert-find-results-button data-debug-insert-find-results
+;;;;;;  data-debug-insert-tag-list-button data-debug-insert-tag-list
+;;;;;;  data-debug-insert-tag data-debug-insert-tag-parts-from-point)
+;;;;;;  "semantic/semantic-adebug" "cedet/semantic/semantic-adebug.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/semantic/semantic-adebug.el
+
+(autoload 'data-debug-insert-tag-parts-from-point "semantic/semantic-adebug" "\
+Call `data-debug-insert-tag-parts' based on text properties at POINT.
+
+\(fn POINT)" nil nil)
+
+(autoload 'data-debug-insert-tag "semantic/semantic-adebug" "\
+Insert TAG into the current buffer at the current point.
+PREFIX specifies text to insert in front of TAG.
+PREBUTTONTEXT is text appearing btewen the prefix and TAG.
+Optional PARENT is the parent tag containing TAG.
+Add text properties needed to allow tag expansion later.
+
+\(fn TAG PREFIX PREBUTTONTEXT &optional PARENT)" nil nil)
+
+(autoload 'data-debug-insert-tag-list "semantic/semantic-adebug" "\
+Insert the tag list TAGLIST with PREFIX.
+Optional argument PARENT specifies the part of TAGLIST.
+
+\(fn TAGLIST PREFIX &optional PARENT)" nil nil)
+
+(autoload 'data-debug-insert-tag-list-button "semantic/semantic-adebug" "\
+Insert a single summary of a TAGLIST.
+PREFIX is the text that preceeds the button.
+PREBUTTONTEXT is some text between PREFIX and the taglist button.
+PARENT is the tag that represents the parent of all the tags.
+
+\(fn TAGLIST PREFIX PREBUTTONTEXT &optional PARENT)" nil nil)
+
+(autoload 'data-debug-insert-find-results "semantic/semantic-adebug" "\
+Insert the find results FINDRES with PREFIX.
+
+\(fn FINDRES PREFIX)" nil nil)
+
+(autoload 'data-debug-insert-find-results-button "semantic/semantic-adebug" "\
+Insert a single summary of a find results FINDRES.
+PREFIX is the text that preceeds the button.
+PREBUTTONTEXT is some text between prefix and the find results button.
+
+\(fn FINDRES PREFIX PREBUTTONTEXT)" nil nil)
+
+(autoload 'data-debug-insert-db-and-tag-button "semantic/semantic-adebug" "\
+Insert a single summary of short list DBTAG of format (DB . TAG).
+PREFIX is the text that preceeds the button.
+PREBUTTONTEXT is some text between prefix and the find results button.
+
+\(fn DBTAG PREFIX PREBUTTONTEXT)" nil nil)
+
+(autoload 'semantic-adebug-bovinate "semantic/semantic-adebug" "\
+The same as `bovinate'.  Display the results in a debug buffer.
+
+\(fn)" t nil)
+
+(autoload 'semantic-adebug-searchdb "semantic/semantic-adebug" "\
+Search the semanticdb for REGEX for the current buffer.
+Display the results as a debug list.
+
+\(fn REGEX)" t nil)
+
+(autoload 'semanticdb-debug-file-tag-check "semantic/semantic-adebug" "\
+Report debug info for checking STARTFILE for up-to-date tags.
+
+\(fn STARTFILE)" t nil)
+
+;;;***
+
+;;;### (autoloads (semantic-adebug-analyze semantic-analyze-current-context
+;;;;;;  semantic-analyze-current-symbol) "semantic/semantic-analyze"
+;;;;;;  "cedet/semantic/semantic-analyze.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/semantic-analyze.el
+
+(autoload 'semantic-analyze-current-symbol "semantic/semantic-analyze" "\
+Call ANALYZEHOOKFCN after analyzing the symbol under POSITION.
+The ANALYZEHOOKFCN is called with the current symbol bounds, and the
+analyzed prefix.  It should take the arguments (START END PREFIX).
+The ANALYZEHOOKFCN is only called if some sort of prefix with bounds was
+found under POSITION.
+
+The results of ANALYZEHOOKFCN is returned, or nil if there was nothing to
+call it with.
+
+For regular analysis, you should call `semantic-analyze-current-context'
+to calculate the context information.  The purpose for this function is
+to provide a large number of non-cached analysis for filtering symbols.
+
+\(fn ANALYZEHOOKFCN &optional POSITION)" nil nil)
+
+(autoload 'semantic-analyze-current-context "semantic/semantic-analyze" "\
+Analyze the current context at optional POSITION.
+If called interactively, display interesting information about POSITION
+in a separate buffer.
+Returns an object based on symbol `semantic-analyze-context'.
+
+This function can be overriden with the symbol `analyze-context'.
+When overriding this function, your override will be called while
+cursor is at POSITION.  In addition, your function will not be called
+if a cached copy of the return object is found.
+
+\(fn &optional POSITION)" t nil)
+
+(autoload 'semantic-adebug-analyze "semantic/semantic-analyze" "\
+Perform `semantic-analyze-current-context'.
+Display the results as a debug list.
+Optional argument CTXT is the context to show.
+
+\(fn &optional CTXT)" t nil)
+
+;;;***
+
+;;;### (autoloads (semantic-analyze-possible-completions semantic-analyze-tags-of-class-list
+;;;;;;  semantic-analyze-type-constants) "semantic/semantic-analyze-complete"
+;;;;;;  "cedet/semantic/semantic-analyze-complete.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/semantic-analyze-complete.el
+
+(autoload 'semantic-analyze-type-constants "semantic/semantic-analyze-complete" "\
+For the tag TYPE, return any constant symbols of TYPE.
+Used as options when completing.
+
+\(fn TYPE)" nil nil)
+
+(autoload 'semantic-analyze-tags-of-class-list "semantic/semantic-analyze-complete" "\
+Return the tags in TAGS that are of classes in CLASSLIST.
+
+\(fn TAGS CLASSLIST)" nil nil)
+
+(autoload 'semantic-analyze-possible-completions "semantic/semantic-analyze-complete" "\
+Return a list of semantic tags which are possible completions.
+CONTEXT is either a position (such as point), or a precalculated
+context.  Passing in a context is useful if the caller also needs
+to access parts of the analysis.
+The remaining FLAGS arguments are passed to the mode specific completion engine.
+Bad flags should be ignored by modes that don't use them.
+See `semantic-analyze-possible-completions-default' for details on the default FLAGS.
+
+Completions run through the following filters:
+  * Elements currently in scope
+  * Constants currently in scope
+  * Elements match the :prefix in the CONTEXT.
+  * Type of the completion matches the type of the context.
+Context type matching can identify the following:
+  * No specific type
+  * Assignment into a variable of some type.
+  * Argument to a function with type constraints.
+When called interactively, displays the list of possible completions
+in a buffer.
+
+\(fn CONTEXT &rest FLAGS)" t nil)
+
+;;;***
+
+;;;### (autoloads (semantic-analyze-debug-assist) "semantic/semantic-analyze-debug"
+;;;;;;  "cedet/semantic/semantic-analyze-debug.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/semantic-analyze-debug.el
+
+(autoload 'semantic-analyze-debug-assist "semantic/semantic-analyze-debug" "\
+Debug semantic analysis at the current point.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (semantic-analyze-proto-impl-toggle semantic-analyze-current-tag
+;;;;;;  semantic-analyze-tag-references) "semantic/semantic-analyze-refs"
+;;;;;;  "cedet/semantic/semantic-analyze-refs.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/semantic-analyze-refs.el
+
+(autoload 'semantic-analyze-tag-references "semantic/semantic-analyze-refs" "\
+Analyze the references for TAG.
+Returns a class with information about TAG.
+
+Optional argument DB is a database.  It will be used to help
+locate TAG.
+
+Use `semantic-analyze-current-tag' to debug this fcn.
+
+\(fn TAG &optional DB)" nil nil)
+
+(autoload 'semantic-analyze-current-tag "semantic/semantic-analyze-refs" "\
+Analyze the tag under point.
+
+\(fn)" t nil)
+
+(autoload 'semantic-analyze-proto-impl-toggle "semantic/semantic-analyze-refs" "\
+Toggle between the implementation, and a prototype of tag under point.
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads (semantic-chart-analyzer semantic-chart-tag-complexity
 ;;;;;;  semantic-chart-database-size semantic-chart-tags-by-class)
-;;;;;;  "semantic-chart" "cedet/semantic/semantic-chart.el" (19358
-;;;;;;  14566))
+;;;;;;  "semantic/semantic-chart" "cedet/semantic/semantic-chart.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-chart.el
 
-(autoload 'semantic-chart-tags-by-class "semantic-chart" "\
+(autoload 'semantic-chart-tags-by-class "semantic/semantic-chart" "\
 Create a bar chart representing the number of tags for a given tag class.
 Each bar represents how many toplevel tags in TAGTABLE
 exist with a given class.  See `semantic-symbol->name-assoc-list'
@@ -11340,7 +11400,7 @@ TAGTABLE is passed to `semantic-something-to-tag-table'.
 
 \(fn &optional TAGTABLE)" t nil)
 
-(autoload 'semantic-chart-database-size "semantic-chart" "\
+(autoload 'semantic-chart-database-size "semantic/semantic-chart" "\
 Create a bar chart representing the size of each file in semanticdb.
 Each bar represents how many toplevel tags in TAGTABLE
 exist in each database entry.
@@ -11348,7 +11408,7 @@ TAGTABLE is passed to `semantic-something-to-tag-table'.
 
 \(fn &optional TAGTABLE)" t nil)
 
-(autoload 'semantic-chart-tag-complexity "semantic-chart" "\
+(autoload 'semantic-chart-tag-complexity "semantic/semantic-chart" "\
 Create a bar chart representing the complexity of some tags.
 Complexity is calculated for tags of CLASS.  Each bar represents
 the complexity of some tag in TAGTABLE.  Only the most complex
@@ -11357,7 +11417,7 @@ items are charted.  TAGTABLE is passed to
 
 \(fn &optional CLASS TAGTABLE)" t nil)
 
-(autoload 'semantic-chart-analyzer "semantic-chart" "\
+(autoload 'semantic-chart-analyzer "semantic/semantic-chart" "\
 Chart the extent of the context analysis.
 
 \(fn)" t nil)
@@ -11371,17 +11431,18 @@ Chart the extent of the context analysis.
 ;;;;;;  semantic-complete-inline-analyzer semantic-complete-read-tag-analyzer
 ;;;;;;  semantic-complete-inline-tag-project semantic-complete-read-tag-project
 ;;;;;;  semantic-complete-read-tag-local-members semantic-complete-read-tag-buffer-deep
+;;;;;;  semantic-displayor-tooltip-initial-max-tags semantic-displayor-tooltip-mode
 ;;;;;;  semantic-complete-inline-force-display semantic-complete-read-tag-engine
-;;;;;;  semantic-completion-inline-active-p) "semantic-complete"
-;;;;;;  "cedet/semantic/semantic-complete.el" (19467 49856))
+;;;;;;  semantic-completion-inline-active-p) "semantic/semantic-complete"
+;;;;;;  "cedet/semantic/semantic-complete.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-complete.el
 
-(autoload 'semantic-completion-inline-active-p "semantic-complete" "\
+(autoload 'semantic-completion-inline-active-p "semantic/semantic-complete" "\
 Non-nil if inline completion is active.
 
 \(fn)" nil nil)
 
-(autoload 'semantic-complete-read-tag-engine "semantic-complete" "\
+(autoload 'semantic-complete-read-tag-engine "semantic/semantic-complete" "\
 Read a semantic tag, and return a tag for the selection.
 Argument COLLECTOR is an object which can be used to calculate
 a list of possible hits.  See `semantic-completion-collector-engine'
@@ -11396,13 +11457,38 @@ HISTORY is a symbol representing a variable to story the history in.
 
 \(fn COLLECTOR DISPLAYOR PROMPT DEFAULT-TAG INITIAL-INPUT HISTORY)" nil nil)
 
-(autoload 'semantic-complete-inline-force-display "semantic-complete" "\
+(autoload 'semantic-complete-inline-force-display "semantic/semantic-complete" "\
 Force the display of whatever the current completions are.
 DO NOT CALL THIS IF THE INLINE COMPLETION ENGINE IS NOT ACTIVE.
 
 \(fn)" nil nil)
 
-(autoload 'semantic-complete-read-tag-buffer-deep "semantic-complete" "\
+(defvar semantic-displayor-tooltip-mode 'standard "\
+Mode for the tooltip inline completion.
+
+Standard: Show only `semantic-displayor-tooltip-initial-max-tags'
+number of completions initially.  Pressing TAB will show the
+extended set.
+
+Quiet: Only show completions when we have narrowed all
+posibilities down to a maximum of
+`semantic-displayor-tooltip-initial-max-tags' tags.  Pressing TAB
+multiple times will also show completions.
+
+Verbose: Always show all completions available.
+
+The absolute maximum number of completions for all mode is
+determined through `semantic-displayor-tooltip-max-tags'.")
+
+(custom-autoload 'semantic-displayor-tooltip-mode "semantic/semantic-complete" t)
+
+(defvar semantic-displayor-tooltip-initial-max-tags 5 "\
+Maximum number of tags to be displayed initially.
+See doc-string of `semantic-displayor-tooltip-mode' for details.")
+
+(custom-autoload 'semantic-displayor-tooltip-initial-max-tags "semantic/semantic-complete" t)
+
+(autoload 'semantic-complete-read-tag-buffer-deep "semantic/semantic-complete" "\
 Ask for a tag by name from the current buffer.
 Available tags are from the current buffer, at any level.
 Completion options are presented in a traditional way, with highlighting
@@ -11414,7 +11500,7 @@ HISTORY is a symbol representing a variable to store the history in.
 
 \(fn PROMPT &optional DEFAULT-TAG INITIAL-INPUT HISTORY)" nil nil)
 
-(autoload 'semantic-complete-read-tag-local-members "semantic-complete" "\
+(autoload 'semantic-complete-read-tag-local-members "semantic/semantic-complete" "\
 Ask for a tag by name from the local type members.
 Available tags are from the the current scope.
 Completion options are presented in a traditional way, with highlighting
@@ -11426,7 +11512,7 @@ HISTORY is a symbol representing a variable to store the history in.
 
 \(fn PROMPT &optional DEFAULT-TAG INITIAL-INPUT HISTORY)" nil nil)
 
-(autoload 'semantic-complete-read-tag-project "semantic-complete" "\
+(autoload 'semantic-complete-read-tag-project "semantic/semantic-complete" "\
 Ask for a tag by name from the current project.
 Available tags are from the current project, at the top level.
 Completion options are presented in a traditional way, with highlighting
@@ -11438,7 +11524,7 @@ HISTORY is a symbol representing a variable to store the history in.
 
 \(fn PROMPT &optional DEFAULT-TAG INITIAL-INPUT HISTORY)" nil nil)
 
-(autoload 'semantic-complete-inline-tag-project "semantic-complete" "\
+(autoload 'semantic-complete-inline-tag-project "semantic/semantic-complete" "\
 Complete a symbol name by name from within the current project.
 This is similar to `semantic-complete-read-tag-project', except
 that the completion interaction is in the buffer where the context
@@ -11450,7 +11536,7 @@ completion works.
 
 \(fn)" nil nil)
 
-(autoload 'semantic-complete-read-tag-analyzer "semantic-complete" "\
+(autoload 'semantic-complete-read-tag-analyzer "semantic/semantic-complete" "\
 Ask for a tag by name based on the current context.
 The function `semantic-analyze-current-context' is used to
 calculate the context.  `semantic-analyze-possible-completions' is used
@@ -11464,7 +11550,7 @@ prompts.  these are calculated from the CONTEXT variable passed in.
 
 \(fn PROMPT &optional CONTEXT HISTORY)" nil nil)
 
-(autoload 'semantic-complete-inline-analyzer "semantic-complete" "\
+(autoload 'semantic-complete-inline-analyzer "semantic/semantic-complete" "\
 Complete a symbol name by name based on the current context.
 This is similar to `semantic-complete-read-tag-analyze', except
 that the completion interaction is in the buffer where the context
@@ -11478,7 +11564,7 @@ completion works.
 
 \(fn CONTEXT)" nil nil)
 
-(autoload 'semantic-complete-inline-analyzer-idle "semantic-complete" "\
+(autoload 'semantic-complete-inline-analyzer-idle "semantic/semantic-complete" "\
 Complete a symbol name by name based on the current context for idle time.
 CONTEXT is the semantic analyzer context to start with.
 This function is used from `semantic-idle-completions-mode'.
@@ -11492,22 +11578,22 @@ completion works.
 
 \(fn CONTEXT)" nil nil)
 
-(autoload 'semantic-complete-jump-local "semantic-complete" "\
+(autoload 'semantic-complete-jump-local "semantic/semantic-complete" "\
 Jump to a semantic symbol.
 
 \(fn)" t nil)
 
-(autoload 'semantic-complete-jump "semantic-complete" "\
+(autoload 'semantic-complete-jump "semantic/semantic-complete" "\
 Jump to a semantic symbol.
 
 \(fn)" t nil)
 
-(autoload 'semantic-complete-jump-local-members "semantic-complete" "\
+(autoload 'semantic-complete-jump-local-members "semantic/semantic-complete" "\
 Jump to a semantic symbol.
 
 \(fn)" t nil)
 
-(autoload 'semantic-complete-analyze-and-replace "semantic-complete" "\
+(autoload 'semantic-complete-analyze-and-replace "semantic/semantic-complete" "\
 Perform prompt completion to do in buffer completion.
 `semantic-analyze-possible-completions' is used to determine the
 possible values.
@@ -11516,7 +11602,7 @@ The result is inserted as a replacement of the text that was there.
 
 \(fn)" t nil)
 
-(autoload 'semantic-complete-analyze-inline "semantic-complete" "\
+(autoload 'semantic-complete-analyze-inline "semantic/semantic-complete" "\
 Perform prompt completion to do in buffer completion.
 `semantic-analyze-possible-completions' is used to determine the
 possible values.
@@ -11527,7 +11613,7 @@ how completion options are displayed.
 
 \(fn)" t nil)
 
-(autoload 'semantic-complete-analyze-inline-idle "semantic-complete" "\
+(autoload 'semantic-complete-analyze-inline-idle "semantic/semantic-complete" "\
 Perform prompt completion to do in buffer completion.
 `semantic-analyze-possible-completions' is used to determine the
 possible values.
@@ -11538,7 +11624,7 @@ to change how completion options are displayed.
 
 \(fn)" t nil)
 
-(autoload 'semantic-complete-self-insert "semantic-complete" "\
+(autoload 'semantic-complete-self-insert "semantic/semantic-complete" "\
 Like `self-insert-command', but does completion afterwards.
 ARG is passed to `self-insert-command'.  If ARG is nil,
 use `semantic-complete-analyze-inline' to complete.
@@ -11547,8 +11633,8 @@ use `semantic-complete-analyze-inline' to complete.
 
 ;;;***
 
-;;;### (autoloads nil "semantic-ctxt" "cedet/semantic/semantic-ctxt.el"
-;;;;;;  (19358 14566))
+;;;### (autoloads nil "semantic/semantic-ctxt" "cedet/semantic/semantic-ctxt.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-ctxt.el
 
 (defvar semantic-command-separation-character ";" "\
@@ -11560,24 +11646,24 @@ Used for identifying the end of a single command.")
 ;;;### (autoloads (semantic-tag-customize semantic-tag-widget-to-external
 ;;;;;;  semantic-tag-widget-to-internal semantic-tag-widget-value-get
 ;;;;;;  semantic-tag-widget-value-create semantic-tag-widget-match)
-;;;;;;  "semantic-custom" "cedet/semantic/semantic-custom.el" (18878
-;;;;;;  61311))
+;;;;;;  "semantic/semantic-custom" "cedet/semantic/semantic-custom.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-custom.el
 
 (define-widget 'tag-edit 'group "\
 Abstractly modify a Semantic Tag." :tag "Tag" :format "%v" :convert-widget (quote widget-types-convert-widget) :value-create (quote semantic-tag-widget-value-create) :value-get (quote semantic-tag-widget-value-get) :value-delete (quote widget-children-value-delete) :validate (quote widget-children-validate) :match (quote semantic-tag-widget-match) :clone-object-children nil)
 
-(autoload 'semantic-tag-widget-match "semantic-custom" "\
+(autoload 'semantic-tag-widget-match "semantic/semantic-custom" "\
 Match infor for WIDGET against VALUE.
 
 \(fn WIDGET VALUE)" nil nil)
 
-(autoload 'semantic-tag-widget-value-create "semantic-custom" "\
+(autoload 'semantic-tag-widget-value-create "semantic/semantic-custom" "\
 Create the value of WIDGET.
 
 \(fn WIDGET)" nil nil)
 
-(autoload 'semantic-tag-widget-value-get "semantic-custom" "\
+(autoload 'semantic-tag-widget-value-get "semantic/semantic-custom" "\
 Get the value out of WIDGET.
 
 \(fn WIDGET)" nil nil)
@@ -11586,17 +11672,17 @@ Get the value out of WIDGET.
 A Semantic Tag." :format "%{%t%}:
 %v" :value-to-internal (quote semantic-tag-widget-to-internal) :value-to-external (quote semantic-tag-widget-to-external) :close-object-children t)
 
-(autoload 'semantic-tag-widget-to-internal "semantic-custom" "\
+(autoload 'semantic-tag-widget-to-internal "semantic/semantic-custom" "\
 For WIDGET, convert VALUE to a safe representation.
 
 \(fn WIDGET VALUE)" nil nil)
 
-(autoload 'semantic-tag-widget-to-external "semantic-custom" "\
+(autoload 'semantic-tag-widget-to-external "semantic/semantic-custom" "\
 For WIDGET, convert VALUE from the abstract value.
 
 \(fn WIDGET VALUE)" nil nil)
 
-(autoload 'semantic-tag-customize "semantic-custom" "\
+(autoload 'semantic-tag-customize "semantic/semantic-custom" "\
 Customize TAG.
 When the user clicks 'ACCEPT', then the location where TAG
 is stored is directly modified.
@@ -11606,8 +11692,8 @@ If TAG is not provided, then the tag under point is used.
 
 ;;;***
 
-;;;### (autoloads (semantic-debug semantic-debug-break) "semantic-debug"
-;;;;;;  "cedet/semantic/semantic-debug.el" (19358 14566))
+;;;### (autoloads (semantic-debug semantic-debug-break) "semantic/semantic-debug"
+;;;;;;  "cedet/semantic/semantic-debug.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-debug.el
 
 (defvar semantic-debug-parser-source nil "\
@@ -11625,7 +11711,7 @@ Class to create when building a debug parser object.")
 (defvar semantic-debug-enabled nil "\
 Non-nil when debugging a parser.")
 
-(autoload 'semantic-debug-break "semantic-debug" "\
+(autoload 'semantic-debug-break "semantic/semantic-debug" "\
 Stop parsing now at FRAME.
 FRAME is an object that represents the parser's view of the
 current state of the world.
@@ -11637,7 +11723,7 @@ on different types of return values.
 
 \(fn FRAME)" nil nil)
 
-(autoload 'semantic-debug "semantic-debug" "\
+(autoload 'semantic-debug "semantic/semantic-debug" "\
 Parse the current buffer and run in debug mode.
 
 \(fn)" t nil)
@@ -11650,51 +11736,51 @@ Parse the current buffer and run in debug mode.
 ;;;;;;  semantic-tag-read-only-p semantic-set-tag-read-only semantic-tag-intangible-p
 ;;;;;;  semantic-set-tag-intangible semantic-tag-invisible-p semantic-set-tag-invisible
 ;;;;;;  semantic-set-tag-face semantic-momentary-highlight-tag semantic-momentary-highlight-one-tag-line
-;;;;;;  semantic-unhighlight-tag semantic-highlight-tag) "semantic-decorate"
-;;;;;;  "cedet/semantic/semantic-decorate.el" (19269 17789))
+;;;;;;  semantic-unhighlight-tag semantic-highlight-tag) "semantic/semantic-decorate"
+;;;;;;  "cedet/semantic/semantic-decorate.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-decorate.el
 
-(autoload 'semantic-highlight-tag "semantic-decorate" "\
+(autoload 'semantic-highlight-tag "semantic/semantic-decorate" "\
 Specify that TAG should be highlighted.
 Optional FACE specifies the face to use.
 
 \(fn TAG &optional FACE)" nil nil)
 
-(autoload 'semantic-unhighlight-tag "semantic-decorate" "\
+(autoload 'semantic-unhighlight-tag "semantic/semantic-decorate" "\
 Unhighlight TAG, restoring its previous face.
 
 \(fn TAG)" nil nil)
 
-(autoload 'semantic-momentary-highlight-one-tag-line "semantic-decorate" "\
+(autoload 'semantic-momentary-highlight-one-tag-line "semantic/semantic-decorate" "\
 Highlight the first line of TAG, unhighlighting before next command.
 Optional argument FACE specifies the face to do the highlighting.
 
 \(fn TAG &optional FACE)" nil nil)
 
-(autoload 'semantic-momentary-highlight-tag "semantic-decorate" "\
+(autoload 'semantic-momentary-highlight-tag "semantic/semantic-decorate" "\
 Highlight TAG, removing highlighting when the user hits a key.
 Optional argument FACE is the face to use for highlighting.
 If FACE is not specified, then `highlight' will be used.
 
 \(fn TAG &optional FACE)" nil nil)
 
-(autoload 'semantic-set-tag-face "semantic-decorate" "\
+(autoload 'semantic-set-tag-face "semantic/semantic-decorate" "\
 Specify that TAG should use FACE for display.
 
 \(fn TAG FACE)" nil nil)
 
-(autoload 'semantic-set-tag-invisible "semantic-decorate" "\
+(autoload 'semantic-set-tag-invisible "semantic/semantic-decorate" "\
 Enable the text in TAG to be made invisible.
 If VISIBLE is non-nil, make the text visible.
 
 \(fn TAG &optional VISIBLE)" nil nil)
 
-(autoload 'semantic-tag-invisible-p "semantic-decorate" "\
+(autoload 'semantic-tag-invisible-p "semantic/semantic-decorate" "\
 Return non-nil if TAG is invisible.
 
 \(fn TAG)" nil nil)
 
-(autoload 'semantic-set-tag-intangible "semantic-decorate" "\
+(autoload 'semantic-set-tag-intangible "semantic/semantic-decorate" "\
 Enable the text in TAG to be made intangible.
 If TANGIBLE is non-nil, make the text visible.
 This function does not have meaning in XEmacs because it seems that
@@ -11702,21 +11788,21 @@ the extent 'intangible' property does not exist.
 
 \(fn TAG &optional TANGIBLE)" nil nil)
 
-(autoload 'semantic-tag-intangible-p "semantic-decorate" "\
+(autoload 'semantic-tag-intangible-p "semantic/semantic-decorate" "\
 Return non-nil if TAG is intangible.
 This function does not have meaning in XEmacs because it seems that
 the extent 'intangible' property does not exist.
 
 \(fn TAG)" nil nil)
 
-(autoload 'semantic-set-tag-read-only "semantic-decorate" "\
+(autoload 'semantic-set-tag-read-only "semantic/semantic-decorate" "\
 Enable the text in TAG to be made read-only.
 Optional argument WRITABLE should be non-nil to make the text writable
 instead of read-only.
 
 \(fn TAG &optional WRITABLE)" nil nil)
 
-(autoload 'semantic-tag-read-only-p "semantic-decorate" "\
+(autoload 'semantic-tag-read-only-p "semantic/semantic-decorate" "\
 Return non-nil if the current TAG is marked read only.
 
 \(fn TAG)" nil nil)
@@ -11741,12 +11827,12 @@ Return non-nil if the current TAG is marked read only.
 
 (semantic-alias-obsolete 'semantic-token-read-only-p 'semantic-tag-read-only-p)
 
-(autoload 'semantic-tag-secondary-overlays "semantic-decorate" "\
+(autoload 'semantic-tag-secondary-overlays "semantic/semantic-decorate" "\
 Return a list of secondary overlays active on TAG.
 
 \(fn TAG)" nil nil)
 
-(autoload 'semantic-tag-create-secondary-overlay "semantic-decorate" "\
+(autoload 'semantic-tag-create-secondary-overlay "semantic/semantic-decorate" "\
 Create a secondary overlay for TAG.
 Returns an overlay.  The overlay is also saved in TAG.
 LINK-HOOK is a function called whenever TAG is to be linked into
@@ -11756,27 +11842,27 @@ generated secondary overlay.
 
 \(fn TAG &optional LINK-HOOK)" nil nil)
 
-(autoload 'semantic-tag-get-secondary-overlay "semantic-decorate" "\
+(autoload 'semantic-tag-get-secondary-overlay "semantic/semantic-decorate" "\
 Return secondary overlays from TAG with PROPERTY.
 PROPERTY is a symbol and all overlays with that symbol are returned..
 
 \(fn TAG PROPERTY)" nil nil)
 
-(autoload 'semantic-tag-delete-secondary-overlay "semantic-decorate" "\
+(autoload 'semantic-tag-delete-secondary-overlay "semantic/semantic-decorate" "\
 Delete from TAG the secondary overlay OVERLAY-OR-PROPERTY.
 If OVERLAY-OR-PROPERTY is an overlay, delete that overlay.
 If OVERLAY-OR-PROPERTY is a symbol, find the overlay with that property.
 
 \(fn TAG OVERLAY-OR-PROPERTY)" nil nil)
 
-(autoload 'semantic-set-tag-folded "semantic-decorate" "\
+(autoload 'semantic-set-tag-folded "semantic/semantic-decorate" "\
 Fold TAG, such that only the first line of text is shown.
 Optional argument FOLDED should be non-nil to fold the tag.
 nil implies the tag should be fully shown.
 
 \(fn TAG &optional FOLDED)" nil nil)
 
-(autoload 'semantic-tag-folded-p "semantic-decorate" "\
+(autoload 'semantic-tag-folded-p "semantic/semantic-decorate" "\
 Non-nil if TAG is currently folded.
 
 \(fn TAG)" nil nil)
@@ -11784,16 +11870,16 @@ Non-nil if TAG is currently folded.
 ;;;***
 
 ;;;### (autoloads (semantic-decoration-unparsed-include-do-reset
-;;;;;;  semantic-decoration-include-visit) "semantic-decorate-include"
-;;;;;;  "cedet/semantic/semantic-decorate-include.el" (19390 35142))
+;;;;;;  semantic-decoration-include-visit) "semantic/semantic-decorate-include"
+;;;;;;  "cedet/semantic/semantic-decorate-include.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-decorate-include.el
 
-(autoload 'semantic-decoration-include-visit "semantic-decorate-include" "\
+(autoload 'semantic-decoration-include-visit "semantic/semantic-decorate-include" "\
 Visit the included file at point.
 
 \(fn)" t nil)
 
-(autoload 'semantic-decoration-unparsed-include-do-reset "semantic-decorate-include" "\
+(autoload 'semantic-decoration-unparsed-include-do-reset "semantic/semantic-decorate-include" "\
 Do a reset of unparsed includes in the current buffer.
 
 \(fn)" nil nil)
@@ -11802,11 +11888,11 @@ Do a reset of unparsed includes in the current buffer.
 
 ;;;### (autoloads (semantic-build-decoration-mode-menu semantic-decoration-mode
 ;;;;;;  global-semantic-decoration-mode global-semantic-decoration-mode
-;;;;;;  semantic-decorate-flush-pending-decorations) "semantic-decorate-mode"
-;;;;;;  "cedet/semantic/semantic-decorate-mode.el" (19390 34976))
+;;;;;;  semantic-decorate-flush-pending-decorations) "semantic/semantic-decorate-mode"
+;;;;;;  "cedet/semantic/semantic-decorate-mode.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-decorate-mode.el
 
-(autoload 'semantic-decorate-flush-pending-decorations "semantic-decorate-mode" "\
+(autoload 'semantic-decorate-flush-pending-decorations "semantic/semantic-decorate-mode" "\
 Flush any pending decorations for BUFFER.
 Flush functions from `semantic-decorate-pending-decoration-hook'.
 
@@ -11817,9 +11903,9 @@ Flush functions from `semantic-decorate-pending-decoration-hook'.
 When this mode is activated, decorations specified by
 `semantic-decoration-styles'.")
 
-(custom-autoload 'global-semantic-decoration-mode "semantic-decorate-mode" nil)
+(custom-autoload 'global-semantic-decoration-mode "semantic/semantic-decorate-mode" nil)
 
-(autoload 'global-semantic-decoration-mode "semantic-decorate-mode" "\
+(autoload 'global-semantic-decoration-mode "semantic/semantic-decorate-mode" "\
 Toggle global use of option `semantic-decoration-mode'.
 Decoration mode turns on all active decorations as specified
 by `semantic-decoration-styles'.
@@ -11832,7 +11918,7 @@ If ARG is nil, then toggle.
 Non-nil if command `semantic-decoration-mode' is enabled.
 Use the command `semantic-decoration-mode' to change this variable.")
 
-(autoload 'semantic-decoration-mode "semantic-decorate-mode" "\
+(autoload 'semantic-decoration-mode "semantic/semantic-decorate-mode" "\
 Minor mode for decorating tags.
 Decorations are specified in `semantic-decoration-styles'.
 You can define new decoration styles with
@@ -11844,7 +11930,7 @@ minor mode is enabled.
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'semantic-build-decoration-mode-menu "semantic-decorate-mode" "\
+(autoload 'semantic-build-decoration-mode-menu "semantic/semantic-decorate-mode" "\
 Create a menu listing all the known decorations for toggling.
 IGNORE any input arguments.
 
@@ -11855,7 +11941,8 @@ IGNORE any input arguments.
 ;;;### (autoloads (semantic-dependency-find-file-on-path semantic-customize-system-include-path
 ;;;;;;  semantic-reset-system-include semantic-remove-system-include
 ;;;;;;  semantic-add-system-include defcustom-mode-local-semantic-dependency-system-include-path)
-;;;;;;  "semantic-dep" "cedet/semantic/semantic-dep.el" (19358 14566))
+;;;;;;  "semantic/semantic-dep" "cedet/semantic/semantic-dep.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-dep.el
 
 (defvar semantic-dependency-include-path nil "\
@@ -11890,7 +11977,7 @@ class include, this path will be inspected for includes of type
 `system'.  Some include tags are agnostic to this setting and will
 check both the project and system directories.")
 
-(autoload 'defcustom-mode-local-semantic-dependency-system-include-path "semantic-dep" "\
+(autoload 'defcustom-mode-local-semantic-dependency-system-include-path "semantic/semantic-dep" "\
 Create a mode-local value of the system-dependency include path.
 MODE is the `major-mode' this name/value pairs is for.
 NAME is the name of the customizable value users will use.
@@ -11903,7 +11990,7 @@ keep semantic data structures up to date.
 
 \(fn MODE NAME VALUE &optional DOCSTRING)" nil (quote macro))
 
-(autoload 'semantic-add-system-include "semantic-dep" "\
+(autoload 'semantic-add-system-include "semantic/semantic-dep" "\
 Add a system include DIR to path for MODE.
 Modifies a mode-local version of `semantic-dependency-system-include-path'.
 
@@ -11911,7 +11998,7 @@ Changes made by this function are not persistent.
 
 \(fn DIR &optional MODE)" t nil)
 
-(autoload 'semantic-remove-system-include "semantic-dep" "\
+(autoload 'semantic-remove-system-include "semantic/semantic-dep" "\
 Add a system include DIR to path for MODE.
 Modifies a mode-local version of`semantic-dependency-system-include-path'.
 
@@ -11919,21 +12006,21 @@ Changes made by this function are not persistent.
 
 \(fn DIR &optional MODE)" t nil)
 
-(autoload 'semantic-reset-system-include "semantic-dep" "\
+(autoload 'semantic-reset-system-include "semantic/semantic-dep" "\
 Reset the system include list to empty for MODE.
 Modifies a mode-local version of
 `semantic-dependency-system-include-path'.
 
 \(fn &optional MODE)" t nil)
 
-(autoload 'semantic-customize-system-include-path "semantic-dep" "\
+(autoload 'semantic-customize-system-include-path "semantic/semantic-dep" "\
 Customize the include path for this `major-mode'.
 To create a customizable include path for a major MODE, use the
 macro `defcustom-mode-local-semantic-dependency-system-include-path'.
 
 \(fn &optional MODE)" t nil)
 
-(autoload 'semantic-dependency-find-file-on-path "semantic-dep" "\
+(autoload 'semantic-dependency-find-file-on-path "semantic/semantic-dep" "\
 Return an expanded file name for FILE on available paths.
 If SYSTEMP is true, then only search system paths.
 If optional argument MODE is non-nil, then derive paths from the
@@ -11944,11 +12031,11 @@ provided mode, not from the current major mode.
 ;;;***
 
 ;;;### (autoloads (semantic-documentation-comment-preceeding-tag
-;;;;;;  semantic-documentation-for-tag) "semantic-doc" "cedet/semantic/semantic-doc.el"
-;;;;;;  (19421 29986))
+;;;;;;  semantic-documentation-for-tag) "semantic/semantic-doc" "cedet/semantic/semantic-doc.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-doc.el
 
-(autoload 'semantic-documentation-for-tag "semantic-doc" "\
+(autoload 'semantic-documentation-for-tag "semantic/semantic-doc" "\
 Find documentation from TAG and return it as a clean string.
 TAG might have DOCUMENTATION set in it already.  If not, there may be
 some documentation in a comment preceding TAG's definition which we
@@ -11959,7 +12046,7 @@ If nosnarf if 'lex, then only return the lex token.
 
 \(fn &optional TAG NOSNARF)" nil nil)
 
-(autoload 'semantic-documentation-comment-preceeding-tag "semantic-doc" "\
+(autoload 'semantic-documentation-comment-preceeding-tag "semantic/semantic-doc" "\
 Find a comment preceding TAG.
 If TAG is nil.  use the tag under point.
 Searches the space between TAG and the preceding tag for a comment,
@@ -11973,51 +12060,11 @@ just the lexical token and not the string.
 
 ;;;***
 
-;;;### (autoloads (semantic-load-enable-primary-exuberent-ctags-support)
-;;;;;;  "semantic-ectag-lang" "cedet/semantic/ctags/semantic-ectag-lang.el"
-;;;;;;  (19390 36925))
-;;; Generated autoloads from cedet/semantic/ctags/semantic-ectag-lang.el
-
-(autoload 'semantic-load-enable-primary-exuberent-ctags-support "semantic-ectag-lang" "\
-Enable all ectag supported parsers for new languages.
-This is support for any language that does not have a regular
-semantic parser.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (semantic-load-enable-secondary-exuberent-ctags-support)
-;;;;;;  "semantic-ectag-lang2" "cedet/semantic/ctags/semantic-ectag-lang2.el"
-;;;;;;  (18869 46253))
-;;; Generated autoloads from cedet/semantic/ctags/semantic-ectag-lang2.el
-
-(autoload 'semantic-load-enable-secondary-exuberent-ctags-support "semantic-ectag-lang2" "\
-Enable exuberent ctags support as a secondary parser.
-This is for semanticdb out-of-buffer parsing support.
-Any mode that has been tested to work will be added to this function.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (semantic-ectag-parse-buffer) "semantic-ectag-parse"
-;;;;;;  "cedet/semantic/ctags/semantic-ectag-parse.el" (19390 35527))
-;;; Generated autoloads from cedet/semantic/ctags/semantic-ectag-parse.el
-
-(autoload 'semantic-ectag-parse-buffer "semantic-ectag-parse" "\
-Execute Exuberent CTags on this buffer.
-Convert the output tags into Semantic tags.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads nil "semantic-ede-grammar" "cedet/semantic/semantic-ede-grammar.el"
-;;;;;;  (19358 14566))
+;;;### (autoloads nil "semantic/semantic-ede-grammar" "cedet/semantic/semantic-ede-grammar.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-ede-grammar.el
 
-(eieio-defclass-autoload 'semantic-ede-proj-target-grammar '(ede-proj-target-makefile) "semantic-ede-grammar" "This target consists of a group of grammar files.\nA grammar target consists of grammar files that build Emacs Lisp programs for\nparsing different languages.")
+(eieio-defclass-autoload 'semantic-ede-proj-target-grammar '(ede-proj-target-makefile) "semantic/semantic-ede-grammar" "This target consists of a group of grammar files.\nA grammar target consists of grammar files that build Emacs Lisp programs for\nparsing different languages.")
 
 (autoload 'ede-proj-target-elisp "semantic-ede-proj-target-grammar" "\
 Target class for Emacs/Semantic grammar files." nil nil)
@@ -12028,35 +12075,35 @@ Target class for Emacs/Semantic grammar files." nil nil)
 
 ;;;### (autoloads (semantic-edits-incremental-parser semantic-edits-flush-changes
 ;;;;;;  semantic-edits-change-function-handle-changes semantic-change-function
-;;;;;;  semantic-edits-verbose-flag) "semantic-edit" "cedet/semantic/semantic-edit.el"
-;;;;;;  (19373 12954))
+;;;;;;  semantic-edits-verbose-flag) "semantic/semantic-edit" "cedet/semantic/semantic-edit.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-edit.el
 
 (defvar semantic-edits-verbose-flag nil "\
 Non-nil means the incremental parser is verbose.
 If nil, errors are still displayed, but informative messages are not.")
 
-(custom-autoload 'semantic-edits-verbose-flag "semantic-edit" t)
+(custom-autoload 'semantic-edits-verbose-flag "semantic/semantic-edit" t)
 
-(autoload 'semantic-change-function "semantic-edit" "\
+(autoload 'semantic-change-function "semantic/semantic-edit" "\
 Provide a mechanism for semantic tag management.
 Argument START, END, and LENGTH specify the bounds of the change.
 
 \(fn START END LENGTH)" nil nil)
 
-(autoload 'semantic-edits-change-function-handle-changes "semantic-edit" "\
+(autoload 'semantic-edits-change-function-handle-changes "semantic/semantic-edit" "\
 Run whenever a buffer controlled by `semantic-mode' change.
 Tracks when and how the buffer is re-parsed.
 Argument START, END, and LENGTH specify the bounds of the change.
 
 \(fn START END LENGTH)" nil nil)
 
-(autoload 'semantic-edits-flush-changes "semantic-edit" "\
+(autoload 'semantic-edits-flush-changes "semantic/semantic-edit" "\
 Flush the changes in the current buffer.
 
 \(fn)" nil nil)
 
-(autoload 'semantic-edits-incremental-parser "semantic-edit" "\
+(autoload 'semantic-edits-incremental-parser "semantic/semantic-edit" "\
 Incrementally reparse the current buffer.
 Incremental parser allows semantic to only reparse those sections of
 the buffer that have changed.  This function depends on
@@ -12074,33 +12121,17 @@ the semantic cache to see what needs to be changed.
 
 ;;;***
 
-;;;### (autoloads (semantic-default-elisp-setup) "semantic-el" "cedet/semantic/bovine/semantic-el.el"
-;;;;;;  (19373 12958))
-;;; Generated autoloads from cedet/semantic/bovine/semantic-el.el
-
-(autoload 'semantic-default-elisp-setup "semantic-el" "\
-Setup hook function for Emacs Lisp files and Semantic.
-
-\(fn)" nil nil)
-
-(add-hook 'emacs-lisp-mode-hook 'semantic-default-elisp-setup)
-
-(add-hook 'lisp-mode-hook 'semantic-default-elisp-setup)
-
-(eval-after-load "semanticdb" '(require 'semanticdb-el))
-
-;;;***
-
 ;;;### (autoloads (semantic-elp-load-old-run semantic-elp-analyze)
-;;;;;;  "semantic-elp" "cedet/semantic/semantic-elp.el" (19114 57201))
+;;;;;;  "semantic/semantic-elp" "cedet/semantic/semantic-elp.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-elp.el
 
-(autoload 'semantic-elp-analyze "semantic-elp" "\
+(autoload 'semantic-elp-analyze "semantic/semantic-elp" "\
 Run the analyzer, using ELP to measure performance.
 
 \(fn)" t nil)
 
-(autoload 'semantic-elp-load-old-run "semantic-elp" "\
+(autoload 'semantic-elp-load-old-run "semantic/semantic-elp" "\
 Load an old run from FILE, and show it.
 
 \(fn FILE)" t nil)
@@ -12115,19 +12146,19 @@ Load an old run from FILE, and show it.
 ;;;;;;  semantic-brute-find-tag-by-type semantic-brute-find-tag-standard
 ;;;;;;  semantic-brute-find-tag-by-class semantic-brute-find-first-tag-by-name
 ;;;;;;  semantic-deep-find-tags-by-name-regexp semantic-deep-find-tags-for-completion
-;;;;;;  semantic-deep-find-tags-by-name semantic-find-tags-by-scope-protection
-;;;;;;  semantic-find-tags-of-compound-type semantic-find-tags-by-type
-;;;;;;  semantic-find-tags-by-class semantic-find-tags-by-name-regexp
+;;;;;;  semantic-deep-find-tags-by-name semantic-find-tags-included
+;;;;;;  semantic-find-tags-by-scope-protection semantic-find-tags-of-compound-type
+;;;;;;  semantic-find-tags-by-type semantic-find-tags-by-class semantic-find-tags-by-name-regexp
 ;;;;;;  semantic-find-tags-for-completion semantic-find-tags-by-name
 ;;;;;;  semantic-current-tag-of-class semantic-current-tag-parent
 ;;;;;;  semantic-current-tag semantic-find-tag-parent-by-overlay
 ;;;;;;  semantic-find-tag-by-overlay-prev semantic-find-tag-by-overlay-next
 ;;;;;;  semantic-find-tag-by-overlay-in-region semantic-find-tag-by-overlay)
-;;;;;;  "semantic-find" "cedet/semantic/semantic-find.el" (19358
-;;;;;;  14566))
+;;;;;;  "semantic/semantic-find" "cedet/semantic/semantic-find.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-find.el
 
-(autoload 'semantic-find-tag-by-overlay "semantic-find" "\
+(autoload 'semantic-find-tag-by-overlay "semantic/semantic-find" "\
 Find all tags covering POSITIONORMARKER by using overlays.
 If POSITIONORMARKER is nil, use the current point.
 Optional BUFFER is used if POSITIONORMARKER is a number, otherwise the current
@@ -12137,48 +12168,48 @@ from largest to smallest via the start location.
 
 \(fn &optional POSITIONORMARKER BUFFER)" nil nil)
 
-(autoload 'semantic-find-tag-by-overlay-in-region "semantic-find" "\
+(autoload 'semantic-find-tag-by-overlay-in-region "semantic/semantic-find" "\
 Find all tags which exist in whole or in part between START and END.
 Uses overlays to determine position.
 Optional BUFFER argument specifies the buffer to use.
 
 \(fn START END &optional BUFFER)" nil nil)
 
-(autoload 'semantic-find-tag-by-overlay-next "semantic-find" "\
+(autoload 'semantic-find-tag-by-overlay-next "semantic/semantic-find" "\
 Find the next tag after START in BUFFER.
 If START is in an overlay, find the tag which starts next,
 not the current tag.
 
 \(fn &optional START BUFFER)" nil nil)
 
-(autoload 'semantic-find-tag-by-overlay-prev "semantic-find" "\
+(autoload 'semantic-find-tag-by-overlay-prev "semantic/semantic-find" "\
 Find the next tag before START in BUFFER.
 If START is in an overlay, find the tag which starts next,
 not the current tag.
 
 \(fn &optional START BUFFER)" nil nil)
 
-(autoload 'semantic-find-tag-parent-by-overlay "semantic-find" "\
+(autoload 'semantic-find-tag-parent-by-overlay "semantic/semantic-find" "\
 Find the parent of TAG by overlays.
 Overlays are a fast way of finding this information for active buffers.
 
 \(fn TAG)" nil nil)
 
-(autoload 'semantic-current-tag "semantic-find" "\
+(autoload 'semantic-current-tag "semantic/semantic-find" "\
 Return the current tag in the current buffer.
 If there are more than one in the same location, return the
 smallest tag.  Return nil if there is no tag here.
 
 \(fn)" nil nil)
 
-(autoload 'semantic-current-tag-parent "semantic-find" "\
+(autoload 'semantic-current-tag-parent "semantic/semantic-find" "\
 Return the current tags parent in the current buffer.
 A tag's parent would be a containing structure, such as a type
 containing a field.  Return nil if there is no parent.
 
 \(fn)" nil nil)
 
-(autoload 'semantic-current-tag-of-class "semantic-find" "\
+(autoload 'semantic-current-tag-of-class "semantic/semantic-find" "\
 Return the current (smallest) tags of CLASS in the current buffer.
 If the smallest tag is not of type CLASS, keep going upwards until one
 is found.
@@ -12192,14 +12223,14 @@ NAME is a string.
 TABLE is a semantic tags table.  See `semantic-something-to-tag-table'.
 This routine uses `assoc' to quickly find the first matching entry." (funcall (if semantic-case-fold (quote assoc-ignore-case) (quote assoc)) name (semantic-something-to-tag-table table)))
 
-(autoload 'semantic-find-tags-by-name "semantic-find" "\
+(autoload 'semantic-find-tags-by-name "semantic/semantic-find" "\
 Find all tags with NAME in TABLE.
 NAME is a string.
 TABLE is a tag table.  See `semantic-something-to-tag-table'.
 
 \(fn NAME &optional TABLE)" nil (quote macro))
 
-(autoload 'semantic-find-tags-for-completion "semantic-find" "\
+(autoload 'semantic-find-tags-for-completion "semantic/semantic-find" "\
 Find all tags whose name begins with PREFIX in TABLE.
 PREFIX is a string.
 TABLE is a tag table.  See `semantic-something-to-tag-table'.
@@ -12209,7 +12240,7 @@ Uses `compare-strings' for fast comparison.
 
 \(fn PREFIX &optional TABLE)" nil (quote macro))
 
-(autoload 'semantic-find-tags-by-name-regexp "semantic-find" "\
+(autoload 'semantic-find-tags-by-name-regexp "semantic/semantic-find" "\
 Find all tags with name matching REGEXP in TABLE.
 REGEXP is a string containing a regular expression,
 TABLE is a tag table.  See `semantic-something-to-tag-table'.
@@ -12218,7 +12249,7 @@ attempting to do completions.
 
 \(fn REGEXP &optional TABLE)" nil (quote macro))
 
-(autoload 'semantic-find-tags-by-class "semantic-find" "\
+(autoload 'semantic-find-tags-by-class "semantic/semantic-find" "\
 Find all tags of class CLASS in TABLE.
 CLASS is a symbol representing the class of the token, such as
 'variable, of 'function..
@@ -12226,7 +12257,7 @@ TABLE is a tag table.  See `semantic-something-to-tag-table'.
 
 \(fn CLASS &optional TABLE)" nil (quote macro))
 
-(autoload 'semantic-find-tags-by-type "semantic-find" "\
+(autoload 'semantic-find-tags-by-type "semantic/semantic-find" "\
 Find all tags of with a type TYPE in TABLE.
 TYPE is a string or tag representing a data type as defined in the
 language the tags were parsed from, such as \"int\", or perhaps
@@ -12235,7 +12266,7 @@ TABLE is a tag table.  See `semantic-something-to-tag-table'.
 
 \(fn TYPE &optional TABLE)" nil (quote macro))
 
-(autoload 'semantic-find-tags-of-compound-type "semantic-find" "\
+(autoload 'semantic-find-tags-of-compound-type "semantic/semantic-find" "\
 Find all tags which are a compound type in TABLE.
 Compound types are structures, or other data type which
 is not of a primitive nature, such as int or double.
@@ -12243,7 +12274,7 @@ Used in completion.
 
 \(fn &optional TABLE)" nil (quote macro))
 
-(autoload 'semantic-find-tags-by-scope-protection "semantic-find" "\
+(autoload 'semantic-find-tags-by-scope-protection "semantic/semantic-find" "\
 Find all tags accessible by SCOPEPROTECTION.
 SCOPEPROTECTION is a symbol which can be returned by the method
 `semantic-tag-protection'.  A hard-coded order is used to determine a match.
@@ -12255,11 +12286,13 @@ See `semantic-tag-protected-p' for details on which tags are returned.
 
 \(fn SCOPEPROTECTION PARENT &optional TABLE)" nil nil)
 
-(defsubst semantic-find-tags-included (&optional table) "\
+(autoload 'semantic-find-tags-included "semantic/semantic-find" "\
 Find all tags in TABLE that are of the 'include class.
-TABLE is a tag table.  See `semantic-something-to-tag-table'." (semantic-find-tags-by-class (quote include) table))
+TABLE is a tag table.  See `semantic-something-to-tag-table'.
 
-(autoload 'semantic-deep-find-tags-by-name "semantic-find" "\
+\(fn &optional TABLE)" nil nil)
+
+(autoload 'semantic-deep-find-tags-by-name "semantic/semantic-find" "\
 Find all tags with NAME in TABLE.
 Search in top level tags, and their components, in TABLE.
 NAME is a string.
@@ -12268,7 +12301,7 @@ See also `semantic-find-tags-by-name'.
 
 \(fn NAME &optional TABLE)" nil (quote macro))
 
-(autoload 'semantic-deep-find-tags-for-completion "semantic-find" "\
+(autoload 'semantic-deep-find-tags-for-completion "semantic/semantic-find" "\
 Find all tags whose name begins with PREFIX in TABLE.
 Search in top level tags, and their components, in TABLE.
 TABLE is a tag table.  See `semantic-flatten-tags-table'.
@@ -12276,7 +12309,7 @@ See also `semantic-find-tags-for-completion'.
 
 \(fn PREFIX &optional TABLE)" nil (quote macro))
 
-(autoload 'semantic-deep-find-tags-by-name-regexp "semantic-find" "\
+(autoload 'semantic-deep-find-tags-by-name-regexp "semantic/semantic-find" "\
 Find all tags with name matching REGEXP in TABLE.
 Search in top level tags, and their components, in TABLE.
 REGEXP is a string containing a regular expression,
@@ -12287,7 +12320,7 @@ attempting to do completions.
 
 \(fn REGEXP &optional TABLE)" nil (quote macro))
 
-(autoload 'semantic-brute-find-first-tag-by-name "semantic-find" "\
+(autoload 'semantic-brute-find-first-tag-by-name "semantic/semantic-find" "\
 Find a tag NAME within STREAMORBUFFER.  NAME is a string.
 If SEARCH-PARTS is non-nil, search children of tags.
 If SEARCH-INCLUDE was never implemented.
@@ -12296,7 +12329,7 @@ Use `semantic-find-first-tag-by-name' instead.
 
 \(fn NAME STREAMORBUFFER &optional SEARCH-PARTS SEARCH-INCLUDE)" nil nil)
 
-(autoload 'semantic-brute-find-tag-by-class "semantic-find" "\
+(autoload 'semantic-brute-find-tag-by-class "semantic/semantic-find" "\
 Find all tags with a class CLASS within STREAMORBUFFER.
 CLASS is a symbol representing the class of the tags to find.
 See `semantic-tag-class'.
@@ -12307,7 +12340,7 @@ Use `semantic-find-tag-by-class' instead.
 
 \(fn CLASS STREAMORBUFFER &optional SEARCH-PARTS SEARCH-INCLUDES)" nil (quote macro))
 
-(autoload 'semantic-brute-find-tag-standard "semantic-find" "\
+(autoload 'semantic-brute-find-tag-standard "semantic/semantic-find" "\
 Find all tags in STREAMORBUFFER which define simple class types.
 See `semantic-tag-class'.
 Optional argument SEARCH-PARTS and SEARCH-INCLUDES are passed to
@@ -12315,7 +12348,7 @@ Optional argument SEARCH-PARTS and SEARCH-INCLUDES are passed to
 
 \(fn STREAMORBUFFER &optional SEARCH-PARTS SEARCH-INCLUDES)" nil (quote macro))
 
-(autoload 'semantic-brute-find-tag-by-type "semantic-find" "\
+(autoload 'semantic-brute-find-tag-by-type "semantic/semantic-find" "\
 Find all tags with type TYPE within STREAMORBUFFER.
 TYPE is a string which is the name of the type of the tags returned.
 See `semantic-tag-type'.
@@ -12324,7 +12357,7 @@ Optional argument SEARCH-PARTS and SEARCH-INCLUDES are passed to
 
 \(fn TYPE STREAMORBUFFER &optional SEARCH-PARTS SEARCH-INCLUDES)" nil nil)
 
-(autoload 'semantic-brute-find-tag-by-type-regexp "semantic-find" "\
+(autoload 'semantic-brute-find-tag-by-type-regexp "semantic/semantic-find" "\
 Find all tags with type matching REGEXP within STREAMORBUFFER.
 REGEXP is a regular expression  which matches the  name of the type of the
 tags returned.  See `semantic-tag-type'.
@@ -12333,21 +12366,21 @@ Optional argument SEARCH-PARTS and SEARCH-INCLUDES are passed to
 
 \(fn REGEXP STREAMORBUFFER &optional SEARCH-PARTS SEARCH-INCLUDES)" nil nil)
 
-(autoload 'semantic-brute-find-tag-by-name-regexp "semantic-find" "\
+(autoload 'semantic-brute-find-tag-by-name-regexp "semantic/semantic-find" "\
 Find all tags whose name match REGEX in STREAMORBUFFER.
 Optional argument SEARCH-PARTS and SEARCH-INCLUDES are passed to
 `semantic-brute-find-tag-by-function'.
 
 \(fn REGEX STREAMORBUFFER &optional SEARCH-PARTS SEARCH-INCLUDES)" nil nil)
 
-(autoload 'semantic-brute-find-tag-by-property "semantic-find" "\
+(autoload 'semantic-brute-find-tag-by-property "semantic/semantic-find" "\
 Find all tags with PROPERTY equal to VALUE in STREAMORBUFFER.
 Optional argument SEARCH-PARTS and SEARCH-INCLUDES are passed to
 `semantic-brute-find-tag-by-function'.
 
 \(fn PROPERTY VALUE STREAMORBUFFER &optional SEARCH-PARTS SEARCH-INCLUDES)" nil nil)
 
-(autoload 'semantic-brute-find-tag-by-attribute "semantic-find" "\
+(autoload 'semantic-brute-find-tag-by-attribute "semantic/semantic-find" "\
 Find all tags with a given ATTR in STREAMORBUFFER.
 ATTR is a symbol key into the attributes list.
 Optional argument SEARCH-PARTS and SEARCH-INCLUDES are passed to
@@ -12355,7 +12388,7 @@ Optional argument SEARCH-PARTS and SEARCH-INCLUDES are passed to
 
 \(fn ATTR STREAMORBUFFER &optional SEARCH-PARTS SEARCH-INCLUDES)" nil nil)
 
-(autoload 'semantic-brute-find-tag-by-attribute-value "semantic-find" "\
+(autoload 'semantic-brute-find-tag-by-attribute-value "semantic/semantic-find" "\
 Find all tags with a given ATTR equal to VALUE in STREAMORBUFFER.
 ATTR is a symbol key into the attributes list.
 VALUE is the value that ATTR should match.
@@ -12364,7 +12397,7 @@ Optional argument SEARCH-PARTS and SEARCH-INCLUDES are passed to
 
 \(fn ATTR VALUE STREAMORBUFFER &optional SEARCH-PARTS SEARCH-INCLUDES)" nil nil)
 
-(autoload 'semantic-brute-find-tag-by-function "semantic-find" "\
+(autoload 'semantic-brute-find-tag-by-function "semantic/semantic-find" "\
 Find all tags for which FUNCTION's value is non-nil within STREAMORBUFFER.
 FUNCTION must return non-nil if an element of STREAM will be included
 in the new list.
@@ -12380,7 +12413,7 @@ This parameter hasn't be active for a while and is obsolete.
 
 \(fn FUNCTION STREAMORBUFFER &optional SEARCH-PARTS SEARCH-INCLUDES)" nil nil)
 
-(autoload 'semantic-brute-find-first-tag-by-function "semantic-find" "\
+(autoload 'semantic-brute-find-first-tag-by-function "semantic/semantic-find" "\
 Find the first tag which FUNCTION match within STREAMORBUFFER.
 FUNCTION must return non-nil if an element of STREAM will be included
 in the new list.
@@ -12395,14 +12428,14 @@ searched for matches.
 
 \(fn FUNCTION STREAMORBUFFER &optional SEARCH-PARTS SEARCH-INCLUDES)" nil nil)
 
-(autoload 'semantic-brute-find-tag-by-position "semantic-find" "\
+(autoload 'semantic-brute-find-tag-by-position "semantic/semantic-find" "\
 Find a tag covering POSITION within STREAMORBUFFER.
 POSITION is a number, or marker.  If NOMEDIAN is non-nil, don't do
 the median calculation, and return nil.
 
 \(fn POSITION STREAMORBUFFER &optional NOMEDIAN)" nil nil)
 
-(autoload 'semantic-brute-find-innermost-tag-by-position "semantic-find" "\
+(autoload 'semantic-brute-find-innermost-tag-by-position "semantic/semantic-find" "\
 Find a list of tags covering POSITION within STREAMORBUFFER.
 POSITION is a number, or marker.  If NOMEDIAN is non-nil, don't do
 the median calculation, and return nil.
@@ -12456,11 +12489,11 @@ details are available of findable.
 ;;;***
 
 ;;;### (autoloads (semantic-folding-mode global-semantic-folding-mode
-;;;;;;  global-semantic-folding-mode) "semantic-fold" "cedet/semantic/semantic-fold.el"
-;;;;;;  (19390 35365))
+;;;;;;  global-semantic-folding-mode) "semantic/semantic-fold" "cedet/semantic/semantic-fold.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-fold.el
 
-(autoload 'global-semantic-folding-mode "semantic-fold" "\
+(autoload 'global-semantic-folding-mode "semantic/semantic-fold" "\
 Toggle global use of option `semantic-folding-mode'.
 If ARG is positive, enable, if it is negative, disable.
 If ARG is nil, then toggle.
@@ -12472,9 +12505,9 @@ If ARG is nil, then toggle.
 With this mode enabled, a new folding decoration mode is added.
 Clicking on a + or - in the fringe will fold that tag.")
 
-(custom-autoload 'global-semantic-folding-mode "semantic-fold" nil)
+(custom-autoload 'global-semantic-folding-mode "semantic/semantic-fold" nil)
 
-(autoload 'semantic-folding-mode "semantic-fold" "\
+(autoload 'semantic-folding-mode "semantic/semantic-fold" "\
 Minor mode for highlighting changes made in a buffer.
 Changes are tracked by semantic so that the incremental parser can work
 properly.
@@ -12494,8 +12527,8 @@ minor mode is enabled.
 ;;;;;;  semantic-format-tag-prototype semantic-format-tag-short-doc
 ;;;;;;  semantic-format-tag-summarize-with-file semantic-format-tag-summarize
 ;;;;;;  semantic-format-tag-abbreviate semantic-format-tag-name semantic-format-tag-prin1
-;;;;;;  semantic-format-tag-type) "semantic-format" "cedet/semantic/semantic-format.el"
-;;;;;;  (19358 14566))
+;;;;;;  semantic-format-tag-type) "semantic/semantic-format" "cedet/semantic/semantic-format.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-format.el
 
 (defvar semantic-format-tag-functions '(semantic-format-tag-name semantic-format-tag-canonical-name semantic-format-tag-abbreviate semantic-format-tag-summarize semantic-format-tag-summarize-with-file semantic-format-tag-short-doc semantic-format-tag-prototype semantic-format-tag-concise-prototype semantic-format-tag-uml-abbreviate semantic-format-tag-uml-prototype semantic-format-tag-uml-concise-prototype semantic-format-tag-prin1) "\
@@ -12514,19 +12547,19 @@ COLOR indicates that the generated text should be colored using
 A List used by customizable variables to choose a tag to text function.
 Use this variable in the :type field of a customizable variable.")
 
-(autoload 'semantic-format-tag-type "semantic-format" "\
+(autoload 'semantic-format-tag-type "semantic/semantic-format" "\
 Convert the data type of TAG to a string usable in tag formatting.
 It is presumed that TYPE is a string or semantic tag.
 
 \(fn TAG COLOR)" nil nil)
 
-(autoload 'semantic-format-tag-prin1 "semantic-format" "\
+(autoload 'semantic-format-tag-prin1 "semantic/semantic-format" "\
 Convert TAG to a string that is the print name for TAG.
 PARENT and COLOR are ignored.
 
 \(fn TAG &optional PARENT COLOR)" nil nil)
 
-(autoload 'semantic-format-tag-name "semantic-format" "\
+(autoload 'semantic-format-tag-name "semantic/semantic-format" "\
 Return the name string describing TAG.
 The name is the shortest possible representation.
 Optional argument PARENT is the parent type if TAG is a detail.
@@ -12534,7 +12567,7 @@ Optional argument COLOR means highlight the prototype with font-lock colors.
 
 \(fn TAG &optional PARENT COLOR)" nil nil)
 
-(autoload 'semantic-format-tag-abbreviate "semantic-format" "\
+(autoload 'semantic-format-tag-abbreviate "semantic/semantic-format" "\
 Return an abbreviated string describing TAG.
 The abbreviation is to be short, with possible symbols indicating
 the type of tag, or other information.
@@ -12543,28 +12576,28 @@ Optional argument COLOR means highlight the prototype with font-lock colors.
 
 \(fn TAG &optional PARENT COLOR)" nil nil)
 
-(autoload 'semantic-format-tag-summarize "semantic-format" "\
+(autoload 'semantic-format-tag-summarize "semantic/semantic-format" "\
 Summarize TAG in a reasonable way.
 Optional argument PARENT is the parent type if TAG is a detail.
 Optional argument COLOR means highlight the prototype with font-lock colors.
 
 \(fn TAG &optional PARENT COLOR)" nil nil)
 
-(autoload 'semantic-format-tag-summarize-with-file "semantic-format" "\
+(autoload 'semantic-format-tag-summarize-with-file "semantic/semantic-format" "\
 Like `semantic-format-tag-summarize', but with the file name.
 Optional argument PARENT is the parent type if TAG is a detail.
 Optional argument COLOR means highlight the prototype with font-lock colors.
 
 \(fn TAG &optional PARENT COLOR)" nil nil)
 
-(autoload 'semantic-format-tag-short-doc "semantic-format" "\
+(autoload 'semantic-format-tag-short-doc "semantic/semantic-format" "\
 Display a short form of TAG's documentation. (Comments, or docstring.)
 Optional argument PARENT is the parent type if TAG is a detail.
 Optional argument COLOR means highlight the prototype with font-lock colors.
 
 \(fn TAG &optional PARENT COLOR)" nil nil)
 
-(autoload 'semantic-format-tag-prototype "semantic-format" "\
+(autoload 'semantic-format-tag-prototype "semantic/semantic-format" "\
 Return a prototype for TAG.
 This function should be overloaded, though it need not be used.
 This is because it can be used to create code by language independent
@@ -12574,28 +12607,28 @@ Optional argument COLOR means highlight the prototype with font-lock colors.
 
 \(fn TAG &optional PARENT COLOR)" nil nil)
 
-(autoload 'semantic-format-tag-concise-prototype "semantic-format" "\
+(autoload 'semantic-format-tag-concise-prototype "semantic/semantic-format" "\
 Return a concise prototype for TAG.
 Optional argument PARENT is the parent type if TAG is a detail.
 Optional argument COLOR means highlight the prototype with font-lock colors.
 
 \(fn TAG &optional PARENT COLOR)" nil nil)
 
-(autoload 'semantic-format-tag-uml-abbreviate "semantic-format" "\
+(autoload 'semantic-format-tag-uml-abbreviate "semantic/semantic-format" "\
 Return a UML style abbreviation for TAG.
 Optional argument PARENT is the parent type if TAG is a detail.
 Optional argument COLOR means highlight the prototype with font-lock colors.
 
 \(fn TAG &optional PARENT COLOR)" nil nil)
 
-(autoload 'semantic-format-tag-uml-prototype "semantic-format" "\
+(autoload 'semantic-format-tag-uml-prototype "semantic/semantic-format" "\
 Return a UML style prototype for TAG.
 Optional argument PARENT is the parent type if TAG is a detail.
 Optional argument COLOR means highlight the prototype with font-lock colors.
 
 \(fn TAG &optional PARENT COLOR)" nil nil)
 
-(autoload 'semantic-format-tag-uml-concise-prototype "semantic-format" "\
+(autoload 'semantic-format-tag-uml-concise-prototype "semantic/semantic-format" "\
 Return a UML style concise prototype for TAG.
 Optional argument PARENT is the parent type if TAG is a detail.
 Optional argument COLOR means highlight the prototype with font-lock colors.
@@ -12604,33 +12637,11 @@ Optional argument COLOR means highlight the prototype with font-lock colors.
 
 ;;;***
 
-;;;### (autoloads (semantic-gcc-test-output-parser-this-machine semantic-gcc-test-output-parser
-;;;;;;  semantic-gcc-setup) "semantic-gcc" "cedet/semantic/bovine/semantic-gcc.el"
-;;;;;;  (19358 14567))
-;;; Generated autoloads from cedet/semantic/bovine/semantic-gcc.el
-
-(autoload 'semantic-gcc-setup "semantic-gcc" "\
-Setup Semantic C/C++ parsing based on GCC output.
-
-\(fn)" t nil)
-
-(autoload 'semantic-gcc-test-output-parser "semantic-gcc" "\
-Test the output parser against some collected strings.
-
-\(fn)" t nil)
-
-(autoload 'semantic-gcc-test-output-parser-this-machine "semantic-gcc" "\
-Test the output parser against the machine currently running Emacs.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (semantic-grammar-batch-build-packages) "semantic-grammar"
-;;;;;;  "cedet/semantic/semantic-grammar.el" (19565 48650))
+;;;### (autoloads (semantic-grammar-batch-build-packages) "semantic/semantic-grammar"
+;;;;;;  "cedet/semantic/semantic-grammar.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-grammar.el
 
-(autoload 'semantic-grammar-batch-build-packages "semantic-grammar" "\
+(autoload 'semantic-grammar-batch-build-packages "semantic/semantic-grammar" "\
 Build Lisp packages from grammar files on the command line.
 That is, run `semantic-grammar-batch-build-one-package' for each file.
 Each file is processed even if an error occurred previously.
@@ -12645,11 +12656,11 @@ See also the variable `semantic-grammar-file-regexp'.
 
 ;;;***
 
-;;;### (autoloads (semantic-default-html-setup) "semantic-html" "cedet/semantic/semantic-html.el"
-;;;;;;  (19358 14567))
+;;;### (autoloads (semantic-default-html-setup) "semantic/semantic-html"
+;;;;;;  "cedet/semantic/semantic-html.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-html.el
 
-(autoload 'semantic-default-html-setup "semantic-html" "\
+(autoload 'semantic-default-html-setup "semantic/semantic-html" "\
 Set up a buffer for parsing of HTML files.
 
 \(fn)" nil nil)
@@ -12661,58 +12672,58 @@ Set up a buffer for parsing of HTML files.
 ;;;### (autoloads (semantic-ia-describe-class semantic-ia-show-doc
 ;;;;;;  semantic-ia-fast-mouse-jump semantic-ia-fast-jump semantic-ia-show-variants
 ;;;;;;  semantic-ia-show-summary semantic-ia-complete-tip semantic-ia-complete-symbol-menu
-;;;;;;  semantic-ia-complete-symbol) "semantic-ia" "cedet/semantic/semantic-ia.el"
-;;;;;;  (19546 10728))
+;;;;;;  semantic-ia-complete-symbol) "semantic/semantic-ia" "cedet/semantic/semantic-ia.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-ia.el
 
-(autoload 'semantic-ia-complete-symbol "semantic-ia" "\
+(autoload 'semantic-ia-complete-symbol "semantic/semantic-ia" "\
 Complete the current symbol at POS.
 If POS is nil, default to point.
 Completion options are calculated with `semantic-analyze-possible-completions'.
 
 \(fn &optional POS)" t nil)
 
-(autoload 'semantic-ia-complete-symbol-menu "semantic-ia" "\
+(autoload 'semantic-ia-complete-symbol-menu "semantic/semantic-ia" "\
 Complete the current symbol via a menu based at POINT.
 Completion options are calculated with `semantic-analyze-possible-completions'.
 
 \(fn POINT)" t nil)
 
-(autoload 'semantic-ia-complete-tip "semantic-ia" "\
+(autoload 'semantic-ia-complete-tip "semantic/semantic-ia" "\
 Pop up a tooltip for completion at POINT.
 
 \(fn POINT)" t nil)
 
-(autoload 'semantic-ia-show-summary "semantic-ia" "\
+(autoload 'semantic-ia-show-summary "semantic/semantic-ia" "\
 Display a summary for the symbol under POINT.
 
 \(fn POINT)" t nil)
 
-(autoload 'semantic-ia-show-variants "semantic-ia" "\
+(autoload 'semantic-ia-show-variants "semantic/semantic-ia" "\
 Display a list of all variants for the symbol under POINT.
 
 \(fn POINT)" t nil)
 
-(autoload 'semantic-ia-fast-jump "semantic-ia" "\
+(autoload 'semantic-ia-fast-jump "semantic/semantic-ia" "\
 Jump to the tag referred to by the code at POINT.
 Uses `semantic-analyze-current-context' output to identify an accurate
 origin of the code at point.
 
 \(fn POINT)" t nil)
 
-(autoload 'semantic-ia-fast-mouse-jump "semantic-ia" "\
+(autoload 'semantic-ia-fast-mouse-jump "semantic/semantic-ia" "\
 Jump to the tag referred to by the point clicked on.
 See `semantic-ia-fast-jump' for details on how it works.
  This command is meant to be bound to a mouse event.
 
 \(fn EVT)" t nil)
 
-(autoload 'semantic-ia-show-doc "semantic-ia" "\
+(autoload 'semantic-ia-show-doc "semantic/semantic-ia" "\
 Display the code-level documentation for the symbol at POINT.
 
 \(fn POINT)" t nil)
 
-(autoload 'semantic-ia-describe-class "semantic-ia" "\
+(autoload 'semantic-ia-describe-class "semantic/semantic-ia" "\
 Display all known parts for the datatype TYPENAME.
 If the type in question is a class, all methods and other accessible
 parts of the parent classes are displayed.
@@ -12721,11 +12732,11 @@ parts of the parent classes are displayed.
 
 ;;;***
 
-;;;### (autoloads (semantic-speedbar-analysis) "semantic-ia-sb" "cedet/semantic/semantic-ia-sb.el"
-;;;;;;  (19358 14567))
+;;;### (autoloads (semantic-speedbar-analysis) "semantic/semantic-ia-sb"
+;;;;;;  "cedet/semantic/semantic-ia-sb.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-ia-sb.el
 
-(autoload 'semantic-speedbar-analysis "semantic-ia-sb" "\
+(autoload 'semantic-speedbar-analysis "semantic/semantic-ia-sb" "\
 Start Speedbar in semantic analysis mode.
 The analyzer displays information about the current context, plus a smart
 list of possible completions.
@@ -12734,11 +12745,11 @@ list of possible completions.
 
 ;;;***
 
-;;;### (autoloads (semantic-ia-utest) "semantic-ia-utest" "cedet/semantic/semantic-ia-utest.el"
-;;;;;;  (19546 10763))
+;;;### (autoloads (semantic-ia-utest) "semantic/semantic-ia-utest"
+;;;;;;  "cedet/semantic/semantic-ia-utest.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-ia-utest.el
 
-(autoload 'semantic-ia-utest "semantic-ia-utest" "\
+(autoload 'semantic-ia-utest "semantic/semantic-ia-utest" "\
 Run the semantic ia unit test against stored sources.
 Argument ARG specifies which set of tests to run.
  1 - ia utests
@@ -12752,20 +12763,20 @@ Argument ARG specifies which set of tests to run.
 
 ;;;### (autoloads (global-semantic-idle-scheduler-mode semantic-idle-scheduler-remove
 ;;;;;;  semantic-idle-scheduler-add semantic-idle-scheduler-mode
-;;;;;;  global-semantic-idle-scheduler-mode) "semantic-idle" "cedet/semantic/semantic-idle.el"
-;;;;;;  (19447 4521))
+;;;;;;  global-semantic-idle-scheduler-mode) "semantic/semantic-idle"
+;;;;;;  "cedet/semantic/semantic-idle.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-idle.el
 
 (defvar global-semantic-idle-scheduler-mode nil "\
 *If non-nil, enable global use of idle-scheduler mode.")
 
-(custom-autoload 'global-semantic-idle-scheduler-mode "semantic-idle" nil)
+(custom-autoload 'global-semantic-idle-scheduler-mode "semantic/semantic-idle" nil)
 
 (defvar semantic-idle-scheduler-mode nil "\
 Non-nil if idle-scheduler minor mode is enabled.
 Use the command `semantic-idle-scheduler-mode' to change this variable.")
 
-(autoload 'semantic-idle-scheduler-mode "semantic-idle" "\
+(autoload 'semantic-idle-scheduler-mode "semantic/semantic-idle" "\
 Minor mode to auto parse buffer following a change.
 When this mode is off, a buffer is only rescanned for tokens when
 some command requests the list of available tokens.  When idle-scheduler
@@ -12779,17 +12790,17 @@ minor mode is enabled.
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'semantic-idle-scheduler-add "semantic-idle" "\
+(autoload 'semantic-idle-scheduler-add "semantic/semantic-idle" "\
 Schedule FUNCTION to occur during idle time.
 
 \(fn FUNCTION)" nil nil)
 
-(autoload 'semantic-idle-scheduler-remove "semantic-idle" "\
+(autoload 'semantic-idle-scheduler-remove "semantic/semantic-idle" "\
 Unschedule FUNCTION to occur during idle time.
 
 \(fn FUNCTION)" nil nil)
 
-(autoload 'global-semantic-idle-scheduler-mode "semantic-idle" "\
+(autoload 'global-semantic-idle-scheduler-mode "semantic/semantic-idle" "\
 Toggle global use of option `semantic-idle-scheduler-mode'.
 The idle scheduler will automatically reparse buffers in idle time,
 and then schedule other jobs setup with `semantic-idle-scheduler-add'.
@@ -12802,25 +12813,25 @@ If ARG is nil, then toggle.
 
 ;;;### (autoloads (semantic-create-imenu-index semantic-imenu-expand-type-members
 ;;;;;;  semantic-imenu-bucketize-file semantic-imenu-summary-function)
-;;;;;;  "semantic-imenu" "cedet/semantic/semantic-imenu.el" (19530
-;;;;;;  54442))
+;;;;;;  "semantic/semantic-imenu" "cedet/semantic/semantic-imenu.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-imenu.el
 
 (defvar semantic-imenu-summary-function 'semantic-format-tag-abbreviate "\
 *Function to use when creating items in Imenu.
 Some useful functions are found in `semantic-format-tag-functions'.")
 
-(custom-autoload 'semantic-imenu-summary-function "semantic-imenu" t)
+(custom-autoload 'semantic-imenu-summary-function "semantic/semantic-imenu" t)
 
 (defvar semantic-imenu-bucketize-file t "\
 *Non-nil if tags in a file are to be grouped into buckets.")
 
-(custom-autoload 'semantic-imenu-bucketize-file "semantic-imenu" t)
+(custom-autoload 'semantic-imenu-bucketize-file "semantic/semantic-imenu" t)
 
 (defvar semantic-imenu-expand-type-members t "\
 *Non-nil if types should have submenus with members in them.")
 
-(custom-autoload 'semantic-imenu-expand-type-members "semantic-imenu" t)
+(custom-autoload 'semantic-imenu-expand-type-members "semantic/semantic-imenu" t)
 
 (defvar semantic-imenu-expandable-tag-classes '(type) "\
 List of expandable tag classes.
@@ -12828,7 +12839,7 @@ Tags of those classes will be given submenu with children.
 By default, a `type' has interesting children.  In Texinfo, however, a
 `section' has interesting children.")
 
-(autoload 'semantic-create-imenu-index "semantic-imenu" "\
+(autoload 'semantic-create-imenu-index "semantic/semantic-imenu" "\
 Create an imenu index for any buffer which supports Semantic.
 Uses the output of the Semantic parser to create the index.
 Optional argument STREAM is an optional stream of tags used to create menus.
@@ -12839,8 +12850,8 @@ Optional argument STREAM is an optional stream of tags used to create menus.
 
 ;;;### (autoloads (define-lex-block-analyzer define-lex-simple-regex-analyzer
 ;;;;;;  define-lex-regex-analyzer define-lex-analyzer semantic-lex
-;;;;;;  semantic-lex-init define-lex) "semantic-lex" "cedet/semantic/semantic-lex.el"
-;;;;;;  (19373 12955))
+;;;;;;  semantic-lex-init define-lex) "semantic/semantic-lex" "cedet/semantic/semantic-lex.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-lex.el
 
 (defvar semantic-lex-analyzer 'semantic-flex "\
@@ -12848,7 +12859,7 @@ The lexical analyzer used for a given buffer.
 See `semantic-lex' for documentation.
 For compatibility with Semantic 1.x it defaults to `semantic-flex'.")
 
-(autoload 'define-lex "semantic-lex" "\
+(autoload 'define-lex "semantic/semantic-lex" "\
 Create a new lexical analyzer with NAME.
 DOC is a documentation string describing this analyzer.
 ANALYZERS are small code snippets of analyzers to use when
@@ -12863,12 +12874,12 @@ analyzer which might mistake a number for as a symbol.
 
 \(fn NAME DOC &rest ANALYZERS)" nil (quote macro))
 
-(autoload 'semantic-lex-init "semantic-lex" "\
+(autoload 'semantic-lex-init "semantic/semantic-lex" "\
 Initialize any lexical state for this buffer.
 
 \(fn)" nil nil)
 
-(autoload 'semantic-lex "semantic-lex" "\
+(autoload 'semantic-lex "semantic/semantic-lex" "\
 Lexically analyze text in the current buffer between START and END.
 Optional argument DEPTH indicates at what level to scan over entire
 lists.  The last argument, LENGTH specifies that `semantic-lex'
@@ -12884,7 +12895,7 @@ scanning, use `narrow-to-region'.
 
 \(fn START END &optional DEPTH LENGTH)" nil nil)
 
-(autoload 'define-lex-analyzer "semantic-lex" "\
+(autoload 'define-lex-analyzer "semantic/semantic-lex" "\
 Create a single lexical analyzer NAME with DOC.
 When an analyzer is called, the current buffer and point are
 positioned in a buffer at the location to be analyzed.
@@ -12910,14 +12921,14 @@ This can be done by using `semantic-lex-push-token'.
 
 \(fn NAME DOC CONDITION &rest FORMS)" nil (quote macro))
 
-(autoload 'define-lex-regex-analyzer "semantic-lex" "\
+(autoload 'define-lex-regex-analyzer "semantic/semantic-lex" "\
 Create a lexical analyzer with NAME and DOC that will match REGEXP.
 FORMS are evaluated upon a successful match.
 See `define-lex-analyzer' for more about analyzers.
 
 \(fn NAME DOC REGEXP &rest FORMS)" nil (quote macro))
 
-(autoload 'define-lex-simple-regex-analyzer "semantic-lex" "\
+(autoload 'define-lex-simple-regex-analyzer "semantic/semantic-lex" "\
 Create a lexical analyzer with NAME and DOC that match REGEXP.
 TOKSYM is the symbol to use when creating a semantic lexical token.
 INDEX is the index into the match that defines the bounds of the token.
@@ -12929,7 +12940,7 @@ See `define-lex-analyzer' for more about analyzers.
 
 \(fn NAME DOC REGEXP TOKSYM &optional INDEX &rest FORMS)" nil (quote macro))
 
-(autoload 'define-lex-block-analyzer "semantic-lex" "\
+(autoload 'define-lex-block-analyzer "semantic/semantic-lex" "\
 Create a lexical analyzer NAME for paired delimiters blocks.
 It detects a paired delimiters block or the corresponding open or
 close delimiter depending on the value of the variable
@@ -12949,17 +12960,17 @@ symbols returned in open and close tokens.
 ;;;***
 
 ;;;### (autoloads (semantic-lex-spp-write-utest semantic-lex-spp-table-write-slot-value)
-;;;;;;  "semantic-lex-spp" "cedet/semantic/semantic-lex-spp.el" (19403
-;;;;;;  28207))
+;;;;;;  "semantic/semantic-lex-spp" "cedet/semantic/semantic-lex-spp.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-lex-spp.el
 
-(autoload 'semantic-lex-spp-table-write-slot-value "semantic-lex-spp" "\
+(autoload 'semantic-lex-spp-table-write-slot-value "semantic/semantic-lex-spp" "\
 Write out the VALUE of a slot for EIEIO.
 The VALUE is a spp lexical table.
 
 \(fn VALUE)" nil nil)
 
-(autoload 'semantic-lex-spp-write-utest "semantic-lex-spp" "\
+(autoload 'semantic-lex-spp-write-utest "semantic/semantic-lex-spp" "\
 Unit test using the test spp file to test the slot write fcn.
 
 \(fn)" t nil)
@@ -12967,11 +12978,11 @@ Unit test using the test spp file to test the slot write fcn.
 ;;;***
 
 ;;;### (autoloads (semantic-load-enable-all-exuberent-ctags-support)
-;;;;;;  "semantic-load" "cedet/semantic/semantic-load.el" (19404
-;;;;;;  63607))
+;;;;;;  "semantic/semantic-load" "cedet/semantic/semantic-load.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-load.el
 
-(autoload 'semantic-load-enable-all-exuberent-ctags-support "semantic-load" "\
+(autoload 'semantic-load-enable-all-exuberent-ctags-support "semantic/semantic-load" "\
 Enable all exuberent ctags extensions.
 See the functions:
    `semantic-load-enable-primary-exuberent-ctags-support'
@@ -12983,25 +12994,39 @@ If you just want to add new languages, use
 
 ;;;***
 
-;;;### (autoloads (semantic-default-make-setup) "semantic-make" "cedet/semantic/bovine/semantic-make.el"
-;;;;;;  (19358 14567))
-;;; Generated autoloads from cedet/semantic/bovine/semantic-make.el
+;;;### (autoloads (semantic-m3-ref-items semantic-m3-context-items
+;;;;;;  semantic-m3-add-whatisit semantic-m3-install) "semantic/semantic-m3"
+;;;;;;  "cedet/semantic/semantic-m3.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/semantic-m3.el
 
-(autoload 'semantic-default-make-setup "semantic-make" "\
-Set up a Makefile buffer for parsing with semantic.
+(autoload 'semantic-m3-install "semantic/semantic-m3" "\
+Install ourselves into the `cedet-m3' system.
+
+\(fn)" t nil)
+
+(autoload 'semantic-m3-add-whatisit "semantic/semantic-m3" "\
+Return a menu item for the 'whatisit' function.
 
 \(fn)" nil nil)
 
-(add-hook 'makefile-mode-hook 'semantic-default-make-setup)
+(autoload 'semantic-m3-context-items "semantic/semantic-m3" "\
+Return a list of menu items if the cursor is on some useful code constrct.
+
+\(fn)" nil nil)
+
+(autoload 'semantic-m3-ref-items "semantic/semantic-m3" "\
+Return a list of menu items for dealing with analyzer refs.
+
+\(fn)" nil nil)
 
 ;;;***
 
 ;;;### (autoloads (semantic-mru-bookmark-mode global-semantic-mru-bookmark-mode
-;;;;;;  global-semantic-mru-bookmark-mode) "semantic-mru-bookmark"
-;;;;;;  "cedet/semantic/semantic-mru-bookmark.el" (19390 35041))
+;;;;;;  global-semantic-mru-bookmark-mode) "semantic/semantic-mru-bookmark"
+;;;;;;  "cedet/semantic/semantic-mru-bookmark.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-mru-bookmark.el
 
-(autoload 'global-semantic-mru-bookmark-mode "semantic-mru-bookmark" "\
+(autoload 'global-semantic-mru-bookmark-mode "semantic/semantic-mru-bookmark" "\
 Toggle global use of option `semantic-mru-bookmark-mode'.
 If ARG is positive, enable, if it is negative, disable.
 If ARG is nil, then toggle.
@@ -13013,9 +13038,9 @@ If non-nil, enable `semantic-mru-bookmark-mode' globally.
 When this mode is enabled, Emacs keeps track of which tags have
 been edited, and you can re-visit them with \\[semantic-mrub-switch-tags].")
 
-(custom-autoload 'global-semantic-mru-bookmark-mode "semantic-mru-bookmark" nil)
+(custom-autoload 'global-semantic-mru-bookmark-mode "semantic/semantic-mru-bookmark" nil)
 
-(autoload 'semantic-mru-bookmark-mode "semantic-mru-bookmark" "\
+(autoload 'semantic-mru-bookmark-mode "semantic/semantic-mru-bookmark" "\
 Minor mode for tracking tag-based bookmarks automatically.
 When this mode is enabled, Emacs keeps track of which tags have
 been edited, and you can re-visit them with \\[semantic-mrub-switch-tags].
@@ -13032,23 +13057,23 @@ minor mode is enabled.
 ;;;***
 
 ;;;### (autoloads (semantic-regtest-cmp-results semantic-regtest-create-output
-;;;;;;  semantic-regtest-run-test) "semantic-regtest" "cedet/semantic/semantic-regtest.el"
-;;;;;;  (17213 40495))
+;;;;;;  semantic-regtest-run-test) "semantic/semantic-regtest" "cedet/semantic/semantic-regtest.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-regtest.el
 
-(autoload 'semantic-regtest-run-test "semantic-regtest" "\
-Not documented
+(autoload 'semantic-regtest-run-test "semantic/semantic-regtest" "\
+
 
 \(fn)" t nil)
 
-(autoload 'semantic-regtest-create-output "semantic-regtest" "\
+(autoload 'semantic-regtest-create-output "semantic/semantic-regtest" "\
 Creates the test-output for the current buffer.
 The user will be asked for the file-name of the created test-output-file (see
 `semantic-regtest-create-output--internal').
 
 \(fn)" t nil)
 
-(autoload 'semantic-regtest-cmp-results "semantic-regtest" "\
+(autoload 'semantic-regtest-cmp-results "semantic/semantic-regtest" "\
 Compare two test-outputs and create a suitable formatted result-file.
 
 The user will be asked for four file-names:
@@ -13082,53 +13107,29 @@ file-names. See this function for details about the optional argument
 
 ;;;***
 
-;;;### (autoloads (semantic-default-scheme-setup) "semantic-scm"
-;;;;;;  "cedet/semantic/bovine/semantic-scm.el" (18955 30432))
-;;; Generated autoloads from cedet/semantic/bovine/semantic-scm.el
-
-(autoload 'semantic-default-scheme-setup "semantic-scm" "\
-Setup hook function for Emacs Lisp files and Semantic.
-
-\(fn)" nil nil)
-
-(add-hook 'scheme-mode-hook 'semantic-default-scheme-setup)
-
-;;;***
-
 ;;;### (autoloads (semantic-calculate-scope semantic-scope-tag-clone-with-scope
-;;;;;;  semantic-scope-reset-cache) "semantic-scope" "cedet/semantic/semantic-scope.el"
-;;;;;;  (19393 7266))
+;;;;;;  semantic-scope-reset-cache) "semantic/semantic-scope" "cedet/semantic/semantic-scope.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-scope.el
 
-(autoload 'semantic-scope-reset-cache "semantic-scope" "\
+(autoload 'semantic-scope-reset-cache "semantic/semantic-scope" "\
 Get the current cached scope, and reset it.
 
 \(fn)" nil nil)
 
-(autoload 'semantic-scope-tag-clone-with-scope "semantic-scope" "\
+(autoload 'semantic-scope-tag-clone-with-scope "semantic/semantic-scope" "\
 Close TAG, and return it.  Add SCOPETAGS as a tag-local scope.
 Stores the SCOPETAGS as a set of tag properties on the cloned tag.
 
 \(fn TAG SCOPETAGS)" nil nil)
 
-(autoload 'semantic-calculate-scope "semantic-scope" "\
+(autoload 'semantic-calculate-scope "semantic/semantic-scope" "\
 Calculate the scope at POINT.
 If POINT is not provided, then use the current location of point.
 The class returned from the scope calculation is variable
 `semantic-scope-cache'.
 
 \(fn &optional POINT)" t nil)
-
-;;;***
-
-;;;### (autoloads (semantic-default-skel-setup) "semantic-skel" "cedet/semantic/bovine/semantic-skel.el"
-;;;;;;  (19358 14567))
-;;; Generated autoloads from cedet/semantic/bovine/semantic-skel.el
-
-(autoload 'semantic-default-skel-setup "semantic-skel" "\
-Set up a buffer for semantic parsing of the skeleton language.
-
-\(fn)" nil nil)
 
 ;;;***
 
@@ -13141,71 +13142,71 @@ Set up a buffer for semantic parsing of the skeleton language.
 ;;;;;;  semantic-sort-tags-by-name-decreasing-ci semantic-sort-tags-by-name-increasing-ci
 ;;;;;;  semantic-sort-tags-by-type-decreasing semantic-sort-tags-by-type-increasing
 ;;;;;;  semantic-sort-tags-by-name-decreasing semantic-sort-tags-by-name-increasing)
-;;;;;;  "semantic-sort" "cedet/semantic/semantic-sort.el" (19269
-;;;;;;  17811))
+;;;;;;  "semantic/semantic-sort" "cedet/semantic/semantic-sort.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-sort.el
 
-(autoload 'semantic-sort-tags-by-name-increasing "semantic-sort" "\
+(autoload 'semantic-sort-tags-by-name-increasing "semantic/semantic-sort" "\
 Sort TAGS by name in increasing order with side effects.
 Return the sorted list.
 
 \(fn TAGS)" nil nil)
 
-(autoload 'semantic-sort-tags-by-name-decreasing "semantic-sort" "\
+(autoload 'semantic-sort-tags-by-name-decreasing "semantic/semantic-sort" "\
 Sort TAGS by name in decreasing order with side effects.
 Return the sorted list.
 
 \(fn TAGS)" nil nil)
 
-(autoload 'semantic-sort-tags-by-type-increasing "semantic-sort" "\
+(autoload 'semantic-sort-tags-by-type-increasing "semantic/semantic-sort" "\
 Sort TAGS by type in increasing order with side effects.
 Return the sorted list.
 
 \(fn TAGS)" nil nil)
 
-(autoload 'semantic-sort-tags-by-type-decreasing "semantic-sort" "\
+(autoload 'semantic-sort-tags-by-type-decreasing "semantic/semantic-sort" "\
 Sort TAGS by type in decreasing order with side effects.
 Return the sorted list.
 
 \(fn TAGS)" nil nil)
 
-(autoload 'semantic-sort-tags-by-name-increasing-ci "semantic-sort" "\
+(autoload 'semantic-sort-tags-by-name-increasing-ci "semantic/semantic-sort" "\
 Sort TAGS by name in increasing order with side effects.
 Return the sorted list.
 
 \(fn TAGS)" nil nil)
 
-(autoload 'semantic-sort-tags-by-name-decreasing-ci "semantic-sort" "\
+(autoload 'semantic-sort-tags-by-name-decreasing-ci "semantic/semantic-sort" "\
 Sort TAGS by name in decreasing order with side effects.
 Return the sorted list.
 
 \(fn TAGS)" nil nil)
 
-(autoload 'semantic-sort-tags-by-type-increasing-ci "semantic-sort" "\
+(autoload 'semantic-sort-tags-by-type-increasing-ci "semantic/semantic-sort" "\
 Sort TAGS by type in increasing order with side effects.
 Return the sorted list.
 
 \(fn TAGS)" nil nil)
 
-(autoload 'semantic-sort-tags-by-type-decreasing-ci "semantic-sort" "\
+(autoload 'semantic-sort-tags-by-type-decreasing-ci "semantic/semantic-sort" "\
 Sort TAGS by type in decreasing order with side effects.
 Return the sorted list.
 
 \(fn TAGS)" nil nil)
 
-(autoload 'semantic-sort-tags-by-name-then-type-increasing "semantic-sort" "\
+(autoload 'semantic-sort-tags-by-name-then-type-increasing "semantic/semantic-sort" "\
 Sort TAGS by name, then type in increasing order with side effects.
 Return the sorted list.
 
 \(fn TAGS)" nil nil)
 
-(autoload 'semantic-sort-tags-by-name-then-type-decreasing "semantic-sort" "\
+(autoload 'semantic-sort-tags-by-name-then-type-decreasing "semantic/semantic-sort" "\
 Sort TAGS by name, then type in increasing order with side effects.
 Return the sorted list.
 
 \(fn TAGS)" nil nil)
 
-(autoload 'semantic-unique-tag-table-by-name "semantic-sort" "\
+(autoload 'semantic-unique-tag-table-by-name "semantic/semantic-sort" "\
 Scan a list of TAGS, removing duplicate names.
 This must first sort the tags by name alphabetically ascending.
 For more complex uniqueness testing used by the semanticdb
@@ -13213,7 +13214,7 @@ typecaching system, see `semanticdb-typecache-merge-streams'.
 
 \(fn TAGS)" nil nil)
 
-(autoload 'semantic-unique-tag-table "semantic-sort" "\
+(autoload 'semantic-unique-tag-table "semantic/semantic-sort" "\
 Scan a list of TAGS, removing duplicates.
 This must first sort the tags by position ascending.
 TAGS are removed only if they are equivalent, as can happen when
@@ -13223,7 +13224,7 @@ typecaching system, see `semanticdb-typecache-merge-streams'.
 
 \(fn TAGS)" nil nil)
 
-(autoload 'semantic-flatten-tags-table "semantic-sort" "\
+(autoload 'semantic-flatten-tags-table "semantic/semantic-sort" "\
 Flatten the tags table TABLE.
 All tags in TABLE, and all components of top level tags
 in TABLE will appear at the top level of list.
@@ -13232,7 +13233,7 @@ unmodified as components of their parent tags.
 
 \(fn &optional TABLE)" nil nil)
 
-(autoload 'semantic-bucketize "semantic-sort" "\
+(autoload 'semantic-bucketize "semantic/semantic-sort" "\
 Sort TAGS into a group of buckets based on tag class.
 Unknown classes are placed in a Misc bucket.
 Type bucket names are defined by either `semantic-symbol->name-assoc-list'.
@@ -13250,7 +13251,7 @@ In `semantic-adopt-external-members', the type of 'type for metaparents.
 A metaparent is a made-up type semantic token used to hold the child list
 of orphaned members of a named type.")
 
-(autoload 'semantic-adopt-external-members "semantic-sort" "\
+(autoload 'semantic-adopt-external-members "semantic/semantic-sort" "\
 Rebuild TAGS so that externally defined members are regrouped.
 Some languages such as C++ and CLOS permit the declaration of member
 functions outside the definition of the class.  It is easier to study
@@ -13271,7 +13272,7 @@ buckets with the bucket function.
 
 \(fn TAGS)" nil nil)
 
-(autoload 'semantic-tag-external-member-parent "semantic-sort" "\
+(autoload 'semantic-tag-external-member-parent "semantic/semantic-sort" "\
 Return a parent for TAG when TAG is an external member.
 TAG is an external member if it is defined at a toplevel and
 has some sort of label defining a parent.  The parent return will
@@ -13287,7 +13288,7 @@ include the default behavior, and merely extend your own.
 
 \(fn TAG)" nil nil)
 
-(autoload 'semantic-tag-external-member-p "semantic-sort" "\
+(autoload 'semantic-tag-external-member-p "semantic/semantic-sort" "\
 Return non-nil if PARENT is the parent of TAG.
 TAG is an external member of PARENT when it is somehow tagged
 as having PARENT as its parent.
@@ -13303,7 +13304,7 @@ include the default behavior, and merely extend your own.
 
 \(fn PARENT TAG)" nil nil)
 
-(autoload 'semantic-tag-external-member-children "semantic-sort" "\
+(autoload 'semantic-tag-external-member-children "semantic/semantic-sort" "\
 Return the list of children which are not *in* TAG.
 If optional argument USEDB is non-nil, then also search files in
 the Semantic Database.  If USEDB is a list of databases, search those
@@ -13325,7 +13326,7 @@ include the default behavior, and merely extend your own.
 
 \(fn TAG &optional USEDB)" nil nil)
 
-(autoload 'semantic-tag-external-class "semantic-sort" "\
+(autoload 'semantic-tag-external-class "semantic/semantic-sort" "\
 Return a list of real tags that faux TAG might represent.
 
 In some languages, a method can be defined on an object which is
@@ -13338,189 +13339,16 @@ likely derived, then this function is needed.
 
 ;;;***
 
-;;;### (autoloads (semantic-symref-find-text semantic-symref-find-file-references-by-name
-;;;;;;  semantic-symref-find-tags-by-completion semantic-symref-find-tags-by-regexp
-;;;;;;  semantic-symref-find-tags-by-name semantic-symref-find-references-by-name)
-;;;;;;  "semantic-symref" "cedet/semantic/symref/semantic-symref.el"
-;;;;;;  (19390 35306))
-;;; Generated autoloads from cedet/semantic/symref/semantic-symref.el
-
-(autoload 'semantic-symref-find-references-by-name "semantic-symref" "\
-Find a list of references to NAME in the current project.
-Optional SCOPE specifies which file set to search.  Defaults to 'project.
-Refers to `semantic-symref-tool', to determine the reference tool to use
-for the current buffer.
-Returns an object of class `semantic-symref-result'.
-TOOL-RETURN is an optional symbol, which will be assigned the tool used
-to perform the search.  This was added for use by a test harness.
-
-\(fn NAME &optional SCOPE TOOL-RETURN)" t nil)
-
-(autoload 'semantic-symref-find-tags-by-name "semantic-symref" "\
-Find a list of references to NAME in the current project.
-Optional SCOPE specifies which file set to search.  Defaults to 'project.
-Refers to `semantic-symref-tool', to determine the reference tool to use
-for the current buffer.
-Returns an object of class `semantic-symref-result'.
-
-\(fn NAME &optional SCOPE)" t nil)
-
-(autoload 'semantic-symref-find-tags-by-regexp "semantic-symref" "\
-Find a list of references to NAME in the current project.
-Optional SCOPE specifies which file set to search.  Defaults to 'project.
-Refers to `semantic-symref-tool', to determine the reference tool to use
-for the current buffer.
-Returns an object of class `semantic-symref-result'.
-
-\(fn NAME &optional SCOPE)" t nil)
-
-(autoload 'semantic-symref-find-tags-by-completion "semantic-symref" "\
-Find a list of references to NAME in the current project.
-Optional SCOPE specifies which file set to search.  Defaults to 'project.
-Refers to `semantic-symref-tool', to determine the reference tool to use
-for the current buffer.
-Returns an object of class `semantic-symref-result'.
-
-\(fn NAME &optional SCOPE)" t nil)
-
-(autoload 'semantic-symref-find-file-references-by-name "semantic-symref" "\
-Find a list of references to NAME in the current project.
-Optional SCOPE specifies which file set to search.  Defaults to 'project.
-Refers to `semantic-symref-tool', to determine the reference tool to use
-for the current buffer.
-Returns an object of class `semantic-symref-result'.
-
-\(fn NAME &optional SCOPE)" t nil)
-
-(autoload 'semantic-symref-find-text "semantic-symref" "\
-Find a list of occurrences of TEXT in the current project.
-TEXT is a regexp formatted for use with egrep.
-Optional SCOPE specifies which file set to search.  Defaults to 'project.
-Refers to `semantic-symref-tool', to determine the reference tool to use
-for the current buffer.
-Returns an object of class `semantic-symref-result'.
-
-\(fn TEXT &optional SCOPE)" t nil)
-
-;;;***
-
-;;;### (autoloads nil "semantic-symref-cscope" "cedet/semantic/symref/semantic-symref-cscope.el"
-;;;;;;  (18855 29150))
-;;; Generated autoloads from cedet/semantic/symref/semantic-symref-cscope.el
-
-(eieio-defclass-autoload 'semantic-symref-tool-cscope '(semantic-symref-tool-baseclass) "semantic-symref-cscope" "A symref tool implementation using CScope.\nThe CScope command can be used to generate lists of tags in a way\nsimilar to that of `grep'.  This tool will parse the output to generate\nthe hit list.\n\nSee the function `cedet-cscope-search' for more details.")
-
-;;;***
-
-;;;### (autoloads (semantic-symref-rename-local-variable semantic-symref-test-count-hits-in-tag
-;;;;;;  semantic-symref-hits-in-region) "semantic-symref-filter"
-;;;;;;  "cedet/semantic/symref/semantic-symref-filter.el" (19390
-;;;;;;  35169))
-;;; Generated autoloads from cedet/semantic/symref/semantic-symref-filter.el
-
-(autoload 'semantic-symref-hits-in-region "semantic-symref-filter" "\
-Find all occurrences of the symbol TARGET that match TARGET the tag.
-For each match, call HOOKFCN.
-HOOKFCN takes three arguments that match
-`semantic-analyze-current-symbol's use of HOOKFCN.
-  ( START END PREFIX )
-
-Search occurs in the current buffer between START and END.
-
-\(fn TARGET HOOKFCN START END)" nil nil)
-
-(autoload 'semantic-symref-test-count-hits-in-tag "semantic-symref-filter" "\
-Lookup in the current tag the symbol under point.
-the count all the other references to the same symbol within the
-tag that contains point, and return that.
-
-\(fn)" t nil)
-
-(autoload 'semantic-symref-rename-local-variable "semantic-symref-filter" "\
-Fancy way to rename the local variable under point.
-Depends on the SRecode Field editing API.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads nil "semantic-symref-global" "cedet/semantic/symref/semantic-symref-global.el"
-;;;;;;  (18855 29540))
-;;; Generated autoloads from cedet/semantic/symref/semantic-symref-global.el
-
-(eieio-defclass-autoload 'semantic-symref-tool-global '(semantic-symref-tool-baseclass) "semantic-symref-global" "A symref tool implementation using GNU Global.\nThe GNU Global command can be used to generate lists of tags in a way\nsimilar to that of `grep'.  This tool will parse the output to generate\nthe hit list.\n\nSee the function `cedet-gnu-global-search' for more details.")
-
-;;;***
-
-;;;### (autoloads nil "semantic-symref-grep" "cedet/semantic/symref/semantic-symref-grep.el"
-;;;;;;  (19422 9029))
-;;; Generated autoloads from cedet/semantic/symref/semantic-symref-grep.el
-
-(eieio-defclass-autoload 'semantic-symref-tool-grep '(semantic-symref-tool-baseclass) "semantic-symref-grep" "A symref tool implementation using grep.\nThis tool uses EDE to find he root of the project, then executes\nfind-grep in the project.  The output is parsed for hits\nand those hits returned.")
-
-;;;***
-
-;;;### (autoloads nil "semantic-symref-idutils" "cedet/semantic/symref/semantic-symref-idutils.el"
-;;;;;;  (18852 3236))
-;;; Generated autoloads from cedet/semantic/symref/semantic-symref-idutils.el
-
-(eieio-defclass-autoload 'semantic-symref-tool-idutils '(semantic-symref-tool-baseclass) "semantic-symref-idutils" "A symref tool implementation using ID Utils.\nThe udutils command set can be used to generate lists of tags in a way\nsimilar to that of `grep'.  This tool will parse the output to generate\nthe hit list.\n\nSee the function `cedet-idutils-search' for more details.")
-
-;;;***
-
-;;;### (autoloads (semantic-symref-results-mode semantic-symref-regexp
-;;;;;;  semantic-symref-symbol semantic-symref) "semantic-symref-list"
-;;;;;;  "cedet/semantic/symref/semantic-symref-list.el" (19476 12715))
-;;; Generated autoloads from cedet/semantic/symref/semantic-symref-list.el
-
-(autoload 'semantic-symref "semantic-symref-list" "\
-Find references to the current tag.
-This command uses the currently configured references tool within the
-current project to find references to the current tag.  The
-references are the organized by file and the name of the function
-they are used in.
-Display the references in`semantic-symref-results-mode'.
-
-\(fn)" t nil)
-
-(autoload 'semantic-symref-symbol "semantic-symref-list" "\
-Find references to the symbol SYM.
-This command uses the currently configured references tool within the
-current project to find references to the input SYM.  The
-references are the organized by file and the name of the function
-they are used in.
-Display the references in`semantic-symref-results-mode'.
-
-\(fn SYM)" t nil)
-
-(autoload 'semantic-symref-regexp "semantic-symref-list" "\
-Find references to the a symbol regexp SYM.
-This command uses the currently configured references tool within the
-current project to find references to the input SYM.  The
-references are the organized by file and the name of the function
-they are used in.
-Display the references in`semantic-symref-results-mode'.
-
-\(fn SYM)" t nil)
-
-(autoload 'semantic-symref-results-mode "semantic-symref-list" "\
-Major-mode for displaying Semantic Symbol Reference RESULTS.
-RESULTS is an object of class `semantic-symref-results'.
-
-\(fn RESULTS)" t nil)
-
-;;;***
-
 ;;;### (autoloads (semantic-insert-foreign-tag semantic-obtain-foreign-tag
 ;;;;;;  semantic-tag-components-with-overlays semantic-tag-components
-;;;;;;  semantic-tag-alias-definition) "semantic-tag" "cedet/semantic/semantic-tag.el"
-;;;;;;  (19358 14567))
+;;;;;;  semantic-tag-alias-definition) "semantic/semantic-tag" "cedet/semantic/semantic-tag.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-tag.el
 
 (defsubst semantic-tag-p (tag) "\
 Return non-nil if TAG is most likely a semantic tag." (condition-case nil (and (consp tag) (stringp (car tag)) (symbolp (nth 1 tag)) (nth 1 tag) (listp (nth 2 tag)) (listp (nth 3 tag))) (error nil)))
 
-(autoload 'semantic-tag-alias-definition "semantic-tag" "\
+(autoload 'semantic-tag-alias-definition "semantic/semantic-tag" "\
 Return the definition TAG is an alias.
 The returned value is a tag of the class that
 `semantic-tag-alias-class' returns for TAG.
@@ -13529,7 +13357,7 @@ Return nil if TAG is not of class 'alias.
 
 \(fn TAG)" nil nil)
 
-(autoload 'semantic-tag-components "semantic-tag" "\
+(autoload 'semantic-tag-components "semantic/semantic-tag" "\
 Return a list of components for TAG.
 A Component is a part of TAG which itself may be a TAG.
 Examples include the elements of a structure in a
@@ -13538,7 +13366,7 @@ tag of class 'function.
 
 \(fn TAG)" nil nil)
 
-(autoload 'semantic-tag-components-with-overlays "semantic-tag" "\
+(autoload 'semantic-tag-components-with-overlays "semantic/semantic-tag" "\
 Return the list of top level components belonging to TAG.
 Children are any sub-tags which contain overlays.
 
@@ -13552,14 +13380,14 @@ Ignoring this step will prevent several features from working correctly.
 
 \(fn TAG)" nil nil)
 
-(autoload 'semantic-obtain-foreign-tag "semantic-tag" "\
+(autoload 'semantic-obtain-foreign-tag "semantic/semantic-tag" "\
 Obtain a foreign tag from TAG.
 TAG defaults to the tag at point in current buffer.
 Return the obtained foreign tag or nil if failed.
 
 \(fn &optional TAG)" nil nil)
 
-(autoload 'semantic-insert-foreign-tag "semantic-tag" "\
+(autoload 'semantic-insert-foreign-tag "semantic/semantic-tag" "\
 Insert FOREIGN-TAG into the current buffer.
 Signal an error if FOREIGN-TAG is not a valid foreign tag.
 This function is overridable with the symbol `insert-foreign-tag'.
@@ -13569,11 +13397,11 @@ This function is overridable with the symbol `insert-foreign-tag'.
 ;;;***
 
 ;;;### (autoloads (semantic-prototype-file semantic-dependency-tag-file
-;;;;;;  semantic-go-to-tag) "semantic-tag-file" "cedet/semantic/semantic-tag-file.el"
-;;;;;;  (19358 14567))
+;;;;;;  semantic-go-to-tag) "semantic/semantic-tag-file" "cedet/semantic/semantic-tag-file.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-tag-file.el
 
-(autoload 'semantic-go-to-tag "semantic-tag-file" "\
+(autoload 'semantic-go-to-tag "semantic/semantic-tag-file" "\
 Go to the location of TAG.
 TAG may be a stripped element, in which case PARENT specifies a
 parent tag that has position information.
@@ -13581,14 +13409,14 @@ PARENT can also be a `semanticdb-table' object.
 
 \(fn TAG &optional PARENT)" nil nil)
 
-(autoload 'semantic-dependency-tag-file "semantic-tag-file" "\
+(autoload 'semantic-dependency-tag-file "semantic/semantic-tag-file" "\
 Find the filename represented from TAG.
 Depends on `semantic-dependency-include-path' for searching.  Always searches
 `.' first, then searches additional paths.
 
 \(fn &optional TAG)" nil nil)
 
-(autoload 'semantic-prototype-file "semantic-tag-file" "\
+(autoload 'semantic-prototype-file "semantic/semantic-tag-file" "\
 Return a file in which prototypes belonging to BUFFER should be placed.
 Default behavior (if not overridden) looks for a token specifying the
 prototype file, or the existence of an EDE variable indicating which
@@ -13598,46 +13426,14 @@ file prototypes belong in.
 
 ;;;***
 
-;;;### (autoloads (semantic-tag-folding-mode global-semantic-tag-folding-mode
-;;;;;;  global-semantic-tag-folding-mode) "semantic-tag-folding"
-;;;;;;  "cedet/contrib/semantic-tag-folding.el" (19390 36084))
-;;; Generated autoloads from cedet/contrib/semantic-tag-folding.el
-
-(defvar global-semantic-tag-folding-mode nil "\
-*If non-nil enable global use of variable `semantic-tag-folding-mode'.
-With this mode enabled, a new folding decoration mode is added.
-Clicking on a + or - in the fringe will fold that tag.")
-
-(custom-autoload 'global-semantic-tag-folding-mode "semantic-tag-folding" nil)
-
-(autoload 'global-semantic-tag-folding-mode "semantic-tag-folding" "\
-Toggle global use of option `semantic-tag-folding-mode'.
-If ARG is positive, enable, if it is negative, disable.
-If ARG is nil, then toggle.
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'semantic-tag-folding-mode "semantic-tag-folding" "\
-Minor mode mark semantic tags for folding.
-This mode will display +/- icons in the fringe.  Clicking on them
-will fold the current tag.
-With prefix argument ARG, turn on if positive, otherwise off.  The
-minor mode can be turned on only if semantic feature is available and
-the current buffer was set up for parsing.  Return non-nil if the
-minor mode is enabled.
-
-\(fn &optional ARG)" t nil)
-
-;;;***
-
 ;;;### (autoloads (semantic-tag-full-name semantic-tag-prototype-p
 ;;;;;;  semantic-tag-static-p semantic-tag-leaf-p semantic-tag-abstract-p
 ;;;;;;  semantic-tag-protected-p semantic-tag-protection semantic-tag-calculate-parent)
-;;;;;;  "semantic-tag-ls" "cedet/semantic/semantic-tag-ls.el" (19358
-;;;;;;  14567))
+;;;;;;  "semantic/semantic-tag-ls" "cedet/semantic/semantic-tag-ls.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-tag-ls.el
 
-(autoload 'semantic-tag-calculate-parent "semantic-tag-ls" "\
+(autoload 'semantic-tag-calculate-parent "semantic/semantic-tag-ls" "\
 Attempt to calculate the parent of TAG.
 The default behavior (if not overriden with `tag-calculate-parent')
 is to search a buffer found with TAG, and if externally defined,
@@ -13645,7 +13441,7 @@ search locally, then semanticdb for that tag (when enabled.)
 
 \(fn TAG)" nil nil)
 
-(autoload 'semantic-tag-protection "semantic-tag-ls" "\
+(autoload 'semantic-tag-protection "semantic/semantic-tag-ls" "\
 Return protection information about TAG with optional PARENT.
 This function returns on of the following symbols:
    nil        - No special protection.  Language dependent.
@@ -13661,7 +13457,7 @@ is to return a symbol based on type modifiers.
 
 \(fn TAG &optional PARENT)" nil nil)
 
-(autoload 'semantic-tag-protected-p "semantic-tag-ls" "\
+(autoload 'semantic-tag-protected-p "semantic/semantic-tag-ls" "\
 Non-nil if TAG is is protected.
 PROTECTION is a symbol which can be returned by the method
 `semantic-tag-protection'.
@@ -13681,7 +13477,7 @@ For these PROTECTIONs, true is returned if TAG is:
 
 \(fn TAG PROTECTION &optional PARENT)" nil nil)
 
-(autoload 'semantic-tag-abstract-p "semantic-tag-ls" "\
+(autoload 'semantic-tag-abstract-p "semantic/semantic-tag-ls" "\
 Return non nil if TAG is abstract.
 Optional PARENT is the parent tag of TAG.
 In UML, abstract methods and classes have special meaning and behavior
@@ -13692,7 +13488,7 @@ is to return true if `abstract' is in the type modifiers.
 
 \(fn TAG &optional PARENT)" nil nil)
 
-(autoload 'semantic-tag-leaf-p "semantic-tag-ls" "\
+(autoload 'semantic-tag-leaf-p "semantic/semantic-tag-ls" "\
 Return non nil if TAG is leaf.
 Optional PARENT is the parent tag of TAG.
 In UML, leaf methods and classes have special meaning and behavior.
@@ -13702,7 +13498,7 @@ is to return true if `leaf' is in the type modifiers.
 
 \(fn TAG &optional PARENT)" nil nil)
 
-(autoload 'semantic-tag-static-p "semantic-tag-ls" "\
+(autoload 'semantic-tag-static-p "semantic/semantic-tag-ls" "\
 Return non nil if TAG is static.
 Optional PARENT is the parent tag of TAG.
 In UML, static methods and attributes mean that they are allocated
@@ -13711,14 +13507,14 @@ UML notation specifies that STATIC entries are underlined.
 
 \(fn TAG &optional PARENT)" nil nil)
 
-(autoload 'semantic-tag-prototype-p "semantic-tag-ls" "\
+(autoload 'semantic-tag-prototype-p "semantic/semantic-tag-ls" "\
 Return non nil if TAG is a prototype.
 For some laguages, such as C, a prototype is a declaration of
 something without an implementation.
 
 \(fn TAG)" nil nil)
 
-(autoload 'semantic-tag-full-name "semantic-tag-ls" "\
+(autoload 'semantic-tag-full-name "semantic/semantic-tag-ls" "\
 Return the fully qualified name of TAG in the package hierarchy.
 STREAM-OR-BUFFER can be anything convertable by `semantic-something-to-stream',
 but must be a toplevel semantic tag stream that contains TAG.
@@ -13736,18 +13532,18 @@ STREAM-OR-BUFFER with a tag stream value, or nil.
 ;;;***
 
 ;;;### (autoloads (semantic-tag-write-list-slot-value semantic-tag-write-tag-list)
-;;;;;;  "semantic-tag-write" "cedet/semantic/semantic-tag-write.el"
-;;;;;;  (19358 14567))
+;;;;;;  "semantic/semantic-tag-write" "cedet/semantic/semantic-tag-write.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-tag-write.el
 
-(autoload 'semantic-tag-write-tag-list "semantic-tag-write" "\
+(autoload 'semantic-tag-write-tag-list "semantic/semantic-tag-write" "\
 Write the tag list TLIST to the current stream.
 INDENT indicates the current indentation level.
 If optional DONTADDNEWLINE is non-nil, then don't add a newline.
 
 \(fn TLIST &optional INDENT DONTADDNEWLINE)" nil nil)
 
-(autoload 'semantic-tag-write-list-slot-value "semantic-tag-write" "\
+(autoload 'semantic-tag-write-list-slot-value "semantic/semantic-tag-write" "\
 Write out the VALUE of a slot for EIEIO.
 The VALUE is a list of tags.
 
@@ -13755,11 +13551,11 @@ The VALUE is a list of tags.
 
 ;;;***
 
-;;;### (autoloads (semantic-default-texi-setup) "semantic-texi" "cedet/semantic/semantic-texi.el"
-;;;;;;  (19358 14567))
+;;;### (autoloads (semantic-default-texi-setup) "semantic/semantic-texi"
+;;;;;;  "cedet/semantic/semantic-texi.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-texi.el
 
-(autoload 'semantic-default-texi-setup "semantic-texi" "\
+(autoload 'semantic-default-texi-setup "semantic/semantic-texi" "\
 Set up a buffer for parsing of Texinfo files.
 
 \(fn)" nil nil)
@@ -13768,22 +13564,22 @@ Set up a buffer for parsing of Texinfo files.
 
 ;;;***
 
-;;;### (autoloads (semantic-utest-main) "semantic-utest" "cedet/semantic/semantic-utest.el"
-;;;;;;  (19403 32036))
+;;;### (autoloads (semantic-utest-main) "semantic/semantic-utest"
+;;;;;;  "cedet/semantic/semantic-utest.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-utest.el
 
-(autoload 'semantic-utest-main "semantic-utest" "\
-Not documented
+(autoload 'semantic-utest-main "semantic/semantic-utest" "\
+
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (semantic-utest-c) "semantic-utest-c" "cedet/semantic/semantic-utest-c.el"
-;;;;;;  (19328 24678))
+;;;### (autoloads (semantic-utest-c) "semantic/semantic-utest-c"
+;;;;;;  "cedet/semantic/semantic-utest-c.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-utest-c.el
 
-(autoload 'semantic-utest-c "semantic-utest-c" "\
+(autoload 'semantic-utest-c "semantic/semantic-utest-c" "\
 Run parsing test for C from the test directory.
 
 \(fn)" t nil)
@@ -13797,11 +13593,11 @@ Run parsing test for C from the test directory.
 ;;;;;;  global-semantic-show-parser-state-mode semantic-show-unmatched-syntax-mode
 ;;;;;;  global-semantic-show-unmatched-syntax-mode global-semantic-show-unmatched-syntax-mode
 ;;;;;;  semantic-highlight-edits-mode global-semantic-highlight-edits-mode
-;;;;;;  global-semantic-highlight-edits-mode) "semantic-util-modes"
-;;;;;;  "cedet/semantic/semantic-util-modes.el" (19390 36854))
+;;;;;;  global-semantic-highlight-edits-mode) "semantic/semantic-util-modes"
+;;;;;;  "cedet/semantic/semantic-util-modes.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semantic-util-modes.el
 
-(autoload 'global-semantic-highlight-edits-mode "semantic-util-modes" "\
+(autoload 'global-semantic-highlight-edits-mode "semantic/semantic-util-modes" "\
 Toggle global use of option `semantic-highlight-edits-mode'.
 If ARG is positive, enable, if it is negative, disable.
 If ARG is nil, then toggle.
@@ -13813,9 +13609,9 @@ If ARG is nil, then toggle.
 When this mode is enabled, changes made to a buffer are highlighted
 until the buffer is reparsed.")
 
-(custom-autoload 'global-semantic-highlight-edits-mode "semantic-util-modes" nil)
+(custom-autoload 'global-semantic-highlight-edits-mode "semantic/semantic-util-modes" nil)
 
-(autoload 'semantic-highlight-edits-mode "semantic-util-modes" "\
+(autoload 'semantic-highlight-edits-mode "semantic/semantic-util-modes" "\
 Minor mode for highlighting changes made in a buffer.
 Changes are tracked by semantic so that the incremental parser can work
 properly.
@@ -13828,7 +13624,7 @@ minor mode is enabled.
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'global-semantic-show-unmatched-syntax-mode "semantic-util-modes" "\
+(autoload 'global-semantic-show-unmatched-syntax-mode "semantic/semantic-util-modes" "\
 Toggle global use of option `semantic-show-unmatched-syntax-mode'.
 If ARG is positive, enable, if it is negative, disable.
 If ARG is nil, then toggle.
@@ -13840,9 +13636,9 @@ If non-nil, enable global use of `semantic-show-unmatched-syntax-mode'.
 When this mode is enabled, syntax in the current buffer which the
 semantic parser cannot match is highlighted with a red underline.")
 
-(custom-autoload 'global-semantic-show-unmatched-syntax-mode "semantic-util-modes" nil)
+(custom-autoload 'global-semantic-show-unmatched-syntax-mode "semantic/semantic-util-modes" nil)
 
-(autoload 'semantic-show-unmatched-syntax-mode "semantic-util-modes" "\
+(autoload 'semantic-show-unmatched-syntax-mode "semantic/semantic-util-modes" "\
 Minor mode to highlight unmatched lexical syntax tokens.
 When a parser executes, some elements in the buffer may not match any
 parser rules.  These text characters are considered unmatched syntax.
@@ -13864,16 +13660,16 @@ When enabled, the current parse state of the current buffer is displayed
 in the mode line.  See `semantic-show-parser-state-marker' for details
 on what is displayed.")
 
-(custom-autoload 'global-semantic-show-parser-state-mode "semantic-util-modes" nil)
+(custom-autoload 'global-semantic-show-parser-state-mode "semantic/semantic-util-modes" nil)
 
-(autoload 'global-semantic-show-parser-state-mode "semantic-util-modes" "\
+(autoload 'global-semantic-show-parser-state-mode "semantic/semantic-util-modes" "\
 Toggle global use of option `semantic-show-parser-state-mode'.
 If ARG is positive, enable, if it is negative, disable.
 If ARG is nil, then toggle.
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'semantic-show-parser-state-mode "semantic-util-modes" "\
+(autoload 'semantic-show-parser-state-mode "semantic/semantic-util-modes" "\
 Minor mode for displaying parser cache state in the modeline.
 The cache can be in one of three states.  They are
 Up to date, Partial reparse needed, and Full reparse needed.
@@ -13890,7 +13686,7 @@ minor mode is enabled.
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'global-semantic-stickyfunc-mode "semantic-util-modes" "\
+(autoload 'global-semantic-stickyfunc-mode "semantic/semantic-util-modes" "\
 Toggle global use of option `semantic-stickyfunc-mode'.
 If ARG is positive, enable, if it is negative, disable.
 If ARG is nil, then toggle.
@@ -13905,9 +13701,9 @@ of the current function or method is displayed in it.
 This makes it appear that the first line of that tag is
 `sticky' to the top of the window.")
 
-(custom-autoload 'global-semantic-stickyfunc-mode "semantic-util-modes" nil)
+(custom-autoload 'global-semantic-stickyfunc-mode "semantic/semantic-util-modes" nil)
 
-(autoload 'semantic-stickyfunc-mode "semantic-util-modes" "\
+(autoload 'semantic-stickyfunc-mode "semantic/semantic-util-modes" "\
 Minor mode to show the title of a tag in the header line.
 Enables/disables making the header line of functions sticky.
 A function (or other tag class specified by
@@ -13922,7 +13718,7 @@ minor mode is enabled.
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'global-semantic-highlight-func-mode "semantic-util-modes" "\
+(autoload 'global-semantic-highlight-func-mode "semantic/semantic-util-modes" "\
 Toggle global use of option `semantic-highlight-func-mode'.
 If ARG is positive, enable, if it is negative, disable.
 If ARG is nil, then toggle.
@@ -13933,9 +13729,9 @@ If ARG is nil, then toggle.
 If non-nil, enable global use of `semantic-highlight-func-mode'.
 When enabled, the first line of the current tag is highlighted.")
 
-(custom-autoload 'global-semantic-highlight-func-mode "semantic-util-modes" nil)
+(custom-autoload 'global-semantic-highlight-func-mode "semantic/semantic-util-modes" nil)
 
-(autoload 'semantic-highlight-func-mode "semantic-util-modes" "\
+(autoload 'semantic-highlight-func-mode "semantic/semantic-util-modes" "\
 Minor mode to highlight the first line of the current tag.
 Enables/disables making current function first line light up.
 A function (or other tag class specified by
@@ -13956,16 +13752,16 @@ minor mode is enabled.
 ;;;***
 
 ;;;### (autoloads (semanticdb-file-stream semanticdb-file-table-object
-;;;;;;  semanticdb-current-database) "semanticdb" "cedet/semantic/semanticdb.el"
-;;;;;;  (19422 9004))
+;;;;;;  semanticdb-current-database) "semantic/semanticdb" "cedet/semantic/semanticdb.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semanticdb.el
 
-(autoload 'semanticdb-current-database "semanticdb" "\
+(autoload 'semanticdb-current-database "semantic/semanticdb" "\
 Return the currently active database.
 
 \(fn)" nil nil)
 
-(autoload 'semanticdb-file-table-object "semanticdb" "\
+(autoload 'semanticdb-file-table-object "semantic/semanticdb" "\
 Return a semanticdb table belonging to FILE, make it up to date.
 If file has database tags available in the database, return it.
 If file does not have tags available, and DONTLOAD is nil,
@@ -13974,7 +13770,7 @@ DONTLOAD does not affect the creation of new database objects.
 
 \(fn FILE &optional DONTLOAD)" nil nil)
 
-(autoload 'semanticdb-file-stream "semanticdb" "\
+(autoload 'semanticdb-file-stream "semantic/semanticdb" "\
 Return a list of tags belonging to FILE.
 If file has database tags available in the database, return them.
 If file does not have tags available, then load the file, and create them.
@@ -13983,11 +13779,11 @@ If file does not have tags available, then load the file, and create them.
 
 ;;;***
 
-;;;### (autoloads (semanticdb-enable-cscope-databases) "semanticdb-cscope"
-;;;;;;  "cedet/semantic/semanticdb-cscope.el" (19531 32699))
+;;;### (autoloads (semanticdb-enable-cscope-databases) "semantic/semanticdb-cscope"
+;;;;;;  "cedet/semantic/semanticdb-cscope.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semanticdb-cscope.el
 
-(autoload 'semanticdb-enable-cscope-databases "semanticdb-cscope" "\
+(autoload 'semanticdb-enable-cscope-databases "semantic/semanticdb-cscope" "\
 Enable the use of the CScope back end for all files in C/C++.
 This will add an instance of a CScope database to each buffer in a
 CScope supported hierarchy.
@@ -13999,43 +13795,43 @@ CScope supported hierarchy.
 ;;;### (autoloads (semanticdb-database-sanity-check semanticdb-table-sanity-check
 ;;;;;;  semanticdb-table-oob-sanity-check semanticdb-adebug-project-database-list
 ;;;;;;  semanticdb-adebug-current-table semanticdb-adebug-current-database
-;;;;;;  semanticdb-dump-all-table-summary) "semanticdb-debug" "cedet/semantic/semanticdb-debug.el"
-;;;;;;  (19358 14567))
+;;;;;;  semanticdb-dump-all-table-summary) "semantic/semanticdb-debug"
+;;;;;;  "cedet/semantic/semanticdb-debug.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semanticdb-debug.el
 
-(autoload 'semanticdb-dump-all-table-summary "semanticdb-debug" "\
+(autoload 'semanticdb-dump-all-table-summary "semantic/semanticdb-debug" "\
 Dump a list of all databases in Emacs memory.
 
 \(fn)" t nil)
 
 (defalias 'semanticdb-adebug-database-list 'semanticdb-dump-all-table-summary)
 
-(autoload 'semanticdb-adebug-current-database "semanticdb-debug" "\
+(autoload 'semanticdb-adebug-current-database "semantic/semanticdb-debug" "\
 Run ADEBUG on the current database.
 
 \(fn)" t nil)
 
-(autoload 'semanticdb-adebug-current-table "semanticdb-debug" "\
+(autoload 'semanticdb-adebug-current-table "semantic/semanticdb-debug" "\
 Run ADEBUG on the current database.
 
 \(fn)" t nil)
 
-(autoload 'semanticdb-adebug-project-database-list "semanticdb-debug" "\
+(autoload 'semanticdb-adebug-project-database-list "semantic/semanticdb-debug" "\
 Run ADEBUG on the current database.
 
 \(fn)" t nil)
 
-(autoload 'semanticdb-table-oob-sanity-check "semanticdb-debug" "\
+(autoload 'semanticdb-table-oob-sanity-check "semantic/semanticdb-debug" "\
 Validate that CACHE tags do not have any overlays in them.
 
 \(fn CACHE)" nil nil)
 
-(autoload 'semanticdb-table-sanity-check "semanticdb-debug" "\
+(autoload 'semanticdb-table-sanity-check "semantic/semanticdb-debug" "\
 Validate the current semanticdb TABLE.
 
 \(fn &optional TABLE)" t nil)
 
-(autoload 'semanticdb-database-sanity-check "semanticdb-debug" "\
+(autoload 'semanticdb-database-sanity-check "semantic/semanticdb-debug" "\
 Validate the current semantic database.
 
 \(fn)" t nil)
@@ -14043,23 +13839,23 @@ Validate the current semantic database.
 ;;;***
 
 ;;;### (autoloads (semanticdb-ebrowse-load-helper semanticdb-load-ebrowse-caches
-;;;;;;  semanticdb-create-ebrowse-database) "semanticdb-ebrowse"
-;;;;;;  "cedet/semantic/semanticdb-ebrowse.el" (19373 12957))
+;;;;;;  semanticdb-create-ebrowse-database) "semantic/semanticdb-ebrowse"
+;;;;;;  "cedet/semantic/semanticdb-ebrowse.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semanticdb-ebrowse.el
 
-(autoload 'semanticdb-create-ebrowse-database "semanticdb-ebrowse" "\
+(autoload 'semanticdb-create-ebrowse-database "semantic/semanticdb-ebrowse" "\
 Create an EBROWSE database for directory DIR.
 The database file is stored in ~/.semanticdb, or whichever directory
 is specified by `semanticdb-default-save-directory'.
 
 \(fn DIR)" t nil)
 
-(autoload 'semanticdb-load-ebrowse-caches "semanticdb-ebrowse" "\
+(autoload 'semanticdb-load-ebrowse-caches "semantic/semanticdb-ebrowse" "\
 Load all semanticdb controlled EBROWSE caches.
 
 \(fn)" t nil)
 
-(autoload 'semanticdb-ebrowse-load-helper "semanticdb-ebrowse" "\
+(autoload 'semanticdb-ebrowse-load-helper "semantic/semanticdb-ebrowse" "\
 Create the semanticdb database via ebrowse for directory.
 If DIRECTORY is found to be defunct, it won't load the DB, and will
 warn instead.
@@ -14068,30 +13864,16 @@ warn instead.
 
 ;;;***
 
-;;;### (autoloads (semanticdb-enable-exuberent-ctags) "semanticdb-ectag"
-;;;;;;  "cedet/semantic/ctags/semanticdb-ectag.el" (18791 59641))
-;;; Generated autoloads from cedet/semantic/ctags/semanticdb-ectag.el
-
-(autoload 'semanticdb-enable-exuberent-ctags "semanticdb-ectag" "\
-Enable the use of exuberent ctags for out-of-buffer parsing for MODE.
-MODE is a `major-mode' symbol used.
-Throws an error if `semantic-ectag-program' is not of the correct
-version needed by Semantic ctags support.
-
-\(fn MODE)" t nil)
-
-;;;***
-
 ;;;### (autoloads (semanticdb-full-filename semanticdb-live-p semanticdb-file-loaded-p
 ;;;;;;  semanticdb-persistent-path semanticdb-default-save-directory
-;;;;;;  semanticdb-default-file-name) "semanticdb-file" "cedet/semantic/semanticdb-file.el"
-;;;;;;  (19403 27120))
+;;;;;;  semanticdb-default-file-name) "semantic/semanticdb-file"
+;;;;;;  "cedet/semantic/semanticdb-file.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semanticdb-file.el
 
 (defvar semanticdb-default-file-name "semantic.cache" "\
 *File name of the semantic tag cache.")
 
-(custom-autoload 'semanticdb-default-file-name "semanticdb-file" t)
+(custom-autoload 'semanticdb-default-file-name "semantic/semanticdb-file" t)
 
 (defvar semanticdb-default-save-directory (expand-file-name "~/.semanticdb") "\
 *Directory name where semantic cache files are stored.
@@ -14099,7 +13881,7 @@ If this value is nil, files are saved in the current directory.  If the value
 is a valid directory, then it overrides `semanticdb-default-file-name' and
 stores caches in a coded file name in this directory.")
 
-(custom-autoload 'semanticdb-default-save-directory "semanticdb-file" t)
+(custom-autoload 'semanticdb-default-save-directory "semantic/semanticdb-file" t)
 
 (defvar semanticdb-persistent-path '(always) "\
 *List of valid paths that semanticdb will cache tags to.
@@ -14113,25 +13895,25 @@ disable any saving anywhere, `always', which enables saving
 everywhere, or `project', which enables saving in any directory that
 passes a list of predicates in `semanticdb-project-predicate-functions'.")
 
-(custom-autoload 'semanticdb-persistent-path "semanticdb-file" t)
+(custom-autoload 'semanticdb-persistent-path "semantic/semanticdb-file" t)
 
-(eieio-defclass-autoload 'semanticdb-project-database-file '(semanticdb-project-database eieio-persistent) "semanticdb-file" "Database of file tables saved to disk.")
+(eieio-defclass-autoload 'semanticdb-project-database-file '(semanticdb-project-database eieio-persistent) "semantic/semanticdb-file" "Database of file tables saved to disk.")
 
-(autoload 'semanticdb-file-loaded-p "semanticdb-file" "\
+(autoload 'semanticdb-file-loaded-p "semantic/semanticdb-file" "\
 Return the project belonging to FILENAME if it was already loaded.
 
 \(fn FILENAME)" nil nil)
 
-(autoload 'semanticdb-live-p "semanticdb-file" "\
+(autoload 'semanticdb-live-p "semantic/semanticdb-file" "\
 Return non-nil if the file associated with OBJ is live.
 Live databases are objects associated with existing directories.
 
-\(fn (OBJ semanticdb-project-database))" nil nil)
+\(fn (obj semanticdb-project-database))" nil nil)
 
-(autoload 'semanticdb-full-filename "semanticdb-file" "\
+(autoload 'semanticdb-full-filename "semantic/semanticdb-file" "\
 Fetch the full filename that OBJ refers to.
 
-\(fn (OBJ semanticdb-project-database-file))" nil nil)
+\(fn (obj semanticdb-project-database-file))" nil nil)
 
 ;;;***
 
@@ -14148,8 +13930,8 @@ Fetch the full filename that OBJ refers to.
 ;;;;;;  semanticdb-find-adebug-scanned-includes semanticdb-test-current-database-list
 ;;;;;;  semanticdb-find-test-translate-path semanticdb-find-table-for-include
 ;;;;;;  semanticdb-find-translate-path-default semanticdb-find-default-throttle)
-;;;;;;  "semanticdb-find" "cedet/semantic/semanticdb-find.el" (19546
-;;;;;;  10695))
+;;;;;;  "semantic/semanticdb-find" "cedet/semantic/semanticdb-find.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semanticdb-find.el
 
 (defvar semanticdb-find-throttle-custom-list '(repeat (radio (const 'local) (const 'project) (const 'unloaded) (const 'system) (const 'recursive) (const 'omniscience))) "\
@@ -14181,16 +13963,16 @@ the following keys:
                  in `semanticdb-project-system-databases'.
                  The Emacs Lisp system DB is an omniscience database.")
 
-(custom-autoload 'semanticdb-find-default-throttle "semanticdb-find" t)
+(custom-autoload 'semanticdb-find-default-throttle "semantic/semanticdb-find" t)
 
-(autoload 'semanticdb-find-translate-path-default "semanticdb-find" "\
+(autoload 'semanticdb-find-translate-path-default "semantic/semanticdb-find" "\
 Translate PATH into a list of semantic tables.
 If BRUTISH is non nil, return all tables associated with PATH.
 Default action as described in `semanticdb-find-translate-path'.
 
 \(fn PATH BRUTISH)" nil nil)
 
-(autoload 'semanticdb-find-table-for-include "semanticdb-find" "\
+(autoload 'semanticdb-find-table-for-include "semantic/semanticdb-find" "\
 For a single INCLUDETAG found in TABLE, find a `semanticdb-table' object
 INCLUDETAG is a semantic TAG of class 'include.
 TABLE is a semanticdb table that identifies where INCLUDETAG came from.
@@ -14198,7 +13980,7 @@ TABLE is optional if INCLUDETAG has an overlay of :filename attribute.
 
 \(fn INCLUDETAG &optional TABLE)" nil nil)
 
-(autoload 'semanticdb-find-test-translate-path "semanticdb-find" "\
+(autoload 'semanticdb-find-test-translate-path "semantic/semanticdb-find" "\
 Call and output results of `semanticdb-find-translate-path'.
 With ARG non-nil, specify a BRUTISH translation.
 See `semanticdb-find-default-throttle' and `semanticdb-project-roots'
@@ -14206,19 +13988,19 @@ for details on how this list is derived.
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'semanticdb-test-current-database-list "semanticdb-find" "\
+(autoload 'semanticdb-test-current-database-list "semantic/semanticdb-find" "\
 Call and output results of `semanticdb-current-database-list'.
 Uses the `default-directory' to derive results.
 
 \(fn)" t nil)
 
-(autoload 'semanticdb-find-adebug-scanned-includes "semanticdb-find" "\
+(autoload 'semanticdb-find-adebug-scanned-includes "semantic/semanticdb-find" "\
 Translate the current path, then display the lost includes.
 Examines the variable `semanticdb-find-lost-includes'.
 
 \(fn)" t nil)
 
-(autoload 'semanticdb-strip-find-results "semanticdb-find" "\
+(autoload 'semanticdb-strip-find-results "semantic/semanticdb-find" "\
 Strip a semanticdb search RESULTS to exclude objects.
 This makes it appear more like the results of a `semantic-find-' call.
 Optional FIND-FILE-MATCH loads all files associated with RESULTS
@@ -14232,7 +14014,7 @@ instead.
 
 \(fn RESULTS &optional FIND-FILE-MATCH)" nil nil)
 
-(autoload 'semanticdb-fast-strip-find-results "semanticdb-find" "\
+(autoload 'semanticdb-fast-strip-find-results "semantic/semanticdb-find" "\
 Destructively strip a semanticdb search RESULTS to exclude objects.
 This makes it appear more like the results of a `semantic-find-' call.
 This is like `semanticdb-strip-find-results', except the input list RESULTS
@@ -14240,14 +14022,14 @@ will be changed.
 
 \(fn RESULTS)" nil nil)
 
-(autoload 'semanticdb-find-results-p "semanticdb-find" "\
+(autoload 'semanticdb-find-results-p "semantic/semanticdb-find" "\
 Non-nil if RESULTP is in the form of a semanticdb search result.
 This query only really tests the first entry in the list that is RESULTP,
 but should be good enough for debugging assertions.
 
 \(fn RESULTP)" nil nil)
 
-(autoload 'semanticdb-find-result-with-nil-p "semanticdb-find" "\
+(autoload 'semanticdb-find-result-with-nil-p "semantic/semanticdb-find" "\
 Non-nil of RESULTP is in the form of a semanticdb search result.
 The value nil is valid where a TABLE usually is, but only if the TAG
 results include overlays.
@@ -14256,7 +14038,7 @@ but should be good enough for debugging assertions.
 
 \(fn RESULTP)" nil nil)
 
-(autoload 'semanticdb-find-result-nth "semanticdb-find" "\
+(autoload 'semanticdb-find-result-nth "semantic/semanticdb-find" "\
 In RESULT, return the Nth search result.
 This is a 0 based search result, with the first match being element 0.
 
@@ -14266,7 +14048,7 @@ the TAG was found.  Sometimes TABLE can be nil.
 
 \(fn RESULT N)" nil nil)
 
-(autoload 'semanticdb-find-result-nth-in-buffer "semanticdb-find" "\
+(autoload 'semanticdb-find-result-nth-in-buffer "semantic/semanticdb-find" "\
 In RESULT, return the Nth search result.
 Like `semanticdb-find-result-nth', except that only the TAG
 is returned, and the buffer it is found it will be made current.
@@ -14275,7 +14057,7 @@ is still made current.
 
 \(fn RESULT N)" nil nil)
 
-(autoload 'semanticdb-find-result-mapc "semanticdb-find" "\
+(autoload 'semanticdb-find-result-mapc "semantic/semanticdb-find" "\
 Apply FCN to each element of find RESULT for side-effects only.
 FCN takes two arguments.  The first is a TAG, and the
 second is a DB from whence TAG originated.
@@ -14283,7 +14065,7 @@ Returns result.
 
 \(fn FCN RESULT)" nil nil)
 
-(autoload 'semanticdb-find-tags-collector "semanticdb-find" "\
+(autoload 'semanticdb-find-tags-collector "semantic/semanticdb-find" "\
 Collect all tags returned by FUNCTION over PATH.
 The FUNCTION must take two arguments.  The first is TABLE,
 which is a semanticdb table containing tags.  The second argument
@@ -14304,7 +14086,7 @@ and search all tables in this project tree.
 
 \(fn FUNCTION &optional PATH FIND-FILE-MATCH BRUTISH)" nil nil)
 
-(autoload 'semanticdb-find-tags-by-name "semanticdb-find" "\
+(autoload 'semanticdb-find-tags-by-name "semantic/semanticdb-find" "\
 Search for all tags matching NAME on PATH.
 See `semanticdb-find-translate-path' for details on PATH.
 FIND-FILE-MATCH indicates that any time a match is found, the file
@@ -14312,7 +14094,7 @@ associated with that tag should be loaded into a buffer.
 
 \(fn NAME &optional PATH FIND-FILE-MATCH)" nil nil)
 
-(autoload 'semanticdb-find-tags-by-name-regexp "semanticdb-find" "\
+(autoload 'semanticdb-find-tags-by-name-regexp "semantic/semanticdb-find" "\
 Search for all tags matching REGEXP on PATH.
 See `semanticdb-find-translate-path' for details on PATH.
 FIND-FILE-MATCH indicates that any time a match is found, the file
@@ -14320,7 +14102,7 @@ associated with that tag should be loaded into a buffer.
 
 \(fn REGEXP &optional PATH FIND-FILE-MATCH)" nil nil)
 
-(autoload 'semanticdb-find-tags-for-completion "semanticdb-find" "\
+(autoload 'semanticdb-find-tags-for-completion "semantic/semanticdb-find" "\
 Search for all tags matching PREFIX on PATH.
 See `semanticdb-find-translate-path' for details on PATH.
 FIND-FILE-MATCH indicates that any time a match is found, the file
@@ -14328,7 +14110,7 @@ associated with that tag should be loaded into a buffer.
 
 \(fn PREFIX &optional PATH FIND-FILE-MATCH)" nil nil)
 
-(autoload 'semanticdb-find-tags-by-class "semanticdb-find" "\
+(autoload 'semanticdb-find-tags-by-class "semantic/semanticdb-find" "\
 Search for all tags of CLASS on PATH.
 See `semanticdb-find-translate-path' for details on PATH.
 FIND-FILE-MATCH indicates that any time a match is found, the file
@@ -14336,7 +14118,7 @@ associated with that tag should be loaded into a buffer.
 
 \(fn CLASS &optional PATH FIND-FILE-MATCH)" nil nil)
 
-(autoload 'semanticdb-deep-find-tags-by-name "semanticdb-find" "\
+(autoload 'semanticdb-deep-find-tags-by-name "semantic/semanticdb-find" "\
 Search for all tags matching NAME on PATH.
 Search also in all components of top level tags founds.
 See `semanticdb-find-translate-path' for details on PATH.
@@ -14345,7 +14127,7 @@ associated with that tag should be loaded into a buffer.
 
 \(fn NAME &optional PATH FIND-FILE-MATCH)" nil nil)
 
-(autoload 'semanticdb-deep-find-tags-by-name-regexp "semanticdb-find" "\
+(autoload 'semanticdb-deep-find-tags-by-name-regexp "semantic/semanticdb-find" "\
 Search for all tags matching REGEXP on PATH.
 Search also in all components of top level tags founds.
 See `semanticdb-find-translate-path' for details on PATH.
@@ -14354,7 +14136,7 @@ associated with that tag should be loaded into a buffer.
 
 \(fn REGEXP &optional PATH FIND-FILE-MATCH)" nil nil)
 
-(autoload 'semanticdb-deep-find-tags-for-completion "semanticdb-find" "\
+(autoload 'semanticdb-deep-find-tags-for-completion "semantic/semanticdb-find" "\
 Search for all tags matching PREFIX on PATH.
 Search also in all components of top level tags founds.
 See `semanticdb-find-translate-path' for details on PATH.
@@ -14363,7 +14145,7 @@ associated with that tag should be loaded into a buffer.
 
 \(fn PREFIX &optional PATH FIND-FILE-MATCH)" nil nil)
 
-(autoload 'semanticdb-brute-deep-find-tags-by-name "semanticdb-find" "\
+(autoload 'semanticdb-brute-deep-find-tags-by-name "semantic/semanticdb-find" "\
 Search for all tags matching NAME on PATH.
 See `semanticdb-find-translate-path' for details on PATH.
 The argument BRUTISH will be set so that searching includes all tables
@@ -14373,7 +14155,7 @@ associated wit that tag should be loaded into a buffer.
 
 \(fn NAME &optional PATH FIND-FILE-MATCH)" nil nil)
 
-(autoload 'semanticdb-brute-deep-find-tags-for-completion "semanticdb-find" "\
+(autoload 'semanticdb-brute-deep-find-tags-for-completion "semantic/semanticdb-find" "\
 Search for all tags matching PREFIX on PATH.
 See `semanticdb-find-translate-path' for details on PATH.
 The argument BRUTISH will be set so that searching includes all tables
@@ -14383,7 +14165,7 @@ associated wit that tag should be loaded into a buffer.
 
 \(fn PREFIX &optional PATH FIND-FILE-MATCH)" nil nil)
 
-(autoload 'semanticdb-brute-find-tags-by-class "semanticdb-find" "\
+(autoload 'semanticdb-brute-find-tags-by-class "semantic/semanticdb-find" "\
 Search for all tags of CLASS on PATH.
 See `semanticdb-find-translate-path' for details on PATH.
 The argument BRUTISH will be set so that searching includes all tables
@@ -14393,7 +14175,7 @@ associated with that tag should be loaded into a buffer.
 
 \(fn CLASS &optional PATH FIND-FILE-MATCH)" nil nil)
 
-(autoload 'semanticdb-find-tags-external-children-of-type "semanticdb-find" "\
+(autoload 'semanticdb-find-tags-external-children-of-type "semantic/semanticdb-find" "\
 Search for all tags defined outside of TYPE w/ TYPE as a parent.
 See `semanticdb-find-translate-path' for details on PATH.
 FIND-FILE-MATCH indicates that any time a match is found, the file
@@ -14401,7 +14183,7 @@ associated with that tag should be loaded into a buffer.
 
 \(fn TYPE &optional PATH FIND-FILE-MATCH)" nil nil)
 
-(autoload 'semanticdb-find-tags-subclasses-of-type "semanticdb-find" "\
+(autoload 'semanticdb-find-tags-subclasses-of-type "semantic/semanticdb-find" "\
 Search for all tags of class type defined that subclass TYPE.
 See `semanticdb-find-translate-path' for details on PATH.
 FIND-FILE-MATCH indicates that any time a match is found, the file
@@ -14411,11 +14193,11 @@ associated with that tag should be loaded into a buffer.
 
 ;;;***
 
-;;;### (autoloads (semanticdb-enable-gnu-global-databases) "semanticdb-global"
-;;;;;;  "cedet/semantic/semanticdb-global.el" (19531 32448))
+;;;### (autoloads (semanticdb-enable-gnu-global-databases) "semantic/semanticdb-global"
+;;;;;;  "cedet/semantic/semanticdb-global.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semanticdb-global.el
 
-(autoload 'semanticdb-enable-gnu-global-databases "semanticdb-global" "\
+(autoload 'semanticdb-enable-gnu-global-databases "semantic/semanticdb-global" "\
 Enable the use of the GNU Global SemanticDB back end for all files of MODE.
 This will add an instance of a GNU Global database to each buffer
 in a GNU Global supported hierarchy.
@@ -14425,8 +14207,8 @@ in a GNU Global supported hierarchy.
 ;;;***
 
 ;;;### (autoloads (global-semanticdb-minor-mode semanticdb-minor-mode-p
-;;;;;;  semanticdb-global-mode) "semanticdb-mode" "cedet/semantic/semanticdb-mode.el"
-;;;;;;  (19137 25554))
+;;;;;;  semanticdb-global-mode) "semantic/semanticdb-mode" "cedet/semantic/semanticdb-mode.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semanticdb-mode.el
 
 (defvar semanticdb-current-database nil "\
@@ -14438,14 +14220,14 @@ For a given buffer, this is the currently active database table.")
 (defvar semanticdb-global-mode nil "\
 *If non-nil enable the use of `semanticdb-minor-mode'.")
 
-(custom-autoload 'semanticdb-global-mode "semanticdb-mode" nil)
+(custom-autoload 'semanticdb-global-mode "semantic/semanticdb-mode" nil)
 
-(autoload 'semanticdb-minor-mode-p "semanticdb-mode" "\
+(autoload 'semanticdb-minor-mode-p "semantic/semanticdb-mode" "\
 Return non-nil if `semanticdb-minor-mode' is active.
 
 \(fn)" nil nil)
 
-(autoload 'global-semanticdb-minor-mode "semanticdb-mode" "\
+(autoload 'global-semanticdb-minor-mode "semantic/semanticdb-mode" "\
 Toggle the use of `semanticdb-minor-mode'.
 If ARG is positive, enable, if it is negative, disable.
 If ARG is nil, then toggle.
@@ -14454,16 +14236,16 @@ If ARG is nil, then toggle.
 
 ;;;***
 
-;;;### (autoloads (semanticdb-add-reference) "semanticdb-ref" "cedet/semantic/semanticdb-ref.el"
-;;;;;;  (19269 17908))
+;;;### (autoloads (semanticdb-add-reference) "semantic/semanticdb-ref"
+;;;;;;  "cedet/semantic/semanticdb-ref.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semanticdb-ref.el
 
-(autoload 'semanticdb-add-reference "semanticdb-ref" "\
+(autoload 'semanticdb-add-reference "semantic/semanticdb-ref" "\
 Add a reference for the database table DBT based on INCLUDE-TAG.
 DBT is the database table that owns the INCLUDE-TAG.  The reference
 will be added to the database that INCLUDE-TAG refers to.
 
-\(fn (DBT semanticdb-abstract-table) INCLUDE-TAG)" nil nil)
+\(fn (dbt semanticdb-abstract-table) INCLUDE-TAG)" nil nil)
 
 ;;;***
 
@@ -14471,11 +14253,11 @@ will be added to the database that INCLUDE-TAG refers to.
 ;;;;;;  semanticdb-find-nonterminal-by-extra-spec semanticdb-find-nonterminal-by-property
 ;;;;;;  semanticdb-find-nonterminal-by-type semanticdb-find-nonterminal-by-name-regexp
 ;;;;;;  semanticdb-find-nonterminal-by-name semanticdb-find-nonterminal-by-token)
-;;;;;;  "semanticdb-search" "cedet/semantic/semanticdb-search.el"
-;;;;;;  (19099 11099))
+;;;;;;  "semantic/semanticdb-search" "cedet/semantic/semanticdb-search.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semanticdb-search.el
 
-(autoload 'semanticdb-find-nonterminal-by-token "semanticdb-search" "\
+(autoload 'semanticdb-find-nonterminal-by-token "semantic/semanticdb-search" "\
 OBSOLETE:
 Find all occurances of nonterminals with token TOKEN in databases.
 See `semanticdb-find-nonterminal-by-function' for details on DATABASES,
@@ -14484,7 +14266,7 @@ Return a list ((DB-TABLE . TOKEN-LIST) ...).
 
 \(fn TOKEN &optional DATABASES SEARCH-PARTS SEARCH-INCLUDES DIFF-MODE FIND-FILE-MATCH IGNORE-SYSTEM)" nil nil)
 
-(autoload 'semanticdb-find-nonterminal-by-name "semanticdb-search" "\
+(autoload 'semanticdb-find-nonterminal-by-name "semantic/semanticdb-search" "\
 OBSOLETE:
 Find all occurances of nonterminals with name NAME in databases.
 See `semanticdb-find-nonterminal-by-function' for details on DATABASES,
@@ -14493,7 +14275,7 @@ Return a list ((DB-TABLE . TOKEN) ...).
 
 \(fn NAME &optional DATABASES SEARCH-PARTS SEARCH-INCLUDES DIFF-MODE FIND-FILE-MATCH IGNORE-SYSTEM)" nil nil)
 
-(autoload 'semanticdb-find-nonterminal-by-name-regexp "semanticdb-search" "\
+(autoload 'semanticdb-find-nonterminal-by-name-regexp "semantic/semanticdb-search" "\
 OBSOLETE:
 Find all occurances of nonterminals with name matching REGEX in databases.
 See `semanticdb-find-nonterminal-by-function' for details on DATABASES,
@@ -14502,7 +14284,7 @@ Return a list ((DB-TABLE . TOKEN-LIST) ...).
 
 \(fn REGEX &optional DATABASES SEARCH-PARTS SEARCH-INCLUDES DIFF-MODE FIND-FILE-MATCH IGNORE-SYSTEM)" nil nil)
 
-(autoload 'semanticdb-find-nonterminal-by-type "semanticdb-search" "\
+(autoload 'semanticdb-find-nonterminal-by-type "semantic/semanticdb-search" "\
 OBSOLETE:
 Find all nonterminals with a type of TYPE in databases.
 See `semanticdb-find-nonterminal-by-function' for details on DATABASES,
@@ -14511,7 +14293,7 @@ Return a list ((DB-TABLE . TOKEN-LIST) ...).
 
 \(fn TYPE &optional DATABASES SEARCH-PARTS SEARCH-INCLUDES DIFF-MODE FIND-FILE-MATCH IGNORE-SYSTEM)" nil nil)
 
-(autoload 'semanticdb-find-nonterminal-by-property "semanticdb-search" "\
+(autoload 'semanticdb-find-nonterminal-by-property "semantic/semanticdb-search" "\
 OBSOLETE:
 Find all nonterminals with a PROPERTY equal to VALUE in databases.
 See `semanticdb-find-nonterminal-by-function' for details on DATABASES,
@@ -14520,7 +14302,7 @@ Return a list ((DB-TABLE . TOKEN-LIST) ...).
 
 \(fn PROPERTY VALUE &optional DATABASES SEARCH-PARTS SEARCH-INCLUDES DIFF-MODE FIND-FILE-MATCH IGNORE-SYSTEM)" nil nil)
 
-(autoload 'semanticdb-find-nonterminal-by-extra-spec "semanticdb-search" "\
+(autoload 'semanticdb-find-nonterminal-by-extra-spec "semantic/semanticdb-search" "\
 OBSOLETE:
 Find all nonterminals with a SPEC in databases.
 See `semanticdb-find-nonterminal-by-function' for details on DATABASES,
@@ -14529,7 +14311,7 @@ Return a list ((DB-TABLE . TOKEN-LIST) ...).
 
 \(fn SPEC &optional DATABASES SEARCH-PARTS SEARCH-INCLUDES DIFF-MODE FIND-FILE-MATCH IGNORE-SYSTEM)" nil nil)
 
-(autoload 'semanticdb-find-nonterminal-by-extra-spec-value "semanticdb-search" "\
+(autoload 'semanticdb-find-nonterminal-by-extra-spec-value "semantic/semanticdb-search" "\
 OBSOLETE:
 Find all nonterminals with a SPEC equal to VALUE in databases.
 See `semanticdb-find-nonterminal-by-function' for details on DATABASES,
@@ -14538,7 +14320,7 @@ Return a list ((DB-TABLE . TOKEN-LIST) ...).
 
 \(fn SPEC VALUE &optional DATABASES SEARCH-PARTS SEARCH-INCLUDES DIFF-MODE FIND-FILE-MATCH IGNORE-SYSTEM)" nil nil)
 
-(autoload 'semanticdb-find-nonterminal-by-function "semanticdb-search" "\
+(autoload 'semanticdb-find-nonterminal-by-function "semantic/semanticdb-search" "\
 OBSOLETE:
 Find all occurances of nonterminals which match FUNCTION.
 Search in all DATABASES.  If DATABASES is nil, search a range of
@@ -14561,42 +14343,42 @@ Return a list ((DB-TABLE . TOKEN-OR-TOKEN-LIST) ...).
 ;;;;;;  semanticdb-typecache-refresh-for-buffer semanticdb-typecache-find
 ;;;;;;  semanticdb-typecache-merge-streams semanticdb-get-typecache
 ;;;;;;  semanticdb-get-typecache semanticdb-typecache-add-dependant
-;;;;;;  semanticdb-typecache-notify-reset) "semanticdb-typecache"
-;;;;;;  "cedet/semantic/semanticdb-typecache.el" (19403 1457))
+;;;;;;  semanticdb-typecache-notify-reset) "semantic/semanticdb-typecache"
+;;;;;;  "cedet/semantic/semanticdb-typecache.el" (20113 48406))
 ;;; Generated autoloads from cedet/semantic/semanticdb-typecache.el
 
-(eieio-defclass-autoload 'semanticdb-typecache 'nil "semanticdb-typecache" "Structure for maintaining a typecache.")
+(eieio-defclass-autoload 'semanticdb-typecache 'nil "semantic/semanticdb-typecache" "Structure for maintaining a typecache.")
 
-(autoload 'semanticdb-typecache-notify-reset "semanticdb-typecache" "\
+(autoload 'semanticdb-typecache-notify-reset "semantic/semanticdb-typecache" "\
 Do a reset from a notify from a table we depend on.
 
-\(fn (TC semanticdb-typecache))" nil nil)
+\(fn (tc semanticdb-typecache))" nil nil)
 
-(autoload 'semanticdb-typecache-add-dependant "semanticdb-typecache" "\
+(autoload 'semanticdb-typecache-add-dependant "semantic/semanticdb-typecache" "\
 Add into the local typecache a dependant DEP.
 
 \(fn DEP)" nil nil)
 
-(autoload 'semanticdb-get-typecache "semanticdb-typecache" "\
+(autoload 'semanticdb-get-typecache "semantic/semanticdb-typecache" "\
 Retrieve the typecache from the semanticdb TABLE.
 If there is no table, create one, and fill it in.
 
-\(fn (TABLE semanticdb-abstract-table))" nil nil)
+\(fn (table semanticdb-abstract-table))" nil nil)
 
-(eieio-defclass-autoload 'semanticdb-database-typecache '(semanticdb-abstract-db-cache) "semanticdb-typecache" "Structure for maintaining a typecache.")
+(eieio-defclass-autoload 'semanticdb-database-typecache '(semanticdb-abstract-db-cache) "semantic/semanticdb-typecache" "Structure for maintaining a typecache.")
 
-(autoload 'semanticdb-get-typecache "semanticdb-typecache" "\
+(autoload 'semanticdb-get-typecache "semantic/semanticdb-typecache" "\
 Retrieve the typecache from the semantic database DB.
 If there is no table, create one, and fill it in.
 
-\(fn (DB semanticdb-project-database))" nil nil)
+\(fn (db semanticdb-project-database))" nil nil)
 
-(autoload 'semanticdb-typecache-merge-streams "semanticdb-typecache" "\
+(autoload 'semanticdb-typecache-merge-streams "semantic/semanticdb-typecache" "\
 Merge into CACHE1 and CACHE2 together.  The Caches will be merged in place.
 
 \(fn CACHE1 CACHE2)" nil nil)
 
-(autoload 'semanticdb-typecache-find "semanticdb-typecache" "\
+(autoload 'semanticdb-typecache-find "semantic/semanticdb-typecache" "\
 Search the typecache for TYPE in PATH.
 If type is a string, split the string, and search for the parts.
 If type is a list, treat the type as a pre-split string.
@@ -14605,17 +14387,17 @@ FIND-FILE-MATCH is non-nil to force all found tags to be loaded into a buffer.
 
 \(fn TYPE &optional PATH FIND-FILE-MATCH)" nil nil)
 
-(autoload 'semanticdb-typecache-refresh-for-buffer "semanticdb-typecache" "\
+(autoload 'semanticdb-typecache-refresh-for-buffer "semantic/semanticdb-typecache" "\
 Refresh the typecache for BUFFER.
 
 \(fn BUFFER)" nil nil)
 
-(autoload 'semanticdb-typecache-dump "semanticdb-typecache" "\
+(autoload 'semanticdb-typecache-dump "semantic/semanticdb-typecache" "\
 Dump the typecache for the current buffer.
 
 \(fn)" t nil)
 
-(autoload 'semanticdb-db-typecache-dump "semanticdb-typecache" "\
+(autoload 'semanticdb-db-typecache-dump "semantic/semanticdb-typecache" "\
 Dump the typecache for the current buffer's database.
 
 \(fn)" t nil)
@@ -14628,14 +14410,14 @@ Dump the typecache for the current buffer's database.
 ;;;;;;  senator-search-forward senator-completion-menu-popup senator-complete-symbol
 ;;;;;;  senator-jump-regexp senator-jump senator-previous-tag senator-next-tag
 ;;;;;;  senator-step-at-start-end-tag-classes senator-step-at-tag-classes
-;;;;;;  global-senator-minor-mode) "senator" "cedet/semantic/senator.el"
-;;;;;;  (19467 49880))
+;;;;;;  global-senator-minor-mode) "semantic/senator" "cedet/semantic/senator.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/semantic/senator.el
 
 (defvar global-senator-minor-mode nil "\
 *If non-nil enable global use of senator minor mode.")
 
-(custom-autoload 'global-senator-minor-mode "senator" nil)
+(custom-autoload 'global-senator-minor-mode "semantic/senator" nil)
 
 (defvar senator-step-at-tag-classes nil "\
 *List of tag classes where to step.
@@ -14644,7 +14426,7 @@ If nil navigation steps at any tag found.  This is a buffer local
 variable.  It can be set in a mode hook to get a specific langage
 navigation.")
 
-(custom-autoload 'senator-step-at-tag-classes "senator" t)
+(custom-autoload 'senator-step-at-tag-classes "semantic/senator" t)
 
 (defvar senator-step-at-start-end-tag-classes '(function) "\
 *List of tag classes where to step at start and end.
@@ -14655,21 +14437,21 @@ at start and end of a tag prevent stepping inside its components.
 This is a buffer local variable.  It can be set in a mode hook to get
 a specific langage navigation.")
 
-(custom-autoload 'senator-step-at-start-end-tag-classes "senator" t)
+(custom-autoload 'senator-step-at-start-end-tag-classes "semantic/senator" t)
 
-(autoload 'senator-next-tag "senator" "\
+(autoload 'senator-next-tag "semantic/senator" "\
 Navigate to the next Semantic tag.
 Return the tag or nil if at end of buffer.
 
 \(fn)" t nil)
 
-(autoload 'senator-previous-tag "senator" "\
+(autoload 'senator-previous-tag "semantic/senator" "\
 Navigate to the previous Semantic tag.
 Return the tag or nil if at beginning of buffer.
 
 \(fn)" t nil)
 
-(autoload 'senator-jump "senator" "\
+(autoload 'senator-jump "semantic/senator" "\
 Jump to the semantic symbol SYM.
 
 If optional IN-CONTEXT is non-nil jump in the local type's context
@@ -14685,7 +14467,7 @@ NO-DEFAULT switches like this:
 
 \(fn SYM &optional IN-CONTEXT NO-DEFAULT)" t nil)
 
-(autoload 'senator-jump-regexp "senator" "\
+(autoload 'senator-jump-regexp "semantic/senator" "\
 Jump to the semantic symbol SYMREGEX.
 SYMREGEX is treated as a regular expression.
 
@@ -14703,14 +14485,14 @@ NO-DEFAULT switches like this:
 
 \(fn SYMREGEX &optional IN-CONTEXT NO-DEFAULT)" t nil)
 
-(autoload 'senator-complete-symbol "senator" "\
+(autoload 'senator-complete-symbol "semantic/senator" "\
 Complete the current symbol under point.
 If optional argument CYCLE-ONCE is non-nil, only cycle through the list
 of completions once, doing nothing where there are no more matches.
 
 \(fn &optional CYCLE-ONCE)" t nil)
 
-(autoload 'senator-completion-menu-popup "senator" "\
+(autoload 'senator-completion-menu-popup "semantic/senator" "\
 Popup a completion menu for the symbol at point.
 The popup menu displays all of the possible completions for the symbol
 it was invoked on.  To automatically split large menus this function
@@ -14718,7 +14500,7 @@ use `imenu--mouse-menu' to handle the popup menu.
 
 \(fn)" t nil)
 
-(autoload 'senator-search-forward "senator" "\
+(autoload 'senator-search-forward "semantic/senator" "\
 Search in tag names forward from point for STRING.
 Set point to the end of the occurrence found, and return point.
 See also the function `search-forward' for details on the BOUND,
@@ -14726,7 +14508,7 @@ NOERROR and COUNT arguments.
 
 \(fn STRING &optional BOUND NOERROR COUNT)" t nil)
 
-(autoload 'senator-re-search-forward "senator" "\
+(autoload 'senator-re-search-forward "semantic/senator" "\
 Search in tag names forward from point for regular expression REGEXP.
 Set point to the end of the occurrence found, and return point.
 See also the function `re-search-forward' for details on the BOUND,
@@ -14734,7 +14516,7 @@ NOERROR and COUNT arguments.
 
 \(fn REGEXP &optional BOUND NOERROR COUNT)" t nil)
 
-(autoload 'senator-word-search-forward "senator" "\
+(autoload 'senator-word-search-forward "semantic/senator" "\
 Search in tag names forward from point for WORD.
 Set point to the end of the occurrence found, and return point.
 See also the function `word-search-forward' for details on the BOUND,
@@ -14742,7 +14524,7 @@ NOERROR and COUNT arguments.
 
 \(fn WORD &optional BOUND NOERROR COUNT)" t nil)
 
-(autoload 'senator-search-backward "senator" "\
+(autoload 'senator-search-backward "semantic/senator" "\
 Search in tag names backward from point for STRING.
 Set point to the beginning of the occurrence found, and return point.
 See also the function `search-backward' for details on the BOUND,
@@ -14750,7 +14532,7 @@ NOERROR and COUNT arguments.
 
 \(fn STRING &optional BOUND NOERROR COUNT)" t nil)
 
-(autoload 'senator-re-search-backward "senator" "\
+(autoload 'senator-re-search-backward "semantic/senator" "\
 Search in tag names backward from point for regular expression REGEXP.
 Set point to the beginning of the occurrence found, and return point.
 See also the function `re-search-backward' for details on the BOUND,
@@ -14758,7 +14540,7 @@ NOERROR and COUNT arguments.
 
 \(fn REGEXP &optional BOUND NOERROR COUNT)" t nil)
 
-(autoload 'senator-word-search-backward "senator" "\
+(autoload 'senator-word-search-backward "semantic/senator" "\
 Search in tag names backward from point for WORD.
 Set point to the beginning of the occurrence found, and return point.
 See also the function `word-search-backward' for details on the BOUND,
@@ -14766,7 +14548,7 @@ NOERROR and COUNT arguments.
 
 \(fn WORD &optional BOUND NOERROR COUNT)" t nil)
 
-(autoload 'senator-minor-mode "senator" "\
+(autoload 'senator-minor-mode "semantic/senator" "\
 Toggle senator minor mode.
 With prefix argument ARG, turn on if positive, otherwise off.  The
 minor mode can be turned on only if semantic feature is available and
@@ -14777,14 +14559,14 @@ minor mode is enabled.
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'global-senator-minor-mode "senator" "\
+(autoload 'global-senator-minor-mode "semantic/senator" "\
 Toggle global use of senator minor mode.
 If ARG is positive, enable, if it is negative, disable.
 If ARG is nil, then toggle.
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'senator-try-expand-semantic "senator" "\
+(autoload 'senator-try-expand-semantic "semantic/senator" "\
 Attempt inline completion at the cursor.
 Use Semantic, or the semantic database to look up possible
 completions.  The argument OLD has to be nil the first call of this
@@ -14795,23 +14577,480 @@ found, nil otherwise.
 
 ;;;***
 
-;;;### (autoloads (smex-initialize) "smex" "smex.el" (19887 60757))
-;;; Generated autoloads from smex.el
+;;;### (autoloads (semantic-symref-find-text semantic-symref-find-file-references-by-name
+;;;;;;  semantic-symref-find-tags-by-completion semantic-symref-find-tags-by-regexp
+;;;;;;  semantic-symref-find-tags-by-name semantic-symref-find-references-by-name)
+;;;;;;  "semantic/symref/semantic-symref" "cedet/semantic/symref/semantic-symref.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/semantic/symref/semantic-symref.el
 
-(autoload 'smex-initialize "smex" "\
-Not documented
+(autoload 'semantic-symref-find-references-by-name "semantic/symref/semantic-symref" "\
+Find a list of references to NAME in the current project.
+Optional SCOPE specifies which file set to search.  Defaults to 'project.
+Refers to `semantic-symref-tool', to determine the reference tool to use
+for the current buffer.
+Returns an object of class `semantic-symref-result'.
+TOOL-RETURN is an optional symbol, which will be assigned the tool used
+to perform the search.  This was added for use by a test harness.
+
+\(fn NAME &optional SCOPE TOOL-RETURN)" t nil)
+
+(autoload 'semantic-symref-find-tags-by-name "semantic/symref/semantic-symref" "\
+Find a list of references to NAME in the current project.
+Optional SCOPE specifies which file set to search.  Defaults to 'project.
+Refers to `semantic-symref-tool', to determine the reference tool to use
+for the current buffer.
+Returns an object of class `semantic-symref-result'.
+
+\(fn NAME &optional SCOPE)" t nil)
+
+(autoload 'semantic-symref-find-tags-by-regexp "semantic/symref/semantic-symref" "\
+Find a list of references to NAME in the current project.
+Optional SCOPE specifies which file set to search.  Defaults to 'project.
+Refers to `semantic-symref-tool', to determine the reference tool to use
+for the current buffer.
+Returns an object of class `semantic-symref-result'.
+
+\(fn NAME &optional SCOPE)" t nil)
+
+(autoload 'semantic-symref-find-tags-by-completion "semantic/symref/semantic-symref" "\
+Find a list of references to NAME in the current project.
+Optional SCOPE specifies which file set to search.  Defaults to 'project.
+Refers to `semantic-symref-tool', to determine the reference tool to use
+for the current buffer.
+Returns an object of class `semantic-symref-result'.
+
+\(fn NAME &optional SCOPE)" t nil)
+
+(autoload 'semantic-symref-find-file-references-by-name "semantic/symref/semantic-symref" "\
+Find a list of references to NAME in the current project.
+Optional SCOPE specifies which file set to search.  Defaults to 'project.
+Refers to `semantic-symref-tool', to determine the reference tool to use
+for the current buffer.
+Returns an object of class `semantic-symref-result'.
+
+\(fn NAME &optional SCOPE)" t nil)
+
+(autoload 'semantic-symref-find-text "semantic/symref/semantic-symref" "\
+Find a list of occurrences of TEXT in the current project.
+TEXT is a regexp formatted for use with egrep.
+Optional SCOPE specifies which file set to search.  Defaults to 'project.
+Refers to `semantic-symref-tool', to determine the reference tool to use
+for the current buffer.
+Returns an object of class `semantic-symref-result'.
+
+\(fn TEXT &optional SCOPE)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "semantic/symref/semantic-symref-cscope" "cedet/semantic/symref/semantic-symref-cscope.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/semantic/symref/semantic-symref-cscope.el
+
+(eieio-defclass-autoload 'semantic-symref-tool-cscope '(semantic-symref-tool-baseclass) "semantic/symref/semantic-symref-cscope" "A symref tool implementation using CScope.\nThe CScope command can be used to generate lists of tags in a way\nsimilar to that of `grep'.  This tool will parse the output to generate\nthe hit list.\n\nSee the function `cedet-cscope-search' for more details.")
+
+;;;***
+
+;;;### (autoloads (semantic-symref-rename-local-variable semantic-symref-test-count-hits-in-tag
+;;;;;;  semantic-symref-hits-in-region) "semantic/symref/semantic-symref-filter"
+;;;;;;  "cedet/semantic/symref/semantic-symref-filter.el" (20113
+;;;;;;  48406))
+;;; Generated autoloads from cedet/semantic/symref/semantic-symref-filter.el
+
+(autoload 'semantic-symref-hits-in-region "semantic/symref/semantic-symref-filter" "\
+Find all occurrences of the symbol TARGET that match TARGET the tag.
+For each match, call HOOKFCN.
+HOOKFCN takes three arguments that match
+`semantic-analyze-current-symbol's use of HOOKFCN.
+  ( START END PREFIX )
+
+Search occurs in the current buffer between START and END.
+
+\(fn TARGET HOOKFCN START END)" nil nil)
+
+(autoload 'semantic-symref-test-count-hits-in-tag "semantic/symref/semantic-symref-filter" "\
+Lookup in the current tag the symbol under point.
+the count all the other references to the same symbol within the
+tag that contains point, and return that.
+
+\(fn)" t nil)
+
+(autoload 'semantic-symref-rename-local-variable "semantic/symref/semantic-symref-filter" "\
+Fancy way to rename the local variable under point.
+Depends on the SRecode Field editing API.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (speedbar-get-focus speedbar-frame-mode) "speedbar"
-;;;;;;  "cedet/speedbar/speedbar.el" (18881 38525))
+;;;### (autoloads nil "semantic/symref/semantic-symref-global" "cedet/semantic/symref/semantic-symref-global.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/semantic/symref/semantic-symref-global.el
+
+(eieio-defclass-autoload 'semantic-symref-tool-global '(semantic-symref-tool-baseclass) "semantic/symref/semantic-symref-global" "A symref tool implementation using GNU Global.\nThe GNU Global command can be used to generate lists of tags in a way\nsimilar to that of `grep'.  This tool will parse the output to generate\nthe hit list.\n\nSee the function `cedet-gnu-global-search' for more details.")
+
+;;;***
+
+;;;### (autoloads nil "semantic/symref/semantic-symref-grep" "cedet/semantic/symref/semantic-symref-grep.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/semantic/symref/semantic-symref-grep.el
+
+(eieio-defclass-autoload 'semantic-symref-tool-grep '(semantic-symref-tool-baseclass) "semantic/symref/semantic-symref-grep" "A symref tool implementation using grep.\nThis tool uses EDE to find he root of the project, then executes\nfind-grep in the project.  The output is parsed for hits\nand those hits returned.")
+
+;;;***
+
+;;;### (autoloads nil "semantic/symref/semantic-symref-idutils" "cedet/semantic/symref/semantic-symref-idutils.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/semantic/symref/semantic-symref-idutils.el
+
+(eieio-defclass-autoload 'semantic-symref-tool-idutils '(semantic-symref-tool-baseclass) "semantic/symref/semantic-symref-idutils" "A symref tool implementation using ID Utils.\nThe udutils command set can be used to generate lists of tags in a way\nsimilar to that of `grep'.  This tool will parse the output to generate\nthe hit list.\n\nSee the function `cedet-idutils-search' for more details.")
+
+;;;***
+
+;;;### (autoloads (semantic-symref-results-mode semantic-symref-regexp
+;;;;;;  semantic-symref-symbol semantic-symref) "semantic/symref/semantic-symref-list"
+;;;;;;  "cedet/semantic/symref/semantic-symref-list.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/symref/semantic-symref-list.el
+
+(autoload 'semantic-symref "semantic/symref/semantic-symref-list" "\
+Find references to the current tag.
+This command uses the currently configured references tool within the
+current project to find references to the current tag.  The
+references are the organized by file and the name of the function
+they are used in.
+Display the references in`semantic-symref-results-mode'.
+
+\(fn)" t nil)
+
+(autoload 'semantic-symref-symbol "semantic/symref/semantic-symref-list" "\
+Find references to the symbol SYM.
+This command uses the currently configured references tool within the
+current project to find references to the input SYM.  The
+references are the organized by file and the name of the function
+they are used in.
+Display the references in`semantic-symref-results-mode'.
+
+\(fn SYM)" t nil)
+
+(autoload 'semantic-symref-regexp "semantic/symref/semantic-symref-list" "\
+Find references to the a symbol regexp SYM.
+This command uses the currently configured references tool within the
+current project to find references to the input SYM.  The
+references are the organized by file and the name of the function
+they are used in.
+Display the references in`semantic-symref-results-mode'.
+
+\(fn SYM)" t nil)
+
+(autoload 'semantic-symref-results-mode "semantic/symref/semantic-symref-list" "\
+Major-mode for displaying Semantic Symbol Reference RESULTS.
+RESULTS is an object of class `semantic-symref-results'.
+
+\(fn RESULTS)" t nil)
+
+;;;***
+
+;;;### (autoloads (bison->wisent) "semantic/wisent/bison-wisent"
+;;;;;;  "cedet/semantic/wisent/bison-wisent.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/wisent/bison-wisent.el
+
+(autoload 'bison->wisent "semantic/wisent/bison-wisent" "\
+Treat the current buffer as a YACC or BISON file, and translate to wisent.
+Replaces all comments with wisent compatible comments.
+Finds % commands that wisent cannot handle, and comments them out.
+Deletes all actions, replacing them with small comments.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (wisent-parse-toggle-verbose-flag) "semantic/wisent/wisent"
+;;;;;;  "cedet/semantic/wisent/wisent.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/wisent/wisent.el
+
+(defvar wisent-parse-verbose-flag nil "\
+*Non-nil means to issue more messages while parsing.")
+
+(autoload 'wisent-parse-toggle-verbose-flag "semantic/wisent/wisent" "\
+Toggle whether to issue more messages while parsing.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (wisent-c-default-setup) "semantic/wisent/wisent-c"
+;;;;;;  "cedet/semantic/wisent/wisent-c.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/wisent/wisent-c.el
+
+(autoload 'wisent-c-default-setup "semantic/wisent/wisent-c" "\
+Setup buffer for parse.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (wisent-calc-utest wisent-calc) "semantic/wisent/wisent-calc"
+;;;;;;  "cedet/semantic/wisent/wisent-calc.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/wisent/wisent-calc.el
+
+(autoload 'wisent-calc "semantic/wisent/wisent-calc" "\
+Infix desktop calculator.
+Parse INPUT string and output the result of computation.
+
+\(fn INPUT)" t nil)
+
+(autoload 'wisent-calc-utest "semantic/wisent/wisent-calc" "\
+Test the wisent calculator.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (wisent-byte-compile-grammar wisent-compile-grammar
+;;;;;;  wisent-toggle-verbose-flag) "semantic/wisent/wisent-comp"
+;;;;;;  "cedet/semantic/wisent/wisent-comp.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/wisent/wisent-comp.el
+
+(defvar wisent-verbose-flag nil "\
+*Non-nil means to report verbose information on generated parser.")
+
+(autoload 'wisent-toggle-verbose-flag "semantic/wisent/wisent-comp" "\
+Toggle whether to report verbose information on generated parser.
+
+\(fn)" t nil)
+
+(autoload 'wisent-compile-grammar "semantic/wisent/wisent-comp" "\
+Compile the LALR(1) GRAMMAR.
+
+GRAMMAR is a list (TOKENS ASSOCS . NONTERMS) where:
+
+- TOKENS is a list of terminal symbols (tokens).
+
+- ASSOCS is nil, or an alist of (ASSOC-TYPE . ASSOC-VALUE) elements
+  describing the associativity of TOKENS.  ASSOC-TYPE must be one of
+  the `default-prec' `nonassoc', `left' or `right' symbols.  When
+  ASSOC-TYPE is `default-prec', ASSOC-VALUE must be nil or t (the
+  default).  Otherwise it is a list of tokens which must have been
+  previously declared in TOKENS.
+
+- NONTERMS is a list of nonterminal definitions.
+
+Optional argument START-LIST specify the possible grammar start
+symbols.  This is a list of nonterminals which must have been
+previously declared in GRAMMAR's NONTERMS form.  By default, the start
+symbol is the first nonterminal defined.  When START-LIST contains
+only one element, it is the start symbol.  Otherwise, all elements are
+possible start symbols, unless `wisent-single-start-flag' is non-nil.
+In that case, the first element is the start symbol, and others are
+ignored.
+
+Return an automaton as a vector: [ACTIONS GOTOS STARTS FUNCTIONS]
+where:
+
+- ACTIONS is a state/token matrix telling the parser what to do at
+  every state based on the current lookahead token.  That is shift,
+  reduce, accept or error.
+
+- GOTOS is a state/nonterminal matrix telling the parser the next
+  state to go to after reducing with each rule.
+
+- STARTS is an alist which maps the allowed start nonterminal symbols
+  to tokens that will be first shifted into the parser stack.
+
+- FUNCTIONS is an obarray of semantic action symbols.  Each symbol's
+  function definition is the semantic action lambda expression.
+
+\(fn GRAMMAR &optional START-LIST)" nil nil)
+
+(autoload 'wisent-byte-compile-grammar "semantic/wisent/wisent-comp" "\
+Byte compile the `wisent-compile-grammar' FORM.
+Automatically called by the Emacs Lisp byte compiler as a
+`byte-compile' handler.
+
+\(fn FORM)" nil nil)
+
+;;;***
+
+;;;### (autoloads (wisent-debug-show-entry wisent-cancel-debug-on-entry
+;;;;;;  wisent-debug-on-entry) "semantic/wisent/wisent-debug" "cedet/semantic/wisent/wisent-debug.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/semantic/wisent/wisent-debug.el
+
+(autoload 'wisent-debug-on-entry "semantic/wisent/wisent-debug" "\
+Request AUTOMATON's FUNCTION to invoke debugger each time it is called.
+FUNCTION must be a semantic action symbol that exists in AUTOMATON.
+
+\(fn AUTOMATON FUNCTION)" t nil)
+
+(autoload 'wisent-cancel-debug-on-entry "semantic/wisent/wisent-debug" "\
+Undo effect of \\[wisent-debug-on-entry] on AUTOMATON's FUNCTION.
+FUNCTION must be a semantic action symbol that exists in AUTOMATON.
+
+\(fn AUTOMATON FUNCTION)" t nil)
+
+(autoload 'wisent-debug-show-entry "semantic/wisent/wisent-debug" "\
+Show the source of AUTOMATON's semantic action FUNCTION.
+FUNCTION must be a semantic action symbol that exists in AUTOMATON.
+
+\(fn AUTOMATON FUNCTION)" t nil)
+
+;;;***
+
+;;;### (autoloads (wisent-grammar-mode) "semantic/wisent/wisent-grammar"
+;;;;;;  "cedet/semantic/wisent/wisent-grammar.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/wisent/wisent-grammar.el
+
+(autoload 'wisent-grammar-mode "semantic/wisent/wisent-grammar" "\
+Major mode for editing Wisent grammars.
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.wy$" . wisent-grammar-mode))
+
+(eval-after-load "speedbar" '(speedbar-add-supported-extension ".wy"))
+
+;;;***
+
+;;;### (autoloads nil "semantic/wisent/wisent-java" "cedet/semantic/wisent/wisent-java.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/semantic/wisent/wisent-java.el
+
+(eval-after-load "semanticdb" '(require 'semanticdb-javap))
+
+;;;***
+
+;;;### (autoloads (wisent-java-default-setup) "semantic/wisent/wisent-java-tags"
+;;;;;;  "cedet/semantic/wisent/wisent-java-tags.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/wisent/wisent-java-tags.el
+
+(autoload 'wisent-java-default-setup "semantic/wisent/wisent-java-tags" "\
+Hook run to setup Semantic in `java-mode'.
+Use the alternate LALR(1) parser.
+
+\(fn)" nil nil)
+
+(add-hook 'java-mode-hook 'wisent-java-default-setup)
+
+;;;***
+
+;;;### (autoloads (wisent-javascript-setup-parser) "semantic/wisent/wisent-javascript"
+;;;;;;  "cedet/semantic/wisent/wisent-javascript.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/wisent/wisent-javascript.el
+
+(autoload 'wisent-javascript-setup-parser "semantic/wisent/wisent-javascript" "\
+Setup buffer for parse.
+
+\(fn)" nil nil)
+
+(add-hook 'javascript-mode-hook 'wisent-javascript-setup-parser)
+
+(add-hook 'ecmascript-mode-hook 'wisent-javascript-setup-parser)
+
+(add-hook 'js-mode-hook 'wisent-javascript-setup-parser)
+
+(add-hook 'js2-mode-hook 'wisent-javascript-setup-parser)
+
+;;;***
+
+;;;### (autoloads (wisent-python-default-setup) "semantic/wisent/wisent-python"
+;;;;;;  "cedet/semantic/wisent/wisent-python.el" (20113 48406))
+;;; Generated autoloads from cedet/semantic/wisent/wisent-python.el
+
+(autoload 'wisent-python-default-setup "semantic/wisent/wisent-python" "\
+Setup buffer for parse.
+
+\(fn)" nil nil)
+
+(add-hook 'python-mode-hook 'wisent-python-default-setup)
+
+;;;***
+
+;;;### (autoloads (smex-initialize) "smex" "smex.el" (20112 24690))
+;;; Generated autoloads from smex.el
+
+(autoload 'smex-initialize "smex" "\
+
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (rpm) "speedbar/rpm" "cedet/speedbar/rpm.el" (20113
+;;;;;;  48406))
+;;; Generated autoloads from cedet/speedbar/rpm.el
+
+(autoload 'rpm "speedbar/rpm" "\
+Red Hat Package Management in Emacs.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads (gud-speedbar-buttons) "speedbar/sb-gud" "cedet/speedbar/sb-gud.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/speedbar/sb-gud.el
+
+(autoload 'gud-speedbar-buttons "speedbar/sb-gud" "\
+Create a speedbar display based on the current state of GUD.
+If the GUD BUFFER is not running a supported debugger, then turn
+off the specialized speedbar mode.
+
+\(fn BUFFER)" nil nil)
+
+;;;***
+
+;;;### (autoloads (Info-speedbar-buttons Info-speedbar-browser) "speedbar/sb-info"
+;;;;;;  "cedet/speedbar/sb-info.el" (20113 48406))
+;;; Generated autoloads from cedet/speedbar/sb-info.el
+
+(autoload 'Info-speedbar-browser "speedbar/sb-info" "\
+Initialize speedbar to display an info node browser.
+This will add a speedbar major display mode.
+
+\(fn)" t nil)
+
+(autoload 'Info-speedbar-buttons "speedbar/sb-info" "\
+Create a speedbar display to help navigation in an Info file.
+BUFFER is the buffer speedbar is requesting buttons for.
+
+\(fn BUFFER)" nil nil)
+
+(eval-after-load "info" '(require 'sb-info))
+
+;;;***
+
+;;;### (autoloads (rmail-speedbar-buttons) "speedbar/sb-rmail" "cedet/speedbar/sb-rmail.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/speedbar/sb-rmail.el
+
+(autoload 'rmail-speedbar-buttons "speedbar/sb-rmail" "\
+Create buttons for BUFFER containing rmail messages.
+Click on the address under Reply to: to reply to this person.
+Under Folders: Click a name to read it, or on the <M> to move the
+current message into that RMAIL folder.
+
+\(fn BUFFER)" nil nil)
+
+;;;***
+
+;;;### (autoloads (w3-speedbar-buttons) "speedbar/sb-w3" "cedet/speedbar/sb-w3.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/speedbar/sb-w3.el
+
+(autoload 'w3-speedbar-buttons "speedbar/sb-w3" "\
+Create speedbar buttons for the current web BUFFER displayed in w3 mode.
+
+\(fn BUFFER)" nil nil)
+
+;;;***
+
+;;;### (autoloads (speedbar-get-focus speedbar-frame-mode) "speedbar/speedbar"
+;;;;;;  "cedet/speedbar/speedbar.el" (20113 48406))
 ;;; Generated autoloads from cedet/speedbar/speedbar.el
 
 (defalias 'speedbar 'speedbar-frame-mode)
 
-(autoload 'speedbar-frame-mode "speedbar" "\
+(autoload 'speedbar-frame-mode "speedbar/speedbar" "\
 Enable or disable speedbar.  Positive ARG means turn on, negative turn off.
 A nil ARG means toggle.  Once the speedbar frame is activated, a buffer in
 `speedbar-mode' will be displayed.  Currently, only one speedbar is
@@ -14821,7 +15060,7 @@ supported at a time.
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'speedbar-get-focus "speedbar" "\
+(autoload 'speedbar-get-focus "speedbar/speedbar" "\
 Change frame focus to or from the speedbar frame.
 If the selected frame is not speedbar, then speedbar frame is
 selected.  If the speedbar frame is active, then select the attached frame.
@@ -14830,51 +15069,63 @@ selected.  If the speedbar frame is active, then select the attached frame.
 
 ;;;***
 
+;;;### (autoloads (srecode-semantic-handle-:android) "srecode/srecode-android"
+;;;;;;  "cedet/srecode/srecode-android.el" (20113 48406))
+;;; Generated autoloads from cedet/srecode/srecode-android.el
+
+(autoload 'srecode-semantic-handle-:android "srecode/srecode-android" "\
+Add android specific symbols into DICT based on the current project.
+
+\(fn DICT)" nil nil)
+
+;;;***
+
 ;;;### (autoloads (srecode-semantic-handle-:kill srecode-semantic-handle-:system
 ;;;;;;  srecode-semantic-handle-:file srecode-semantic-handle-:time
 ;;;;;;  srecode-semantic-handle-:user srecode-semantic-handle-:region
 ;;;;;;  srecode-semantic-handle-:indent srecode-semantic-handle-:blank)
-;;;;;;  "srecode-args" "cedet/srecode/srecode-args.el" (19373 12959))
+;;;;;;  "srecode/srecode-args" "cedet/srecode/srecode-args.el" (20113
+;;;;;;  48406))
 ;;; Generated autoloads from cedet/srecode/srecode-args.el
 
-(autoload 'srecode-semantic-handle-:blank "srecode-args" "\
+(autoload 'srecode-semantic-handle-:blank "srecode/srecode-args" "\
 Add macros into the dictionary DICT specifying blank line spacing.
 The wrapgap means make sure the first and last lines of the macro
 do not contain any text from preceding or following text.
 
 \(fn DICT)" nil nil)
 
-(autoload 'srecode-semantic-handle-:indent "srecode-args" "\
+(autoload 'srecode-semantic-handle-:indent "srecode/srecode-args" "\
 Add macros into the dictionary DICT for indentation.
 
 \(fn DICT)" nil nil)
 
-(autoload 'srecode-semantic-handle-:region "srecode-args" "\
+(autoload 'srecode-semantic-handle-:region "srecode/srecode-args" "\
 Add macros into the dictionary DICT based on the current :region.
 
 \(fn DICT)" nil nil)
 
-(autoload 'srecode-semantic-handle-:user "srecode-args" "\
+(autoload 'srecode-semantic-handle-:user "srecode/srecode-args" "\
 Add macros into the dictionary DICT based on the current :user.
 
 \(fn DICT)" nil nil)
 
-(autoload 'srecode-semantic-handle-:time "srecode-args" "\
+(autoload 'srecode-semantic-handle-:time "srecode/srecode-args" "\
 Add macros into the dictionary DICT based on the current :time.
 
 \(fn DICT)" nil nil)
 
-(autoload 'srecode-semantic-handle-:file "srecode-args" "\
+(autoload 'srecode-semantic-handle-:file "srecode/srecode-args" "\
 Add macros into the dictionary DICT based on the current :file.
 
 \(fn DICT)" nil nil)
 
-(autoload 'srecode-semantic-handle-:system "srecode-args" "\
+(autoload 'srecode-semantic-handle-:system "srecode/srecode-args" "\
 Add macros into the dictionary DICT based on the current :system.
 
 \(fn DICT)" nil nil)
 
-(autoload 'srecode-semantic-handle-:kill "srecode-args" "\
+(autoload 'srecode-semantic-handle-:kill "srecode/srecode-args" "\
 Add macros into the dictionary DICT based on the kill ring.
 
 \(fn DICT)" nil nil)
@@ -14882,27 +15133,27 @@ Add macros into the dictionary DICT based on the kill ring.
 ;;;***
 
 ;;;### (autoloads (srecode-compile-templates srecode-compile-file)
-;;;;;;  "srecode-compile" "cedet/srecode/srecode-compile.el" (19442
-;;;;;;  38441))
+;;;;;;  "srecode/srecode-compile" "cedet/srecode/srecode-compile.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-compile.el
 
-(autoload 'srecode-compile-file "srecode-compile" "\
+(autoload 'srecode-compile-file "srecode/srecode-compile" "\
 Compile the templates from the file FNAME.
 
 \(fn FNAME)" nil nil)
 
-(autoload 'srecode-compile-templates "srecode-compile" "\
+(autoload 'srecode-compile-templates "srecode/srecode-compile" "\
 Compile a semantic recode template file into a mode-local variable.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (srecode-semantic-handle-:cpp) "srecode-cpp" "cedet/srecode/srecode-cpp.el"
-;;;;;;  (19428 39642))
+;;;### (autoloads (srecode-semantic-handle-:cpp) "srecode/srecode-cpp"
+;;;;;;  "cedet/srecode/srecode-cpp.el" (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-cpp.el
 
-(autoload 'srecode-semantic-handle-:cpp "srecode-cpp" "\
+(autoload 'srecode-semantic-handle-:cpp "srecode/srecode-cpp" "\
 Add macros into the dictionary DICT based on the current c++ file.
 Adds the following:
 FILENAME_SYMBOL - filename converted into a C compat symbol.
@@ -14912,11 +15163,11 @@ HEADER - Shown section if in a header file.
 
 ;;;***
 
-;;;### (autoloads (srecode-calculate-context) "srecode-ctxt" "cedet/srecode/srecode-ctxt.el"
-;;;;;;  (19010 47297))
+;;;### (autoloads (srecode-calculate-context) "srecode/srecode-ctxt"
+;;;;;;  "cedet/srecode/srecode-ctxt.el" (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-ctxt.el
 
-(autoload 'srecode-calculate-context "srecode-ctxt" "\
+(autoload 'srecode-calculate-context "srecode/srecode-ctxt" "\
 Calculate the context at the current point.
 The returned context is a list, with the top-most context first.
 Each returned context is a string that that would show up in a `context'
@@ -14954,17 +15205,17 @@ Some useful context values used by the provided srecode templates are:
 ;;;***
 
 ;;;### (autoloads (srecode-dictionary-dump srecode-adebug-dictionary
-;;;;;;  srecode-create-dictionary) "srecode-dictionary" "cedet/srecode/srecode-dictionary.el"
-;;;;;;  (19436 42677))
+;;;;;;  srecode-create-dictionary) "srecode/srecode-dictionary" "cedet/srecode/srecode-dictionary.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-dictionary.el
 
-(eieio-defclass-autoload 'srecode-dictionary 'nil "srecode-dictionary" "Dictionary of symbols and what they mean.\nDictionaries are used to look up named symbols from\ntemplates to decide what to do with those symbols.")
+(eieio-defclass-autoload 'srecode-dictionary 'nil "srecode/srecode-dictionary" "Dictionary of symbols and what they mean.\nDictionaries are used to look up named symbols from\ntemplates to decide what to do with those symbols.")
 
-(eieio-defclass-autoload 'srecode-dictionary-compound-value 'nil "srecode-dictionary" "A compound dictionary value.\nValues stored in a dictionary must be a STRING,\na dictionary for showing sections, or an instance of a subclass\nof this class.\n\nCompound dictionary values derive from this class, and must\nprovide a sequence of method implementations to convert into\na string.")
+(eieio-defclass-autoload 'srecode-dictionary-compound-value 'nil "srecode/srecode-dictionary" "A compound dictionary value.\nValues stored in a dictionary must be a STRING,\na dictionary for showing sections, or an instance of a subclass\nof this class.\n\nCompound dictionary values derive from this class, and must\nprovide a sequence of method implementations to convert into\na string.")
 
-(eieio-defclass-autoload 'srecode-dictionary-compound-variable '(srecode-dictionary-compound-value) "srecode-dictionary" "A compound dictionary value for template file variables.\nYou can declare a variable in a template like this:\n\nset NAME \"str\" macro \"OTHERNAME\"\n\nwith appending various parts together in a list.")
+(eieio-defclass-autoload 'srecode-dictionary-compound-variable '(srecode-dictionary-compound-value) "srecode/srecode-dictionary" "A compound dictionary value for template file variables.\nYou can declare a variable in a template like this:\n\nset NAME \"str\" macro \"OTHERNAME\"\n\nwith appending various parts together in a list.")
 
-(autoload 'srecode-create-dictionary "srecode-dictionary" "\
+(autoload 'srecode-create-dictionary "srecode/srecode-dictionary" "\
 Create a dictionary for BUFFER.
 If BUFFER-OR-PARENT is not specified, assume a buffer, and
 use the current buffer.
@@ -14978,14 +15229,14 @@ associated with a buffer or parent.
 
 \(fn &optional BUFFER-OR-PARENT)" nil nil)
 
-(eieio-defclass-autoload 'srecode-field-value '(srecode-dictionary-compound-value) "srecode-dictionary" "When inserting values with editable field mode, a dictionary value.\nCompound values allow a field to be stored in the dictionary for when\nit is referenced a second time.  This compound value can then be\ninserted with a new editable field.")
+(eieio-defclass-autoload 'srecode-field-value '(srecode-dictionary-compound-value) "srecode/srecode-dictionary" "When inserting values with editable field mode, a dictionary value.\nCompound values allow a field to be stored in the dictionary for when\nit is referenced a second time.  This compound value can then be\ninserted with a new editable field.")
 
-(autoload 'srecode-adebug-dictionary "srecode-dictionary" "\
+(autoload 'srecode-adebug-dictionary "srecode/srecode-dictionary" "\
 Run data-debug on this mode's dictionary.
 
 \(fn)" t nil)
 
-(autoload 'srecode-dictionary-dump "srecode-dictionary" "\
+(autoload 'srecode-dictionary-dump "srecode/srecode-dictionary" "\
 Dump a typical fabricated dictionary.
 
 \(fn)" t nil)
@@ -14995,13 +15246,13 @@ Dump a typical fabricated dictionary.
 ;;;### (autoloads (srecode-document-function-comment-extract-test
 ;;;;;;  srecode-document-insert-group-comments srecode-document-insert-variable-one-line-comment
 ;;;;;;  srecode-document-insert-function-comment srecode-document-insert-comment)
-;;;;;;  "srecode-document" "cedet/srecode/srecode-document.el" (19358
-;;;;;;  14567))
+;;;;;;  "srecode/srecode-document" "cedet/srecode/srecode-document.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-document.el
 
 (eval-after-load "srecode-mode" '(progn (srecode-add-code-generator 'srecode-document-insert-comment "Comments" "C")))
 
-(autoload 'srecode-document-insert-comment "srecode-document" "\
+(autoload 'srecode-document-insert-comment "srecode/srecode-document" "\
 Insert some comments.
 Whack any comments that may be in the way and replace them.
 If the region is active, then insert group function comments.
@@ -15012,7 +15263,7 @@ If the cursor is on a one line prototype, then insert post-fcn comments.
 
 \(fn)" t nil)
 
-(autoload 'srecode-document-insert-function-comment "srecode-document" "\
+(autoload 'srecode-document-insert-function-comment "srecode/srecode-document" "\
 Insert or replace a function comment.
 FCN-IN is the Semantic tag of the function to add a comment too.
 If FCN-IN is not provided, the current tag is used instead.
@@ -15020,7 +15271,7 @@ It is assumed that the comment occurs just in front of FCN-IN.
 
 \(fn &optional FCN-IN)" t nil)
 
-(autoload 'srecode-document-insert-variable-one-line-comment "srecode-document" "\
+(autoload 'srecode-document-insert-variable-one-line-comment "srecode/srecode-document" "\
 Insert or replace a variable comment.
 VAR-IN is the Semantic tag of the function to add a comment too.
 If VAR-IN is not provided, the current tag is used instead.
@@ -15028,7 +15279,7 @@ It is assumed that the comment occurs just after VAR-IN.
 
 \(fn &optional VAR-IN)" t nil)
 
-(autoload 'srecode-document-insert-group-comments "srecode-document" "\
+(autoload 'srecode-document-insert-group-comments "srecode/srecode-document" "\
 Insert group comments around the active between BEG and END.
 If the region includes only parts of some tags, expand out
 to the beginning and end of the tags on the region.
@@ -15036,7 +15287,7 @@ If there is only one tag in the region, complain.
 
 \(fn BEG END)" t nil)
 
-(autoload 'srecode-document-function-comment-extract-test "srecode-document" "\
+(autoload 'srecode-document-function-comment-extract-test "srecode/srecode-document" "\
 Test old comment extraction.
 Dump out the extracted dictionary.
 
@@ -15045,17 +15296,18 @@ Dump out the extracted dictionary.
 ;;;***
 
 ;;;### (autoloads (srecode-semantic-handle-:el-custom srecode-semantic-handle-:el)
-;;;;;;  "srecode-el" "cedet/srecode/srecode-el.el" (18368 52100))
+;;;;;;  "srecode/srecode-el" "cedet/srecode/srecode-el.el" (20113
+;;;;;;  48406))
 ;;; Generated autoloads from cedet/srecode/srecode-el.el
 
-(autoload 'srecode-semantic-handle-:el "srecode-el" "\
+(autoload 'srecode-semantic-handle-:el "srecode/srecode-el" "\
 Add macros into the dictionary DICT based on the current Emacs Lisp file.
 Adds the following:
   PRENAME - The common name prefix of this file.
 
 \(fn DICT)" nil nil)
 
-(autoload 'srecode-semantic-handle-:el-custom "srecode-el" "\
+(autoload 'srecode-semantic-handle-:el-custom "srecode/srecode-el" "\
 Add macros into the dictionary DICT based on the current Emacs Lisp file.
 Adds the following:
   GROUP - The 'defgroup' name we guess you want for variables.
@@ -15065,35 +15317,35 @@ Adds the following:
 
 ;;;***
 
-;;;### (autoloads (srecode-insert-prototype-expansion) "srecode-expandproto"
-;;;;;;  "cedet/srecode/srecode-expandproto.el" (17917 27924))
+;;;### (autoloads (srecode-insert-prototype-expansion) "srecode/srecode-expandproto"
+;;;;;;  "cedet/srecode/srecode-expandproto.el" (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-expandproto.el
 
-(autoload 'srecode-insert-prototype-expansion "srecode-expandproto" "\
+(autoload 'srecode-insert-prototype-expansion "srecode/srecode-expandproto" "\
 Insert get/set methods for the current class.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (srecode-field-utest) "srecode-fields" "cedet/srecode/srecode-fields.el"
-;;;;;;  (19329 54359))
+;;;### (autoloads (srecode-field-utest) "srecode/srecode-fields"
+;;;;;;  "cedet/srecode/srecode-fields.el" (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-fields.el
 
-(eieio-defclass-autoload 'srecode-field '(srecode-overlaid) "srecode-fields" "Representation of one field.")
+(eieio-defclass-autoload 'srecode-field '(srecode-overlaid) "srecode/srecode-fields" "Representation of one field.")
 
-(autoload 'srecode-field-utest "srecode-fields" "\
+(autoload 'srecode-field-utest "srecode/srecode-fields" "\
 Test the srecode field manager.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (srecode-comment-prefix) "srecode-filters" "cedet/srecode/srecode-filters.el"
-;;;;;;  (18791 54835))
+;;;### (autoloads (srecode-comment-prefix) "srecode/srecode-filters"
+;;;;;;  "cedet/srecode/srecode-filters.el" (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-filters.el
 
-(autoload 'srecode-comment-prefix "srecode-filters" "\
+(autoload 'srecode-comment-prefix "srecode/srecode-filters" "\
 Prefix each line of STR with the comment prefix characters.
 
 \(fn STR)" nil nil)
@@ -15102,16 +15354,17 @@ Prefix each line of STR with the comment prefix characters.
 
 ;;;### (autoloads (srecode-read-template-name srecode-template-get-table-for-binding
 ;;;;;;  srecode-template-get-table srecode-load-tables-for-mode srecode-table)
-;;;;;;  "srecode-find" "cedet/srecode/srecode-find.el" (19321 64769))
+;;;;;;  "srecode/srecode-find" "cedet/srecode/srecode-find.el" (20113
+;;;;;;  48406))
 ;;; Generated autoloads from cedet/srecode/srecode-find.el
 
-(autoload 'srecode-table "srecode-find" "\
+(autoload 'srecode-table "srecode/srecode-find" "\
 Return the currently active Semantic Recoder table for this buffer.
 Optional argument MODE specifies the mode table to use.
 
 \(fn &optional MODE)" nil nil)
 
-(autoload 'srecode-load-tables-for-mode "srecode-find" "\
+(autoload 'srecode-load-tables-for-mode "srecode/srecode-find" "\
 Load all the template files for MMODE.
 Templates are found in the SRecode Template Map.
 See `srecode-get-maps' for more.
@@ -15120,7 +15373,7 @@ all template files for that application will be loaded.
 
 \(fn MMODE &optional APPNAME)" nil nil)
 
-(autoload 'srecode-template-get-table "srecode-find" "\
+(autoload 'srecode-template-get-table "srecode/srecode-find" "\
 Find in the template in mode table TAB, the template with TEMPLATE-NAME.
 Optional argument CONTEXT specifies a context a particular template
 would belong to.
@@ -15128,9 +15381,9 @@ Optional argument APPLICATION restricts searches to only template tables
 belonging to a specific application.  If APPLICATION is nil, then only
 tables that do not belong to an application will be searched.
 
-\(fn (TAB srecode-mode-table) TEMPLATE-NAME &optional CONTEXT APPLICATION)" nil nil)
+\(fn (tab srecode-mode-table) TEMPLATE-NAME &optional CONTEXT APPLICATION)" nil nil)
 
-(autoload 'srecode-template-get-table-for-binding "srecode-find" "\
+(autoload 'srecode-template-get-table-for-binding "srecode/srecode-find" "\
 Find in the template name in mode table TAB, the template with BINDING.
 Optional argument CONTEXT specifies a context a particular template
 would belong to.
@@ -15138,9 +15391,9 @@ Optional argument APPLICATION restricts searches to only template tables
 belonging to a specific application.  If APPLICATION is nil, then only
 tables that do not belong to an application will be searched.
 
-\(fn (TAB srecode-mode-table) BINDING &optional CONTEXT APPLICATION)" nil nil)
+\(fn (tab srecode-mode-table) BINDING &optional CONTEXT APPLICATION)" nil nil)
 
-(autoload 'srecode-read-template-name "srecode-find" "\
+(autoload 'srecode-read-template-name "srecode/srecode-find" "\
 Completing read for Semantic Recoder template names.
 PROMPT is used to query for the name of the template desired.
 INITIAL is the initial string to use.
@@ -15151,13 +15404,13 @@ DEFAULT is what to use if the user presses RET.
 
 ;;;***
 
-;;;### (autoloads (srecode-insert-getset) "srecode-getset" "cedet/srecode/srecode-getset.el"
-;;;;;;  (19358 14567))
+;;;### (autoloads (srecode-insert-getset) "srecode/srecode-getset"
+;;;;;;  "cedet/srecode/srecode-getset.el" (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-getset.el
 
 (eval-after-load "srecode-mode" '(progn (srecode-add-code-generator 'srecode-insert-getset "Get/Set" "G")))
 
-(autoload 'srecode-insert-getset "srecode-getset" "\
+(autoload 'srecode-insert-getset "srecode/srecode-getset" "\
 Insert get/set methods for the current class.
 CLASS-IN is the semantic tag of the class to update.
 FIELD-IN is the semantic tag, or string name, of the field to add.
@@ -15169,22 +15422,22 @@ will be derived.
 ;;;***
 
 ;;;### (autoloads (srecode-insert-fcn srecode-insert srecode-insert-again)
-;;;;;;  "srecode-insert" "cedet/srecode/srecode-insert.el" (19467
-;;;;;;  65051))
+;;;;;;  "srecode/srecode-insert" "cedet/srecode/srecode-insert.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-insert.el
 
-(autoload 'srecode-insert-again "srecode-insert" "\
+(autoload 'srecode-insert-again "srecode/srecode-insert" "\
 Insert the previously inserted template (by name) again.
 
 \(fn)" t nil)
 
-(autoload 'srecode-insert "srecode-insert" "\
+(autoload 'srecode-insert "srecode/srecode-insert" "\
 Insert the template TEMPLATE-NAME into the current buffer at point.
 DICT-ENTRIES are additional dictionary values to add.
 
 \(fn TEMPLATE-NAME &rest DICT-ENTRIES)" t nil)
 
-(autoload 'srecode-insert-fcn "srecode-insert" "\
+(autoload 'srecode-insert-fcn "srecode/srecode-insert" "\
 Insert TEMPLATE using DICTIONARY into STREAM.
 Optional SKIPRESOLVER means to avoid refreshing the tag list,
 or resolving any template arguments.  It is assumed the caller
@@ -15194,11 +15447,11 @@ has set everything up already.
 
 ;;;***
 
-;;;### (autoloads (srecode-semantic-handle-:java) "srecode-java"
-;;;;;;  "cedet/srecode/srecode-java.el" (18786 50373))
+;;;### (autoloads (srecode-semantic-handle-:java) "srecode/srecode-java"
+;;;;;;  "cedet/srecode/srecode-java.el" (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-java.el
 
-(autoload 'srecode-semantic-handle-:java "srecode-java" "\
+(autoload 'srecode-semantic-handle-:java "srecode/srecode-java" "\
 Add macros into the dictionary DICT based on the current java file.
 Adds the following:
 FILENAME_AS_PACKAGE - file/dir converted into a java package name.
@@ -15208,17 +15461,28 @@ FILENAME_AS_CLASS - file converted to a Java class name.
 
 ;;;***
 
-;;;### (autoloads (srecode-adebug-maps srecode-get-maps) "srecode-map"
-;;;;;;  "cedet/srecode/srecode-map.el" (19474 55487))
+;;;### (autoloads (srecode-m3-items) "srecode/srecode-m3" "cedet/srecode/srecode-m3.el"
+;;;;;;  (20113 48406))
+;;; Generated autoloads from cedet/srecode/srecode-m3.el
+
+(autoload 'srecode-m3-items "srecode/srecode-m3" "\
+Return a list of menu items based on SRecode features.
+
+\(fn)" nil nil)
+
+;;;***
+
+;;;### (autoloads (srecode-adebug-maps srecode-get-maps) "srecode/srecode-map"
+;;;;;;  "cedet/srecode/srecode-map.el" (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-map.el
 
-(autoload 'srecode-get-maps "srecode-map" "\
+(autoload 'srecode-get-maps "srecode/srecode-map" "\
 Get a list of maps relevant to the current buffer.
 Optional argument RESET forces a reset of the current map.
 
 \(fn &optional RESET)" t nil)
 
-(autoload 'srecode-adebug-maps "srecode-map" "\
+(autoload 'srecode-adebug-maps "srecode/srecode-map" "\
 Run ADEBUG on the output of `srecode-get-maps'.
 
 \(fn)" t nil)
@@ -15226,10 +15490,11 @@ Run ADEBUG on the output of `srecode-get-maps'.
 ;;;***
 
 ;;;### (autoloads (global-srecode-minor-mode srecode-minor-mode)
-;;;;;;  "srecode-mode" "cedet/srecode/srecode-mode.el" (19474 55534))
+;;;;;;  "srecode/srecode-mode" "cedet/srecode/srecode-mode.el" (20113
+;;;;;;  48406))
 ;;; Generated autoloads from cedet/srecode/srecode-mode.el
 
-(autoload 'srecode-minor-mode "srecode-mode" "\
+(autoload 'srecode-minor-mode "srecode/srecode-mode" "\
 Toggle srecode minor mode.
 With prefix argument ARG, turn on if positive, otherwise off.  The
 minor mode can be turned on only if semantic feature is available and
@@ -15240,7 +15505,7 @@ minor mode is enabled.
 
 \(fn &optional ARG)" t nil)
 
-(autoload 'global-srecode-minor-mode "srecode-mode" "\
+(autoload 'global-srecode-minor-mode "srecode/srecode-mode" "\
 Toggle global use of srecode minor mode.
 If ARG is positive, enable, if it is negative, disable.
 If ARG is nil, then toggle.
@@ -15251,22 +15516,22 @@ If ARG is nil, then toggle.
 
 ;;;### (autoloads (srecode-semantic-insert-tag srecode-semantic-apply-tag-to-dict-default
 ;;;;;;  srecode-semantic-apply-tag-to-dict srecode-semantic-handle-:tagtype
-;;;;;;  srecode-semantic-handle-:tag) "srecode-semantic" "cedet/srecode/srecode-semantic.el"
-;;;;;;  (19445 56588))
+;;;;;;  srecode-semantic-handle-:tag) "srecode/srecode-semantic"
+;;;;;;  "cedet/srecode/srecode-semantic.el" (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-semantic.el
 
-(autoload 'srecode-semantic-handle-:tag "srecode-semantic" "\
+(autoload 'srecode-semantic-handle-:tag "srecode/srecode-semantic" "\
 Add macros into the dictionary DICT based on the current :tag.
 
 \(fn DICT)" nil nil)
 
-(autoload 'srecode-semantic-handle-:tagtype "srecode-semantic" "\
+(autoload 'srecode-semantic-handle-:tagtype "srecode/srecode-semantic" "\
 Add macros into the dictionary DICT based on a tag of class type at point.
 Assumes the cursor is in a tag of class type.  If not, throw an error.
 
 \(fn DICT)" nil nil)
 
-(autoload 'srecode-semantic-apply-tag-to-dict "srecode-semantic" "\
+(autoload 'srecode-semantic-apply-tag-to-dict "srecode/srecode-semantic" "\
 Insert features of TAGOBJ into the dictionary DICT.
 TAGOBJ is an object of class `srecode-semantic-tag'.  This class
 is a compound inserter value.
@@ -15277,12 +15542,12 @@ variable default values, and other things.
 
 \(fn TAGOBJ DICT)" nil nil)
 
-(autoload 'srecode-semantic-apply-tag-to-dict-default "srecode-semantic" "\
+(autoload 'srecode-semantic-apply-tag-to-dict-default "srecode/srecode-semantic" "\
 Insert features of TAGOBJ into dictionary DICT.
 
 \(fn TAGOBJ DICT)" nil nil)
 
-(autoload 'srecode-semantic-insert-tag "srecode-semantic" "\
+(autoload 'srecode-semantic-insert-tag "srecode/srecode-semantic" "\
 Insert TAG into a buffer using srecode templates at point.
 
 Optional STYLE-OPTION is a list of minor configuration of styles,
@@ -15324,11 +15589,11 @@ as `function' will leave point where code might be inserted.
 ;;;***
 
 ;;;### (autoloads (srecode-semantic-handle-:srt srecode-read-major-mode-name
-;;;;;;  srecode-read-variable-name) "srecode-srt" "cedet/srecode/srecode-srt.el"
-;;;;;;  (19358 14567))
+;;;;;;  srecode-read-variable-name) "srecode/srecode-srt" "cedet/srecode/srecode-srt.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-srt.el
 
-(autoload 'srecode-read-variable-name "srecode-srt" "\
+(autoload 'srecode-read-variable-name "srecode/srecode-srt" "\
 Read in the name of a declared variable in the current SRT file.
 PROMPT is the prompt to use.
 INITIAL is the initial string.
@@ -15338,7 +15603,7 @@ DEFAULT is the default if RET is hit.
 
 \(fn PROMPT &optional INITIAL HIST DEFAULT)" nil nil)
 
-(autoload 'srecode-read-major-mode-name "srecode-srt" "\
+(autoload 'srecode-read-major-mode-name "srecode/srecode-srt" "\
 Read in the name of a desired `major-mode'.
 PROMPT is the prompt to use.
 INITIAL is the initial string.
@@ -15348,7 +15613,7 @@ DEFAULT is the default if RET is hit.
 
 \(fn PROMPT &optional INITIAL HIST DEFAULT)" nil nil)
 
-(autoload 'srecode-semantic-handle-:srt "srecode-srt" "\
+(autoload 'srecode-semantic-handle-:srt "srecode/srecode-srt" "\
 Add macros into the dictionary DICT based on the current SRT file.
 Adds the following:
 ESCAPE_START - This files value of escape_start
@@ -15360,35 +15625,35 @@ MODE - The mode of this buffer.  If not declared yet, guess.
 ;;;***
 
 ;;;### (autoloads (srecode-dump-templates srecode-mode-table-new
-;;;;;;  srecode-get-mode-table) "srecode-table" "cedet/srecode/srecode-table.el"
-;;;;;;  (19358 14567))
+;;;;;;  srecode-get-mode-table) "srecode/srecode-table" "cedet/srecode/srecode-table.el"
+;;;;;;  (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-table.el
 
-(autoload 'srecode-get-mode-table "srecode-table" "\
+(autoload 'srecode-get-mode-table "srecode/srecode-table" "\
 Get the SRecoder mode table for the major mode MODE.
 Optional argument SOFT indicates to not make a new one if a table
 was not found.
 
 \(fn MODE)" nil nil)
 
-(autoload 'srecode-mode-table-new "srecode-table" "\
+(autoload 'srecode-mode-table-new "srecode/srecode-table" "\
 Create a new template table for MODE in FILE.
 INIT are the initialization parameters for the new template table.
 
 \(fn MODE FILE &rest INIT)" nil nil)
 
-(autoload 'srecode-dump-templates "srecode-table" "\
+(autoload 'srecode-dump-templates "srecode/srecode-table" "\
 Dump a list of the current templates for MODE.
 
 \(fn MODE)" t nil)
 
 ;;;***
 
-;;;### (autoloads (srecode-template-setup-parser) "srecode-template"
-;;;;;;  "cedet/srecode/srecode-template.el" (18335 12812))
+;;;### (autoloads (srecode-template-setup-parser) "srecode/srecode-template"
+;;;;;;  "cedet/srecode/srecode-template.el" (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-template.el
 
-(autoload 'srecode-template-setup-parser "srecode-template" "\
+(autoload 'srecode-template-setup-parser "srecode/srecode-template" "\
 Setup buffer for parse.
 
 \(fn)" nil nil)
@@ -15397,11 +15662,11 @@ Setup buffer for parse.
 
 ;;;***
 
-;;;### (autoloads (srecode-template-mode) "srecode-template-mode"
-;;;;;;  "cedet/srecode/srecode-template-mode.el" (19442 39427))
+;;;### (autoloads (srecode-template-mode) "srecode/srecode-template-mode"
+;;;;;;  "cedet/srecode/srecode-template-mode.el" (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-template-mode.el
 
-(autoload 'srecode-template-mode "srecode-template-mode" "\
+(autoload 'srecode-template-mode "srecode/srecode-template-mode" "\
 Major-mode for writing SRecode macros.
 
 \(fn)" t nil)
@@ -15410,22 +15675,22 @@ Major-mode for writing SRecode macros.
 
 ;;;***
 
-;;;### (autoloads (srecode-utest-template-output) "srecode-test"
-;;;;;;  "cedet/srecode/srecode-test.el" (19443 8325))
+;;;### (autoloads (srecode-utest-template-output) "srecode/srecode-test"
+;;;;;;  "cedet/srecode/srecode-test.el" (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-test.el
 
-(autoload 'srecode-utest-template-output "srecode-test" "\
+(autoload 'srecode-utest-template-output "srecode/srecode-test" "\
 Test various template insertion options.
 
 \(fn)" t nil)
 
 ;;;***
 
-;;;### (autoloads (srecode-utest-getset-output) "srecode-test-getset"
-;;;;;;  "cedet/srecode/srecode-test-getset.el" (18810 36153))
+;;;### (autoloads (srecode-utest-getset-output) "srecode/srecode-test-getset"
+;;;;;;  "cedet/srecode/srecode-test-getset.el" (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-test-getset.el
 
-(autoload 'srecode-utest-getset-output "srecode-test-getset" "\
+(autoload 'srecode-utest-getset-output "srecode/srecode-test-getset" "\
 Test various template insertion options.
 
 \(fn)" t nil)
@@ -15433,17 +15698,17 @@ Test various template insertion options.
 ;;;***
 
 ;;;### (autoloads (srecode-texi-insert-tag-as-doc srecode-semantic-handle-:texitag
-;;;;;;  srecode-semantic-handle-:texi srecode-texi-add-menu) "srecode-texi"
-;;;;;;  "cedet/srecode/srecode-texi.el" (19329 60994))
+;;;;;;  srecode-semantic-handle-:texi srecode-texi-add-menu) "srecode/srecode-texi"
+;;;;;;  "cedet/srecode/srecode-texi.el" (20113 48406))
 ;;; Generated autoloads from cedet/srecode/srecode-texi.el
 
-(autoload 'srecode-texi-add-menu "srecode-texi" "\
+(autoload 'srecode-texi-add-menu "srecode/srecode-texi" "\
 Add an item into the current menu.  Add @node statements as well.
 Argument NEWNODE is the name of the new node.
 
 \(fn NEWNODE)" t nil)
 
-(autoload 'srecode-semantic-handle-:texi "srecode-texi" "\
+(autoload 'srecode-semantic-handle-:texi "srecode/srecode-texi" "\
 Add macros into the dictionary DICT based on the current texinfo file.
 Adds the following:
   LEVEL - chapter, section, subsection, etc
@@ -15451,7 +15716,7 @@ Adds the following:
 
 \(fn DICT)" nil nil)
 
-(autoload 'srecode-semantic-handle-:texitag "srecode-texi" "\
+(autoload 'srecode-semantic-handle-:texitag "srecode/srecode-texi" "\
 Add macros into the dictionary DICT based on the current :tag file.
 Adds the following:
   TAGDOC - Texinfo formatted doc string for :tag.
@@ -15460,7 +15725,7 @@ Adds the following:
 
 (define-mode-local-override semantic-insert-foreign-tag texinfo-mode (foreign-tag) "Insert FOREIGN-TAG from a foreign buffer in TAGFILE.\nAssume TAGFILE is a source buffer, and create a documentation\nthingy from it using the `document' tool." (srecode-texi-insert-tag-as-doc foreign-tag))
 
-(autoload 'srecode-texi-insert-tag-as-doc "srecode-texi" "\
+(autoload 'srecode-texi-insert-tag-as-doc "srecode/srecode-texi" "\
 Insert TAG into the current buffer with SRecode.
 
 \(fn TAG)" nil nil)
@@ -15470,7 +15735,7 @@ Insert TAG into the current buffer with SRecode.
 ;;;### (autoloads (display-in-minibuffer insert-in-minibuffer concat-w-faces
 ;;;;;;  erase-inactive-minibuffer erase-nonempty-inactive-minibuffer
 ;;;;;;  display-lines-containing non-empty-name-p empty-name-p) "strings"
-;;;;;;  "strings.el" (19826 15213))
+;;;;;;  "strings.el" (20112 24690))
 ;;; Generated autoloads from strings.el
 
 (autoload 'empty-name-p "strings" "\
@@ -15675,8 +15940,8 @@ NOTE:
 
 ;;;### (autoloads (tabbar-local-mode tabbar-mode tabbar-forward-tab
 ;;;;;;  tabbar-backward-tab tabbar-forward-group tabbar-backward-group
-;;;;;;  tabbar-forward tabbar-backward) "tabbar" "tabbar.el" (16094
-;;;;;;  64565))
+;;;;;;  tabbar-forward tabbar-backward) "tabbar" "tabbar.el" (20112
+;;;;;;  24690))
 ;;; Generated autoloads from tabbar.el
 
 (autoload 'tabbar-backward "tabbar" "\
@@ -15737,6 +16002,27 @@ is killed to show the tab bar.  When off, the saved local value of the
 header line is restored, hiding the tab bar.
 
 \(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (bbdb-test/run-one-test bbdb-test/run-tests bbdb-test/run-all-tests)
+;;;;;;  "testing/bbdb-test" "bbdb/testing/bbdb-test.el" (16175 39563))
+;;; Generated autoloads from bbdb/testing/bbdb-test.el
+
+(autoload 'bbdb-test/run-all-tests "testing/bbdb-test" "\
+Run all BBDB tests.
+
+\(fn &optional BATCH)" t nil)
+
+(autoload 'bbdb-test/run-tests "testing/bbdb-test" "\
+Run BBDB tests.
+
+\(fn)" t nil)
+
+(autoload 'bbdb-test/run-one-test "testing/bbdb-test" "\
+
+
+\(fn TEST-VAR)" t nil)
 
 ;;;***
 
@@ -15904,7 +16190,7 @@ Limit searched to BOUND.
 ;;;***
 
 ;;;### (autoloads (textile-mode) "textile-mode" "textile-mode.el"
-;;;;;;  (19844 52123))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from textile-mode.el
 
 (autoload 'textile-mode "textile-mode" "\
@@ -15915,8 +16201,8 @@ A major mode for editing textile files.
 ;;;***
 
 ;;;### (autoloads (find-fn-or-var-nearest-point near-point-y-distance
-;;;;;;  near-point-x-distance) "thingatpt+" "thingatpt+.el" (19826
-;;;;;;  14807))
+;;;;;;  near-point-x-distance) "thingatpt+" "thingatpt+.el" (20112
+;;;;;;  24690))
 ;;; Generated autoloads from thingatpt+.el
 
 (defvar near-point-x-distance 50 "\
@@ -15950,44 +16236,53 @@ prompt for the function or variable to find, instead.
 
 ;;;***
 
-;;;### (autoloads (tq-create) "tq" "emms/lisp/tq.el" (19848 52901))
-;;; Generated autoloads from emms/lisp/tq.el
+;;;### (autoloads (global-undo-tree-mode undo-tree-mode) "undo-tree"
+;;;;;;  "undo-tree/undo-tree.el" (20112 50014))
+;;; Generated autoloads from undo-tree/undo-tree.el
 
-(autoload 'tq-create "tq" "\
-Create and return a transaction queue communicating with PROCESS.
-PROCESS should be a subprocess capable of sending and receiving
-streams of bytes.  It may be a local process, or it may be connected
-to a tcp server on another machine.
+(autoload 'undo-tree-mode "undo-tree" "\
+Toggle undo-tree mode.
+With no argument, this command toggles the mode.
+A positive prefix argument turns the mode on.
+A negative prefix argument turns it off.
 
-\(fn PROCESS)" nil nil)
+Undo-tree-mode replaces Emacs' standard undo feature with a more
+powerful yet easier to use version, that treats the undo history
+as what it is: a tree.
 
-;;;***
-
-;;;### (autoloads (directory-tree-thing eieio-class-tree tree-test-it-all)
-;;;;;;  "tree" "cedet/eieio/tree.el" (17213 40344))
-;;; Generated autoloads from cedet/eieio/tree.el
+The following keys are available in `undo-tree-mode':
 
-(autoload 'tree-test-it-all "tree" "\
-Try using various features of tree mode in a demo of it's display.
+  \\{undo-tree-map}
 
-\(fn)" t nil)
+Within the undo-tree visualizer, the following keys are available:
 
-(autoload 'eieio-class-tree "tree" "\
-Displays a class tree using the TREE package in another buffer.
-Optional argument ROOT-CLASS is the starting point.
+  \\{undo-tree-visualizer-map}
 
-\(fn &optional ROOT-CLASS)" t nil)
+\(fn &optional ARG)" t nil)
 
-(autoload 'directory-tree-thing "tree" "\
-Start at the current directory, and build a giant tree of files.
-Argument PPATH is the path to the directory we are going to analyze.
+(defvar global-undo-tree-mode nil "\
+Non-nil if Global-Undo-Tree mode is enabled.
+See the command `global-undo-tree-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `global-undo-tree-mode'.")
 
-\(fn PPATH)" t nil)
+(custom-autoload 'global-undo-tree-mode "undo-tree" nil)
+
+(autoload 'global-undo-tree-mode "undo-tree" "\
+Toggle Undo-Tree mode in every possible buffer.
+With prefix ARG, turn Global-Undo-Tree mode on if and only if
+ARG is positive.
+Undo-Tree mode is enabled in all buffers where
+`turn-on-undo-tree-mode' would do it.
+See `undo-tree-mode' for more information on Undo-Tree mode.
+
+\(fn &optional ARG)" t nil)
 
 ;;;***
 
 ;;;### (autoloads (update-autoloads-for-file-in-package-area update-autoloads-in-package-area)
-;;;;;;  "update-auto-loads" "update-auto-loads.el" (19826 11553))
+;;;;;;  "update-auto-loads" "update-auto-loads.el" (20112 24690))
 ;;; Generated autoloads from update-auto-loads.el
 
 (let ((new-path (expand-file-name (file-name-directory load-file-name)))) (unless (member new-path (mapcar '(lambda (x) (file-name-as-directory x)) load-path)) (setq load-path (cons new-path load-path))))
@@ -16001,15 +16296,189 @@ subdirectories instead of the standard `update-autoloads-from-directories'.
 \(fn &optional FILE)" t nil)
 
 (autoload 'update-autoloads-for-file-in-package-area "update-auto-loads" "\
-Not documented
+
 
 \(fn FILE)" t nil)
 
 ;;;***
 
+;;;### (autoloads (cucumber-compilation-run cucumber-compilation-this-scenario
+;;;;;;  cucumber-compilation-this-buffer) "util/cucumber-mode-compilation"
+;;;;;;  "rinari/util/cucumber-mode-compilation.el" (20113 29610))
+;;; Generated autoloads from rinari/util/cucumber-mode-compilation.el
+
+(autoload 'cucumber-compilation-this-buffer "util/cucumber-mode-compilation" "\
+Run the current buffer's scenarios through cucumber.
+
+\(fn)" t nil)
+
+(autoload 'cucumber-compilation-this-scenario "util/cucumber-mode-compilation" "\
+Run the scenario at point through cucumber.
+
+\(fn)" t nil)
+
+(autoload 'cucumber-compilation-run "util/cucumber-mode-compilation" "\
+Run a cucumber process, dumping output to a compilation buffer.
+
+\(fn CMD)" t nil)
+
+;;;***
+
+;;;### (autoloads (run-ruby inf-ruby inf-ruby-keys) "util/inf-ruby/inf-ruby"
+;;;;;;  "rinari/util/inf-ruby/inf-ruby.el" (20113 29615))
+;;; Generated autoloads from rinari/util/inf-ruby/inf-ruby.el
+
+(autoload 'inf-ruby-keys "util/inf-ruby/inf-ruby" "\
+Set local key defs to invoke inf-ruby from ruby-mode.
+
+\(fn)" nil nil)
+
+(autoload 'inf-ruby "util/inf-ruby/inf-ruby" "\
+Run an inferior Ruby process in a buffer.
+With prefix argument, prompts for which Ruby implementation
+\(from the list `inf-ruby-implementations') to use. Runs the
+hooks `inf-ruby-mode-hook' (after the `comint-mode-hook' is
+run).
+
+\(fn &optional IMPL)" t nil)
+
+(autoload 'run-ruby "util/inf-ruby/inf-ruby" "\
+Run an inferior Ruby process, input and output via buffer *ruby*.
+If there is a process already running in `*ruby*', switch to that buffer.
+With argument, allows you to edit the command line (default is value
+of `ruby-program-name').  Runs the hooks `inferior-ruby-mode-hook'
+\(after the `comint-mode-hook' is run).
+\(Type \\[describe-mode] in the process buffer for a list of commands.)
+
+\(fn &optional COMMAND NAME)" t nil)
+
+(eval-after-load 'ruby-mode '(add-hook 'ruby-mode-hook 'inf-ruby-keys))
+
+;;;***
+
+;;;### (autoloads (pluralize-string singularize-string) "util/jump/inflections"
+;;;;;;  "rinari/util/jump/inflections.el" (20113 29619))
+;;; Generated autoloads from rinari/util/jump/inflections.el
+
+(autoload 'singularize-string "util/jump/inflections" "\
+
+
+\(fn STR)" nil nil)
+
+(autoload 'pluralize-string "util/jump/inflections" "\
+
+
+\(fn STR)" nil nil)
+
+;;;***
+
+;;;### (autoloads (defjump) "util/jump/jump" "rinari/util/jump/jump.el"
+;;;;;;  (20113 29619))
+;;; Generated autoloads from rinari/util/jump/jump.el
+
+(autoload 'defjump "util/jump/jump" "\
+Define NAME as a function with behavior determined by SPECS.
+SPECS should be a list of cons cells of the form
+
+   (jump-from-spec . jump-to-spec)
+
+NAME will then try subsequent jump-from-specs until one succeeds,
+at which point any resulting match information, along with the
+related jump-to-spec will be used to jump to the intended buffer.
+See `jump-to' and `jump-from' for information on spec
+construction.
+
+ROOT should specify the root of the project in which all jumps
+take place, it can be either a string directory path, or a
+function returning
+
+Optional argument DOC specifies the documentation of the
+resulting function.
+
+Optional argument MAKE can be used to specify that missing files
+should be created.  If MAKE is a function then it will be called
+with the file path as it's only argument.  After possibly calling
+MAKE `find-file' will be used to open the path.
+
+Optional argument METHOD-COMMAND overrides the function used to
+find the current method which defaults to `which-function'.
+
+\(fn NAME SPECS ROOT &optional DOC MAKE METHOD-COMMAND)" nil nil)
+
+;;;***
+
+;;;### (autoloads (which-function-mode) "util/jump/which-func" "rinari/util/jump/which-func.el"
+;;;;;;  (20113 29619))
+;;; Generated autoloads from rinari/util/jump/which-func.el
+ (put 'which-func-format 'risky-local-variable t)
+ (put 'which-func-current 'risky-local-variable t)
+
+(defalias 'which-func-mode 'which-function-mode)
+
+(defvar which-function-mode nil "\
+Non-nil if Which-Function mode is enabled.
+See the command `which-function-mode' for a description of this minor mode.
+Setting this variable directly does not take effect;
+either customize it (see the info node `Easy Customization')
+or call the function `which-function-mode'.")
+
+(custom-autoload 'which-function-mode "util/jump/which-func" nil)
+
+(autoload 'which-function-mode "util/jump/which-func" "\
+Toggle Which Function mode, globally.
+When Which Function mode is enabled, the current function name is
+continuously displayed in the mode line, in certain major modes.
+
+With prefix ARG, turn Which Function mode on if arg is positive,
+and off otherwise.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads (ruby-compilation-this-buffer ruby-compilation-cap
+;;;;;;  ruby-compilation-rake ruby-compilation-run pcomplete/cap
+;;;;;;  pcomplete/rake) "util/ruby-compilation" "rinari/util/ruby-compilation.el"
+;;;;;;  (20113 29610))
+;;; Generated autoloads from rinari/util/ruby-compilation.el
+
+(autoload 'pcomplete/rake "util/ruby-compilation" "\
+
+
+\(fn)" nil nil)
+
+(autoload 'pcomplete/cap "util/ruby-compilation" "\
+
+
+\(fn)" nil nil)
+
+(autoload 'ruby-compilation-run "util/ruby-compilation" "\
+Run a ruby process dumping output to a ruby compilation
+buffer. If supplied, `name' will be used in place of the script
+name to construct the name of the compilation buffer.
+
+\(fn CMD &optional RUBY-OPTIONS NAME)" t nil)
+
+(autoload 'ruby-compilation-rake "util/ruby-compilation" "\
+Run a rake process dumping output to a ruby compilation buffer.
+
+\(fn &optional EDIT TASK ENV-VARS)" t nil)
+
+(autoload 'ruby-compilation-cap "util/ruby-compilation" "\
+Run a capistrano process dumping output to a ruby compilation buffer.
+
+\(fn &optional EDIT TASK ENV-VARS)" t nil)
+
+(autoload 'ruby-compilation-this-buffer "util/ruby-compilation" "\
+Run the current buffer through Ruby compilation.
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads (vcard-parse-region vcard-parse-string vcard-pretty-print
 ;;;;;;  vcard-standard-filters vcard-pretty-print-function) "vcard"
-;;;;;;  "vcard.el" (19826 11393))
+;;;;;;  "vcard.el" (20112 24690))
 ;;; Generated autoloads from vcard.el
 
 (defvar vcard-pretty-print-function 'vcard-format-sample-box "\
@@ -16080,7 +16549,7 @@ Note: this function modifies the buffer!
 ;;;***
 
 ;;;### (autoloads (viper-mode toggle-viper-mode) "viper" "viper.el"
-;;;;;;  (19811 54831))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from viper.el
 
 (autoload 'toggle-viper-mode "viper" "\
@@ -16097,7 +16566,7 @@ Turn on Viper emulation of Vi in Emacs. See Info node `(viper)Top'.
 ;;;***
 
 ;;;### (autoloads (vline-global-mode vline-mode) "vline" "vline.el"
-;;;;;;  (19804 63445))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from vline.el
 
 (autoload 'vline-mode "vline" "\
@@ -16126,7 +16595,7 @@ See `vline-mode' for more information on Vline mode.
 
 ;;;***
 
-;;;### (autoloads (volume) "volume" "volume.el" (18755 34113))
+;;;### (autoloads (volume) "volume" "volume.el" (20112 24690))
 ;;; Generated autoloads from volume.el
 
 (autoload 'volume "volume" "\
@@ -16137,8 +16606,9 @@ Tweak your sound card volume.
 ;;;***
 
 ;;;### (autoloads (w3m-buffer w3m-region w3m-find-file w3m-browse-url
-;;;;;;  w3m w3m-gohome w3m-goto-url-new-session w3m-goto-url w3m-download
-;;;;;;  w3m-retrieve) "w3m" "emacs-w3m/w3m.el" (19832 26391))
+;;;;;;  w3m w3m-create-empty-session w3m-gohome w3m-goto-url-new-session
+;;;;;;  w3m-goto-url w3m-download w3m-retrieve) "w3m" "emacs-w3m/w3m.el"
+;;;;;;  (20071 64292))
 ;;; Generated autoloads from emacs-w3m/w3m.el
 
 (autoload 'w3m-retrieve "w3m" "\
@@ -16207,6 +16677,11 @@ session will start afresh.
 
 (autoload 'w3m-gohome "w3m" "\
 Go to the Home page.
+
+\(fn)" t nil)
+
+(autoload 'w3m-create-empty-session "w3m" "\
+Create an empty page as a new session and visit it.
 
 \(fn)" t nil)
 
@@ -16288,7 +16763,7 @@ See `w3m-region' for the optional arguments.
 ;;; Generated autoloads from emacs-w3m/w3m-antenna.el
 
 (autoload 'w3m-about-antenna "w3m-antenna" "\
-Not documented
+
 
 \(fn URL &optional NO-DECODE NO-CACHE POST-DATA REFERER HANDLER)" nil nil)
 
@@ -16302,7 +16777,7 @@ Report changes of WEB sites, which is specified in `w3m-antenna-sites'.
 ;;;### (autoloads (w3m-setup-bookmark-menu w3m-about-bookmark w3m-bookmark-view-new-session
 ;;;;;;  w3m-bookmark-view w3m-bookmark-add-current-url-group w3m-bookmark-add-all-urls
 ;;;;;;  w3m-bookmark-add-current-url w3m-bookmark-add-this-url) "w3m-bookmark"
-;;;;;;  "emacs-w3m/w3m-bookmark.el" (19528 64563))
+;;;;;;  "emacs-w3m/w3m-bookmark.el" (19989 33699))
 ;;; Generated autoloads from emacs-w3m/w3m-bookmark.el
 
 (autoload 'w3m-bookmark-add-this-url "w3m-bookmark" "\
@@ -16337,7 +16812,7 @@ Display the bookmark on a new session.
 \(fn &optional RELOAD)" t nil)
 
 (autoload 'w3m-about-bookmark "w3m-bookmark" "\
-Not documented
+
 
 \(fn &rest ARGS)" nil nil)
 
@@ -16386,7 +16861,7 @@ Make the html contents to display and to enable you to manage cookies.
 ;;; Generated autoloads from emacs-w3m/w3m-dtree.el
 
 (autoload 'w3m-about-dtree "w3m-dtree" "\
-Not documented
+
 
 \(fn URL &optional NODECODE ALLFILES &rest ARGS)" nil nil)
 
@@ -16431,7 +16906,7 @@ Apply filtering rule of URL against a content in this buffer.
 ;;;***
 
 ;;;### (autoloads (w3m-fontify-forms) "w3m-form" "emacs-w3m/w3m-form.el"
-;;;;;;  (19563 28233))
+;;;;;;  (19989 33699))
 ;;; Generated autoloads from emacs-w3m/w3m-form.el
 
 (autoload 'w3m-fontify-forms "w3m-form" "\
@@ -16441,92 +16916,14 @@ Process half-dumped data and fontify forms in this buffer.
 
 ;;;***
 
-;;;### (autoloads (w3m-linknum-bookmark-add-this-url w3m-linknum-download-this-url
-;;;;;;  w3m-linknum-print-this-url w3m-linknum-edit-this-url w3m-linknum-external-view-this-url
-;;;;;;  w3m-linknum-save-image w3m-linknum-view-image w3m-linknum-toggle-inline-image
-;;;;;;  w3m-linknum-follow w3m-go-to-linknum w3m-link-numbering-mode)
-;;;;;;  "w3m-lnum" "emacs-w3m/w3m-lnum.el" (19735 58055))
-;;; Generated autoloads from emacs-w3m/w3m-lnum.el
+;;;### (autoloads (w3m-link-numbering-mode) "w3m-lnum" "w3m-lnum.el"
+;;;;;;  (20112 24690))
+;;; Generated autoloads from w3m-lnum.el
 
 (autoload 'w3m-link-numbering-mode "w3m-lnum" "\
-Minor mode to extend point commands by using Conkeror style number selection.
-With prefix ARG 0 disable battery included point functions, otherwise
-enable them.  With no prefix ARG - toggle.
+Minor mode to enable operations using link numbers.
 
 \(fn &optional ARG)" t nil)
-
-(autoload 'w3m-go-to-linknum "w3m-lnum" "\
-Turn on link, image and form numbers and ask for one to go to.
-With prefix ARG don't highlight current link.
-0 corresponds to location url.
-
-\(fn ARG)" t nil)
-
-(autoload 'w3m-linknum-follow "w3m-lnum" "\
-Turn on link numbers, ask for one and execute appropriate action on it.
-When link - visit it, when button - press, when input - activate it,
-when image - toggle it.
-With prefix ARG visit link in new session or don't move over
-field/button/image on activation/push/toggle.
-With `-' ARG, for link image - go to it and toggle it.
-With -4 ARG, for link image - toggle it.
-With double prefix ARG, prompt for url to visit.
-With triple prefix ARG, prompt for url to visit in new session.
-
-\(fn ARG)" t nil)
-
-(autoload 'w3m-linknum-toggle-inline-image "w3m-lnum" "\
-If image at point, toggle it.
-Otherwise turn on link numbers and toggle selected image.
-With prefix ARG open url under image in new session.
-If no such url, move over image and toggle it.
-
-\(fn &optional ARG)" t nil)
-
-(autoload 'w3m-linknum-view-image "w3m-lnum" "\
-Display the image under point in the external viewer.
-If no image at poing, turn on image numbers and display selected.
-The viewer is defined in `w3m-content-type-alist' for every type of an
-image.
-
-\(fn)" t nil)
-
-(autoload 'w3m-linknum-save-image "w3m-lnum" "\
-Save the image under point to a file.
-If no image at poing, turn on image numbers and save selected.
-The default name will be the original name of the image.
-
-\(fn)" t nil)
-
-(autoload 'w3m-linknum-external-view-this-url "w3m-lnum" "\
-Launch the external browser and display the link at point.
-If no link at point, turn on link numbers and open selected externally.
-
-\(fn)" t nil)
-
-(autoload 'w3m-linknum-edit-this-url "w3m-lnum" "\
-Edit the page linked from the anchor under the cursor.
-If no such, turn on link numbers and edit selected.
-
-\(fn)" t nil)
-
-(autoload 'w3m-linknum-print-this-url "w3m-lnum" "\
-Display the url under point in the echo area and put it into `kill-ring'.
-If no url under point, activate numbering and select one.
-
-\(fn)" t nil)
-
-(autoload 'w3m-linknum-download-this-url "w3m-lnum" "\
-Download the file or the page pointed to by the link under point.
-If no point, activate numbering and select andchor to download.
-
-\(fn)" t nil)
-
-(autoload 'w3m-linknum-bookmark-add-this-url "w3m-lnum" "\
-Add link under cursor to bookmark.
-If no link under point, activate numbering and ask for one.
-
-\(fn)" t nil)
 
 ;;;***
 
@@ -16535,7 +16932,7 @@ If no link under point, activate numbering and ask for one.
 ;;; Generated autoloads from emacs-w3m/w3m-namazu.el
 
 (autoload 'w3m-about-namazu "w3m-namazu" "\
-Not documented
+
 
 \(fn URL &optional NO-DECODE NO-CACHE &rest ARGS)" nil nil)
 
@@ -16551,7 +16948,7 @@ Search indexed files with Namazu.
 ;;; Generated autoloads from emacs-w3m/w3m-perldoc.el
 
 (autoload 'w3m-about-perldoc "w3m-perldoc" "\
-Not documented
+
 
 \(fn URL &optional NO-DECODE NO-CACHE &rest ARGS)" nil nil)
 
@@ -16592,7 +16989,7 @@ Generate query string for ENGINE from URI matched by last search.
 ;;;### (autoloads (w3m-session-last-crashed-session w3m-session-last-autosave-session
 ;;;;;;  w3m-setup-session-menu w3m-session-select w3m-session-crash-recovery-remove
 ;;;;;;  w3m-session-save) "w3m-session" "emacs-w3m/w3m-session.el"
-;;;;;;  (19710 52140))
+;;;;;;  (19989 33699))
 ;;; Generated autoloads from emacs-w3m/w3m-session.el
 
 (autoload 'w3m-session-save "w3m-session" "\
@@ -16616,12 +17013,12 @@ Setup w3m session items in menubar.
 \(fn)" nil nil)
 
 (autoload 'w3m-session-last-autosave-session "w3m-session" "\
-Not documented
+
 
 \(fn)" nil nil)
 
 (autoload 'w3m-session-last-crashed-session "w3m-session" "\
-Not documented
+
 
 \(fn)" nil nil)
 
@@ -16632,7 +17029,7 @@ Not documented
 ;;; Generated autoloads from emacs-w3m/w3m-symbol.el
 
 (autoload 'w3m-replace-symbol "w3m-symbol" "\
-Not documented
+
 
 \(fn)" nil nil)
 
@@ -16648,43 +17045,14 @@ Display weather report.
 \(fn AREA)" t nil)
 
 (autoload 'w3m-about-weather "w3m-weather" "\
-Not documented
+
 
 \(fn URL NO-DECODE NO-CACHE POST-DATA REFERER HANDLER)" nil nil)
 
 ;;;***
 
-;;;### (autoloads (which-function-mode) "which-func" "rinari/util/jump/which-func.el"
-;;;;;;  (19848 53018))
-;;; Generated autoloads from rinari/util/jump/which-func.el
- (put 'which-func-format 'risky-local-variable t)
- (put 'which-func-current 'risky-local-variable t)
-
-(defalias 'which-func-mode 'which-function-mode)
-
-(defvar which-function-mode nil "\
-Non-nil if Which-Function mode is enabled.
-See the command `which-function-mode' for a description of this minor mode.
-Setting this variable directly does not take effect;
-either customize it (see the info node `Easy Customization')
-or call the function `which-function-mode'.")
-
-(custom-autoload 'which-function-mode "which-func" nil)
-
-(autoload 'which-function-mode "which-func" "\
-Toggle Which Function mode, globally.
-When Which Function mode is enabled, the current function name is
-continuously displayed in the mode line, in certain major modes.
-
-With prefix ARG, turn Which Function mode on if arg is positive,
-and off otherwise.
-
-\(fn &optional ARG)" t nil)
-
-;;;***
-
 ;;;### (autoloads (window-numbering-mode) "window-numbering" "window-numbering.el"
-;;;;;;  (18901 61584))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from window-numbering.el
 
 (defvar window-numbering-mode nil "\
@@ -16705,8 +17073,8 @@ A minor mode that assigns a number to each window.
 
 ;;;### (autoloads (resume-windows see-you-again win-load-all-configurations
 ;;;;;;  wipe-windows win-save-all-configurations win:startup-with-window
-;;;;;;  win:set-wc win-switch-to-window) "windows" "windows.el" (19828
-;;;;;;  49883))
+;;;;;;  win:set-wc win-switch-to-window) "windows" "windows.el" (20112
+;;;;;;  24690))
 ;;; Generated autoloads from windows.el
 
 (autoload 'win-switch-to-window "windows" "\
@@ -16759,8 +17127,8 @@ Non-nil for optional argument PRESERVE keeps current buffers.
 ;;;### (autoloads (winring-rename-configuration winring-delete-configuration
 ;;;;;;  winring-jump-to-configuration winring-prev-configuration
 ;;;;;;  winring-next-configuration winring-duplicate-configuration
-;;;;;;  winring-new-configuration) "winring" "winring.el" (19386
-;;;;;;  63009))
+;;;;;;  winring-new-configuration) "winring" "winring.el" (20112
+;;;;;;  24690))
 ;;; Generated autoloads from winring.el
 
 (autoload 'winring-new-configuration "winring" "\
@@ -16811,246 +17179,9 @@ Rename the current configuration to NAME.
 
 ;;;***
 
-;;;### (autoloads (wisent-parse-toggle-verbose-flag) "wisent" "cedet/semantic/wisent/wisent.el"
-;;;;;;  (19390 35817))
-;;; Generated autoloads from cedet/semantic/wisent/wisent.el
-
-(defvar wisent-parse-verbose-flag nil "\
-*Non-nil means to issue more messages while parsing.")
-
-(autoload 'wisent-parse-toggle-verbose-flag "wisent" "\
-Toggle whether to issue more messages while parsing.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (wisent-c-default-setup) "wisent-c" "cedet/semantic/wisent/wisent-c.el"
-;;;;;;  (19070 11963))
-;;; Generated autoloads from cedet/semantic/wisent/wisent-c.el
-
-(autoload 'wisent-c-default-setup "wisent-c" "\
-Setup buffer for parse.
-
-\(fn)" nil nil)
-
-;;;***
-
-;;;### (autoloads (wisent-calc-utest wisent-calc) "wisent-calc" "cedet/semantic/wisent/wisent-calc.el"
-;;;;;;  (19390 35849))
-;;; Generated autoloads from cedet/semantic/wisent/wisent-calc.el
-
-(autoload 'wisent-calc "wisent-calc" "\
-Infix desktop calculator.
-Parse INPUT string and output the result of computation.
-
-\(fn INPUT)" t nil)
-
-(autoload 'wisent-calc-utest "wisent-calc" "\
-Test the wisent calculator.
-
-\(fn)" t nil)
-
-;;;***
-
-;;;### (autoloads (wisent-byte-compile-grammar wisent-compile-grammar
-;;;;;;  wisent-toggle-verbose-flag) "wisent-comp" "cedet/semantic/wisent/wisent-comp.el"
-;;;;;;  (19390 35899))
-;;; Generated autoloads from cedet/semantic/wisent/wisent-comp.el
-
-(defvar wisent-verbose-flag nil "\
-*Non-nil means to report verbose information on generated parser.")
-
-(autoload 'wisent-toggle-verbose-flag "wisent-comp" "\
-Toggle whether to report verbose information on generated parser.
-
-\(fn)" t nil)
-
-(autoload 'wisent-compile-grammar "wisent-comp" "\
-Compile the LALR(1) GRAMMAR.
-
-GRAMMAR is a list (TOKENS ASSOCS . NONTERMS) where:
-
-- TOKENS is a list of terminal symbols (tokens).
-
-- ASSOCS is nil, or an alist of (ASSOC-TYPE . ASSOC-VALUE) elements
-  describing the associativity of TOKENS.  ASSOC-TYPE must be one of
-  the `default-prec' `nonassoc', `left' or `right' symbols.  When
-  ASSOC-TYPE is `default-prec', ASSOC-VALUE must be nil or t (the
-  default).  Otherwise it is a list of tokens which must have been
-  previously declared in TOKENS.
-
-- NONTERMS is a list of nonterminal definitions.
-
-Optional argument START-LIST specify the possible grammar start
-symbols.  This is a list of nonterminals which must have been
-previously declared in GRAMMAR's NONTERMS form.  By default, the start
-symbol is the first nonterminal defined.  When START-LIST contains
-only one element, it is the start symbol.  Otherwise, all elements are
-possible start symbols, unless `wisent-single-start-flag' is non-nil.
-In that case, the first element is the start symbol, and others are
-ignored.
-
-Return an automaton as a vector: [ACTIONS GOTOS STARTS FUNCTIONS]
-where:
-
-- ACTIONS is a state/token matrix telling the parser what to do at
-  every state based on the current lookahead token.  That is shift,
-  reduce, accept or error.
-
-- GOTOS is a state/nonterminal matrix telling the parser the next
-  state to go to after reducing with each rule.
-
-- STARTS is an alist which maps the allowed start nonterminal symbols
-  to tokens that will be first shifted into the parser stack.
-
-- FUNCTIONS is an obarray of semantic action symbols.  Each symbol's
-  function definition is the semantic action lambda expression.
-
-\(fn GRAMMAR &optional START-LIST)" nil nil)
-
-(autoload 'wisent-byte-compile-grammar "wisent-comp" "\
-Byte compile the `wisent-compile-grammar' FORM.
-Automatically called by the Emacs Lisp byte compiler as a
-`byte-compile' handler.
-
-\(fn FORM)" nil nil)
-
-(put 'wisent-compile-grammar 'byte-compile 'wisent-byte-compile-grammar)
-
-;;;***
-
-;;;### (autoloads (wisent-csharp-default-setup) "wisent-csharp" "cedet/contrib/wisent-csharp.el"
-;;;;;;  (19522 62479))
-;;; Generated autoloads from cedet/contrib/wisent-csharp.el
-
-(autoload 'wisent-csharp-default-setup "wisent-csharp" "\
-Not documented
-
-\(fn)" nil nil)
-
-(add-hook 'csharp-mode-hook #'wisent-csharp-default-setup)
-
-;;;***
-
-;;;### (autoloads (wisent-debug-show-entry wisent-cancel-debug-on-entry
-;;;;;;  wisent-debug-on-entry) "wisent-debug" "cedet/semantic/wisent/wisent-debug.el"
-;;;;;;  (17881 43106))
-;;; Generated autoloads from cedet/semantic/wisent/wisent-debug.el
-
-(autoload 'wisent-debug-on-entry "wisent-debug" "\
-Request AUTOMATON's FUNCTION to invoke debugger each time it is called.
-FUNCTION must be a semantic action symbol that exists in AUTOMATON.
-
-\(fn AUTOMATON FUNCTION)" t nil)
-
-(autoload 'wisent-cancel-debug-on-entry "wisent-debug" "\
-Undo effect of \\[wisent-debug-on-entry] on AUTOMATON's FUNCTION.
-FUNCTION must be a semantic action symbol that exists in AUTOMATON.
-
-\(fn AUTOMATON FUNCTION)" t nil)
-
-(autoload 'wisent-debug-show-entry "wisent-debug" "\
-Show the source of AUTOMATON's semantic action FUNCTION.
-FUNCTION must be a semantic action symbol that exists in AUTOMATON.
-
-\(fn AUTOMATON FUNCTION)" t nil)
-
-;;;***
-
-;;;### (autoloads (wisent-dot-setup-parser) "wisent-dot" "cedet/cogre/wisent-dot.el"
-;;;;;;  (18906 40873))
-;;; Generated autoloads from cedet/cogre/wisent-dot.el
-
-(autoload 'wisent-dot-setup-parser "wisent-dot" "\
-Setup buffer for parse.
-
-\(fn)" nil nil)
-
-(add-hook 'graphviz-dot-mode-hook 'wisent-dot-setup-parser)
-
-(add-hook 'cogre-dot-mode-hook 'wisent-dot-setup-parser)
-
-;;;***
-
-;;;### (autoloads (wisent-grammar-mode) "wisent-grammar" "cedet/semantic/wisent/wisent-grammar.el"
-;;;;;;  (17213 40639))
-;;; Generated autoloads from cedet/semantic/wisent/wisent-grammar.el
-
-(autoload 'wisent-grammar-mode "wisent-grammar" "\
-Major mode for editing Wisent grammars.
-
-\(fn)" t nil)
-
-(add-to-list 'auto-mode-alist '("\\.wy$" . wisent-grammar-mode))
-
-(eval-after-load "speedbar" '(speedbar-add-supported-extension ".wy"))
-
-;;;***
-
-;;;### (autoloads (wisent-java-default-setup) "wisent-java-tags"
-;;;;;;  "cedet/semantic/wisent/wisent-java-tags.el" (19358 14567))
-;;; Generated autoloads from cedet/semantic/wisent/wisent-java-tags.el
-
-(autoload 'wisent-java-default-setup "wisent-java-tags" "\
-Hook run to setup Semantic in `java-mode'.
-Use the alternate LALR(1) parser.
-
-\(fn)" nil nil)
-
-(add-hook 'java-mode-hook 'wisent-java-default-setup)
-
-;;;***
-
-;;;### (autoloads (wisent-javascript-setup-parser) "wisent-javascript"
-;;;;;;  "cedet/semantic/wisent/wisent-javascript.el" (19575 43475))
-;;; Generated autoloads from cedet/semantic/wisent/wisent-javascript.el
-
-(autoload 'wisent-javascript-setup-parser "wisent-javascript" "\
-Setup buffer for parse.
-
-\(fn)" nil nil)
-
-(add-hook 'javascript-mode-hook 'wisent-javascript-setup-parser)
-
-(add-hook 'ecmascript-mode-hook 'wisent-javascript-setup-parser)
-
-(add-hook 'js-mode-hook 'wisent-javascript-setup-parser)
-
-(add-hook 'js2-mode-hook 'wisent-javascript-setup-parser)
-
-;;;***
-
-;;;### (autoloads (wisent-php-default-setup) "wisent-php" "cedet/contrib/wisent-php.el"
-;;;;;;  (18810 37948))
-;;; Generated autoloads from cedet/contrib/wisent-php.el
-
-(autoload 'wisent-php-default-setup "wisent-php" "\
-Hook run to setup Semantic in `php-mode'.
-Use the alternate LALR(1) parser.
-
-\(fn)" nil nil)
-
-(add-hook 'php-mode-hook #'wisent-php-default-setup)
-
-;;;***
-
-;;;### (autoloads (wisent-python-default-setup) "wisent-python" "cedet/semantic/wisent/wisent-python.el"
-;;;;;;  (19373 12958))
-;;; Generated autoloads from cedet/semantic/wisent/wisent-python.el
-
-(autoload 'wisent-python-default-setup "wisent-python" "\
-Setup buffer for parse.
-
-\(fn)" nil nil)
-
-(add-hook 'python-mode-hook 'wisent-python-default-setup)
-
-;;;***
-
 ;;;### (autoloads (global-ws-trim-mode ws-trim-mode turn-on-ws-trim
 ;;;;;;  ws-trim-buffer ws-trim-region ws-trim-line) "ws-trim" "ws-trim.el"
-;;;;;;  (19832 56422))
+;;;;;;  (20112 24690))
 ;;; Generated autoloads from ws-trim.el
 
 (defvar ws-trim-method-hook 'ws-trim-trailing "\
@@ -17222,10 +17353,10 @@ controlled by the `ws-trim-global-modes' variable.
 ;;;***
 
 ;;;### (autoloads (yas/minor-mode yas/snippet-dirs) "yasnippet" "yasnippet/yasnippet.el"
-;;;;;;  (19848 52943))
+;;;;;;  (20113 29460))
 ;;; Generated autoloads from yasnippet/yasnippet.el
 
-(defvar yas/snippet-dirs nil "\
+(defvar yas/snippet-dirs (list "~/.emacs.d/snippets" (concat (file-name-directory load-file-name) "snippets")) "\
 Directory or list of snippet dirs for each major mode.
 
 The directory where user-created snippets are to be stored. Can
@@ -17257,9 +17388,8 @@ Key bindings:
 ;;;***
 
 ;;;### (autoloads nil nil ("Pymacs/pymacs.el" "anything-extension.el"
-;;;;;;  "anything-match-plugin.el" "auctex-11.86/auctex.el" "auctex-11.86/auto-loads.el"
-;;;;;;  "auctex-11.86/lpath.el" "auctex-11.86/tex-buf.el" "auctex-11.86/tex-fptex.el"
-;;;;;;  "auctex-11.86/tex-mik.el" "auctex-11.86/tex-site.el" "auctex-11.86/tex-style.el"
+;;;;;;  "anything-match-plugin.el" "auctex-11.86/lpath.el" "auctex-11.86/tex-buf.el"
+;;;;;;  "auctex-11.86/tex-fptex.el" "auctex-11.86/tex-mik.el" "auctex-11.86/tex-style.el"
 ;;;;;;  "auctex-11.86/tex-wizard.el" "auto-async-byte-compile.el"
 ;;;;;;  "auto-capitalize.el" "auto-complete-config.el" "auto-complete-extension.el"
 ;;;;;;  "auto-complete.el" "autopair.el" "backpack.el" "basic-edit-toolkit.el"
@@ -17300,31 +17430,31 @@ Key bindings:
 ;;;;;;  "cedet/quickpeek/qp-util.el" "cedet/semantic/bovine/bovine-grammar-macros.el"
 ;;;;;;  "cedet/semantic/bovine/erlang-edoc.el" "cedet/semantic/bovine/semantic-c-by.el"
 ;;;;;;  "cedet/semantic/bovine/semantic-erlang-by.el" "cedet/semantic/bovine/semantic-erlang.el"
-;;;;;;  "cedet/semantic/bovine/semantic-java.el" "cedet/semantic/bovine/semantic-make-by.el"
-;;;;;;  "cedet/semantic/bovine/semantic-scm-by.el" "cedet/semantic/bovine/semantic-skeleton-by.el"
-;;;;;;  "cedet/semantic/ctags/semantic-ectag-util.el" "cedet/semantic/semantic-analyze-fcn.el"
-;;;;;;  "cedet/semantic/semantic-ast.el" "cedet/semantic/semantic-example.el"
-;;;;;;  "cedet/semantic/semantic-fw.el" "cedet/semantic/semantic-grammar-wy.el"
-;;;;;;  "cedet/semantic/semantic-inc.el" "cedet/semantic/semantic-loaddefs.el"
-;;;;;;  "cedet/semantic/semantic-sb.el" "cedet/semantic/semantic-util.el"
-;;;;;;  "cedet/semantic/semanticdb-el.el" "cedet/semantic/semanticdb-java.el"
+;;;;;;  "cedet/semantic/bovine/semantic-f90-by.el" "cedet/semantic/bovine/semantic-java.el"
+;;;;;;  "cedet/semantic/bovine/semantic-make-by.el" "cedet/semantic/bovine/semantic-scm-by.el"
+;;;;;;  "cedet/semantic/bovine/semantic-skeleton-by.el" "cedet/semantic/ctags/semantic-ectag-util.el"
+;;;;;;  "cedet/semantic/semantic-analyze-fcn.el" "cedet/semantic/semantic-ast.el"
+;;;;;;  "cedet/semantic/semantic-example.el" "cedet/semantic/semantic-fw.el"
+;;;;;;  "cedet/semantic/semantic-grammar-wy.el" "cedet/semantic/semantic-inc.el"
+;;;;;;  "cedet/semantic/semantic-loaddefs.el" "cedet/semantic/semantic-sb.el"
+;;;;;;  "cedet/semantic/semantic-util.el" "cedet/semantic/semanticdb-el.el"
+;;;;;;  "cedet/semantic/semanticdb-java.el" "cedet/semantic/semanticdb-javap.el"
 ;;;;;;  "cedet/semantic/semanticdb-javascript.el" "cedet/semantic/semanticdb-mk.el"
 ;;;;;;  "cedet/semantic/semanticdb-skel.el" "cedet/semantic/semanticdb-system.el"
 ;;;;;;  "cedet/semantic/wisent/semantic-wisent.el" "cedet/semantic/wisent/wisent-awk-wy.el"
 ;;;;;;  "cedet/semantic/wisent/wisent-calc-wy.el" "cedet/semantic/wisent/wisent-cim-wy.el"
 ;;;;;;  "cedet/semantic/wisent/wisent-expr.el" "cedet/semantic/wisent/wisent-grammar-macros.el"
 ;;;;;;  "cedet/semantic/wisent/wisent-java-tags-wy.el" "cedet/semantic/wisent/wisent-java-wy.el"
-;;;;;;  "cedet/semantic/wisent/wisent-java.el" "cedet/semantic/wisent/wisent-javascript-jv-wy.el"
-;;;;;;  "cedet/semantic/wisent/wisent-python-wy.el" "cedet/speedbar/bigclock.el"
-;;;;;;  "cedet/speedbar/dframe.el" "cedet/speedbar/fsum.el" "cedet/speedbar/sb-ant.el"
-;;;;;;  "cedet/speedbar/sb-html.el" "cedet/speedbar/sb-image.el"
+;;;;;;  "cedet/semantic/wisent/wisent-javascript-jv-wy.el" "cedet/semantic/wisent/wisent-python-wy.el"
+;;;;;;  "cedet/speedbar/bigclock.el" "cedet/speedbar/dframe.el" "cedet/speedbar/fsum.el"
+;;;;;;  "cedet/speedbar/sb-ant.el" "cedet/speedbar/sb-html.el" "cedet/speedbar/sb-image.el"
 ;;;;;;  "cedet/speedbar/sb-texinfo.el" "cedet/speedbar/speedbar-load.el"
 ;;;;;;  "cedet/speedbar/speedbar-loaddefs.el" "cedet/srecode/srecode-document-vars.el"
 ;;;;;;  "cedet/srecode/srecode-extract.el" "cedet/srecode/srecode-load.el"
 ;;;;;;  "cedet/srecode/srecode-loaddefs.el" "cedet/srecode/srecode-template-wy.el"
 ;;;;;;  "cedet/srecode/srecode.el" "cedet/tests/cedet-integ-test.el"
-;;;;;;  "cedet/tests/cit-cpp.el" "cedet/tests/cit-dist.el" "cedet/tests/cit-el.el"
-;;;;;;  "cedet/tests/cit-externaldb.el" "cedet/tests/cit-gnustep.el"
+;;;;;;  "cedet/tests/cit-android.el" "cedet/tests/cit-cpp.el" "cedet/tests/cit-dist.el"
+;;;;;;  "cedet/tests/cit-el.el" "cedet/tests/cit-externaldb.el" "cedet/tests/cit-gnustep.el"
 ;;;;;;  "cedet/tests/cit-load.el" "cedet/tests/cit-srec.el" "cedet/tests/cit-symref.el"
 ;;;;;;  "cedet/tests/cit-texi.el" "cedet/tests/cit-uml.el" "ch6-bbdb-import-csv-buffer.el"
 ;;;;;;  "chop.el" "color-moccur.el" "color-theme-6.6.0/color-theme-autoloads.el"
@@ -17369,44 +17499,45 @@ Key bindings:
 ;;;;;;  "howm-1.3.9.1/howm-view.el" "howm-1.3.9.1/howm.el" "howm-1.3.9.1/illusion.el"
 ;;;;;;  "howm-1.3.9.1/riffle.el" "html-php.el" "html-script.el" "ion3.el"
 ;;;;;;  "jira.el" "joseph-autopair.el" "json.el" "lazycat-toolkit.el"
-;;;;;;  "linum-settings.el" "lookout.el" "magit/50magit.el" "magit/magit-key-mode.el"
-;;;;;;  "magit/magit-pkg.el" "magit/magit-svn.el" "magit/magit-topgit.el"
-;;;;;;  "magit/rebase-mode.el" "mailcrypt-3.5.9/mc-remail2.el" "maxframe.el"
-;;;;;;  "mhc/emacs/mhc-bm.el" "mhc/emacs/mhc-calendar.el" "mhc/emacs/mhc-compat.el"
-;;;;;;  "mhc/emacs/mhc-cvs.el" "mhc/emacs/mhc-date.el" "mhc/emacs/mhc-day.el"
-;;;;;;  "mhc/emacs/mhc-db.el" "mhc/emacs/mhc-draft.el" "mhc/emacs/mhc-e21.el"
-;;;;;;  "mhc/emacs/mhc-face.el" "mhc/emacs/mhc-file.el" "mhc/emacs/mhc-guess.el"
-;;;;;;  "mhc/emacs/mhc-header.el" "mhc/emacs/mhc-logic.el" "mhc/emacs/mhc-mime.el"
-;;;;;;  "mhc/emacs/mhc-minibuf.el" "mhc/emacs/mhc-misc.el" "mhc/emacs/mhc-parse.el"
-;;;;;;  "mhc/emacs/mhc-record.el" "mhc/emacs/mhc-schedule.el" "mhc/emacs/mhc-slot.el"
-;;;;;;  "mhc/emacs/mhc-summary.el" "mhc/emacs/mhc-sync.el" "mhc/emacs/mhc-vars.el"
-;;;;;;  "mhc/emacs/mhc-xmas.el" "mhc/emacs/mhc.el" "mhc/emacs/nnmhc.el"
-;;;;;;  "mouse-embrace.el" "mozart.el" "mpg123.el" "newsticker-1.99/newsticker-testsuite.el"
-;;;;;;  "newsticker-1.99/newsticker.el" "newsticker-extension.el"
-;;;;;;  "newsticker-notify.el" "oz-extra.el" "oz-server.el" "oz.el"
-;;;;;;  "pabbrev.el" "pager.el" "pair-mode.el" "paredit-extension.el"
-;;;;;;  "paredit-viper-compat.el" "parenface.el" "popup.el" "pos-tip.el"
-;;;;;;  "progr-align.el" "python-mode/pycomplete.el" "rect-extension.el"
+;;;;;;  "linum-settings.el" "lookout.el" "magit/50magit.el" "magit/contrib/magit-classic-theme.el"
+;;;;;;  "magit/contrib/magit-simple-keys.el" "magit/magit-bisect.el"
+;;;;;;  "magit/magit-key-mode.el" "magit/magit-pkg.el" "magit/magit-stgit.el"
+;;;;;;  "magit/magit-svn.el" "magit/magit-topgit.el" "mailcrypt-3.5.9/mc-remail2.el"
+;;;;;;  "maxframe.el" "mhc/emacs/mhc-bm.el" "mhc/emacs/mhc-calendar.el"
+;;;;;;  "mhc/emacs/mhc-compat.el" "mhc/emacs/mhc-cvs.el" "mhc/emacs/mhc-date.el"
+;;;;;;  "mhc/emacs/mhc-day.el" "mhc/emacs/mhc-db.el" "mhc/emacs/mhc-draft.el"
+;;;;;;  "mhc/emacs/mhc-e21.el" "mhc/emacs/mhc-face.el" "mhc/emacs/mhc-file.el"
+;;;;;;  "mhc/emacs/mhc-guess.el" "mhc/emacs/mhc-header.el" "mhc/emacs/mhc-logic.el"
+;;;;;;  "mhc/emacs/mhc-mime.el" "mhc/emacs/mhc-minibuf.el" "mhc/emacs/mhc-misc.el"
+;;;;;;  "mhc/emacs/mhc-parse.el" "mhc/emacs/mhc-record.el" "mhc/emacs/mhc-schedule.el"
+;;;;;;  "mhc/emacs/mhc-slot.el" "mhc/emacs/mhc-summary.el" "mhc/emacs/mhc-sync.el"
+;;;;;;  "mhc/emacs/mhc-vars.el" "mhc/emacs/mhc-xmas.el" "mhc/emacs/mhc.el"
+;;;;;;  "mhc/emacs/nnmhc.el" "mouse-embrace.el" "mozart.el" "mpg123.el"
+;;;;;;  "newsticker-1.99/newsticker-testsuite.el" "newsticker-1.99/newsticker.el"
+;;;;;;  "newsticker-extension.el" "newsticker-notify.el" "oz-extra.el"
+;;;;;;  "oz-server.el" "oz.el" "pabbrev.el" "pager.el" "pair-mode.el"
+;;;;;;  "paredit-extension.el" "paredit-viper-compat.el" "parenface.el"
+;;;;;;  "popup.el" "pos-tip.el" "progr-align.el" "rect-extension.el"
 ;;;;;;  "redo+.el" "redo.el" "regex-tool.el" "remember/read-file-name.el"
 ;;;;;;  "remember/remember-autoloads.el" "remember/remember-experimental.el"
 ;;;;;;  "remember/scripts/remember-build.el" "rest-api.el" "revive+.el"
 ;;;;;;  "rinari/util/jump/findr.el" "rinari/util/ruby-compilation-rspec.el"
-;;;;;;  "shell-command-extension.el" "simple-call-tree.el" "smalltalk-mode-init.el"
-;;;;;;  "smalltalk-mode.el" "snipplr.el" "subdirs.el" "sunrise-commander.el"
-;;;;;;  "textmate-mode.el" "textmate.el" "tiling.el" "typing-speed.el"
-;;;;;;  "unbound.el" "undo-tree/undo-tree.el" "vimpulse/test-framework.el"
-;;;;;;  "vimpulse/vimpulse-compatibility.el" "vimpulse/vimpulse-dependencies.el"
-;;;;;;  "vimpulse/vimpulse-ex.el" "vimpulse/vimpulse-misc-keybindings.el"
-;;;;;;  "vimpulse/vimpulse-modal.el" "vimpulse/vimpulse-operator.el"
-;;;;;;  "vimpulse/vimpulse-paren-matching.el" "vimpulse/vimpulse-test.el"
-;;;;;;  "vimpulse/vimpulse-text-object-system.el" "vimpulse/vimpulse-utils.el"
-;;;;;;  "vimpulse/vimpulse-viper-function-redefinitions.el" "vimpulse/vimpulse-visual-mode.el"
-;;;;;;  "vimpulse/vimpulse.el" "viper-in-more-modes.el" "w3m-lnum.el"
-;;;;;;  "wdired-extension.el" "weblogger.el" "widen-window.el" "window-number.el"
-;;;;;;  "wl-highlight-ad.el" "woof.el" "x-dict.el" "xml-rpc.el" "xte.el"
-;;;;;;  "xwindow-ring.el" "yaml-mode.el" "yaml-mode/yaml-mode.el"
-;;;;;;  "yas-jit.el" "yasnippet/dropdown-list.el" "yasnippet/yasnippet-debug.el")
-;;;;;;  (19894 45244 153853))
+;;;;;;  "shell-command-extension.el" "shen-mode/shen-mode.el" "simple-call-tree.el"
+;;;;;;  "smalltalk-mode-init.el" "smalltalk-mode.el" "snipplr.el"
+;;;;;;  "sticky-control.el" "subdirs.el" "sunrise-commander.el" "textmate-mode.el"
+;;;;;;  "textmate.el" "tiling.el" "typing-speed.el" "unbound.el"
+;;;;;;  "vimpulse/test-framework.el" "vimpulse/vimpulse-compatibility.el"
+;;;;;;  "vimpulse/vimpulse-dependencies.el" "vimpulse/vimpulse-ex.el"
+;;;;;;  "vimpulse/vimpulse-misc-keybindings.el" "vimpulse/vimpulse-modal.el"
+;;;;;;  "vimpulse/vimpulse-operator.el" "vimpulse/vimpulse-paren-matching.el"
+;;;;;;  "vimpulse/vimpulse-test.el" "vimpulse/vimpulse-text-object-system.el"
+;;;;;;  "vimpulse/vimpulse-utils.el" "vimpulse/vimpulse-viper-function-redefinitions.el"
+;;;;;;  "vimpulse/vimpulse-visual-mode.el" "vimpulse/vimpulse.el"
+;;;;;;  "viper-in-more-modes.el" "wdired-extension.el" "weblogger.el"
+;;;;;;  "widen-window.el" "window-number.el" "wl-highlight-ad.el"
+;;;;;;  "woof.el" "x-dict.el" "xml-rpc.el" "xte.el" "xwindow-ring.el"
+;;;;;;  "yaml-mode.el" "yaml-mode/yaml-mode.el" "yas-jit.el" "yasnippet/dropdown-list.el"
+;;;;;;  "yasnippet/yasnippet-debug.el") (20113 48496 444870))
 
 ;;;***
 
@@ -17436,7 +17567,7 @@ Key bindings:
 ;;;;;;  anything-gentoo anything-minibuffer-history anything-show-kill-ring
 ;;;;;;  anything-info-emacs anything-info-at-point anything-recentf
 ;;;;;;  anything-for-files anything-mini anything-configuration)
-;;;;;;  "anything-config" "anything-config.el" (19826 32852))
+;;;;;;  "anything-config" "anything-config.el" (20112 24690))
 ;;; Generated autoloads from anything-config.el
 
 (autoload 'anything-configuration "anything-config" "\
@@ -17855,7 +17986,7 @@ Preconfigured `anything' : frontend of APT package manager.
 \(fn QUERY)" t nil)
 
 (autoload 'anything-c-shell-command-if-needed "anything-config" "\
-Not documented
+
 
 \(fn COMMAND)" t nil)
 
@@ -17873,7 +18004,7 @@ Preconfigured `anything' to execute ratpoison commands.
 \(fn)" t nil)
 
 (autoload 'w32-shell-execute-open-file "anything-config" "\
-Not documented
+
 
 \(fn FILE)" t nil)
 
