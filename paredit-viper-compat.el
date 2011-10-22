@@ -15,7 +15,17 @@
 ;; (eval-after-load 'paredit
 ;;   '(progn
 ;;      (require 'paredit-viper-compat)
-;;      (paredit-viper-compat))
+;;      (add-hook 'paredit-mode-hook #'paredit-viper-compat))
+;;
+;; NOTE: the (require ...) line may be omitted if you register 
+;;       PAREDIT-VIPER-COMPAT's autoloads in your loaddefs:
+;; <http://www.gnu.org/software/emacs/elisp/html_node/Autoload.html>
+;;
+;; You may need customizations:
+;; (add-hook 'paredit-mode-hook #'(lambda ()
+;;                  (paredit-viper-compat)
+;;                                  ;; ... customization ...
+;;                                ))
 ;;
 ;; This will apply the paredit-viper-compat fixes only when paredit
 ;; is active.
@@ -26,7 +36,7 @@
 ;; the function paredit-viper-add-local-keys.
 ;; Usage is (paredit-viper-add-local-keys STATE KEYS);
 ;; where STATE is one of 'all-states, 'vi-state, 'insert-state, or 'emacs-state.
-;; Insert a statement like the following inside the (eval-after-load ...)
+;; Insert a statement like the following inside the HOOK function
 ;; form above:
 ;;
 ;; (paredit-viper-add-local-keys 'all-states  ; or 'insert-state, etc.
@@ -36,14 +46,14 @@
 ;;
 ;; Complete setup combining the above examples:
 ;;
-;; (eval-after-load 'paredit
-;;   '(progn
-;;      (require 'paredit-viper-compat)
-;;      (paredit-viper-compat)
-;;      (paredit-viper-add-local-keys 'all-states
-;;                                    '(("\C-w" . paredit-backward-kill-word)
-;;                                      ;; ... more keys ...
-;;                                      ))))
+;; (add-hook 'paredit-mode-hook #'(lambda ()
+;;                                  (progn
+;;                                    (require 'paredit-viper-compat)
+;;                                    (paredit-viper-compat)
+;;                                    (paredit-viper-add-local-keys 'all-states
+;;                                      '(("\C-w" . paredit-backward-kill-word)
+;;                                        ;; ... more keys ...
+;;                                        ))))))
 ;;
 ;; Changelog:
 ;; 0.1a - 2011-10-20 - Fix.
@@ -106,6 +116,8 @@
     ; Viper Fixes
     ([(backspace)] . paredit-backward-delete)
     ([(kp-delete)] . paredit-forward-delete)
+    ([(control backspace)] . paredit-backward-kill-word)
+    ([(control kp-delete)] . paredit-forward-kill-word)
     ("\"" . paredit-doublequote))
   "Paredit keys to be available in insert mode only.
 
@@ -113,7 +125,7 @@
   '((key-str . func) (key-str . func)) ")
 
 (defconst paredit-viper-compat-all-states-keys
-      `(; Basic Insertion Commands (most are in a different map though)
+      '(; Basic Insertion Commands (most are in a different map though)
     ;    ([(meta ?\;)] . paredit-comment-dwim)
         ; Deleting & Killing:
         ; xemacs users note: the two lines below have
@@ -126,12 +138,11 @@
         ("\C-j" . paredit-newline)
         ;(,(format "<%s>" paredit-backward-delete-key) . paredit-backward-delete)
         ;(,(format "\M-%s" paredit-backward-delete-key) . paredit-backward-kill-word)
- ;;       ([(control-d delete)] . paredit-forward-delete)
+    ;;       ([(control-d delete)] . paredit-forward-delete)
         ;;("\C-d <deletechar>" . paredit-forward-delete)
-       ;; ([] . paredit-forward-delete)
-;;        ([(control kp-delete)] . paredit-backward-kill-word)
-        ([(control backspace)] . paredit-backward-kill-word)
-        ([(control kp-delete)] . paredit-forward-kill-word)
+    ;; ([] . paredit-forward-delete)
+    ;;        ([(control kp-delete)] . paredit-backward-kill-word)
+        ([(control kp-delete)] . (lambda () (interactive)))
         ("\C-k" . paredit-kill)
         ("\M-d" . paredit-forward-kill-word)
         ("\C-\M-f" . paredit-forward)
@@ -167,14 +178,10 @@ Stored as an alist of (key-str . func) pairs.")
 ;;;###autoload
 (defun paredit-viper-compat ()
   "Enable paredit keybindings for viper-mode.
-
 This should be called from a hook to a major mode or
 on a per buffer basis."
-  (viper-add-local-keys 'insert-state paredit-viper-compat-insert-state-keys)
-  (viper-add-local-keys 'insert-state paredit-viper-compat-all-states-keys)
-  (viper-add-local-keys 'vi-state paredit-viper-compat-all-states-keys)
-  (viper-add-local-keys 'emacs-state
-                        paredit-viper-compat-all-states-keys))
+  (paredit-viper-add-local-keys 'all-states paredit-viper-compat-all-states-keys) ; first all then <I>
+  (paredit-viper-add-local-keys 'insert-state paredit-viper-compat-insert-state-keys))
 
 (defun paredit-viper-add-local-keys (state alist)
   "Add custom keys to viper-mode when paredit is enabled.
@@ -186,16 +193,14 @@ Normally, this would be called from a hook to a major mode or
 on a per buffer basis.
 Usage:
   (paredit-viper-add-local-keys state '((key-str . func) (key-str . func)...))"
-  (if (equal state 'all-states)
+  (if (eq state 'all-states)
       (progn
         (viper-add-local-keys 'emacs-state alist)
         (viper-add-local-keys 'vi-state alist)
         (viper-add-local-keys 'insert-state alist))
     (viper-add-local-keys state alist)))
 
-
 (provide 'paredit-viper-compat)
-
 
 ;; End paredit-viper-compat.el.
 
