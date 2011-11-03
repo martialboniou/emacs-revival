@@ -49,7 +49,7 @@ name."
   (interactive)
   (setq simple-call-tree-alist nil)
   (let ((pos (point-min))
-    (count 0))
+    (count 0) max end)
     (while pos
       (when (and (eq (get-text-property pos 'face)
              'font-lock-function-name-face)
@@ -63,27 +63,28 @@ name."
                          start pos))
                       simple-call-tree-alist))))
       (setq pos (next-single-property-change pos 'face)))
-    (setq pos (point-min))
-    (let ((max count) (count 0))
-      (save-excursion
-        (let ((old (point-min))
-              (old-defun '("*Start*"))
-              defun)
-          (while pos
-            (when (and (eq (get-text-property pos 'face)
-                           'font-lock-function-name-face)
-                       (or (not (functionp test))
-                           (funcall test pos)))
-              (let ((end (next-single-property-change pos 'face)))
-                (setq defun (assoc (buffer-substring-no-properties pos end)
-                                   simple-call-tree-alist))
-                (setq count (1+ count))
-                (message "Identifying functions called...%d/%d" count max)
-                (simple-call-tree-add old pos old-defun)
-                (setq old end
-                      pos end
-                      old-defun defun))
-              (setq pos (next-single-property-change pos 'face))))))))
+    (setq pos (point-min)
+      max count
+      count 0)
+    (save-excursion
+      (let ((old (point-min))
+        (old-defun '("*Start*"))
+        defun)
+    (while pos
+      (when (and (eq (get-text-property pos 'face)
+             'font-lock-function-name-face)
+             (or (not (functionp test))
+             (funcall test pos)))
+        (setq end (next-single-property-change pos 'face)
+          defun (assoc (buffer-substring-no-properties pos end)
+                   simple-call-tree-alist))
+        (setq count (1+ count))
+        (message "Identifying functions called...%d/%d" count max)
+        (simple-call-tree-add old pos old-defun)
+        (setq old end
+          pos end
+          old-defun defun))
+      (setq pos (next-single-property-change pos 'face))))))
   (message "simple-call-tree done"))
 
 (defun simple-call-tree-add (start end alist)
