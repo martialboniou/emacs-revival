@@ -34,9 +34,12 @@
 
 ;;; Code:
 
+;;; hondana@gmx.com: 2011-11-3 byte-compile on Emacs 24.0.90 / autoloads added
+
 (defvar simple-call-tree-alist nil
   "Alist of functions and the functions they call.")
 
+;;;###autoload
 (defun simple-call-tree-analyze (&optional test)
   "Analyze the current buffer.
 The result is stored in `simple-call-tree-alist'.
@@ -46,42 +49,41 @@ name."
   (interactive)
   (setq simple-call-tree-alist nil)
   (let ((pos (point-min))
-	(count 0))
+    (count 0))
     (while pos
       (when (and (eq (get-text-property pos 'face)
-		     'font-lock-function-name-face)
-		 (or (not (functionp test))
-		     (funcall test pos)))
-	(setq count (1+ count))
-	(message "Identifying functions...%d" count)
-	(let ((start pos))
-	  (setq pos (next-single-property-change pos 'face))
-	  (setq simple-call-tree-alist (cons (list (buffer-substring-no-properties
-					     start pos))
-				      simple-call-tree-alist))))
+             'font-lock-function-name-face)
+         (or (not (functionp test))
+             (funcall test pos)))
+    (setq count (1+ count))
+    (message "Identifying functions...%d" count)
+    (let ((start pos))
+      (setq pos (next-single-property-change pos 'face))
+      (setq simple-call-tree-alist (cons (list (buffer-substring-no-properties
+                         start pos))
+                      simple-call-tree-alist))))
       (setq pos (next-single-property-change pos 'face)))
-    (setq pos (point-min)
-	  max count
-	  count 0)
-    (save-excursion
-      (let ((old (point-min))
-	    (old-defun '("*Start*"))
-	    defun)
-	(while pos
-	  (when (and (eq (get-text-property pos 'face)
-			 'font-lock-function-name-face)
-		     (or (not (functionp test))
-			 (funcall test pos)))
-	    (setq end (next-single-property-change pos 'face)
-		  defun (assoc (buffer-substring-no-properties pos end)
-			       simple-call-tree-alist))
-	    (setq count (1+ count))
-	    (message "Identifying functions called...%d/%d" count max)
-	    (simple-call-tree-add old pos old-defun)
-	    (setq old end
-		  pos end
-		  old-defun defun))
-	  (setq pos (next-single-property-change pos 'face))))))
+    (setq pos (point-min))
+    (let ((max count) (count 0))
+      (save-excursion
+        (let ((old (point-min))
+              (old-defun '("*Start*"))
+              defun)
+          (while pos
+            (when (and (eq (get-text-property pos 'face)
+                           'font-lock-function-name-face)
+                       (or (not (functionp test))
+                           (funcall test pos)))
+              (let ((end (next-single-property-change pos 'face)))
+                (setq defun (assoc (buffer-substring-no-properties pos end)
+                                   simple-call-tree-alist))
+                (setq count (1+ count))
+                (message "Identifying functions called...%d/%d" count max)
+                (simple-call-tree-add old pos old-defun)
+                (setq old end
+                      pos end
+                      old-defun defun))
+              (setq pos (next-single-property-change pos 'face))))))))
   (message "simple-call-tree done"))
 
 (defun simple-call-tree-add (start end alist)
@@ -92,36 +94,36 @@ and the list of functions it calls in the cdr."
     (goto-char start)
     (catch 'done
       (while (search-forward (car entry) end t)
-	(let ((faces (get-text-property (point) 'face)))
-	  (unless (listp faces)
-	    (setq faces (list faces)))
-	  (unless (or (memq 'font-lock-comment-face faces)
-		      (memq 'font-lock-string-face faces))
-	    (setcdr alist (cons (car entry)
-				(cdr alist)))
-	    (throw 'done t)))))))
+    (let ((faces (get-text-property (point) 'face)))
+      (unless (listp faces)
+        (setq faces (list faces)))
+      (unless (or (memq 'font-lock-comment-face faces)
+              (memq 'font-lock-string-face faces))
+        (setcdr alist (cons (car entry)
+                (cdr alist)))
+        (throw 'done t)))))))
 
 (defun simple-call-tree-analyze-perl ()
   "Call `simple-call-tree-analyze-perl' for CPerl code."
   (interactive)
   (simple-call-tree-analyze (lambda (pos)
-		       (goto-char pos)
-		       (beginning-of-line)
-		       (looking-at "sub"))))
+               (goto-char pos)
+               (beginning-of-line)
+               (looking-at "sub"))))
 
 (defun simple-call-tree-invert (alist)
   "Invert ALIST."
   (let (result)
     (mapc (lambda (entry)
-	    (mapc (lambda (func)
-		    (let ((elem (assoc func result)))
-		      (if elem
-			  (setcdr elem (cons (car entry)
-					     (cdr elem)))
-			(setq result (cons (list func (car entry))
-					   result)))))
-		  (cdr entry)))
-	  simple-call-tree-alist)
+        (mapc (lambda (func)
+            (let ((elem (assoc func result)))
+              (if elem
+              (setcdr elem (cons (car entry)
+                         (cdr elem)))
+            (setq result (cons (list func (car entry))
+                       result)))))
+          (cdr entry)))
+      simple-call-tree-alist)
     result))
 
 '(eval-when-compile
