@@ -6,9 +6,9 @@
 ;; Maintainer: 
 ;; Created: Sat Mar  5 12:10:04 2011 (+0100)
 ;; Version: 
-;; Last-Updated: Sat Mar  5 14:04:25 2011 (+0100)
+;; Last-Updated: Fri Nov  4 14:07:36 2011 (+0100)
 ;;           By: Martial Boniou
-;;     Update #: 12
+;;     Update #: 13
 ;; URL: 
 ;; Keywords: 
 ;; Compatibility: 
@@ -79,7 +79,8 @@
                                        (car (car current-directory-list)))
                                       subdirectories-list))))))
                    (setq current-directory-list (cdr current-directory-list)))
-                 subdirectories-list))) (inspect-directory "~/.emacs.d/lisp"))
+                 subdirectories-list))) (inspect-directory
+                                         (file-name-directory load-file-name)))
        load-path))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

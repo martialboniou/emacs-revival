@@ -1,3 +1,3 @@
 #!/bin/sh
-emacs-compile-directory -l "~/.emacs.d/lisp/compile-utils"
+emacs-compile-directory -l "`echo $PWD`/compile-utils"
 
