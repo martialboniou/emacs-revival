@@ -1,0 +1,13 @@
+* Emacs revival site-lisp
+
+Keep track of useful emacs lisp files that may disappears if not maintained. Some are old and near zombification. Others are out of modern versioning tool. Sometimes, I tweaked, fixed and tagged for autoloads.
+
+** Install
+
+TODO
+
+** Notes
+
+Additional subdirectories (marked when used):
+- [ ] wuxch
+- [X] bookmark-plus

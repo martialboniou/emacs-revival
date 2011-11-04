@@ -6,9 +6,9 @@
 ;; Maintainer: 
 ;; Created: Sat Feb 19 14:27:14 2011 (+0100)
 ;; Version: 
-;; Last-Updated: Wed Feb 23 22:52:43 2011 (+0100)
+;; Last-Updated: Fri Nov  4 13:56:50 2011 (+0100)
 ;;           By: Martial Boniou
-;;     Update #: 9
+;;     Update #: 11
 ;; URL: 
 ;; Keywords: 
 ;; Compatibility: 
@@ -44,6 +44,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
 ;;; Code:
+
+(require 'revive+)
 
 ;;;###autoload
 (defgroup mars-windows-archiver nil
