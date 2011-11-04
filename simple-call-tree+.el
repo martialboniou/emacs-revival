@@ -18,9 +18,6 @@
 (defvar sct-graphviz-dir "/tmp"
   "Default temporary cache location.")
 
-(defvar sct-graphviz-file-type 'jpg
-  "image file type to use when generating `sct-graphviz'.")
-
 ;;;###autoload
 (defun simple-call-tree-list-functions-and-callers ()
   "List functions and callers in `simple-call-tree-alist'."
@@ -82,36 +79,35 @@ Then save the file as \"my-file.dot\" and run
   "Analyze the simple tree call and display it as graphic."
   (interactive)
   (simple-call-tree-analyze)
-  (let ((file-type (symbol-name sct-graphviz-file-type)))
-    (if (and (file-directory-p sct-graphviz-dir)
-             (file-writable-p sct-graphviz-dir))
-        ;; automatically purge temporary files on emacs killing
-        (add-hook-once
-         'kill-emacs-hook
-         #'(lambda () (mapc #'(lambda (file)
-                           (when (file-writable-p file)
-                             (delete-file file)))
-                       (directory-files sct-graphviz-dir t 
-                                        (format "\\.jpg\\'")))))
-      (error (format "sct-graphviz: unable to access %s" sct-graphviz-dir)))
-    (if (null (executable-find graphviz-command))
-        (anything-simple-call-tree)
-      (let ((tmp-file (make-temp-file (expand-file-name ".tmp" sct-graphviz-dir) nil ".dot"))
-            (viz-file (expand-file-name (concat (buffer-name (current-buffer)) "." file-type) sct-graphviz-dir)))
-        (with-temp-file tmp-file
-          (insert (sct-dot)))
-        (let ((cmd-return (execvp "dot" 
-                                  "-T" file-type tmp-file
-                                  "-o" viz-file)))
-          (if (zerop (length cmd-return))
-              (let ((vct (get-buffer-create "*Visual Call Tree*")))
-                (with-current-buffer
-                    vct
-                  (erase-buffer)
-                  (insert-file-contents viz-file)
-                  (image-mode))
-                (display-buffer vct))
-            (error "graphivz: error during external command: %s" cmd-return)))
-        (delete-file tmp-file)))))
+  (if (and (file-directory-p sct-graphviz-dir)
+           (file-writable-p sct-graphviz-dir))
+      ;; automatically purge temporary files on emacs killing
+      (add-hook-once
+       'kill-emacs-hook
+       #'(lambda () (mapc #'(lambda (file)
+                         (when (file-writable-p file)
+                           (delete-file file)))
+                     (directory-files sct-graphviz-dir t 
+                                      (format "\\.jpg\\'")))))
+    (error (format "sct-graphviz: unable to access %s" sct-graphviz-dir)))
+  (if (null (executable-find graphviz-command))
+      (anything-simple-call-tree)
+    (let ((tmp-file (make-temp-file (expand-file-name ".tmp" sct-graphviz-dir) nil ".dot"))
+          (viz-file (expand-file-name (concat (buffer-name (current-buffer)) ".jpg") sct-graphviz-dir)))
+      (with-temp-file tmp-file
+        (insert (sct-dot)))
+      (let ((cmd-return (execvp "dot" 
+                                "-Tjpg" tmp-file
+                                "-o" viz-file)))
+        (if (zerop (length cmd-return))
+            (let ((vct (get-buffer-create "*Visual Call Tree*")))
+              (with-current-buffer
+                  vct
+                (erase-buffer)
+                (insert-file-contents viz-file)
+                (image-mode))
+              (display-buffer vct))
+          (error "graphivz: error during external command: %s" cmd-return)))
+      (delete-file tmp-file))))
 
 (provide 'simple-call-tree-+)
