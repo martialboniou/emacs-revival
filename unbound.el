@@ -1,9 +1,9 @@
 ;;; unbound.el --- find convenient unbound keystrokes
 
 ;; Copyright (C) 2007 Davis Herring
-
+;;               2011 Martial Boniou
 ;; Author: Davis Herring <herring@lanl.gov>
-;; Version: 0.1
+;; Version: 0.1a
 ;; Maintainer: Davis Herring
 ;; Keywords: keyboard
 
@@ -29,6 +29,8 @@
 ;; complexity to allow, which should probably be at least 5 to find enough
 ;; keys to be worthwhile.  Lisp may call just `unbound-keys' to get a list of
 ;; key representations suitable for `define-key'.
+
+;; Changelog: 2011-11-05 - autoload
 
 ;;; Code:
 
@@ -129,6 +131,7 @@ Keys are sorted by their complexity; `key-complexity' determines it."
                     (res)
                     (t (push (cons total comp) unbound-keys))))))))))
 
+;;;###autoload
 (defun describe-unbound-keys (max)
   "Display a list of unbound keystrokes of complexity no greater than MAX.
 Keys are sorted by their complexity; `key-complexity' determines it."

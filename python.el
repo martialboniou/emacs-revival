@@ -2651,3 +2651,7 @@ if that value is non-nil."
 
 (provide 'python)
 ;;; python.el ends here
+
+;; Local Variables:
+;; no-byte-compile: t
+;; End:

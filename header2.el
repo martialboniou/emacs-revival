@@ -10,9 +10,9 @@
 ;; Copyright (C) 1988 Lynn Randolph Slater, Jr.
 ;; Created: Tue Aug  4 17:06:46 1987
 ;; Version: 21.0
-;; Last-Updated: Thu Feb  3 08:02:07 2011 (-0800)
+;; Last-Updated: Wed May 11 07:18:45 2011 (-0700)
 ;;           By: dradams
-;;     Update #: 1800
+;;     Update #: 1803
 ;; URL: http://www.emacswiki.org/cgi-bin/wiki/header2.el
 ;; Keywords: tools, docs, maint, abbrev, local
 ;; Compatibility: GNU Emacs: 20.x, 21.x, 22.x, 23.x
@@ -365,7 +365,7 @@ Don't forget to mention your Emacs and library versions."))
     :group 'Automatic-File-Header)
 
 (defcustom header-date-format t
-  "Date/time format for header timestamp.
+  "*Date/time format for header timestamp.
 The value can be a string, t, or nil.
 A string value is passed to `format-time-string'.
 t means use local time with timezone; nil means use UTC."

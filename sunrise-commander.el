@@ -4,6 +4,7 @@
 ;; Copyright (C) 2007 2008 2009 José Alfredo Romero Latouche (j0s3l0)
 
 ;; Author: José Alfredo Romero L. <joseito@poczta.onet.pl>
+;; Maintainer: Martial Boniou <hondana@gmx.com>
 ;; Keywords: Sunrise Commander Emacs File Manager Midnight Norton Orthodox
 
 ;; This program is free software: you can redistribute it and/or modify it under
@@ -157,6 +158,8 @@
 ;; and colors (activate AVFS support here, too).
 
 ;; 8) Enjoy :)
+
+;; Changelog: 2011-11-05 sunrise autoloads
 
 ;;; Code:
 
@@ -523,6 +526,7 @@ automatically:
   (setq truncate-lines nil)
 )
 
+;;;###autoload
 (define-derived-mode sr-virtual-mode dired-virtual-mode "Sunrise VIRTUAL"
   "Sunrise Commander Virtual Mode. Useful for reusing find and locate results."
   :group 'sunrise
@@ -568,6 +572,7 @@ automatically:
      (sr-keep-buffer)
      (if dispose (kill-buffer dispose))))
 
+;;;###autoload
 (defun sr-dired-mode ()
   "Sets Sunrise mode in every Dired buffer opened in Sunrise (called in hook)."
   (if (and sr-running
@@ -757,6 +762,7 @@ automatically:
 ;;; ============================================================================
 ;;; Initialization and finalization functions:
 
+;;;###autoload
 (defun sunrise (&optional left-directory right-directory filename)
   "Starts the Sunrise Commander. If the param `left-directory' is given the left
   window  will  display  this  directory  (the  same   for   `right-directory').
@@ -795,6 +801,7 @@ automatically:
     "Synthesizes Sunrise symbols (sr-left-buffer, sr-right-window, etc.)"
     (intern (concat "sr-" (symbol-name side) "-" (symbol-name context)))))
 
+;;;###autoload
 (defun sunrise-cd ()
   "Run Sunrise but give it the current directory to use."
   (interactive)
@@ -809,6 +816,7 @@ automatically:
       (sr-quit t)
       (message "Hast thou a charm to stay the morning-star in his deep course?"))))
 
+;;;###autoload
 (defun sr-dired (directory)
   "Visits the given directory (or file) in sr-mode."
   (interactive
@@ -1057,14 +1065,14 @@ automatically:
   (interactive (find-file-read-args "Find file: " nil))
   (let ((mode (assoc-default filename auto-mode-alist 'string-match)))
     (when (and sr-avfs-root
-	       (or (eq 'archive-mode mode)
-		   (eq 'tar-mode mode)
-		   (and (listp mode) (eq 'jka-compr (second mode)))
-		   (eq 'avfs-mode mode)))
+           (or (eq 'archive-mode mode)
+           (eq 'tar-mode mode)
+           (and (listp mode) (eq 'jka-compr (second mode)))
+           (eq 'avfs-mode mode)))
       (let ((vfile (sr-avfs-dir filename)))
-	(when vfile
-	  (sr-goto-dir vfile)
-	  (setq filename nil))))
+    (when vfile
+      (sr-goto-dir vfile)
+      (setq filename nil))))
     (when (eq 'sr-virtual-mode mode)
       (sr-save-aspect
        (sr-alternate-buffer (find-file filename)))
@@ -1613,7 +1621,7 @@ automatically:
   (interactive)
   (sr-highlight 'sr-editing-path-face)
   (let* ((was-virtual (equal major-mode 'sr-virtual-mode))
-	 (major-mode 'dired-mode))
+     (major-mode 'dired-mode))
     (wdired-change-to-wdired-mode)
     (if was-virtual
         (set (make-local-variable 'sr-virtual-buffer) t))))
@@ -1634,14 +1642,14 @@ automatically:
     `(advice
       lambda ()
       (if sr-running
-	  (sr-save-aspect
-	   (let ((was-virtual (local-variable-p 'sr-virtual-buffer))
+      (sr-save-aspect
+       (let ((was-virtual (local-variable-p 'sr-virtual-buffer))
                  (saved-point (point)))
-	     (setq major-mode 'wdired-mode)
-	     ad-do-it
-	     (sr-readonly-pane was-virtual)
+         (setq major-mode 'wdired-mode)
+         ad-do-it
+         (sr-readonly-pane was-virtual)
              (goto-char saved-point)))
-	ad-do-it)))
+    ad-do-it)))
    'around 'last)
   (ad-activate fun nil))
 (sr-terminate-wdired 'wdired-finish-edit)

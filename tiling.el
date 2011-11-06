@@ -4,7 +4,7 @@
 
 ;; Author: Fang lungang <fanglungang at 163.com>
 ;; Created: Fang lungang 11/14/2010
-;; Modified: Fang lungang 12/01/2010 13:18>
+;; Modified: Martial Boniou 05/11/2011 10:26>
 ;; Keywords: convenience, frames
 ;; Version: 0.0.4
 
@@ -113,6 +113,7 @@
     (other-window 1)))
 
 ;; master
+;;;###autoload
 (defun tiling-master(bufs horizontal)
   (delete-other-windows)
   (funcall (if horizontal
@@ -170,6 +171,7 @@
 (defun tiling-even-vertical (bufs) (tiling-even bufs nil))
 
 ;; cycling
+;;;###autoload
 (defun tiling-cycle (&optional numOfWins)
   "cycling the among the preset layouts"
   (interactive "p")

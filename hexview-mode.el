@@ -254,6 +254,7 @@
     (hexview:template-info)
     (goto-char old-point)))
 
+;;;###autoload
 (defun hexview-mode ()
   "Major mode for viewing file in hexical mode.
 thus \\{hexview-mode}. It's just a weekend project
@@ -288,6 +289,7 @@ When started, run `hexview-mode-hook'.
      (if hexview-mode-hook
          (run-hooks 'hexview-mode-hook)))))
 
+;;;###autoload
 (defun hexview-find-file (f)
   "Find a file with `hexview-mode'"
   (interactive "f")

@@ -37,7 +37,7 @@
 (defun html-php-mode ()
   "Mode for editing PHP embedded in HTML, using multi-mode."
   (interactive)
-  (set (make-local-variable 'multi-alist)
+  (set (make-local-variable 'multi-mode-alist)
        '((html-mode)
 	 (php-mode . html-php-chunk-region)))
   (multi-mode-install-modes))

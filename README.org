@@ -4,10 +4,42 @@ Keep track of useful emacs lisp files that may disappears if not maintained. Som
 
 ** Install
 
-TODO
+Move your cursor to any point of the source line and run ~C-c C-c~ to byte-compile *emacs-revival*. Change the ~SITE-LISP-PATH~ variable if your path to your personal site-lisp is not the default one.
+
+#+source: install
+#+begin_src emacs-lisp :var site-lisp-path="~/.emacs.d/vendor"
+(let ((load-path-keeper (copy-sequence load-path))
+      (default-directory site-lisp-path))
+  (setq load-path
+    (append (let ((load-path load-path-keeper))
+      (append (copy-sequence (normal-top-level-add-to-load-path '(".")))
+      (normal-top-level-add-subdirs-to-load-path))) load-path))
+  (let ((dir (file-name-directory (buffer-file-name (current-buffer)))))
+    (add-to-list 'load-path dir)
+    (prog1
+        (byte-recompile-directory dir 0 t)
+      (setq load-path load-path-keeper)))))
+#+end_src
+
+#+results: install
+: Done (Total of 170 files compiled, 3 skipped in 2 directories)
+
+You may run this script from a fresh emacs by ~C-c C-c~-ing the following snippet:
+
+#+begin_src emacs-lisp
+(let ((file-name (buffer-file-name (current-buffer))))
+  (shell-command-to-string (format "cd %s;emacs -q %s" (file-name-directory file-name)
+                                                       (file-name-nondirectory file-name))))
+#+end_src
 
 ** Notes
 
-Additional subdirectories (marked when used):
-- [ ] wuxch
-- [X] bookmark-plus
+Additional subdirectories:
+
+- bookmark-plus
+
+The compilation should not fail. The normal result of the *install* script:
+
+- 170 files compiled;
+- 3 skipped;
+- 2 directories

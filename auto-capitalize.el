@@ -96,7 +96,7 @@
 
 (provide 'auto-capitalize)
 
-(require 'cl)				; find, minusp
+(eval-when-compile (require 'cl))				; find, minusp
 
 
 ;; User options:

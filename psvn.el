@@ -1,8 +1,9 @@
 ;;; psvn.el --- Subversion interface for emacs
-;; Copyright (C) 2002-2009 by Stefan Reichoer
+;; Copyright (C) 2002-2011 by Stefan Reichoer
 
 ;; Author: Stefan Reichoer <stefan@xsteve.at>
-;; $Id: psvn.el 40299 2009-10-29 19:38:54Z xsteve $
+;; Note: This version is currently not under svn control
+;; Timestamp: Fri Sep 02 2011 22:25:12
 
 ;; psvn.el is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -1182,16 +1183,14 @@ If there is no .svn directory, examine if there is CVS and run
                           (if svn-status-verbose
                               (if arg "-uv" "-v")
                             (if arg "-u" "")))))
-    (with-current-buffer
-        status-buf
+    (save-excursion
+      (set-buffer status-buf)
       (buffer-disable-undo)
-      (setq default-directory dir))
-    (with-current-buffer
-        proc-buf
+      (setq default-directory dir)
+      (set-buffer proc-buf)
       (setq default-directory dir
-            svn-status-remote (when arg t)))
-    (with-current-buffer
-        cur-buf
+            svn-status-remote (when arg t))
+      (set-buffer cur-buf)
       (if want-edit
           (let ((svn-status-edit-svn-command t))
             (svn-run t t 'status "status" svn-status-default-status-arguments status-option))
@@ -1296,8 +1295,8 @@ The hook svn-pre-run-hook allows to monitor/modify the ARGLIST."
                (svn-proc))
           (when (listp (car arglist))
             (setq arglist (car arglist)))
-          (with-current-buffer
-              proc-buf
+          (save-excursion
+            (set-buffer proc-buf)
             (unless (file-executable-p default-directory)
               (message "psvn: workaround in %s needed: %s no longer exists" (current-buffer) default-directory)
               (cd (expand-file-name "~")))
@@ -2593,8 +2592,8 @@ When called with a prefix argument, toggle the hiding of all subdirectories for 
   (svn-status-update-buffer))
 
 (defun svn-status-update-with-command-list (cmd-list)
-  (with-current-buffer
-      svn-status-buffer-name
+  (save-excursion
+    (set-buffer svn-status-buffer-name)
     (let ((st-info)
           (found)
           (action)
@@ -2689,8 +2688,8 @@ When called with a prefix argument, toggle the hiding of all subdirectories for 
 (defun svn-status-parse-commit-output ()
   "Parse the output of svn commit.
 Return a list that is suitable for `svn-status-update-with-command-list'"
-  (with-current-buffer
-      svn-process-buffer-name
+  (save-excursion
+    (set-buffer svn-process-buffer-name)
     (let ((action)
           (file-name)
           (skip)
@@ -2737,8 +2736,8 @@ Return a list that is suitable for `svn-status-update-with-command-list'"
 (defun svn-status-parse-ar-output ()
   "Parse the output of svn add|remove.
 Return a list that is suitable for `svn-status-update-with-command-list'"
-  (with-current-buffer
-      svn-process-buffer-name
+  (save-excursion
+    (set-buffer svn-process-buffer-name)
     (let ((action)
           (name)
           (skip)
@@ -2767,8 +2766,8 @@ Return a list that is suitable for `svn-status-update-with-command-list'"
 (defun svn-status-parse-update-output ()
   "Parse the output of svn update.
 Return a list that is suitable for `svn-status-update-with-command-list'"
-  (with-current-buffer
-      svn-process-buffer-name
+  (save-excursion
+    (set-buffer svn-process-buffer-name)
     (setq svn-status-update-rev-number nil)
     (let ((action)
           (name)
@@ -2818,8 +2817,8 @@ Return a list that is suitable for `svn-status-update-with-command-list'"
 (defun svn-status-parse-property-output ()
   "Parse the output of svn propset.
 Return a list that is suitable for `svn-status-update-with-command-list'"
-  (with-current-buffer
-      svn-process-buffer-name
+  (save-excursion
+    (set-buffer svn-process-buffer-name)
     (let ((result))
       (dolist (line (split-string (buffer-substring-no-properties (point-min) (point-max)) "\n"))
         (message "%s" line)
@@ -3087,8 +3086,8 @@ Put the found values in `svn-status-base-info'."
   (let ((url)
         (repository-root)
         (last-changed-author))
-    (with-current-buffer
-        svn-process-buffer-name
+    (save-excursion
+      (set-buffer svn-process-buffer-name)
       (goto-char (point-min))
       (let ((case-fold-search t))
         (search-forward "url: ")
@@ -3234,8 +3233,8 @@ When called with a prefix argument go back the given number of lines."
 When called with a prefix argument run 'svn status -vu'."
   (interactive "P")
   (unless (interactive-p)
-    (with-current-buffer
-        svn-process-buffer-name
+    (save-excursion
+      (set-buffer svn-process-buffer-name)
       (setq svn-status-update-previous-process-output
             (buffer-substring (point-min) (point-max)))))
   (svn-status default-directory arg))
@@ -3741,7 +3740,7 @@ The version number of the client is cached in `svn-client-version'."
           (with-current-buffer svn-status-last-output-buffer-name
             (goto-char (point-min))
             (setq svn-client-version
-                  (when (re-search-forward "svn, version \\([0-9\.]+\\) " nil t)
+                  (when (re-search-forward "svn, version \\([0-9\.]+\\)" nil t)
                     (mapcar 'string-to-number (split-string (match-string 1) "\\."))))
             (let ((buffer-read-only nil))
               (goto-char (point-min))
@@ -3914,8 +3913,8 @@ That function uses `add-log-current-defun'"
   "Show the `svn-process-buffer-name' buffer, using the diff-mode."
   (svn-status-show-process-output 'diff t)
   (let ((working-directory default-directory))
-    (with-current-buffer
-        svn-status-last-output-buffer-name
+    (save-excursion
+      (set-buffer svn-status-last-output-buffer-name)
       (setq default-directory working-directory)
       (svn-status-diff-mode)
       (setq buffer-read-only t))))
@@ -4679,8 +4678,8 @@ If ARG then prompt for revision to diff against."
 This is useful, if the running svn process asks the user a question.
 Note: use C-q C-j to send a line termination character."
   (interactive "sSend string to svn process: ")
-  (with-current-buffer
-      svn-process-buffer-name
+  (save-excursion
+    (set-buffer svn-process-buffer-name)
     (goto-char (point-max))
     (let ((buffer-read-only nil))
       (insert (if send-passwd (make-string (length string) ?.) string)))
@@ -4756,8 +4755,8 @@ When called with a prefix argument, it is possible to enter a new property."
   (let ((pl)
         (prop-name)
         (prop-value))
-    (with-current-buffer
-        svn-process-buffer-name
+    (save-excursion
+      (set-buffer svn-process-buffer-name)
       (goto-char (point-min))
       (forward-line 1)
       (while (looking-at "  \\(.+\\)")
@@ -4770,8 +4769,8 @@ When called with a prefix argument, it is possible to enter a new property."
                  (completing-read "Set Property - Name: " (mapcar 'list pl)
                                   nil svn-status-property-edit-must-match-flag))
            (unless (string= prop-name "")
-             (with-current-buffer
-                 svn-status-buffer-name
+             (save-excursion
+               (set-buffer svn-status-buffer-name)
                (svn-status-property-edit (list (svn-status-get-line-information))
                                          prop-name))))
           ((eq last-command 'svn-status-property-set)
@@ -4780,8 +4779,8 @@ When called with a prefix argument, it is possible to enter a new property."
                  (completing-read "Set Property - Name: " (mapcar 'list pl) nil nil))
            (setq prop-value (read-from-minibuffer "Property value: "))
            (unless (string= prop-name "")
-             (with-current-buffer
-                 svn-status-buffer-name
+             (save-excursion
+               (set-buffer svn-status-buffer-name)
                (message "Setting property %s := %s for %S" prop-name prop-value
                         (svn-status-marked-file-names))
                (let ((file-names (svn-status-marked-file-names)))
@@ -4796,8 +4795,8 @@ When called with a prefix argument, it is possible to enter a new property."
            (setq prop-name
                  (completing-read "Delete Property - Name: " (mapcar 'list pl) nil t))
            (unless (string= prop-name "")
-             (with-current-buffer
-                 svn-status-buffer-name
+             (save-excursion
+               (set-buffer svn-status-buffer-name)
                (let ((file-names (svn-status-marked-file-names)))
                  (when file-names
                    (message "Going to delete prop %s for %s" prop-name file-names)
@@ -4812,8 +4811,8 @@ When called with a prefix argument, it is possible to enter a new property."
          (prop-value))
     (message "Edit property %s for file %s" prop-name file-name)
     (svn-run nil t 'propget-parse "propget" prop-name file-name)
-    (with-current-buffer
-        svn-process-buffer-name
+    (save-excursion
+      (set-buffer svn-process-buffer-name)
       (setq prop-value (if (> (point-max) 1)
                            (buffer-substring (point-min) (- (point-max) 1))
                          "")))
@@ -4846,8 +4845,8 @@ When called with a prefix argument, it is possible to enter a new property."
 
 (defun svn-status-property-set-property (file-info-list prop-name prop-value)
   "Set a property on a given file list."
-  (with-current-buffer
-      (get-buffer-create "*svn-property-edit*")
+  (save-excursion
+    (set-buffer (get-buffer-create "*svn-property-edit*"))
     ;; If the buffer has been narrowed, `svn-prop-edit-do-it' will use
     ;; only the accessible part.  So we need not erase the rest here.
     (delete-region (point-min) (point-max))
@@ -5060,8 +5059,8 @@ Commands:
   (message "svn propset %s on %s"
            svn-status-propedit-property-name
            (mapcar 'svn-status-line-info->filename svn-status-propedit-file-list))
-  (with-current-buffer
-      (get-buffer "*svn-property-edit*")
+  (save-excursion
+    (set-buffer (get-buffer "*svn-property-edit*"))
     (when (fboundp 'set-buffer-file-coding-system)
       (set-buffer-file-coding-system svn-status-svn-file-coding-system nil))
     (let ((svn-propedit-file-name (concat svn-status-temp-dir "svn-prop-edit.txt" svn-temp-suffix)))
@@ -5172,8 +5171,8 @@ Commands:
   (interactive)
   (svn-status-save-some-buffers)
   (let ((svn-logedit-file-name))
-    (with-current-buffer
-        (get-buffer svn-log-edit-buffer-name)
+    (save-excursion
+      (set-buffer (get-buffer svn-log-edit-buffer-name))
       (when svn-log-edit-insert-files-to-commit
         (svn-log-edit-remove-comment-lines))
       (when (fboundp 'set-buffer-file-coding-system)
@@ -5189,8 +5188,8 @@ Commands:
           (svn-run nil t 'propset "propset" "svn:log" "--revprop"
                    (concat "-r" svn-log-edit-update-log-entry)
                    "-F" svn-log-edit-file-name)
-          (with-current-buffer
-              svn-process-buffer-name
+          (save-excursion
+            (set-buffer svn-process-buffer-name)
             (message "%s" (buffer-substring (point-min) (- (point-max) 1)))))
       (when svn-status-files-to-commit ; there are files to commit
         (setq svn-status-operated-on-dot
@@ -5639,8 +5638,8 @@ When called with a prefix argument, ask the user for the revision."
   (let ((rev (svn-log-revision-at-point))
         (log-message))
     (svn-run nil t 'propget-parse "propget" "--revprop" (concat "-r" rev) "svn:log")
-    (with-current-buffer
-        svn-process-buffer-name
+    (save-excursion
+      (set-buffer svn-process-buffer-name)
       (setq log-message (if (> (point-max) 1)
                             (buffer-substring (point-min) (- (point-max) 1))
                           "")))
@@ -6262,8 +6261,8 @@ The conflicts must be marked with rcsmerge conflict markers."
                         (concat "*" file-name
                                 " " (or name-B "CHECKED-IN") "*")))
          (result-buffer (current-buffer)))
-    (with-current-buffer
-        your-buffer
+    (save-excursion
+      (set-buffer your-buffer)
       (erase-buffer)
       (insert-buffer-substring result-buffer)
       (goto-char (point-min))
@@ -6521,5 +6520,6 @@ A variable will keep its value, if it is specified in `svn-prepare-for-reload-do
 
 ;; Local Variables:
 ;; indent-tabs-mode: nil
+;; time-stamp-pattern: "10/;; Timestamp:[ ]+%3a %3b %02d %:y %02H:%02M:%02S$"
 ;; End:
 ;;; psvn.el ends here
