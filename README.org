@@ -22,7 +22,7 @@ Move your cursor to any point of the source line and run ~C-c C-c~ to byte-compi
 #+end_src
 
 #+results: install
-: Done (Total of 170 files compiled, 3 skipped in 2 directories)
+: Done (Total of 171 files compiled, 4 skipped in 2 directories)
 
 You may run this script from a fresh emacs by ~C-c C-c~-ing the following snippet:
 
@@ -40,6 +40,6 @@ Additional subdirectories:
 
 The compilation should not fail. The normal result of the *install* script:
 
-- 170 files compiled;
-- 3 skipped;
+- 171 files compiled;
+- 4 skipped;
 - 2 directories

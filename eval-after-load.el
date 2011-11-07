@@ -2,6 +2,8 @@
 
 ;; Time-stamp: <2010-04-05 19:40:28 Monday by ahei>
 
+;; IMPORTANT: please don't compile
+
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 3, or (at your option)
@@ -153,3 +155,7 @@ or just one load file, or nil.")
       (define-key-list (symbol-value map) ',key-pairs))))
 
 (provide 'eval-after-load)
+
+;; Local Variables:
+;; no-byte-compile: t
+;; End:
