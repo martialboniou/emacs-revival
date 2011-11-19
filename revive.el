@@ -2,231 +2,231 @@
 ;;; <plaintext>
 ;;; revive.el: Resume Emacs.
 ;;; (c) 1994-2003 by HIROSE Yuuji [yuuji@gentei.org]
-;;; $Id: revive.el,v 2.19 2008/05/13 01:19:16 yuuji Exp $
-;;; Last modified Tue May 13 10:18:52 2008 on firestorm
+;;; $Id: revive.el,v 2.19 2008/05/13 01:19:16 yuuji Exp yuuji $
+;;; Last modified Wed May  4 07:25:06 2011 on firestorm
 
 ;;;[[[   NOTICE 注意 NOTICE 注意 NOTICE 注意 NOTICE 注意 NOTICE 注意   ]]]
 ;;;--------------------------------------------------------------------------
-;;; If you are using `windows.el', you can omit the settings of
-;;; define-key and autoload.
-;;; windows.elを普段使っている場合は revive.el のためのキーの割り当
-;;; てもautoloadの設定もする必要がありません。
+;;;	If you are using `windows.el', you can omit the settings of
+;;;	define-key and autoload.
+;;;	windows.elを普段使っている場合は revive.el のためのキーの割り当
+;;;	てもautoloadの設定もする必要がありません。
 ;;;--------------------------------------------------------------------------
 ;;;
-;;;     Resume Emacs:       revive.el
+;;;		Resume Emacs:		revive.el
 ;;;
 ;;;[What is `revive'?]
 ;;;
-;;;   Revive.el  saves current editing  status including  the window
-;;; splitting   configuration,   which   can't   be   recovered   by
-;;; `desktop.el' nor by `saveconf.el', into a file  and reconstructs
-;;; that status correctly.
+;;;	  Revive.el  saves current editing  status including  the window
+;;;	splitting   configuration,   which   can't   be   recovered   by
+;;;	`desktop.el' nor by `saveconf.el', into a file  and reconstructs
+;;;	that status correctly.
 ;;;
 ;;;[Installation]
 ;;;
-;;;   Put revive.el into your elisp  directory included in load-path
-;;; and write the next expressions.
+;;;	  Put revive.el into your elisp  directory included in load-path
+;;;	and write the next expressions.
 ;;;
-;;;   (autoload 'save-current-configuration "revive" "Save status" t)
-;;;   (autoload 'resume "revive" "Resume Emacs" t)
-;;;   (autoload 'wipe "revive" "Wipe Emacs" t)
+;;;	  (autoload 'save-current-configuration "revive" "Save status" t)
+;;;	  (autoload 'resume "revive" "Resume Emacs" t)
+;;;	  (autoload 'wipe "revive" "Wipe Emacs" t)
 ;;;
-;;; And define favorite keys to those functions.  Here is a sample.
+;;;	And define favorite keys to those functions.  Here is a sample.
 ;;;
-;;;   (define-key ctl-x-map "S" 'save-current-configuration)
-;;;   (define-key ctl-x-map "F" 'resume)
-;;;   (define-key ctl-x-map "K" 'wipe)
+;;;	  (define-key ctl-x-map "S" 'save-current-configuration)
+;;;	  (define-key ctl-x-map "F" 'resume)
+;;;	  (define-key ctl-x-map "K" 'wipe)
 ;;;
 ;;;[How to use]
 ;;;
-;;;  Call `save-current-configuration' (`C-x S' if you define key as
-;;; above) when  you want to   save current editing status  and call
-;;; `resume' to restore it.  Numerical prefix  arg to them specifies
-;;; the buffer number in which the editing status will be saved.
+;;;	 Call `save-current-configuration' (`C-x S' if you define key as
+;;;	above) when  you want to   save current editing status  and call
+;;;	`resume' to restore it.  Numerical prefix  arg to them specifies
+;;;	the buffer number in which the editing status will be saved.
 ;;;
-;;;     [Sample Operations]
-;;;     C-u 2 C-x S     ;save status into the buffer #2
-;;;     C-u 3 C-x F     ;load status from the buffer #3
+;;;		[Sample Operations]
+;;;		C-u 2 C-x S		;save status into the buffer #2
+;;;		C-u 3 C-x F		;load status from the buffer #3
 ;;;
 ;;;[Save Variables]
 ;;;
-;;;   Revive.el can save global or local variables.  The default
-;;; variables to be saved are in revive:save-variables-global-default
-;;; and revive:save-variables-local-default.  If you want to save other
-;;; global/local variables, define them in
-;;; revive:save-variables-global-private or
-;;; revive:save-variables-local-private in a form of a list.  If you
-;;; are using `gmhist', the next expression in ~/.emacs is useful.
+;;;	  Revive.el can save global or local variables.  The default
+;;;	variables to be saved are in revive:save-variables-global-default
+;;;	and revive:save-variables-local-default.  If you want to save other
+;;;	global/local variables, define them in
+;;;	revive:save-variables-global-private or
+;;;	revive:save-variables-local-private in a form of a list.  If you
+;;;	are using `gmhist', the next expression in ~/.emacs is useful.
 ;;;
-;;;     (setq revive:save-variables-global-private
-;;;           '(file-history buffer-history minibuffer-history))
+;;;		(setq revive:save-variables-global-private
+;;;		      '(file-history buffer-history minibuffer-history))
 ;;;
 ;;;[Restoring abnormal buffers]
 ;;;
-;;;   The variable revive:major-mode-command-alist-default holds the
-;;; list of  major-mode  name  vs.   command  name.   For  example,
-;;; mh-rmail  command sees the directory ~/Mail/inbox/ and sets  the
-;;; major-mode  to  'mh-folder-mode.   And  gnus  command  sets  the
-;;; major-mode to  'gnus-Group-mode.   If  you want to define  other
-;;; relations between major-mode and command,  set the user variable
-;;; revive:major-mode-command-alist-private as follows:
+;;;	  The variable revive:major-mode-command-alist-default holds the
+;;;	list of  major-mode  name  vs.   command  name.   For  example,
+;;;	mh-rmail  command sees the directory ~/Mail/inbox/ and sets  the
+;;;	major-mode  to  'mh-folder-mode.   And  gnus  command  sets  the
+;;;	major-mode to  'gnus-Group-mode.   If  you want to define  other
+;;;	relations between major-mode and command,  set the user variable
+;;;	revive:major-mode-command-alist-private as follows:
 ;;;
-;;;     (setq revive:major-mode-command-alist-private
-;;;       '((your-own-mode  . your-own)
-;;;         (foo-mode       . foo)
-;;;         ("*Hanoi*"      . hanoi)
+;;;		(setq revive:major-mode-command-alist-private
+;;;		  '((your-own-mode	. your-own)
+;;;		    (foo-mode		. foo)
+;;;		    ("*Hanoi*"		. hanoi)
 ;;;
-;;; it tells revive.el to execute the corresponding command when the
-;;; saved configuration has the buffer with that major-mode. To know
-;;; the major-mode of a certain buffer, type `M-ESC' and `major-mode
-;;; CR'.   And as  you  see above, buffer-name  string  can be  used
-;;; instead of major-mode symbol.
+;;;	it tells revive.el to execute the corresponding command when the
+;;;	saved configuration has the buffer with that major-mode. To know
+;;;	the major-mode of a certain buffer, type `M-ESC' and `major-mode
+;;;	CR'.   And as  you  see above, buffer-name  string  can be  used
+;;;	instead of major-mode symbol.
 ;;;
-;;;   For  other  special modes that  cannot be resumed by executing
-;;; certain function,  define a function to resume and declare it in
-;;; the  variable revive:major-mode-command-alist-private.  In  that
-;;; function, the following values are available.
+;;;	  For  other  special modes that  cannot be resumed by executing
+;;;	certain function,  define a function to resume and declare it in
+;;;	the  variable revive:major-mode-command-alist-private.  In  that
+;;;	function, the following values are available.
 ;;;
-;;;     (revive:prop-file-name x)   ;file name
-;;;     (revive:prop-buffer-name x) ;buffer name
-;;;     (revive:prop-major-mode x)  ;major-mode
-;;;     (revive:prop-point x)       ;(point)
-;;;     (revive:prop-mark x)        ;(mark)
-;;;     (revive:prop-varlist x)     ;alist of pairs of (var . val)
+;;;		(revive:prop-file-name x)	;file name
+;;;		(revive:prop-buffer-name x)	;buffer name
+;;;		(revive:prop-major-mode x)	;major-mode
+;;;		(revive:prop-point x)		;(point)
+;;;		(revive:prop-mark x)		;(mark)
+;;;		(revive:prop-varlist x)		;alist of pairs of (var . val)
 ;;;
 ;;;[For programmers]
 ;;;
-;;;   This program provides two powerful functions:
+;;;	  This program provides two powerful functions:
 ;;;
-;;;     * current-window-configuration-printable
-;;;     * restore-window-configuration
+;;;		* current-window-configuration-printable
+;;;		* restore-window-configuration
 ;;;
-;;; When you want to save a screen your program manages into a file,
-;;; and  restore  it,  save  the  return  value  of  current-window-
-;;; configuration-printable, and read and give it to restore-window-
-;;; configuration.
+;;;	When you want to save a screen your program manages into a file,
+;;;	and  restore  it,  save  the  return  value  of  current-window-
+;;;	configuration-printable, and read and give it to restore-window-
+;;;	configuration.
 ;;;
-;;; *Sample*
-;;; ;;To save
-;;; (insert (prin1-to-string (current-window-configuration-printable)))
-;;; ;;To restore
-;;; (restore-window-configuration (read (current-buffer)))
+;;;	*Sample*
+;;;	;;To save
+;;;	(insert (prin1-to-string (current-window-configuration-printable)))
+;;;	;;To restore
+;;;	(restore-window-configuration (read (current-buffer)))
 ;;;
-;;; Since set-window-configuration cannot set the configuration of
-;;; other frame, the program as below should be useful.
+;;;	Since set-window-configuration cannot set the configuration of
+;;;	other frame, the program as below should be useful.
 ;;;
-;;; *Sample*
-;;; (defun frame-copy-configuration (nth)
-;;;   "Copy confinguration of current frame to NTH next frame."
-;;;   (let ((config (current-window-configuration-printable)))
-;;;     (other-frame nth)
-;;;     (restore-window-configuration config)))
+;;;	*Sample*
+;;;	(defun frame-copy-configuration (nth)
+;;;	  "Copy confinguration of current frame to NTH next frame."
+;;;	  (let ((config (current-window-configuration-printable)))
+;;;	    (other-frame nth)
+;;;	    (restore-window-configuration config)))
 ;;;
 ;;;[Copying]
 ;;;
-;;;   This program is distributed as a free  software. The author is
-;;; not responsible  for  any  possible   defects   caused  by  this
-;;; software.
+;;;	  This program is distributed as a free  software. The author is
+;;;	not responsible  for  any  possible   defects   caused  by  this
+;;;	software.
 ;;;
-;;;   Comments  and bug   reports  are welcome. Don't  hesitated  to
-;;; report.  My possible e-mail address is following.
+;;;	  Comments  and bug   reports  are welcome. Don't  hesitated  to
+;;;	report.  My possible e-mail address is following.
 ;;;
-;;;                         yuuji@gentei.org
+;;;							yuuji@gentei.org
 ;;;
 ;;; Japanese Document follows:
 ;;;
 ;;;【reviveとは】
 ;;;
-;;;   revive.el を使うと、Emacs 使用時の状態をファイルにセーブして、
-;;; 次回 Emacs を起動する時にその状態に復帰することができます。もち
-;;; ろんウィンドウの分割状態も復元されるので saveconf や desktop で
-;;; いらいらしていた人にもお勧めです。
+;;;	  revive.el を使うと、Emacs 使用時の状態をファイルにセーブして、
+;;;	次回 Emacs を起動する時にその状態に復帰することができます。もち
+;;;	ろんウィンドウの分割状態も復元されるので saveconf や desktop で
+;;;	いらいらしていた人にもお勧めです。
 ;;;
 ;;;【組み込み方】
 ;;;
-;;;   revive.el を load-path の通ったディレクトリに入れ、~/.emacs に
-;;; 以下の記述を入れてください。
+;;;	  revive.el を load-path の通ったディレクトリに入れ、~/.emacs に
+;;;	以下の記述を入れてください。
 ;;;
-;;;   (autoload 'save-current-configuration "revive" "Save status" t)
-;;;   (autoload 'resume "revive" "Resume Emacs" t)
-;;;   (autoload 'wipe "revive" "Wipe emacs" t)
+;;;	  (autoload 'save-current-configuration "revive" "Save status" t)
+;;;	  (autoload 'resume "revive" "Resume Emacs" t)
+;;;	  (autoload 'wipe "revive" "Wipe emacs" t)
 ;;;
-;;; そして上の関数を好きなキーに割り当ててください。以下は例です。
+;;;	そして上の関数を好きなキーに割り当ててください。以下は例です。
 ;;;
-;;;   (define-key ctl-x-map "S" 'save-current-configuration)
-;;;   (define-key ctl-x-map "F" 'resume)
-;;;   (define-key ctl-x-map "K" 'wipe)
+;;;	  (define-key ctl-x-map "S" 'save-current-configuration)
+;;;	  (define-key ctl-x-map "F" 'resume)
+;;;	  (define-key ctl-x-map "K" 'wipe)
 ;;;
 ;;;【使い方】
 ;;;
-;;;   上の define-key をした場合には、C-x S で現在の編集状態をセーブ
-;;; することができます。save-current-configuration 関数に数引数をつ
-;;; けると複数の状態を別々にセーブできます。「C-u 2 C-x S」とすると2
-;;; 番のバッファに現状をセーブできます。これをロードする時も同様に
-;;; 「C-u 2 C-x F」とタイプすると2番のバッファから状態をロードします。
+;;;	  上の define-key をした場合には、C-x S で現在の編集状態をセーブ
+;;;	することができます。save-current-configuration 関数に数引数をつ
+;;;	けると複数の状態を別々にセーブできます。「C-u 2 C-x S」とすると2
+;;;	番のバッファに現状をセーブできます。これをロードする時も同様に
+;;;	「C-u 2 C-x F」とタイプすると2番のバッファから状態をロードします。
 ;;;
 ;;;【変数のセーブ】
 ;;;
-;;;   変数の値もセーブしておくことができます。デフォルトでセーブする
-;;; global 変数は revive:save-variables-global-default に、local 変
-;;; 数は revive:save-variables-local-default に定義されています。ほ
-;;; かの変数も保存したい場合は、revive:save-variables-global-private
-;;; に global 変数名を、revive:save-variables-local-private に local
-;;; 変数名をそれぞれリストの形で定義しておきます。例えば gmhist を使っ
-;;; ている場合には、
+;;;	  変数の値もセーブしておくことができます。デフォルトでセーブする 
+;;;	global 変数は revive:save-variables-global-default に、local 変
+;;;	数は revive:save-variables-local-default に定義されています。ほ
+;;;	かの変数も保存したい場合は、revive:save-variables-global-private 
+;;;	に global 変数名を、revive:save-variables-local-private に local 
+;;;	変数名をそれぞれリストの形で定義しておきます。例えば gmhist を使っ
+;;;	ている場合には、
 ;;;
-;;;     (setq revive:save-variables-global-private
-;;;           '(file-history buffer-history minibuffer-history))
+;;;		(setq revive:save-variables-global-private
+;;;		      '(file-history buffer-history minibuffer-history))
 ;;;
-;;; などと ~/.emacs に書いておくと快適でしょう。
+;;;	などと ~/.emacs に書いておくと快適でしょう。
 ;;;
 ;;;【普通でないバッファの扱い】
 ;;;
-;;;   mh-rmail ではカレントバッファが mh-folder-mode, gnus ではカレ
-;;; ントバッファが gnus-Group-mode になります。この対応関係は、変数
-;;; revive:major-mode-command-alist-default に書かれています。この変
-;;; 数に登録されている以外のものを定義したい場合は、
+;;;	  mh-rmail ではカレントバッファが mh-folder-mode, gnus ではカレ
+;;;	ントバッファが gnus-Group-mode になります。この対応関係は、変数 
+;;;	revive:major-mode-command-alist-default に書かれています。この変
+;;;	数に登録されている以外のものを定義したい場合は、
 ;;;
-;;;     (setq revive:major-mode-command-alist-private
-;;;       '((hogehoge-mode  . hoge)
-;;;         (herohero-mode  . herohero)
-;;;         ("タイプ＆メニュー" . trr)))
+;;;		(setq revive:major-mode-command-alist-private
+;;;		  '((hogehoge-mode	. hoge)
+;;;		    (herohero-mode	. herohero)
+;;;		    ("タイプ＆メニュー"	. trr)))
 ;;;
-;;; のように revive:major-mode-command-alist-private の値を設定する
-;;; と次回 resume した時に自動的に対応するコマンドが起動されます。ま
-;;; た上の例にあるように、major-mode(シンボル)の代わりに buffer-name
-;;; (文字列)を指定することもできます。
+;;;	のように revive:major-mode-command-alist-private の値を設定する
+;;;	と次回 resume した時に自動的に対応するコマンドが起動されます。ま
+;;;	た上の例にあるように、major-mode(シンボル)の代わりに buffer-name
+;;;	(文字列)を指定することもできます。
 ;;;
-;;;   また、SKKの辞書のようにリジュームするとうまく動かなくなってし
-;;; まうバッファがある場合は、変数 revive:ignore-buffer-pattern にそ
-;;; のバッファ名がマッチするような正規表現を設定してください。
+;;;	  また、SKKの辞書のようにリジュームするとうまく動かなくなってし
+;;;	まうバッファがある場合は、変数 revive:ignore-buffer-pattern にそ
+;;;	のバッファ名がマッチするような正規表現を設定してください。
 ;;;
 ;;;【プログラムから使う】
 ;;;
-;;;   英語版ドキュメント [For programmers] の項を参照してください。
+;;;	  英語版ドキュメント [For programmers] の項を参照してください。
 ;;;
 ;;;【あとがき】
 ;;;
-;;;   最初は resume というファイル名だったのですが、Emacs 19 のディ
-;;; レクトリに resume.el というファイルがあってショックを受けました。
-;;; こちらはコマンドラインで何回 emacs と打っても、既に起動している
-;;; emacs にファイルを渡すというだけの(ピーー)プログラムで「どこが
-;;; resume やねん」と言いたくなりましたが我慢して revive.el にリネー
-;;; ムしました。ああまったく、saveconf でも desktop でもなし得なかっ
-;;; たウィンドウ分割状態の復元をサポートしたと言うのに…、なんてこと
-;;; は英語版には書けないな:-)。
+;;;	  最初は resume というファイル名だったのですが、Emacs 19 のディ
+;;;	レクトリに resume.el というファイルがあってショックを受けました。
+;;;	こちらはコマンドラインで何回 emacs と打っても、既に起動している 
+;;;	emacs にファイルを渡すというだけの(ピーー)プログラムで「どこが 
+;;;	resume やねん」と言いたくなりましたが我慢して revive.el にリネー
+;;;	ムしました。ああまったく、saveconf でも desktop でもなし得なかっ
+;;;	たウィンドウ分割状態の復元をサポートしたと言うのに…、なんてこと
+;;;	は英語版には書けないな:-)。
 ;;;
 ;;;【取り扱い】
 ;;;
-;;;   このプログラムは、フリーソフトウェアといたします。このプログラ
-;;; ムを使用して生じたいかなる結果に対しても作者は一切の責任を負わな
-;;; いものといたしますが、コメントやバグレポートは大いに歓迎いたしま
-;;; す。お気軽にご連絡下さい。連絡は以下のアドレスまでお願いいたしま
-;;; す(2003/6現在)。
-;;;                         yuuji@gentei.org
+;;;	  このプログラムは、フリーソフトウェアといたします。このプログラ
+;;;	ムを使用して生じたいかなる結果に対しても作者は一切の責任を負わな
+;;;	いものといたしますが、コメントやバグレポートは大いに歓迎いたしま
+;;;	す。お気軽にご連絡下さい。連絡は以下のアドレスまでお願いいたしま
+;;;	す(2003/6現在)。
+;;;							yuuji@gentei.org
 
 (defconst revive:version
-  "$Id: revive.el,v 2.19 2008/05/13 01:19:16 yuuji Exp $"
+  "$Id: revive.el,v 2.19 2008/05/13 01:19:16 yuuji Exp yuuji $"
   "Version of revive.el")
 
 (defconst revive:version-prefix ";;;")
@@ -268,16 +268,16 @@
   "Return the all window list in sorted order."
   (let*((curwin (selected-window)) (win curwin) wlist)
     (if (null
-     (catch 'found
-       (while t
-         (if (and (= (revive:minx) (car (revive:window-edges win)))
-              (= (revive:miny) (car (cdr (revive:window-edges win)))))
-         (throw 'found t))
-         (if (eq (setq win (next-window win)) curwin)
-         (throw 'found nil)))))
-    (error "Unexpected window configuration."))
+	 (catch 'found
+	   (while t
+	     (if (and (= (revive:minx) (car (revive:window-edges win)))
+		      (= (revive:miny) (car (cdr (revive:window-edges win)))))
+		 (throw 'found t))
+	     (if (eq (setq win (next-window win)) curwin)
+		 (throw 'found nil)))))
+	(error "Unexpected window configuration."))
     (setq curwin win wlist (list win))
-    (while (not (eq curwin (setq win (next-window win))))
+    (while (not (eq curwin (setq win (next-window win "w/o mini"))))
       (setq wlist (append wlist (list win)))) ;use append to preserve order
     wlist))
 
@@ -287,18 +287,18 @@ Each element consists of '(buffer-file-name window-start point)"
   (let ((curw (selected-window))(wlist (revive:window-list)) wblist)
     (save-excursion
       (while wlist
-    (select-window (car wlist))
-    (set-buffer (window-buffer (car wlist))) ;for Emacs 19
-    (setq wblist
-          (append wblist
-              (list (list
-                 (if (and (fboundp 'abbreviate-file-name)
-                      (buffer-file-name))
-                 (abbreviate-file-name (buffer-file-name))
-                   (buffer-file-name))
-                 (window-start)
-                 (point))))
-          wlist (cdr wlist)))
+	(select-window (car wlist))
+	(set-buffer (window-buffer (car wlist))) ;for Emacs 19
+	(setq wblist
+	      (append wblist
+		      (list (list
+			     (if (and (fboundp 'abbreviate-file-name)
+				      (buffer-file-name))
+				 (abbreviate-file-name (buffer-file-name))
+			       (buffer-file-name))
+			     (window-start)
+			     (point))))
+	      wlist (cdr wlist)))
       (select-window curw)
       wblist)))
 
@@ -307,28 +307,28 @@ Each element consists of '(buffer-file-name window-start point)"
   (let ((wlist (revive:window-list)) edges)
     (while wlist
       (setq edges (append edges (list (revive:window-edges (car wlist))))
-        wlist (cdr wlist)))
+	    wlist (cdr wlist)))
     edges))
 
 (defun revive:select-window-by-edge (x y)
   "Select window whose north west corner is (X, Y).
 If the matching window is not found, select the nearest window."
   (let*((curwin (selected-window)) (win (next-window curwin)) edges
-    s2 (min 99999) minwin)
+	s2 (min 99999) minwin)
     (or
      (catch 'found
        (while t
-     (setq edges (revive:window-edges win)
-           s2 (+ (* (- (car edges) x) (- (car edges) x))
-             (* (- (nth 1 edges) y) (- (nth 1 edges) y))))
-     (cond
-      ((= s2 0)
-       (select-window win)
-       (throw 'found t))
-      ((< s2 min)
-       (setq min s2 minwin win)))
-     (if (eq win curwin) (throw 'found nil)) ;select the nearest window
-     (setq win (next-window win))))
+	 (setq edges (revive:window-edges win)
+	       s2 (+ (* (- (car edges) x) (- (car edges) x))
+		     (* (- (nth 1 edges) y) (- (nth 1 edges) y))))
+	 (cond
+	  ((= s2 0)
+	   (select-window win)
+	   (throw 'found t))
+	  ((< s2 min)
+	   (setq min s2 minwin win)))
+	 (if (eq win curwin) (throw 'found nil)) ;select the nearest window
+	 (setq win (next-window win))))
      (select-window minwin))))
 
 (defun revive:split-window-safe (window size &optional hor-flag)
@@ -336,8 +336,8 @@ If the matching window is not found, select the nearest window."
   (split-window
    window
    (min (max (if hor-flag window-min-width window-min-height) size)
-    (if hor-flag (- (revive:screen-width) window-min-width 1)
-      (- (revive:screen-height) window-min-height 1)))
+	(if hor-flag (- (revive:screen-width) window-min-width 1)
+	  (- (revive:screen-height) window-min-height 1)))
    hor-flag))
 
 (defun revive:restore-winconf (x1 y1 x2 y2 edges)
@@ -345,9 +345,9 @@ If the matching window is not found, select the nearest window."
 Assume (X1, Y1), (X2, Y2) as diagonal corners of partial window.
 EDGES is a list of sub-windows' edges."
   (let*((topwin (car edges)) (width (- x2 x1)) (height (- y2 y1))
-    right lower)
+	right lower)
     (cond
-     ((= (length edges) 1) nil)     ;nothing to do.
+     ((= (length edges) 1) nil)		;nothing to do.
 
      ;;if the top window has the same width as whole frame.
      ;; +---------+
@@ -382,50 +382,50 @@ EDGES is a list of sub-windows' edges."
      ;; |top   |2 |  horizontally.  And call this function recursively on
      ;; +---+--+--+  former (that is, upper half in vertical division or
      ;; |3  |4..  |  left half in horizontal) and latter configuration.
-     ;; +---+-----+
+     ;; +---+-----+  
      (t
       (let ((flist (list topwin))
-        (elist (cdr edges)) divwin div-x div-y former latter)
-    (while elist
-      (if (or (and (= x1 (car (car elist)))
-               (not (eq (car divwin) x1)))
-          (and (= y1 (nth 1 (car elist)))
-               (not (eq (nth 1 divwin) y1))))
-          (setq divwin (car elist)
-            former flist
-            latter elist))
-      (setq flist (append flist (list (car elist))))
-      (setq elist (cdr elist)))
-    (setq div-x (car divwin) div-y (nth 1 divwin))
-    (cond
-     ((= x1 (car divwin))   ;Mainly divided vertically
-      (revive:select-window-by-edge x1 y1)
-      (revive:split-window-safe nil (- div-y y1))
-      (revive:restore-winconf x1 y1 x2 div-y former)
-      (revive:restore-winconf x1 div-y x2 y2 latter)
-      (message "=="))
-     ((= y1 (nth 1 divwin))
-      (revive:select-window-by-edge x1 y1)
-      (revive:split-window-safe nil (- div-x x1) t)
-      (revive:restore-winconf x1 y1 div-x y2 former)
-      (revive:restore-winconf div-x y1 x2 y2 latter)
-      (message "||"))
-     (t (message "dame!"))))))))
+	    (elist (cdr edges)) divwin div-x div-y former latter)
+	(while elist
+	  (if (or (and (= x1 (car (car elist)))
+		       (not (eq (car divwin) x1)))
+		  (and (= y1 (nth 1 (car elist)))
+		       (not (eq (nth 1 divwin) y1))))
+	      (setq divwin (car elist)
+		    former flist
+		    latter elist))
+	  (setq flist (append flist (list (car elist))))
+	  (setq elist (cdr elist)))
+	(setq div-x (car divwin) div-y (nth 1 divwin))
+	(cond
+	 ((= x1 (car divwin))	;Mainly divided vertically
+	  (revive:select-window-by-edge x1 y1)
+	  (revive:split-window-safe nil (- div-y y1))
+	  (revive:restore-winconf x1 y1 x2 div-y former)
+	  (revive:restore-winconf x1 div-y x2 y2 latter)
+	  (message "=="))
+	 ((= y1 (nth 1 divwin))
+	  (revive:select-window-by-edge x1 y1)
+	  (revive:split-window-safe nil (- div-x x1) t)
+	  (revive:restore-winconf x1 y1 div-x y2 former)
+	  (revive:restore-winconf div-x y1 x2 y2 latter)
+	  (message "||"))
+	 (t (message "dame!"))))))))
 
 (defvar revive:major-mode-command-alist-default
-  '((gnus-Group-mode    . gnus)
-    (gnus-group-mode    . gnus)     ;version 4.x or later
-    (mh-folder-mode . revive:mh)
-    (mew-summary-mode   . revive:mew)
-    (shell-mode     . revive:shell)
-    (sokoban-mode   . sokoban)
-    (dired-mode     . revive:dired)
-    (view-mode      . revive:view)
-    (Info-mode      . info)
-    (mpg123-mode    . revive:mpg123)
-    ;;(c-mode       . revive:c-set-style)
-    ;;(cc-mode      . revive:c-set-style)
-    ;;(java-mode        . revive:c-set-style)
+  '((gnus-Group-mode	. gnus)
+    (gnus-group-mode	. gnus)		;version 4.x or later
+    (mh-folder-mode	. revive:mh)
+    (mew-summary-mode	. revive:mew)
+    (shell-mode		. revive:shell)
+    (sokoban-mode	. sokoban)
+    (dired-mode		. revive:dired)
+    (view-mode		. revive:view)
+    (Info-mode		. info)
+    (mpg123-mode	. revive:mpg123)
+    ;;(c-mode		. revive:c-set-style)
+    ;;(cc-mode		. revive:c-set-style)
+    ;;(java-mode		. revive:c-set-style)
     )
   "Default alist of major-mode vs. command name.")
 (defvar revive:major-mode-command-alist-private nil
@@ -434,7 +434,7 @@ EDGES is a list of sub-windows' edges."
   "*Alist of major-mode vs. commandname.")
 (setq revive:major-mode-command-alist
       (append revive:major-mode-command-alist-private
-          revive:major-mode-command-alist-default))
+	      revive:major-mode-command-alist-default))
 
 (defvar revive:save-variables-global-default
   '(truncate-partial-width-windows
@@ -447,7 +447,7 @@ EDGES is a list of sub-windows' edges."
   "*List of global variables to save.")
 (setq revive:save-variables-global
       (append revive:save-variables-global-private
-          revive:save-variables-global-default))
+	      revive:save-variables-global-default))
 
 (defvar revive:save-variables-local-default
   '(buffer-read-only
@@ -482,25 +482,25 @@ those variable have already localized by their major mode.")
 '(WIDTH, HEIGHT) is old screen size and EDGELIST is a list of
 window-edges."
   (let (normalized (curw (revive:screen-width))
-           (curh (revive:screen-height)) e n)
+		   (curh (revive:screen-height)) e n)
     (if (and (equal curw width) (equal curh height))
-    edgelist
+	edgelist
       (while edgelist
-    (setq e (car edgelist)
-          n (list (/ (+ (* curw (nth 0 e)) (/ width 2)) width)
-              (/ (+ (* curh (nth 1 e)) (/ height 2)) height)
-              (/ (+ (* curw (nth 2 e)) (/ width 2)) width)
-              (/ (+ (* curh (nth 3 e)) (/ height 2)) height))
-          normalized (append normalized (list n))
-          edgelist (cdr edgelist)))
+	(setq e (car edgelist)
+	      n (list (/ (+ (* curw (nth 0 e)) (/ width 2)) width)
+		      (/ (+ (* curh (nth 1 e)) (/ height 2)) height)
+		      (/ (+ (* curw (nth 2 e)) (/ width 2)) width)
+		      (/ (+ (* curh (nth 3 e)) (/ height 2)) height))
+	      normalized (append normalized (list n))
+	      edgelist (cdr edgelist)))
       normalized)))
 
 (defun construct-window-configuration (edgelist)
   "Restore window configuration by EDGELIST.  EDGELIST should be sorted."
   (delete-other-windows)
   (revive:restore-winconf (revive:minx) (revive:miny)
-              (revive:screen-width)
-              (1- (revive:screen-height)) edgelist))
+			  (revive:screen-width)
+			  (1- (revive:screen-height)) edgelist))
 
 ;;;###autoload
 (defun current-window-configuration-printable ()
@@ -518,24 +518,24 @@ property list is formed as
 '((buffer-file-name) (buffer-name) (point) (window-start)).
 "
   (let ((curwin (selected-window))
-    (wlist (revive:window-list)) (edges (revive:all-window-edges)) buflist)
+	(wlist (revive:window-list)) (edges (revive:all-window-edges)) buflist)
     (save-excursion
       (while wlist
-    (select-window (car wlist))
-    ;should set buffer on Emacs 19
-    (set-buffer (window-buffer (car wlist)))
-    (setq buflist
-          (append buflist (list (list
-                     (if (and
-                      (buffer-file-name)
-                      (fboundp 'abbreviate-file-name))
-                     (abbreviate-file-name
-                      (buffer-file-name))
-                       (buffer-file-name))
-                     (buffer-name)
-                     (point)
-                     (window-start))))
-          wlist (cdr wlist)))
+	(select-window (car wlist))
+	;should set buffer on Emacs 19
+	(set-buffer (window-buffer (car wlist)))
+	(setq buflist
+	      (append buflist (list (list
+				     (if (and
+					  (buffer-file-name)
+					  (fboundp 'abbreviate-file-name))
+					 (abbreviate-file-name
+					  (buffer-file-name))
+				       (buffer-file-name))
+				     (buffer-name)
+				     (point)
+				     (window-start))))
+	      wlist (cdr wlist)))
       (select-window curwin)
       (list (revive:screen-width) (revive:screen-height) edges buflist))))
 
@@ -553,16 +553,16 @@ property list is formed as
   (cond
    ((or (null file) (not (stringp file))) nil)
    ((file-exists-p file) (find-file file) (current-buffer))
-   ((string-match ":" file)     ;maybe ange-ftp's external file
+   ((string-match ":" file)		;maybe ange-ftp's external file
     (if (progn (load "ange-ftp" t) (featurep 'ange-ftp))
-    (progn (condition-case err
-           (find-file file)
-         (ftp-error
-          (message "Can't remote file `%s'" file)
-          (condition-case err2  ;give a user one more chance.
-              (find-file file)
-            (ftp-error (error "Maybe you made mistake twice.")))))
-           (current-buffer))))
+	(progn (condition-case err
+		   (find-file file)
+		 (ftp-error
+		  (message "Can't remote file `%s'" file)
+		  (condition-case err2	;give a user one more chance.
+		      (find-file file)
+		    (ftp-error (error "Maybe you made mistake twice.")))))
+	       (current-buffer))))
    (t nil)))
 
 ;;;###autoload
@@ -571,7 +571,7 @@ property list is formed as
 Configuration CONFIG should be created by
 current-window-configuration-printable."
   (let ((width (car config)) (height (nth 1 config))
-    (edges (nth 2 config)) (buflist (nth 3 config)) buf)
+	(edges (nth 2 config)) (buflist (nth 3 config)) buf)
     (set-buffer (get-buffer-create "*scratch*"))
     (setq edges (revive:normalize-edges width height edges))
     (construct-window-configuration edges)
@@ -580,29 +580,29 @@ current-window-configuration-printable."
       (setq buf (car buflist))
       (cond
        ((and (revive:get-buffer buf)
-         (get-buffer (revive:get-buffer buf)))
-    (switch-to-buffer (revive:get-buffer buf))
-    (goto-char (revive:get-window-start buf)) ;to prevent high-bit missing
-    (set-window-start nil (point))
-    (goto-char (revive:get-point buf)))
+	     (get-buffer (revive:get-buffer buf)))
+	(switch-to-buffer (revive:get-buffer buf))
+	(goto-char (revive:get-window-start buf)) ;to prevent high-bit missing
+	(set-window-start nil (point))
+	(goto-char (revive:get-point buf)))
        ((and (stringp (revive:get-file buf))
-         (not (file-directory-p (revive:get-file buf)))
-         (revive:find-file (revive:get-file buf)))
-    (set-window-start nil (revive:get-window-start buf))
-    (goto-char (revive:get-point buf))))
+	     (not (file-directory-p (revive:get-file buf)))
+	     (revive:find-file (revive:get-file buf)))
+	(set-window-start nil (revive:get-window-start buf))
+	(goto-char (revive:get-point buf))))
       (setq buflist (cdr buflist))
       (other-window 1))))
 
-;;;
+;;;	
 (defun revive:buffer-list ()
   (delq nil
-    (mapcar (function
-         (lambda (b)
-           (if (string-match
-            revive:ignore-buffer-pattern
-            (buffer-name b)) nil
-             b)))
-        (buffer-list))))
+	(mapcar (function
+		 (lambda (b)
+		   (if (string-match
+			revive:ignore-buffer-pattern
+			(buffer-name b)) nil
+		     b)))
+		(buffer-list))))
 
 ;;;###autoload
 (defun wipe ()
@@ -613,10 +613,10 @@ current-window-configuration-printable."
 
 (defun revive:varlist (var2save)
   "Return the (variable . value) list of variables in VAR2SAVE."
-  (delq nil (mapcar
-         (function (lambda (s)
-             (if (and s (boundp s)) (cons s (symbol-value s)))))
-         var2save)))
+  (delq nil (mapcar 
+	     (function (lambda (s)
+			 (if (and s (boundp s)) (cons s (symbol-value s)))))
+	     var2save)))
 
 (defun revive:map-string-match (string alist)
   "Return sub-list if a car component of list in ALIST matches STRING.
@@ -624,12 +624,12 @@ That car component is regexp."
   (let (regex)
     (catch 'match
       (while alist
-    (setq regex (car (car alist)))
-    (if (and regex
-         (stringp regex)
-         (string-match (car (car alist)) string))
-        (throw 'match t))
-    (setq alist (cdr alist))))))
+	(setq regex (car (car alist)))
+	(if (and regex
+		 (stringp regex)
+		 (string-match (car (car alist)) string))
+	    (throw 'match t))
+	(setq alist (cdr alist))))))
 
 (defvar revive:buffer-property-list-hook nil
   "*Evaluated at the beginning of revive:buffer-property-list.")
@@ -640,37 +640,37 @@ Buffer-List is a list as
 '((buffer-file-name) (buffer-name) major-mode (point) (mark)).
 Variable-List is a return value of revive:varlist."
   (let ((buflist (revive:buffer-list)) plist
-    (local-var (append revive:save-variables-local-default
-               revive:save-variables-local-private))
-    (mode-local-var (append revive:save-variables-mode-local-default
-                revive:save-variables-mode-local-private)))
+	(local-var (append revive:save-variables-local-default
+			   revive:save-variables-local-private))
+	(mode-local-var (append revive:save-variables-mode-local-default
+				revive:save-variables-mode-local-private))) 
     (save-excursion
       (run-hooks 'revive:buffer-property-list-hook)
       (while buflist
-    (set-buffer (car buflist))
-    (if (or (assq major-mode revive:major-mode-command-alist)
-        (revive:map-string-match
-         (buffer-name) revive:major-mode-command-alist)
-        (if (and (fboundp 'abbreviate-file-name) (buffer-file-name))
-            (abbreviate-file-name (buffer-file-name))
-          (buffer-file-name)))
-        (setq plist
-          (append
-           plist
-           (list
-            (list
-             (if (and (fboundp 'abbreviate-file-name)
-                  (buffer-file-name))
-             (abbreviate-file-name (buffer-file-name))
-               (buffer-file-name))
-             (buffer-name)
-             major-mode
-             (point)
-             (if revive:emacs-19 (mark t) (mark))
-             (revive:varlist
-              (append local-var (assq major-mode mode-local-var)))
-             )))))
-    (setq buflist (cdr buflist))))
+	(set-buffer (car buflist))
+	(if (or (assq major-mode revive:major-mode-command-alist)
+		(revive:map-string-match
+		 (buffer-name) revive:major-mode-command-alist)
+		(if (and (fboundp 'abbreviate-file-name) (buffer-file-name))
+		    (abbreviate-file-name (buffer-file-name))
+		  (buffer-file-name)))
+	    (setq plist
+		  (append
+		   plist
+		   (list
+		    (list
+		     (if (and (fboundp 'abbreviate-file-name)
+			      (buffer-file-name))
+			 (abbreviate-file-name (buffer-file-name))
+		       (buffer-file-name))
+		     (buffer-name)
+		     major-mode
+		     (point)
+		     (if revive:emacs-19 (mark t) (mark))
+		     (revive:varlist
+		      (append local-var (assq major-mode mode-local-var)))
+		     )))))
+	(setq buflist (cdr buflist))))
     (list plist (revive:varlist revive:save-variables-global))))
 
 (defmacro revive:prop-file-name (x)
@@ -693,19 +693,19 @@ Variable-List is a return value of revive:varlist."
   "Save current window/buffer configuration into configuration file."
   (interactive "p")
   (let ((bufs (revive:buffer-property-list))
-    (config (current-window-configuration-printable)))
+	(config (current-window-configuration-printable)))
     (set-buffer
      (find-file-noselect (expand-file-name revive:configuration-file)))
     (emacs-lisp-mode)
     (widen)
     (goto-char (point-min))
     (and (search-forward revive:version-prefix nil t)
-     (goto-char (match-beginning 0)) (kill-line 1))
+	 (goto-char (match-beginning 0)) (kill-line 1))
     (insert (format "%s%s\n" revive:version-prefix revive:version))
     (setq num (or num 1))
     (if (re-search-forward (format "^(%d" num) nil t)
-    (progn (goto-char (match-beginning 0))
-           (kill-sexp 1) (delete-char 1))
+	(progn (goto-char (match-beginning 0))
+	       (kill-sexp 1) (delete-char 1))
       (goto-char (point-max)))
     (delete-blank-lines)
     (if (not (bolp)) (newline 1))
@@ -717,7 +717,7 @@ Variable-List is a return value of revive:varlist."
   "Restore variables in VLIST which is a return value of revive:varlist."
   (while vlist
     (if (and (car vlist) (listp (car vlist)))
-    (set (car (car vlist)) (cdr (car vlist))))
+	(set (car (car vlist)) (cdr (car vlist))))
     (setq vlist (cdr vlist))))
 
 (defvar revive:restore-buffers-hook nil
@@ -725,36 +725,36 @@ Variable-List is a return value of revive:varlist."
 (defun revive:restore-buffers (buflist)
   "Restore all buffers in BUFLIST which is from revive:buffer-property-list."
   (let ((blist (car buflist)) x command success
-    (mmc-alist revive:major-mode-command-alist))
+	(mmc-alist revive:major-mode-command-alist))
     (revive:restore-value (car (cdr buflist)))
     (while blist
       (setq x (car blist) success nil)
       (if (setq command (or (assq (revive:prop-major-mode x) mmc-alist)
-                (assoc (revive:prop-buffer-name x) mmc-alist)))
-      (condition-case err
-          (let ((noninteractive nil))
-        (if (fboundp (cdr command))
-            (progn
-              (call-interactively (cdr command))
-              (setq success t))))
-        ;;(funcall (cdr command))
-        (error (message "%s: %s." (cdr command) err) (sit-for 1)))
-    (if (revive:find-file (revive:prop-file-name x))
-        (progn
-          (if (and (not (eq (revive:prop-major-mode x) major-mode))
-               (fboundp (revive:prop-major-mode x)))
-          (if (commandp (revive:prop-major-mode x))
-              (call-interactively (revive:prop-major-mode x))
-            (funcall (revive:prop-major-mode x))))
-          (setq success t)
-          )))
+			    (assoc (revive:prop-buffer-name x) mmc-alist)))
+	  (condition-case err
+	      (let ((noninteractive nil))
+		(if (fboundp (cdr command))
+		    (progn
+		      (call-interactively (cdr command))
+		      (setq success t))))
+	    ;;(funcall (cdr command))
+	    (error (message "%s: %s." (cdr command) err) (sit-for 1)))
+	(if (revive:find-file (revive:prop-file-name x))
+	    (progn
+	      (if (and (not (eq (revive:prop-major-mode x) major-mode))
+		       (fboundp (revive:prop-major-mode x)))
+		  (if (commandp (revive:prop-major-mode x))
+		      (call-interactively (revive:prop-major-mode x))
+		    (funcall (revive:prop-major-mode x))))
+	      (setq success t)
+	      )))
       (cond
        (success
-    (if (not (string= (revive:prop-buffer-name x) (buffer-name)))
-        (rename-buffer (revive:prop-buffer-name x)))
-    (set-mark (revive:prop-mark x))
-    (goto-char (revive:prop-point x))
-    (revive:restore-value (revive:prop-varlist x))))
+	(if (not (string= (revive:prop-buffer-name x) (buffer-name)))
+	    (rename-buffer (revive:prop-buffer-name x)))
+	(set-mark (revive:prop-mark x))
+	(goto-char (revive:prop-point x))
+	(revive:restore-value (revive:prop-varlist x))))
       (setq blist (cdr blist)))
     (run-hooks 'revive:restore-buffers-hook)))
 
@@ -770,20 +770,20 @@ Configuration should be saved by save-current-configuration."
     (goto-char (point-min))
     (emacs-lisp-mode)
     (if (null (search-forward revive:version-prefix nil t))
-    (error "Configuration file collapsed."))
+	(error "Configuration file collapsed."))
     (if (and (not (string= revive:version
-               (buffer-substring
-                (point)
-                (prog2 (end-of-line) (point)))))
-         (y-or-n-p
-          "Configuration file's version conflicts. Continue?"))
-    (error "Configuration file is old.  Please update."))
+			   (buffer-substring
+			    (point)
+			    (prog2 (end-of-line) (point)))))
+	     (y-or-n-p
+	      "Configuration file's version conflicts. Continue?"))
+	(error "Configuration file is old.  Please update."))
     (if (null (re-search-forward (format "^(%d" num) nil t))
-    (error "Configuration empty."))
+	(error "Configuration empty."))
     (goto-char (match-beginning 0))
     (setq sexp (read (current-buffer))
-      bufs (nth 1 sexp)
-      config (nth 2 sexp))
+	  bufs (nth 1 sexp)
+	  config (nth 2 sexp))
     (kill-buffer (current-buffer))
     (revive:restore-buffers bufs)
     (restore-window-configuration config)
@@ -797,13 +797,13 @@ Configuration should be saved by save-current-configuration."
   "Restore dired buffer referring the variable x of revive:restore-buffers."
   (interactive)
   (let ((find-file-run-dired t)
-    (dir (cdr (assq 'default-directory (revive:prop-varlist x)))))
+	(dir (cdr (assq 'default-directory (revive:prop-varlist x)))))
     (if (and (stringp dir) (file-directory-p dir))
-    (progn
-      (dired dir
-         (cdr (assq 'dired-actual-switches (revive:prop-varlist x))))
-      (setq default-directory dir)
-      (cd dir))
+	(progn
+	  (dired dir
+		 (cdr (assq 'dired-actual-switches (revive:prop-varlist x))))
+	  (setq default-directory dir)
+	  (cd dir))
       (error "Directory [%s] not found" dir))))
 
 (defun revive:view ()
@@ -812,13 +812,13 @@ Configuration should be saved by save-current-configuration."
   (require 'view)
   (if (fboundp 'view-exit) (view-file (revive:prop-file-name x))
     (if (get 'revive:view 'warning)
-    nil
+	nil
       (switch-to-buffer
        (create-file-buffer
-    (concat "** out of use - " (revive:prop-file-name x) " **")))
+	(concat "** out of use - " (revive:prop-file-name x) " **")))
       (insert
        (message
-    "Skip view-modes' buffer since your view.el may use recursive-edit."))
+	"Skip view-modes' buffer since your view.el may use recursive-edit."))
       (kill-buffer nil)
       (put 'revive:view 'warning t)
       (sit-for 5))))
@@ -832,9 +832,9 @@ Configuration should be saved by save-current-configuration."
   (get-buffer-create " *mh-temp*")
   (mh-visit-folder (revive:prop-buffer-name x) "all")
   (setq buffer-file-name (revive:prop-file-name x)
-    default-directory
-    (or (cdr (assq 'default-directory (revive:prop-varlist x)))
-        "~/"))
+	default-directory
+	(or (cdr (assq 'default-directory (revive:prop-varlist x)))
+	    "~/"))
   (cd default-directory))
 
 (defun revive:mew ()
@@ -843,12 +843,12 @@ Configuration should be saved by save-current-configuration."
   (require 'mew)
   (set-buffer (get-buffer-create (revive:prop-buffer-name x)))
   (setq default-directory
-    (or (cdr (assq 'default-directory (revive:prop-varlist x)))
-        "~/"))
+	(or (cdr (assq 'default-directory (revive:prop-varlist x)))
+	    "~/"))
   (or (and (boundp 'mew-path) mew-path)
       (and (fboundp 'mew-init) (let (mew-demo) (mew-init))))
-  (mew-cache-flush)         ;Mew should take more care of
-  (get-buffer-create " *mew tmp*")  ;unexisting buffer...
+  (mew-cache-flush)			;Mew should take more care of 
+  (get-buffer-create " *mew tmp*")	;unexisting buffer...
   (let ((b (revive:prop-buffer-name x)))
     (cond
      ((fboundp 'mew-summary-folder-create)
@@ -863,8 +863,8 @@ Configuration should be saved by save-current-configuration."
   (interactive)
   (set-buffer (get-buffer-create " *tmp*"))
   (let ((default-directory
-      (or (cdr (assq 'default-directory (revive:prop-varlist x)))
-          ".")))
+	  (or (cdr (assq 'default-directory (revive:prop-varlist x)))
+	      ".")))
     (shell)
     (cd default-directory)
     (kill-buffer " *tmp*")))
@@ -874,9 +874,9 @@ Configuration should be saved by save-current-configuration."
   (interactive)
   (let ((d (cdr (assq 'default-directory (revive:prop-varlist x)))))
     (if (and d (file-directory-p d))
-    (progn
-      (require 'mpg123)
-      (mpg123 d)))))
+	(progn
+	  (require 'mpg123)
+	  (mpg123 d)))))
 
 (defun revive:c-set-style ()
   "Restore c-style of C/C++/Java(by cc-mode)."
@@ -891,7 +891,7 @@ Configuration should be saved by save-current-configuration."
 (provide 'revive)
 
 
-;; $Id: revive.el,v 2.19 2008/05/13 01:19:16 yuuji Exp $
+;; $Id: revive.el,v 2.19 2008/05/13 01:19:16 yuuji Exp yuuji $
 ;; $Log: revive.el,v $
 ;; Revision 2.19  2008/05/13 01:19:16  yuuji
 ;; Add below to revive:save-variables-global-default.
@@ -978,7 +978,7 @@ Configuration should be saved by save-current-configuration."
 ;
 
 ; Local variables:
-; fill-prefix: ";;; "
+; fill-prefix: ";;;	"
 ; paragraph-start: "^$\\|\\|;;;$"
 ; paragraph-separate: "^$\\|\\|;;;$"
 ; End:
