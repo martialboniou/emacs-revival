@@ -6,9 +6,9 @@
 ;; Maintainer: Martial Boniou
 ;; Created: Thu Mar 10 12:12:09 2011 (+0100)
 ;; Version: 0.9
-;; Last-Updated: Fri Nov 18 20:34:08 2011 (+0100)
+;; Last-Updated: Mon Nov 21 17:41:26 2011 (+0100)
 ;;           By: Martial Boniou
-;;     Update #: 58
+;;     Update #: 106
 ;; URL:
 ;; Keywords:
 ;; Compatibility:
@@ -62,6 +62,34 @@ If NIL, saving and restoring will be enabled for the currently
 focused frame."
   :group 'revive-plus
   :type 'boolean)
+
+(defcustom revive-plus:wconf-archive-file
+  "~/.emacs.d/wconf-archive"
+  "*File name where window configurations are saved to and loaded from."
+  :type 'file
+  :group 'revive-plus)
+
+(defcustom revive-plus:wconf-archive-limit 10
+  "Number of slots in the REVIVE-PLUS:WCONF-ARCHIVE register."
+  :type 'integer
+  :group 'revive-plus)
+
+(defcustom revive-plus:last-wconf-file
+  "~/.emacs.d/last-wconf"
+  "File name where the last window configuration is saved. Useful to restore
+the last session window configuration (s) at startup."
+  :type 'file
+  :group 'revive-plus)
+
+(defvar revive-plus:previous-window-configuration nil
+  "State of window configuration to restore. Used by
+`revive-plus:toggle-single-window'.")
+
+(defvar revive-plus:ecb-previously-running nil
+  "Previous state of ECB.")
+
+(defvar revive-plus:wconf-archive nil
+  "A list of REVIVE-PLUS:WCONF-ARCHIVE-LIMIT printable window configurations.")
 
 (defun revive:window-list (&optional frame)
   "Return the all window list in sorted order."
@@ -220,6 +248,190 @@ all frames as a list of current-window-configuration-printable."
           (other-window 1))
         (when focus
           (select-window focus))))))
+
+;;;###autoload
+(defun revive-plus:toggle-single-window ()
+  "Toggle to single window and back."
+  (interactive)
+  (if (cdr (window-list nil 0))
+      (progn
+        (setq revive-plus:previous-window-configuration
+              (current-window-configuration-printable))
+        (delete-other-windows))
+    (unless (null revive-plus:previous-window-configuration)
+      (restore-window-configuration revive-plus:previous-window-configuration))))
+
+(defun revive-plus:wconf-archive-save (&optional dont-alert)
+  (interactive)
+  (when (or dont-alert (y-or-n-p "Archive the current window configuration? "))
+    (setq revive-plus:wconf-archive (cons (current-window-configuration-printable)
+                                          revive-plus:wconf-archive))
+    (let ((out-num (- (length revive-plus:wconf-archive) revive-plus:wconf-archive-limit)))
+      (nbutlast revive-plus:wconf-archive out-num))
+    (unless (and (null revive-plus:wconf-archive)
+                 (not (file-writable-p revive-plus:wconf-archive-file)))
+      (with-temp-buffer
+        (insert (prin1-to-string revive-plus:wconf-archive))
+        (write-region (point-min) (point-max) revive-plus:wconf-archive-file)))))
+
+;;;###autoload
+(defun revive-plus:wconf-archive-clear ()
+  (interactive)
+  (when (yes-or-no-p "Delete the archived window configurations? ")
+    (when (yes-or-no-p "Are you really sure? ")
+      (setq revive-plus:wconf-archive nil)
+      (condition-case nil
+          (delete-file revive-plus:wconf-archive-file)
+        (error
+         (message "revive-plus: no window configuration archive file to delete"))))))
+
+;;;###autoload
+(defun revive-plus:wconf-archive-restore (&optional num)
+  (interactive
+   (if (and current-prefix-arg (not (consp current-prefix-arg)))
+       (list (prefix-numeric-value current-prefix-arg))
+     (list (read-number "Which window configuration number (0 is the last saved one): "))))
+  (when (or (not (integerp num))
+            (< num 0))
+    (setq num 0))
+  (let ((wconf (if (>= num (length revive-plus:wconf-archive))
+                   (last revive-plus:wconf-archive)
+                 (nth num revive-plus:wconf-archive))))
+    (unless (null wconf)
+      (restore-window-configuration wconf))))
+
+(defun revive-plus:wconf-archive-load-in-session ()
+  (when (and (file-exists-p revive-plus:wconf-archive-file)
+             (file-readable-p revive-plus:wconf-archive-file))
+    (with-temp-buffer
+      (insert-file-contents revive-plus:wconf-archive-file)
+      (setq revive-plus:wconf-archive (read (current-buffer))))))
+
+;;;###autoload
+(defun revive-plus:wconf-archive-load ()
+  (interactive)
+  (when (yes-or-no-p "Reload previous archived window configurations? ")
+    (revive-plus:wconf-archive-load-in-session)))
+
+;;;###autoload
+(defun revive-plus:save-window-configuration ()
+  (write-region (concat "(restore-window-configuration '"
+                        (prin1-to-string (window-configuration-printable))
+                        ")")
+                nil revive-plus:last-window-configuration-file))
+
+;;;###autoload
+(defun revive-plus:restore-window-configuration ()
+  (let ((fi revive-plus:last-window-configuration-file))
+    (when (file-exists-p fi)
+      (load-file fi))))
+
+(eval-after-load "ecb"
+  '(progn
+     (defun revive-plus:ecb-activated-in-this-frame ()
+       (and (when (boundp 'ecb-activated-window-configuration)
+              (not (null ecb-activated-window-configuration)))
+            (eq (selected-frame)
+                (when (boundp 'ecb-frame) ecb-frame))))
+
+     (defadvice revive-plus:toggle-single-window (around ecb-active nil activate)
+       (interactive)
+       (if (cdr (window-list nil 0))
+           (if (revive-plus:ecb-activated-in-this-frame)
+               (when (y-or-n-p "This frame is ECB'd. Do you want to deactivate ECB? ")
+                 (ecb-deactivate)
+                 (setq revive-plus:ecb-previously-running t)
+                 (delete-other-windows))
+             (progn
+               (setq revive-plus:previous-window-configuration
+                     (current-window-configuration-printable))
+               (setq revive-plus:ecb-previously-running nil)
+               (delete-other-windows)))
+         (if revive-plus:ecb-previously-running
+             (progn
+               (ecb-activate)
+               (setq revive-plus:ecb-previously-running nil))
+           (when revive-plus:previous-window-configuration
+             (set-window-configuration revive-plus:previous-window-configuration)
+             (setq revive-plus:ecb-previously-running nil)))))
+
+     (defadvice revive-plus:save-window-configuration (around ecb-active (&optional ecb-manage) activate)
+       ;; you cannot deactivate ecb when desktop is autosaved so
+       ;; `ecb-manage' is here for the `kill-emacs-hook' case
+       (let ((ecb-active (revive-plus:ecb-activated-in-this-frame)))
+         (when (and ecb-manage ecb-active)
+           (ecb-deactivate))              
+         (progn
+           ad-do-it
+           (when ecb-active
+             (append-to-file "(ecb-activate)" nil revive-plus:last-wconf-file)))))
+
+     (defadvice revive-plus:wconf-archive-save (around ecb-active nil activate)
+       (interactive)
+       (if (revive-plus:ecb-activated-in-this-frame)
+           (when (y-or-n-p "BEWARE: you should deactivate ecb first. Archive the current window configuration anyway? ")
+             (let ((dont-alert t))
+               ad-do-it))
+         ad-do-it))))
+
+;;;###autoload
+(defun revive-plus:start-wconf-archive (&optional with-keybindings)
+  "Setup example for wconf-archive. Enable window configuration saving
+and restoring for a single frame."
+  (add-hook 'emacs-startup-hook
+            #'revive-plus:wconf-archive)
+  (when with-keybindings
+    (global-set-key (kbd "<f6><f6>") #'revive-plus:wconf-archive-save)
+    (global-set-key (kbd "<f6><f5>") #'(lambda () (interactive)
+                                         (revive-plus:wconf-archive-restore 0)))
+    (global-set-key (kbd "<f6>1") #'(lambda () (interactive)
+                                      (revive-plus:wconf-archive-restore 0)))
+    (global-set-key (kbd "<f6>2") #'(lambda () (interactive)
+                                      (revive-plus:wconf-archive-restore 1)))
+    (global-set-key (kbd "<f6>3") #'(lambda () (interactive)
+                                      (revive-plus:wconf-archive-restore 2)))
+    (global-set-key (kbd "<f6>4") #'(lambda () (interactive)
+                                      (revive-plus:wconf-archive-restore 3)))
+    (global-set-key (kbd "<f6>5") #'(lambda () (interactive)
+                                      (revive-plus:wconf-archive-restore 4)))
+    (global-set-key (kbd "<f6>6") #'(lambda () (interactive)
+                                      (revive-plus:wconf-archive-restore 5)))
+    (global-set-key (kbd "<f6>7") #'(lambda () (interactive)
+                                      (revive-plus:wconf-archive-restore 6)))
+    (global-set-key (kbd "<f6>8") #'(lambda () (interactive)
+                                      (revive-plus:wconf-archive-restore 7)))
+    (global-set-key (kbd "<f6>9") #'(lambda () (interactive)
+                                      (revive-plus:wconf-archive-restore 8)))
+    (global-set-key (kbd "<f6>0") #'(lambda () (interactive)
+                                      (revive-plus:wconf-archive-restore 9)))))
+
+;;;###autoload
+(defun revive-plus:start-last-wconf (&optional with-keybindings)
+  "Setup example for last-wconf. Enable the complete window configuration
+reload. Frame and Escreen are maintained if REVIVE-PLUS:ALL-FRAMES is true.
+Frames are merged to escreen when Emacs is started in NO-WINDOW-SYSTEM context."
+  (when (boundp 'desktop-save-hook)
+    (add-hook 'desktop-save-hook
+              ;; prevent crashes' loss if DESKTOP is autosaved
+              #'revive-plus:save-window-configuration 'append))
+  (add-hook 'kill-emacs-hook
+            ;; force window configuration special case like ecb
+            #'(lambda () (revive-plus:save-window-configuration t)) 'append)
+  (add-hook 'after-init-hook #'revive-plus:restore-window-configuration))
+
+;;;###autoload
+(defun revive-plus:demo ()
+  "Setup example for revive-plus including wconf-archive, complete window
+configuration reload and single window switching key."
+  (global-set-key (kbd "<f5><f5>") #'revive-plus:toggle-single-window)
+  (revive-plus:start-wconf-archive t)
+  (revive-plus:start-last-wconf t))
+
+;;;###autoload
+(defun revive-plus:minimal-setup ()
+  "Setup example for revive-plus. Like `revive-plus:demo', w/o key bindings."
+  (revive-plus:start-wconf-archive)
+  (revive-plus:start-last-wconf))
 
 (provide 'revive+)
 
