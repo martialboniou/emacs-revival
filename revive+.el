@@ -6,9 +6,9 @@
 ;; Maintainer: Martial Boniou
 ;; Created: Thu Mar 10 12:12:09 2011 (+0100)
 ;; Version: 0.9
-;; Last-Updated: Mon Nov 21 17:41:26 2011 (+0100)
+;; Last-Updated: Tue Nov 22 21:03:35 2011 (+0100)
 ;;           By: Martial Boniou
-;;     Update #: 106
+;;     Update #: 117
 ;; URL:
 ;; Keywords:
 ;; Compatibility:
@@ -251,15 +251,17 @@ all frames as a list of current-window-configuration-printable."
 
 ;;;###autoload
 (defun revive-plus:toggle-single-window ()
-  "Toggle to single window and back."
+  "Toggle to single window and back. It uses standard
+window configuration vector instead of REVIVE one as we
+don't want to register the mark."
   (interactive)
   (if (cdr (window-list nil 0))
       (progn
         (setq revive-plus:previous-window-configuration
-              (current-window-configuration-printable))
+              (current-window-configuration))
         (delete-other-windows))
     (unless (null revive-plus:previous-window-configuration)
-      (restore-window-configuration revive-plus:previous-window-configuration))))
+      (set-window-configuration revive-plus:previous-window-configuration))))
 
 (defun revive-plus:wconf-archive-save (&optional dont-alert)
   (interactive)
@@ -314,15 +316,14 @@ all frames as a list of current-window-configuration-printable."
     (revive-plus:wconf-archive-load-in-session)))
 
 ;;;###autoload
-(defun revive-plus:save-window-configuration ()
-  (write-region (concat "(restore-window-configuration '"
-                        (prin1-to-string (window-configuration-printable))
-                        ")")
-                nil revive-plus:last-window-configuration-file))
+(defun revive-plus:save-window-configuration (&optional special-case)
+  (with-temp-buffer
+    (insert (format "(restore-window-configuration '%s)" (prin1-to-string (window-configuration-printable))))
+    (write-region (point-min) (point-max) revive-plus:last-wconf-file)))
 
 ;;;###autoload
 (defun revive-plus:restore-window-configuration ()
-  (let ((fi revive-plus:last-window-configuration-file))
+  (let ((fi revive-plus:last-wconf-file))
     (when (file-exists-p fi)
       (load-file fi))))
 
@@ -355,11 +356,11 @@ all frames as a list of current-window-configuration-printable."
              (set-window-configuration revive-plus:previous-window-configuration)
              (setq revive-plus:ecb-previously-running nil)))))
 
-     (defadvice revive-plus:save-window-configuration (around ecb-active (&optional ecb-manage) activate)
+     (defadvice revive-plus:save-window-configuration (around ecb-active (&optional special-case) activate)
        ;; you cannot deactivate ecb when desktop is autosaved so
-       ;; `ecb-manage' is here for the `kill-emacs-hook' case
+       ;; `special-case' is here for the `kill-emacs-hook' case
        (let ((ecb-active (revive-plus:ecb-activated-in-this-frame)))
-         (when (and ecb-manage ecb-active)
+         (when (and special-case ecb-active)
            (ecb-deactivate))              
          (progn
            ad-do-it
@@ -379,7 +380,7 @@ all frames as a list of current-window-configuration-printable."
   "Setup example for wconf-archive. Enable window configuration saving
 and restoring for a single frame."
   (add-hook 'emacs-startup-hook
-            #'revive-plus:wconf-archive)
+            #'revive-plus:wconf-archive-load-in-session)
   (when with-keybindings
     (global-set-key (kbd "<f6><f6>") #'revive-plus:wconf-archive-save)
     (global-set-key (kbd "<f6><f5>") #'(lambda () (interactive)
@@ -415,9 +416,9 @@ Frames are merged to escreen when Emacs is started in NO-WINDOW-SYSTEM context."
               ;; prevent crashes' loss if DESKTOP is autosaved
               #'revive-plus:save-window-configuration 'append))
   (add-hook 'kill-emacs-hook
-            ;; force window configuration special case like ecb
+            ;; force window configuration special case like `ecb' if any
             #'(lambda () (revive-plus:save-window-configuration t)) 'append)
-  (add-hook 'after-init-hook #'revive-plus:restore-window-configuration))
+  (add-hook 'after-init-hook #'revive-plus:restore-window-configuration 'append))
 
 ;;;###autoload
 (defun revive-plus:demo ()
