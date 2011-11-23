@@ -6,9 +6,9 @@
 ;; Maintainer: Martial Boniou
 ;; Created: Thu Mar 10 12:12:09 2011 (+0100)
 ;; Version: 0.9
-;; Last-Updated: Tue Nov 22 21:03:35 2011 (+0100)
+;; Last-Updated: Wed Nov 23 16:06:39 2011 (+0100)
 ;;           By: Martial Boniou
-;;     Update #: 117
+;;     Update #: 121
 ;; URL:
 ;; Keywords:
 ;; Compatibility:
@@ -197,6 +197,39 @@ function defined in `revive'."
         (setq wlist (cdr wlist)))
       (select-window curwin)
       (list (revive:screen-width) (revive:screen-height) edges buflist))))
+
+(defun current-escreen-configuration-printable (&optional single-frame)
+  "Print escreen configuration for a frame."
+  (save-excursion
+    (save-window-excursion
+      (unless single-frame (setq single-frame (selected-frame)))
+      (let ((data (escreen-configuration-escreen 1)))
+        (escreen-restore-screen-map data))
+      (let ((curwin (frame-selected-window single-frame)))
+        (let ((wlist (revive:window-list single-frame))
+              (edges (revive:all-window-edges single-frame)) buflist)
+            (while wlist
+              (select-window (car wlist))
+                                        ;should set buffer on Emacs 19
+              (set-buffer (window-buffer (car wlist)))
+              (let ((buf (list
+                          (if (and
+                               (buffer-file-name)
+                               (fboundp 'abbreviate-file-name))
+                              (abbreviate-file-name
+                               (buffer-file-name))
+                            (buffer-file-name))
+                          (buffer-name)
+                          (point)
+                          (window-start))))
+                (when (eq curwin (selected-window))
+                  (setq buf (append buf (list nil 'focus))))
+                (setq buflist
+                      (append buflist (list buf))))
+              (setq wlist (cdr wlist)))
+            (select-window curwin)
+            (list (revive:screen-width) (revive:screen-height) edges buflist))
+        ))))
 
 (defun window-configuration-printable ()
   "Print window configuration for the current frame.
@@ -412,13 +445,17 @@ and restoring for a single frame."
 reload. Frame and Escreen are maintained if REVIVE-PLUS:ALL-FRAMES is true.
 Frames are merged to escreen when Emacs is started in NO-WINDOW-SYSTEM context."
   (when (boundp 'desktop-save-hook)
-    (add-hook 'desktop-save-hook
-              ;; prevent crashes' loss if DESKTOP is autosaved
-              #'revive-plus:save-window-configuration 'append))
-  (add-hook 'kill-emacs-hook
-            ;; force window configuration special case like `ecb' if any
-            #'(lambda () (revive-plus:save-window-configuration t)) 'append)
-  (add-hook 'after-init-hook #'revive-plus:restore-window-configuration 'append))
+    ;; (add-hook 'desktop-save-hook
+    ;;           ;; prevent crashes' loss if DESKTOP is autosaved
+    ;;           #'revive-plus:save-window-configuration 'append))
+  ;; (add-hook 'kill-emacs-hook
+  ;;           ;; force window configuration special case like `ecb' if any
+  ;;           #'(lambda () (revive-plus:save-window-configuration t)) 'append)
+
+  (add-hook 'after-init-hook #'revive-plus:restore-window-configuration 'append)))
+
+;(remove-hook 'desktop-save-hook #'revive-plus:save-window-configuration)
+;(remove-hook 'kill-emacs-hook #'(lambda () (revive-plus:save-window-configuration t)))
 
 ;;;###autoload
 (defun revive-plus:demo ()
