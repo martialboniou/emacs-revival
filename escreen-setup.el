@@ -20,9 +20,11 @@
 
 (defadvice escreen-kill-screen (around ask-and-inform-screen-numbers nil activate)
   (interactive)
-  (when (y-or-n-p "Do you really want to kill this screen? ")
-    (progn
-      ad-do-it)))
+  (if (escreen-configuration-one-screen-p)
+      ad-do-it
+    (when (y-or-n-p "Do you really want to kill this screen? ")
+      (progn
+        ad-do-it))))
 
 (add-hook 'escreen-goto-screen-hook
           #'escreen-get-active-screen-numbers-with-emphasis)

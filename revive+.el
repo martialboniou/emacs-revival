@@ -6,9 +6,9 @@
 ;; Maintainer: Martial Boniou
 ;; Created: Thu Mar 10 12:12:09 2011 (+0100)
 ;; Version: 0.9
-;; Last-Updated: Wed Nov 23 16:06:39 2011 (+0100)
+;; Last-Updated: Wed Nov 23 20:42:21 2011 (+0100)
 ;;           By: Martial Boniou
-;;     Update #: 121
+;;     Update #: 132
 ;; URL:
 ;; Keywords:
 ;; Compatibility:
@@ -203,33 +203,36 @@ function defined in `revive'."
   (save-excursion
     (save-window-excursion
       (unless single-frame (setq single-frame (selected-frame)))
-      (let ((data (escreen-configuration-escreen 1)))
-        (escreen-restore-screen-map data))
-      (let ((curwin (frame-selected-window single-frame)))
-        (let ((wlist (revive:window-list single-frame))
-              (edges (revive:all-window-edges single-frame)) buflist)
-            (while wlist
-              (select-window (car wlist))
+      (let ((confs (mapcar 
+               #'(lambda (num)
+                   (let ((data (escreen-configuration-escreen num)))
+                     (escreen-restore-screen-map data))
+                   (let ((curwin (frame-selected-window single-frame)))
+                     (let ((wlist (revive:window-list single-frame))
+                           (edges (revive:all-window-edges single-frame)) buflist)
+                       (while wlist
+                         (select-window (car wlist))
                                         ;should set buffer on Emacs 19
-              (set-buffer (window-buffer (car wlist)))
-              (let ((buf (list
-                          (if (and
-                               (buffer-file-name)
-                               (fboundp 'abbreviate-file-name))
-                              (abbreviate-file-name
-                               (buffer-file-name))
-                            (buffer-file-name))
-                          (buffer-name)
-                          (point)
-                          (window-start))))
-                (when (eq curwin (selected-window))
-                  (setq buf (append buf (list nil 'focus))))
-                (setq buflist
-                      (append buflist (list buf))))
-              (setq wlist (cdr wlist)))
-            (select-window curwin)
-            (list (revive:screen-width) (revive:screen-height) edges buflist))
-        ))))
+                         (set-buffer (window-buffer (car wlist)))
+                         (let ((buf (list
+                                     (if (and
+                                          (buffer-file-name)
+                                          (fboundp 'abbreviate-file-name))
+                                         (abbreviate-file-name
+                                          (buffer-file-name))
+                                       (buffer-file-name))
+                                     (buffer-name)
+                                     (point)
+                                     (window-start))))
+                           (when (eq curwin (selected-window))
+                             (setq buf (append buf (list nil 'focus))))
+                           (setq buflist
+                                 (append buflist (list buf))))
+                         (setq wlist (cdr wlist)))
+                       (select-window curwin)
+                       (list (revive:screen-width) (revive:screen-height) edges buflist))))
+               (escreen-get-active-screen-numbers)) ))
+        (cons (escreen-get-current-screen-number) confs)))))
 
 (defun window-configuration-printable ()
   "Print window configuration for the current frame.
@@ -281,6 +284,58 @@ all frames as a list of current-window-configuration-printable."
           (other-window 1))
         (when focus
           (select-window focus))))))
+
+(defun restore-escreen-configuration (config)
+  (if (listp (car config))
+      ;; TODO: enable persistency for NO-WINDOW-SYSTEM case
+      (progn
+        (unless (null (cdr (frame-list)))
+          (delete-other-frames))
+        (restore-window-configuration (car config))
+        (unless (null (cdr config))
+          (mapc #'(lambda (cframe)
+                    (make-frame)
+                    (restore-escreen-configuration cframe))
+                (cdr config))
+          (next-frame)))
+    (if (listp (cadr config))
+        (progn
+          ;; escreen case
+          (while (not (escreen-configuration-one-screen-p))
+            (escreen-kill-screen))      ; overkill
+          (restore-escreen-configuration (cadr config)) ; first escreen
+          (mapc #'(lambda (cescreen)         ; others
+                    (escreen-create-screen)
+                    (restore-escreen-configuration cescreen))
+                (cddr config))
+          (if (numberp (car config))    ; go to saved escreen
+              (escreen-goto-screen (car config))))      
+      (let ((width (car config)) (height (nth 1 config))
+            (edges (nth 2 config)) (buflist (nth 3 config)) buf)
+        (set-buffer (get-buffer-create "*scratch*"))
+        (setq edges (revive:normalize-edges width height edges))
+        (construct-window-configuration edges)
+        (revive:select-window-by-edge (revive:minx) (revive:miny))
+        (let (focus)
+          (while buflist
+            (setq buf (pop buflist))
+            (cond
+             ((and (revive:get-buffer buf)
+                   (get-buffer (revive:get-buffer buf)))
+              (switch-to-buffer (revive:get-buffer buf))
+              (when (eq 'focus (car (last buf)))
+                (setq focus (selected-window)))
+              (goto-char (revive:get-window-start buf)) ; to prevent high-bit missing
+              (set-window-start nil (point))
+              (goto-char (revive:get-point buf)))
+             ((and (stringp (revive:get-file buf))
+                   (not (file-directory-p (revive:get-file buf)))
+                   (revive:find-file (revive:get-file buf)))
+              (set-window-start nil (revive:get-window-start buf))
+              (goto-char (revive:get-point buf))))
+            (other-window 1))
+          (when focus
+            (select-window focus)))))))
 
 ;;;###autoload
 (defun revive-plus:toggle-single-window ()
