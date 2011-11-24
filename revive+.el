@@ -6,18 +6,104 @@
 ;; Maintainer: Martial Boniou
 ;; Created: Thu Mar 10 12:12:09 2011 (+0100)
 ;; Version: 0.9
-;; Last-Updated: Wed Nov 23 20:42:21 2011 (+0100)
+;; Last-Updated: Thu Nov 24 14:29:49 2011 (+0100)
 ;;           By: Martial Boniou
-;;     Update #: 132
-;; URL:
-;; Keywords:
+;;     Update #: 157
+;; URL: https://github.com/martialboniou/revive-plus.git
+;; Keywords: window configuration serialization
 ;; Compatibility:
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;; Commentary: Let revive preserve the window focus to restore
+;;              Support frames restoring in the printable window configuration
+;;              Support escreen restoring in the printable window configuration
+;;              Support special case like `ecb'
 ;;
+;;              The window configuration has the following form:
+;;              * for windows: ( WIDTH HEIGHT ... ) and so on (the same as in `revive'
+;;              * for frames: ( ( WIDTH1 HEIGHT1 ... ) ( WIDTH2 HEIGHT2 ...) ... )
+;;              * for escreen: ( POS ( WIDTH1 HEIGHT1 ... ) ( WIDTH2 HEIGHT2 ... ) )
+;;              ie. the current escreen in this frame followed by the order printable
+;;              window configuration for all the escreens: eg. ( 1 (WCONF0) (WCONF1)
+;;              (WCONF2) )
+;;              * for escreened frames: ( ( POS1 ( WIDTH1 ... ) ( WIDTH1' ... ) ... )
+;;                                        ( POS2 ( WIDTH2 ... ) ( WIDTH2' ... ) ... )
+;;                                        ... )
 ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Installation:
+;;               (require 'revive+)
+;;               (revive-plus:demo)
+;;
+;;  You may customize revive-plus:all-frames to save all frames:
+;;
+;;               (require 'revive+)
+;;               (setq revive-plus:all-frames t)
+;;               (revive-plus:demo)
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;;; Usage:
+;;
+;;        After calling (revive-plus:demo) or (revive-plus:minimal-setup),
+;;        your window configuration is automatically saved on Emacs killing
+;;        and restore at Emacs startup. The file ~/.emacs.d/last-wconf is
+;;        used for this. If you want to prevent crashes by periodically
+;;        autosave the latest window configuration you just need to ensure
+;;        DESKTOP is autosaved:
+;;
+;;        (add-hook 'auto-save-hook #'(lambda () (call-interactively #'desktop-save)))
+;;
+;;        Remember: there are two functions to save window configurations:
+;;
+;;        #'CURRENT-WINDOW-CONFIGURATION-PRINTABLE : save the windows only (used by
+;;                                                   <f6> keys in DEMO mode)
+;;        #'WINDOW-CONFIGURATION-PRINTABLE: save the windows for all escreens and,
+;;        if REVIVE-PLUS:ALL-FRAMES is set to true, in all frames too.
+;;
+;;        If REVIVE-PLUS:ALL-FRAMES is NIL and `escreen' is not enabled in your
+;;        init file (~/.emacs), those two functions behave the same.
+;;
+;;        Additional functions are available:
+;;        <f6><f6>: save the current window configuration (no frames / no escreen,
+;;                  only the displayed windows in the current frame)
+;;        <f6><f5>: restore the previously saved configuration
+;;        <f6>2 .. <f6>0: restore the second to tenth window configuration
+;;        All the last ten window configurations saved via <f6> keys are stored
+;;        in the file ~/.emacs.d/wconf-archive and will be loaded at Emacs startup.
+;;        This functionality is useful to transfer a window configuration to another
+;;        frame, for example.
+;;
+;;        <f5><f5>: switch from a window configuration with multiple windows
+;;                  to a single view and back. Useful to focus on a buffer.
+;;        This functionality uses the standard window configuration system b/c
+;;        there's no need to save it between sessions. The marker position is
+;;        not saved only the window configuration.
+;;
+;;        Beware: If you use Emacs in NO-WINDOW-SYSTEM (ie. in a terminal), you
+;;                lose the window configuration in the other frames than the
+;;                last focused one. If `escreen' is enabled, all the content of
+;;                those other frames is restored as new ESCREEN. Eg.:
+;;
+;;                WINDOW-SYSTEM (saving):
+;;
+;;                -------------     -------------     -----------
+;;                |  frame 2  |     |  frame 1  |     | frame 3 |
+;;                |           |  +  |           |  +  |         |
+;;                | ( 0 1 2 ) |     | ( 0 1 2 ) |     | ( 0 1 ) |
+;;                -------------     -------------     -----------
+;;
+;;                where frame1 is the focused one and ( X Y ) are the ESCREENs.
+;;
+;;                NO-WINDOW-SYSTEM (restoring):
+;;
+;;                -----------------------        /   ( 0 1 2 ) <= ( 0 1 2 ) in frame 1
+;;                |     * no-frame *    |        |
+;;                |                     | where  |   ( 4 5 6 ) <= ( 0 1 2 ) in frame 2
+;;                | ( 0 1 2 4 5 6 7 8 ) |        |
+;;                -----------------------        \   ( 7 8 )   <= (0 1) in frame 3
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -198,42 +284,6 @@ function defined in `revive'."
       (select-window curwin)
       (list (revive:screen-width) (revive:screen-height) edges buflist))))
 
-(defun current-escreen-configuration-printable (&optional single-frame)
-  "Print escreen configuration for a frame."
-  (save-excursion
-    (save-window-excursion
-      (unless single-frame (setq single-frame (selected-frame)))
-      (let ((confs (mapcar 
-               #'(lambda (num)
-                   (let ((data (escreen-configuration-escreen num)))
-                     (escreen-restore-screen-map data))
-                   (let ((curwin (frame-selected-window single-frame)))
-                     (let ((wlist (revive:window-list single-frame))
-                           (edges (revive:all-window-edges single-frame)) buflist)
-                       (while wlist
-                         (select-window (car wlist))
-                                        ;should set buffer on Emacs 19
-                         (set-buffer (window-buffer (car wlist)))
-                         (let ((buf (list
-                                     (if (and
-                                          (buffer-file-name)
-                                          (fboundp 'abbreviate-file-name))
-                                         (abbreviate-file-name
-                                          (buffer-file-name))
-                                       (buffer-file-name))
-                                     (buffer-name)
-                                     (point)
-                                     (window-start))))
-                           (when (eq curwin (selected-window))
-                             (setq buf (append buf (list nil 'focus))))
-                           (setq buflist
-                                 (append buflist (list buf))))
-                         (setq wlist (cdr wlist)))
-                       (select-window curwin)
-                       (list (revive:screen-width) (revive:screen-height) edges buflist))))
-               (escreen-get-active-screen-numbers)) ))
-        (cons (escreen-get-current-screen-number) confs)))))
-
 (defun window-configuration-printable ()
   "Print window configuration for the current frame.
 If REVIVE-PLUS:ALL-FRAMES is true, print window configuration for
@@ -246,18 +296,21 @@ all frames as a list of current-window-configuration-printable."
                (cons focus (remq focus (frame-list)))))))
 
 (defun restore-window-configuration (config)
-  (if (listp (car config))
-      ;; TODO: enable persistency for NO-WINDOW-SYSTEM case
+  (if (listp (car config))              ; multiple frame case
       (progn
-        (unless (null (cdr (frame-list)))
-          (delete-other-frames))
-        (restore-window-configuration (car config))
-        (unless (null (cdr config))
-          (mapc #'(lambda (cframe)
-                    (make-frame)
-                    (restore-window-configuration cframe))
-                (cdr config))
-          (next-frame)))
+        (if (window-system)
+            (progn
+              (unless (null (cdr (frame-list)))
+                (delete-other-frames))
+              (restore-window-configuration (car config))
+              (unless (null (cdr config))
+                (mapc #'(lambda (cframe)
+                          (make-frame)
+                          (restore-window-configuration cframe))
+                      (cdr config))
+                (next-frame)))
+          (restore-window-configuration (car config)))) ; lose other frames
+                                        ; in NO-WINDOW-SYSTEM context
     (let ((width (car config)) (height (nth 1 config))
           (edges (nth 2 config)) (buflist (nth 3 config)) buf)
       (set-buffer (get-buffer-create "*scratch*"))
@@ -285,57 +338,82 @@ all frames as a list of current-window-configuration-printable."
         (when focus
           (select-window focus))))))
 
-(defun restore-escreen-configuration (config)
-  (if (listp (car config))
-      ;; TODO: enable persistency for NO-WINDOW-SYSTEM case
-      (progn
-        (unless (null (cdr (frame-list)))
-          (delete-other-frames))
-        (restore-window-configuration (car config))
-        (unless (null (cdr config))
-          (mapc #'(lambda (cframe)
-                    (make-frame)
-                    (restore-escreen-configuration cframe))
-                (cdr config))
-          (next-frame)))
-    (if (listp (cadr config))
-        (progn
-          ;; escreen case
-          (while (not (escreen-configuration-one-screen-p))
-            (escreen-kill-screen))      ; overkill
-          (restore-escreen-configuration (cadr config)) ; first escreen
-          (mapc #'(lambda (cescreen)         ; others
-                    (escreen-create-screen)
-                    (restore-escreen-configuration cescreen))
-                (cddr config))
-          (if (numberp (car config))    ; go to saved escreen
-              (escreen-goto-screen (car config))))      
-      (let ((width (car config)) (height (nth 1 config))
-            (edges (nth 2 config)) (buflist (nth 3 config)) buf)
-        (set-buffer (get-buffer-create "*scratch*"))
-        (setq edges (revive:normalize-edges width height edges))
-        (construct-window-configuration edges)
-        (revive:select-window-by-edge (revive:minx) (revive:miny))
-        (let (focus)
-          (while buflist
-            (setq buf (pop buflist))
-            (cond
-             ((and (revive:get-buffer buf)
-                   (get-buffer (revive:get-buffer buf)))
-              (switch-to-buffer (revive:get-buffer buf))
-              (when (eq 'focus (car (last buf)))
-                (setq focus (selected-window)))
-              (goto-char (revive:get-window-start buf)) ; to prevent high-bit missing
-              (set-window-start nil (point))
-              (goto-char (revive:get-point buf)))
-             ((and (stringp (revive:get-file buf))
-                   (not (file-directory-p (revive:get-file buf)))
-                   (revive:find-file (revive:get-file buf)))
-              (set-window-start nil (revive:get-window-start buf))
-              (goto-char (revive:get-point buf))))
-            (other-window 1))
-          (when focus
-            (select-window focus)))))))
+(eval-after-load "escreen"
+  '(progn
+     (defun revive-plus:frame-to-escreen (wconf)
+       "Convert frames in window configuration printable WCONF to
+escreen."
+       (let ((new-form (cons (caar wconf) (cdar wconf))))
+         (mapc #'(lambda (w)
+                   (nconc new-form (cdr w)))
+               (cdr wconf))
+         new-form))
+
+     (defun current-window-configuration-printable (&optional single-frame)
+       "Print escreen configuration for a frame."
+       (save-excursion
+         (save-window-excursion
+           (unless single-frame (setq single-frame (selected-frame)))
+           (let ((confs (mapcar 
+                         #'(lambda (num)
+                             (let ((data (escreen-configuration-escreen num)))
+                               (escreen-restore-screen-map data))
+                             (let ((curwin (frame-selected-window single-frame)))
+                               (let ((wlist (revive:window-list single-frame))
+                                     (edges (revive:all-window-edges single-frame)) buflist)
+                                 (while wlist
+                                   (select-window (car wlist))
+                                        ;should set buffer on Emacs 19
+                                   (set-buffer (window-buffer (car wlist)))
+                                   (let ((buf (list
+                                               (if (and
+                                                    (buffer-file-name)
+                                                    (fboundp 'abbreviate-file-name))
+                                                   (abbreviate-file-name
+                                                    (buffer-file-name))
+                                                 (buffer-file-name))
+                                               (buffer-name)
+                                               (point)
+                                               (window-start))))
+                                     (when (eq curwin (selected-window))
+                                       (setq buf (append buf (list nil 'focus))))
+                                     (setq buflist
+                                           (append buflist (list buf))))
+                                   (setq wlist (cdr wlist)))
+                                 (select-window curwin)
+                                 (list (revive:screen-width) (revive:screen-height) edges buflist))))
+                         (escreen-get-active-screen-numbers))))
+             (cons (escreen-get-current-screen-number) confs)))))
+
+     (defadvice restore-window-configuration (around escreen-extension (config) activate)
+       (if (listp (car config))         ; new multiple frame case
+           (progn
+             ;; enable persistency for NO-WINDOW-SYSTEM
+             (unless (window-system)
+               (restore-window-configuration
+                (revive-plus:frame-to-escreen config)))
+             (unless (null (cdr (frame-list)))
+               (delete-other-frames))
+             (restore-window-configuration (car config))
+             (unless (null (cdr config))
+               (mapc #'(lambda (cframe)
+                         (make-frame)
+                         (restore-window-configuration cframe))
+                     (cdr config))
+               (next-frame)))
+         (if (listp (cadr config))      ; escreen case
+             (progn
+               (while (not (escreen-configuration-one-screen-p))
+                 (escreen-kill-screen))      ; overkill existing escreens
+               (restore-window-configuration (cadr config)) ; first escreen
+               (mapc #'(lambda (cescreen)         ; others
+                         (escreen-create-screen)
+                         (restore-window-configuration cescreen))
+                     (cddr config))
+               (if (numberp (car config))    ; go to saved escreen
+              (escreen-goto-screen (car config))))
+           (progn
+             ad-do-it))))))
 
 ;;;###autoload
 (defun revive-plus:toggle-single-window ()
