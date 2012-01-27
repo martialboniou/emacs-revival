@@ -1,3 +1,4 @@
+;; -*- no-byte-compile: t; -*-
 ;; Autoload file for smalltalk-mode
 
 ;; duplicate zip files' setup for star files or fall back on
@@ -18,7 +19,8 @@
 
 (push '("\\.st\\'" . smalltalk-mode) auto-mode-alist)
 
-(push "\\.star\\'" inhibit-first-line-modes-regexps)
+(when (boundp 'inhibit-first-line-modes-regexps)
+ (push "\\.star\\'" inhibit-first-line-modes-regexps))
 
 (autoload 'smalltalk-mode "smalltalk-mode" "" t)
 (autoload 'gst "gst-mode" "" t)
