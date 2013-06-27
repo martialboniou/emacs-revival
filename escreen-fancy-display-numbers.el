@@ -1,7 +1,8 @@
 (require 'escreen)
 ;; snippets source: http://tapoueh.org/blog/2009/09/22-escreen-integration.html
 
-(defun escreen-get-active-screen-numbers-with-emphasis ()
+;;;###autoload
+(defun esceen-fancy-display-numbers ()
   "what the name says"
   (interactive)
   (let ((escreens (escreen-get-active-screen-numbers))
@@ -27,6 +28,6 @@
         ad-do-it))))
 
 (add-hook 'escreen-goto-screen-hook
-          #'escreen-get-active-screen-numbers-with-emphasis)
+          #'esceen-fancy-display-numbers)
 
 (provide 'escreen-setup)
