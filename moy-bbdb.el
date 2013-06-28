@@ -1,17 +1,21 @@
-;;; moy-bbdb.el --- This file allows to add recipients of outgoing 
-;; mails in BBDB from gnus (and maybe some other mailers ?). 
+;;; moy-bbdb.el --- This file allows to add recipients of outgoing
+;; mails in BBDB from gnus (and maybe some other mailers ?).
 
-;; Copyright (C) 2002  Free Software Foundation, Inc.
+;; Copyright (C) 2002  Matthieu MOY <Matthieu.Moy@imag.fr>
+;; Copyright (C) 2002  Massimo Lauria <lauria.massimo@gmail.com>
 
 ;; Author: Matthieu Moy <Matthieu.Moy@imag.fr>
 ;; Keywords: mail
-;; Version: 1.3
+;; Version: 1.3.1+Fix
 ;; The latest version should allways be availlable from
 ;; http://www-verimag.imag.fr/~moy/emacs/moy-bbdb.el
 
+;; 1.3.1+Fix of 05/04/11 by Massimo Lauria <lauria.massimo@gmail.com>
+
+
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
+;; the Free Software Foundation; either version 3, or (at your option)
 ;; any later version.
 
 ;; This file is distributed in the hope that it will be useful,
@@ -29,19 +33,20 @@
 ;; This file has been written and tested for use with Gnus. However, I
 ;; didn't use specific features from Gnus, and this should be able to
 ;; run without any modification for any other Emacs mailer.  It is
-;; known to run on Gnus 5.8, Oort Gnus. I have been told that it
-;; didn't work for VM. If you use it with VM, then, please, inform me.
+;; known to run on Gnus 5.8, Oort Gnus and VM 6.95. Tell me if it
+;; works for Rmail, but it should.
 ;;
 ;; Usage : put the following code in your .emacs (.gnus.el or .gnus if
 ;; you use Gnus)
 ;;
-;; | (autoload 'bbdb/send-hook "moy-bbdb" 
+;; | (autoload 'bbdb/send-hook "moy-bbdb"
 ;; |   "Function to be added to `message-send-hook' to notice records when sending messages" t)
-;; | 
+;; |
 ;; | (add-hook 'message-send-hook 'bbdb/send-hook) ; If you use Gnus
 ;; |
 ;; | (add-hook 'mail-send-hook 'bbdb/send-hook) ; For other mailers
 ;; |                                            ; (VM, Rmail)
+;; | (add-hook 'mew-send-hook 'bbdb/send-hook) ; For Mew
 ;;
 ;; Then, each time a message is sent, the user is asked if the
 ;; addresses of recipients should be added to the database.
@@ -52,12 +57,14 @@
 ;;
 ;; Cf. customize-group bbdb-noticing-records RET to get more
 ;; information about this.
-;; 
+;;
 
 ;;; Changes log
+;; version 1.3.1+fix (05/04/11)
+;;  - Fix : manage the case of `mail-header-separator' being the empty string.
 ;; version 1.3.1 (21/04/02)
 ;;  - Documentation fix : added the possibility to use 'mail-send-hook
-;;  for mailers other than Gnus.
+;;  for mailers other than Gnus. It works for VM.
 ;; version 1.3   (12/03/02)
 ;;  - Bug fix : "Name, christian name" <address@host.com> are now managed correctly.
 ;; version 1.2.3 (5/03/02)
@@ -76,7 +83,7 @@
 ;;  - Add customize support.
 ;;  - Add support for notes with `bbdb/send-auto-notes-alist' (symetrical
 ;; to `bbdb-auto-notes-alist')
-;; 
+;;
 ;; Original version : 1.0
 
 ;;; Code:
@@ -195,8 +202,8 @@ bbdb/send-auto-notes-alist acts when *sending* mail only.
 This can be used to keep track  of the mails you sent to some persons,
 like in
 
- bbdb/send-auto-notes-alist '((\"Subject\" 
-			       (\".*Test.*\" . \"I sent him a test\") 
+ bbdb/send-auto-notes-alist '((\"Subject\"
+			       (\".*Test.*\" . \"I sent him a test\")
 			       (\".*\" last-sent 0 t))))
 
 "
@@ -258,7 +265,7 @@ documentation  for   the  variables  `bbdb/send-auto-notes-alist'  and
 		 (string-match regexp fieldval))
 	    (setq ignore t)
 	  (setq ignore-all (cdr ignore-all))))
-      
+
       (unless ignore          ; ignore-all matched
 	(while rest ; while their still are clauses in the auto-notes alist
           (goto-char marker)
@@ -336,7 +343,7 @@ documentation  for   the  variables  `bbdb/send-auto-notes-alist'  and
 
 (defcustom bbdb/send-notice-hook nil
   "*Hook or hooks invoked each time a BBDB record is \"noticed\" while
-sending a message. 
+sending a message.
 
 This value  overrides the value of bbdb-notice-hook  while calling the
 function bbdb/send-hook."
@@ -344,9 +351,9 @@ function bbdb/send-hook."
   :type 'hook)
 
 
-(defun bbdb/send-remove-nil-from-list (list) 
+(defun bbdb/send-remove-nil-from-list (list)
   "expl : (\"hello\" nil \"world\") -> (\"hello\" \"world\")
-(nil nil nil) -> '()" 
+\(nil nil nil) -> '()"
   (if (null list)
       list
     (if (null (car list))
@@ -354,30 +361,25 @@ function bbdb/send-hook."
       (cons (car list) (bbdb/send-remove-nil-from-list (cdr list))))))
 
 (defun bbdb/send-hook-fetch-fields (fields)
-  (if (null fields)
-      '()
+  (when fields
     (let ((field-content (mail-fetch-field (car fields))))
       (append (if field-content
 		  (mapcar
 		   (lambda (elem)
 		     (concat "\"" (car elem) "\" <" (cadr elem) ">"))
-		   (bbdb-extract-address-components field-content)
-		   )
+		   (bbdb-extract-address-components field-content))
 		'())
 	      (bbdb/send-hook-fetch-fields (cdr fields))))))
 
 (defun bbdb/send-hook-annotate-message (rcp)
   (if (not (string-match
 	    (or bbdb-user-mail-names
-		"$^") ;; Regexp matching nothing (?)
+		"$[^\n]^") ;; Regexp matching nothing
 	    rcp))
-      (bbdb-annotate-message-sender 
+      (bbdb-annotate-message-sender
        rcp t
        (bbdb-invoke-hook-for-value bbdb/send-auto-create-p)
-       (bbdb-invoke-hook-for-value bbdb/send-prompt-for-create-p)
-       )
-    )
-  )
+       (bbdb-invoke-hook-for-value bbdb/send-prompt-for-create-p))))
 
 ;;;###autoload
 (defun bbdb/send-hook ()
@@ -390,7 +392,11 @@ function bbdb/send-hook."
       ;; Narrow to the headers region to use 'mail-fetch-field'
       (narrow-to-region (point-min)
 			(progn (goto-char (point-min))
-			       (search-forward mail-header-separator)
+			       (if (string= mail-header-separator "")
+				   (progn
+				     (search-forward-regexp "\n\n")
+				     (backward-char))
+				 (search-forward mail-header-separator))
 			       (beginning-of-line nil)
 			       (point)
 			       ))
@@ -403,19 +409,11 @@ function bbdb/send-hook."
 	    (let ((added-records
 		   (bbdb/send-remove-nil-from-list
 		    (mapcar 'bbdb/send-hook-annotate-message
-			    recipients
-			    ))))
+			    recipients))))
 	      ;; If some record were added, show them.
 	      (if added-records
 		  (bbdb-display-records added-records)
-		(message "No record were added.")
-		)
-	      )
-	  )
-	)
-      )
-    )
-  )
+		(message "No record were added."))))))))
 
 (provide 'moy-bbdb)
 ;;; moy-bbdb.el ends here
