@@ -30,4 +30,4 @@
 (add-hook 'escreen-goto-screen-hook
           #'esceen-fancy-display-numbers)
 
-(provide 'escreen-setup)
+(provide 'escreen-fancy-display-numbers)
