@@ -1,6 +1,6 @@
 * Emacs revival site-lisp
 
-Keep track of useful emacs lisp files that may disappears if not maintained. Some are old and near zombification. Others are out of modern versioning tool. Sometimes, I tweaked, fixed and tagged for autoloads.
+Keep track of useful emacs lisp files that may not be easy to find via ELPA or el-get or untracked on version-based server (github, googlecode...).
 
 ** Install
 
@@ -21,9 +21,6 @@ Move your cursor to any point of the source line and run ~C-c C-c~ to byte-compi
       (setq load-path load-path-keeper)))))
 #+end_src
 
-#+results: install
-: Done (Total of 171 files compiled, 5 skipped in 2 directories)
-
 You may run this script from a fresh emacs by ~C-c C-c~-ing the following snippet:
 
 #+begin_src emacs-lisp
@@ -34,12 +31,4 @@ You may run this script from a fresh emacs by ~C-c C-c~-ing the following snippe
 
 ** Notes
 
-Additional subdirectories:
-
-- bookmark-plus
-
-The compilation should not fail. The normal result of the *install* script:
-
-- 171 files compiled;
-- 5 skipped;
-- 2 directories
+Some packages previously available may be installed with `el-get` on [[https://github.com/martialboniou/Dots/tree/recipes/.emacs.d/data/Recipes][my personal recipe repository]].
